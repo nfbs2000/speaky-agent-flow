@@ -3,6 +3,7 @@ dist
 .vite
 *.local
 .next
+web/out/
 *.vsix
 
 # Auto-generated

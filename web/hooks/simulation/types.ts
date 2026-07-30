@@ -111,8 +111,8 @@ export interface ForceLink extends SimulationLinkDatum<ForceNode> {
 }
 
 export interface UseAgentSimulationOptions {
-  /** If true, use MOCK_SCENARIO for demo playback. Default: true */
-  useMockData?: boolean
+  /** Deterministic events replayed by time. Omit for live bridge events. */
+  scenarioEvents?: readonly SimulationEvent[]
   /** External events to process (from VS Code bridge). Consumed each frame. */
   externalEvents?: readonly SimulationEvent[]
   /** Called after external events are consumed */

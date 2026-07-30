@@ -8,7 +8,6 @@ import {
   SimulationEvent,
   type TimelineEntry,
 } from '@/lib/agent-types'
-import { MOCK_SCENARIO } from '@/lib/mock-scenario'
 import { TOOL_CARD_W, TOOL_CARD_H, FORCE, TOOL_SLOT, BUBBLE_VISIBLE_S, MODEL_FAMILY_CONTEXT, DEFAULT_CONTEXT_SIZE, FALLBACK_CONTEXT_SIZE, ANIM_SPEED } from '@/lib/canvas-constants'
 import { forceSimulation, forceLink, forceManyBody, forceCenter, forceCollide, type Simulation } from 'd3-force'
 
@@ -18,11 +17,16 @@ import { processEvent, type ProcessEventContext } from './simulation/process-eve
 import { computeNextFrame } from './simulation/animate'
 import { snapVisualState } from './simulation/snap-visual-state'
 
-/** ms between React state updates — canvas uses frameRef for smooth 60fps */
-const UI_THROTTLE_MS = 250
-
 export function useAgentSimulation(options: UseAgentSimulationOptions = {}) {
-  const { useMockData = true, externalEvents, onExternalEventsConsumed, sessionFilter, sessionFilterRef: externalFilterRef, disable1MContext = false } = options
+  const {
+    scenarioEvents = [],
+    externalEvents,
+    onExternalEventsConsumed,
+    sessionFilter,
+    sessionFilterRef: externalFilterRef,
+    disable1MContext = false,
+  } = options
+  const useScenarioData = scenarioEvents.length > 0
   const internalFilterRef = useRef(sessionFilter)
   internalFilterRef.current = sessionFilter
   const sessionFilterRef = externalFilterRef ?? internalFilterRef
@@ -47,9 +51,6 @@ export function useAgentSimulation(options: UseAgentSimulationOptions = {}) {
   const blockIdCounter = useRef(0)
   const skipForceSyncRef = useRef(false)
   const animateRef = useRef<(timestamp: number) => void>(() => {})
-  /** Throttle React UI updates to ~4/sec — canvas stays smooth via frameRef */
-  const lastUIUpdateRef = useRef(0)
-
   // ─── d3-force simulation ─────────────────────────────────────────────────
   useEffect(() => {
     const sim = forceSimulation<ForceNode, ForceLink>([])
@@ -188,7 +189,7 @@ export function useAgentSimulation(options: UseAgentSimulationOptions = {}) {
     // Snapshot and consume external events OUTSIDE the main processing
     // to avoid React strict mode double-invocation clearing them
     let capturedEvents: SimulationEvent[] | null = null
-    if (externalEvents && externalEvents.length > 0 && !useMockData) {
+    if (externalEvents && externalEvents.length > 0 && !useScenarioData) {
       capturedEvents = externalEvents.slice()
       onExternalEventsConsumed?.()
     }
@@ -207,9 +208,9 @@ export function useAgentSimulation(options: UseAgentSimulationOptions = {}) {
     let currentState = prev
     const newEvents: SimulationEvent[] = []
 
-    if (useMockData) {
-      while (newEventIndex < MOCK_SCENARIO.length && MOCK_SCENARIO[newEventIndex].time <= newTime) {
-        const evt = MOCK_SCENARIO[newEventIndex]
+    if (useScenarioData) {
+      while (newEventIndex < scenarioEvents.length && scenarioEvents[newEventIndex].time <= newTime) {
+        const evt = scenarioEvents[newEventIndex]
         currentState = processEventWithContext(evt, currentState)
         newEvents.push(evt)
         newEventIndex++
@@ -247,9 +248,9 @@ export function useAgentSimulation(options: UseAgentSimulationOptions = {}) {
       if (newLog.length > MAX_EVENT_LOG) {
         newLog = newLog.slice(newLog.length - MAX_EVENT_LOG)
       }
-      // In mock mode, eventIndex tracks position in MOCK_SCENARIO (not the log).
+      // In scenario mode, eventIndex tracks the deterministic source, not the log.
       // In live mode, eventIndex tracks position in the event log.
-      if (!useMockData) {
+      if (!useScenarioData) {
         newEventIndex = newLog.length
       }
       currentState = { ...currentState, eventLog: newLog }
@@ -258,9 +259,9 @@ export function useAgentSimulation(options: UseAgentSimulationOptions = {}) {
     currentState = { ...currentState, eventIndex: newEventIndex }
 
     const result = computeNextFrame(prev, deltaTime, newTime, maxT, currentState, {
-      useMockData,
-      mockScenarioLength: MOCK_SCENARIO.length,
-      mockScenarioEndTime: MOCK_SCENARIO.length > 0 ? MOCK_SCENARIO[MOCK_SCENARIO.length - 1].time : 0,
+      useMockData: useScenarioData,
+      mockScenarioLength: scenarioEvents.length,
+      mockScenarioEndTime: scenarioEvents.length > 0 ? scenarioEvents[scenarioEvents.length - 1].time : 0,
     })
 
     // Write to frameRef (canvas reads this every frame)
@@ -269,17 +270,15 @@ export function useAgentSimulation(options: UseAgentSimulationOptions = {}) {
     // Force tick — updates agent positions in frameRef
     if (forceSimRef.current) forceSimRef.current.tick()
 
-    // Throttle React re-renders — UI updates at ~4/sec, canvas stays smooth via frameRef
+    // Structural events are the renderer boundary. Publish every processed
+    // batch so panels cannot lag behind the canvas' frameRef state.
     if (newEvents.length > 0) {
-      if (!lastUIUpdateRef.current || timestamp - lastUIUpdateRef.current >= UI_THROTTLE_MS) {
-        setState(frameRef.current)
-        lastUIUpdateRef.current = timestamp
-      }
+      setState(frameRef.current)
     }
 
     animationRef.current = requestAnimationFrame(animateRef.current)
   // eslint-disable-next-line react-hooks/exhaustive-deps -- sessionFilter intentionally omitted; we read sessionFilterRef.current
-  }, [processEventWithContext, useMockData, externalEvents, onExternalEventsConsumed])
+  }, [processEventWithContext, useScenarioData, scenarioEvents, externalEvents, onExternalEventsConsumed])
 
   animateRef.current = animate
 
@@ -369,7 +368,7 @@ export function useAgentSimulation(options: UseAgentSimulationOptions = {}) {
   /** Seek to a specific time — replays events from scratch up to targetTime */
   const seekToTime = useCallback((targetTime: number) => {
     const prev = frameRef.current
-    const events = useMockData ? MOCK_SCENARIO : prev.eventLog
+    const events = useScenarioData ? scenarioEvents : prev.eventLog
 
     let replayState = createEmptyState({
       speed: prev.speed,
@@ -394,7 +393,7 @@ export function useAgentSimulation(options: UseAgentSimulationOptions = {}) {
 
     commitState(replayState)
     setTimeout(() => syncForceSimulation(replayState.agents, replayState.edges), 0)
-  }, [processEventWithContext, useMockData, syncForceSimulation, commitState])
+  }, [processEventWithContext, useScenarioData, scenarioEvents, syncForceSimulation, commitState])
 
   // ─── Session state save/restore ──────────────────────────────────────────
   const saveSnapshot = useCallback((): { simState: SimulationState; blockId: number } => ({

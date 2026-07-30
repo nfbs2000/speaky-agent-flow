@@ -289,7 +289,7 @@ function ReviewControlBar({
         </div>
 
         {/* Resume Live */}
-        {isReviewing && (
+        {isReviewing && onResumeLive && (
           <button
             onClick={onResumeLive}
             className="px-2.5 py-1 rounded text-[10px] font-mono font-semibold transition-all hover:scale-105 shrink-0"

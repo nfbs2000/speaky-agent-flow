@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback, useMemo, useEffect, useLayoutEffect, useRef } from "react"
+import { useState, useCallback, useMemo, useEffect, useLayoutEffect, useRef, type ReactNode } from "react"
 import { useAgentSimulation } from "@/hooks/use-agent-simulation"
 import { useVSCodeBridge } from "@/hooks/use-vscode-bridge"
 import { useSelectionState } from "@/hooks/use-selection-state"
@@ -17,16 +17,31 @@ import { AgentChatPanel } from "./chat-panel"
 import { SessionTranscriptPanel } from "./session-transcript-panel"
 import { OpenFileProvider } from "./tool-content-renderer"
 import { stopPropagationHandlers } from "./shared-ui"
-import { TimelineEvent, TIMING } from "@/lib/agent-types"
+import { TimelineEvent, TIMING, type SimulationEvent } from "@/lib/agent-types"
 import { COLORS } from "@/lib/colors"
 
-import { MOCK_DURATION } from "@/lib/mock-scenario"
 import { MessageFeedPanel } from "./message-feed-panel"
 import { TopBar } from "./top-bar"
 import { useAudioEffects } from "@/hooks/use-audio-effects"
 
-export function AgentVisualizer() {
+interface AgentVisualizerProps {
+  demoEvents?: readonly SimulationEvent[]
+  replayEvents?: readonly SimulationEvent[]
+  replayOverlay?: ReactNode
+  emptyTitle?: string
+  emptyDescription?: string
+}
+
+export function AgentVisualizer({
+  demoEvents = [],
+  replayEvents,
+  replayOverlay,
+  emptyTitle = 'WAITING FOR AGENT SESSION',
+  emptyDescription = 'Start a Claude Code session to see activity',
+}: AgentVisualizerProps = {}) {
   const bridge = useVSCodeBridge()
+  const isStaticReplay = replayEvents !== undefined
+  const scenarioEvents = replayEvents ?? (bridge.useMockData ? demoEvents : [])
 
   const {
     frameRef,
@@ -51,9 +66,9 @@ export function AgentVisualizer() {
     saveSnapshot,
     restoreSnapshot,
   } = useAgentSimulation({
-    useMockData: bridge.useMockData,
-    externalEvents: bridge.pendingEvents,
-    onExternalEventsConsumed: bridge.consumeEvents,
+    scenarioEvents,
+    externalEvents: isStaticReplay ? undefined : bridge.pendingEvents,
+    onExternalEventsConsumed: isStaticReplay ? undefined : bridge.consumeEvents,
     sessionFilter: bridge.selectedSessionId,
     // Pass the ref that's updated synchronously in session-started handler,
     // so the animation frame never uses a stale filter value.
@@ -78,7 +93,7 @@ export function AgentVisualizer() {
   }, [])
   const [zoomToFitTrigger, setZoomToFitTrigger] = useState(0)
 
-  const [isReviewing, setIsReviewing] = useState(false)
+  const [isReviewing, setIsReviewing] = useState(isStaticReplay)
   const { isMuted, seekingRef, handleToggleMute } = useAudioEffects(agents, toolCalls, isReviewing)
 
   // Auto-play on mount
@@ -177,9 +192,9 @@ export function AgentVisualizer() {
   useEffect(() => () => { if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current) }, [])
 
   const handleRestart = useCallback(() => {
-    setIsReviewing(false)
-    restart(true)
-  }, [restart])
+    setIsReviewing(isStaticReplay)
+    restart(!isStaticReplay)
+  }, [restart, isStaticReplay])
 
   // Keyboard shortcuts
   const keyboardActions = useMemo(() => ({
@@ -254,17 +269,27 @@ export function AgentVisualizer() {
     bridge.bridgeOpenFile(filePath, line)
   }, [bridge])
 
-  const isEmpty = agents.size === 0 && !bridge.useMockData
+  const isEmpty = agents.size === 0 && scenarioEvents.length === 0
+  const scenarioDuration = scenarioEvents.length > 0
+    ? scenarioEvents[scenarioEvents.length - 1].time + 2
+    : 0
 
   return (
     <OpenFileProvider value={bridge.isVSCode ? openFile : null}>
-    <div className="h-screen w-screen relative overflow-hidden" style={{ background: COLORS.void }}>
+    <div
+      data-testid="agent-visualizer-root"
+      data-agent-count={agents.size}
+      data-tool-count={toolCalls.size}
+      data-current-time={currentTime.toFixed(2)}
+      className="h-screen w-screen relative overflow-hidden"
+      style={{ background: COLORS.void }}
+    >
       {/* Empty state when no demo and no live data */}
       {isEmpty && (
         <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
           <div className="text-center" style={{ fontFamily: "'SF Mono', 'Fira Code', monospace" }}>
-            <div className="text-sm" style={{ color: '#66ccff80' }}>WAITING FOR AGENT SESSION</div>
-            <div className="mt-2 text-xs" style={{ color: '#66ccff40' }}>Start a Claude Code session to see activity</div>
+            <div className="text-sm" style={{ color: '#66ccff80' }}>{emptyTitle}</div>
+            <div className="mt-2 text-xs" style={{ color: '#66ccff40' }}>{emptyDescription}</div>
           </div>
         </div>
       )}
@@ -295,7 +320,10 @@ export function AgentVisualizer() {
         agents={agents}
         onAgentClick={selection.handleAgentClick}
         selectedAgentId={selection.selectedAgentId}
+        top={isStaticReplay ? 224 : 48}
       />
+
+      {replayOverlay}
 
       {/* Agent detail card (floating, tethered to node) */}
       {selectedAgent && selection.selectedAgentWorldPos && (
@@ -353,10 +381,9 @@ export function AgentVisualizer() {
         isPlaying={isPlaying}
         speed={speed}
         currentTime={currentTime}
-        totalDuration={bridge.useMockData
-          ? (isReviewing ? Math.max(maxTimeReached, currentTime) : MOCK_DURATION)
-          : Math.max(maxTimeReached, currentTime)
-        }
+        totalDuration={scenarioEvents.length > 0
+          ? Math.max(scenarioDuration, currentTime)
+          : Math.max(maxTimeReached, currentTime)}
         onPlayPause={handlePlayPause}
         onRestart={handleRestart}
         onSpeedChange={setSpeed}
@@ -372,7 +399,7 @@ export function AgentVisualizer() {
         isReviewing={isReviewing}
         eventCount={timelineEvents.length}
         onEnterReview={handleEnterReview}
-        onResumeLive={handleResumeLive}
+        onResumeLive={isStaticReplay ? undefined : handleResumeLive}
       />
 
       {/* File attention panel (slide-in from right) */}
@@ -400,7 +427,7 @@ export function AgentVisualizer() {
       />
 
       {/* Top bar: session tabs + info/controls */}
-      <TopBar
+      {!isStaticReplay && <TopBar
         sessions={bridge.sessions}
         selectedSessionId={bridge.selectedSessionId}
         sessionsWithActivity={bridge.sessionsWithActivity}
@@ -418,7 +445,7 @@ export function AgentVisualizer() {
         onTogglePanel={toggleExclusivePanel}
         onToggleTimeline={() => setShowTimeline(prev => !prev)}
         onToggleMute={handleToggleMute}
-      />
+      />}
     </div>
     </OpenFileProvider>
   )

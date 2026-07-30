@@ -9,6 +9,8 @@
     "dev:extension": "pnpm --filter agent-flow run watch",
     "build:extension": "pnpm --filter agent-flow run build",
     "build:web": "pnpm --filter agent-flow-web run build",
+    "evidence:publish": "node scripts/publish-education-evidence.mjs",
+    "build:pages": "pnpm evidence:publish && NEXT_PUBLIC_BASE_PATH=/speaky-agent-flow STATIC_EXPORT=1 pnpm --filter agent-flow-web run build",
     "build:webview": "pnpm --filter agent-flow-web run build:webview",
     "build:all": "pnpm run build:webview && pnpm run build:extension",
     "build:app": "node app/build.js",

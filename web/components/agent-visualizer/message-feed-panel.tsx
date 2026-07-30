@@ -12,6 +12,7 @@ interface MessageFeedPanelProps {
   agents: Map<string, Agent>
   onAgentClick: (agentId: string | null) => void
   selectedAgentId: string | null
+  top?: number
 }
 
 // Only show text messages (assistant, user, thinking) — tool calls visible via agent selection
@@ -32,6 +33,7 @@ export function MessageFeedPanel({
   agents,
   onAgentClick,
   selectedAgentId,
+  top = 48,
 }: MessageFeedPanelProps) {
   const [expanded, setExpanded] = useState(false)
   const [activeTab, setActiveTab] = useState<string>('all')
@@ -192,7 +194,7 @@ export function MessageFeedPanel({
     return (
       <div
         className="absolute cursor-pointer transition-all hover:scale-[1.02]"
-        style={{ top: 48, left: 12, zIndex: Z.info, pointerEvents: 'auto' }}
+        style={{ top, left: 12, zIndex: Z.info, pointerEvents: 'auto' }}
         onClick={() => setExpanded(true)}
       >
         <div className="glass-card px-3 py-2 flex items-center gap-2" style={{ maxWidth: 320 }}>
@@ -214,7 +216,7 @@ export function MessageFeedPanel({
     <div
       ref={panelRef}
       className="absolute"
-      style={{ top: 48, left: 12, zIndex: Z.info, pointerEvents: 'auto' }}
+      style={{ top, left: 12, zIndex: Z.info, pointerEvents: 'auto' }}
       onClick={(e) => e.stopPropagation()}
     >
       <div className="glass-card flex flex-col" style={{ width: 320, maxHeight: 420 }}>
