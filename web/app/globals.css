@@ -202,3 +202,53 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Public GitHub Pages entry points. Kept outside the visualizer state tree. */
+.public-site-nav {
+  position: fixed;
+  left: 16px;
+  bottom: 82px;
+  z-index: 260;
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border: 1px solid rgba(102, 204, 255, 0.2);
+  border-radius: 6px;
+  background: rgba(5, 9, 16, 0.92);
+  color: rgba(196, 210, 218, 0.72);
+  font: 10px/1.3 "SFMono-Regular", Consolas, monospace;
+  letter-spacing: 0;
+}
+
+.public-site-nav > span {
+  color: #6fd8dd;
+  font-weight: 700;
+}
+
+.public-site-nav a {
+  color: rgba(226, 235, 239, 0.78);
+  text-decoration: none;
+}
+
+.public-site-nav a:hover,
+.public-site-nav a:focus-visible {
+  color: #8de4e8;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 620px) {
+  .public-site-nav {
+    right: 14px;
+    bottom: 84px;
+    left: 14px;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .public-site-nav > span {
+    display: none;
+  }
+}

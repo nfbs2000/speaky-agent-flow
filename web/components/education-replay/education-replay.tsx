@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react"
 import { AgentVisualizer } from "@/components/agent-visualizer"
+import { PublicSiteNav } from "@/components/public-site-nav"
 import { buildEducationReplay } from "@/lib/education-evidence-adapter"
 import type {
   EducationEvidenceCatalog,
@@ -192,22 +193,25 @@ export function EducationReplay({ catalog }: { catalog: EducationEvidenceCatalog
   }
 
   return (
-    <AgentVisualizer
-      key={`${collection.id}:${run.id}`}
-      replayEvents={projection.events}
-      emptyTitle="NO OBSERVED REPLAY EVENTS"
-      emptyDescription="The selected source did not produce a drawable Agent Flow topology."
-      replayOverlay={(
-        <EvidenceOverlay
-          catalog={catalog}
-          collection={collection}
-          run={run}
-          mapped={projection.mappedSourceEvents}
-          unmapped={projection.unmappedSourceEvents}
-          onCollectionChange={handleCollectionChange}
-          onRunChange={setRunId}
-        />
-      )}
-    />
+    <>
+      <AgentVisualizer
+        key={`${collection.id}:${run.id}`}
+        replayEvents={projection.events}
+        emptyTitle="NO OBSERVED REPLAY EVENTS"
+        emptyDescription="The selected source did not produce a drawable Agent Flow topology."
+        replayOverlay={(
+          <EvidenceOverlay
+            catalog={catalog}
+            collection={collection}
+            run={run}
+            mapped={projection.mappedSourceEvents}
+            unmapped={projection.unmappedSourceEvents}
+            onCollectionChange={handleCollectionChange}
+            onRunChange={setRunId}
+          />
+        )}
+      />
+      <PublicSiteNav />
+    </>
   )
 }

@@ -2,6 +2,8 @@
 
 Real-time visualization of Claude Code and Codex agent orchestration. Watch your agents think, branch, and coordinate as they work. [Demo video here](https://www.youtube.com/watch?v=Ud6eDrFN-TA). 
 
+> **Korean source guide:** [Agent Flow 한국어 소스 가이드](https://nfbs2000.github.io/speaky-agent-flow/guide/) explains the Claude/Codex observation boundaries, normalized event protocol, renderer projection, and this fork's education evidence replay.
+
 ![Agent Flow visualization](https://res.cloudinary.com/dxlvclh9c/image/upload/v1773924941/screenshot_e7yox3.png)
 
 ## Why Agent Flow?

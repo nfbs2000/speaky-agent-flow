@@ -11,6 +11,7 @@
     "build:web": "pnpm --filter agent-flow-web run build",
     "evidence:publish": "node scripts/publish-education-evidence.mjs",
     "build:pages": "pnpm evidence:publish && NEXT_PUBLIC_BASE_PATH=/speaky-agent-flow STATIC_EXPORT=1 pnpm --filter agent-flow-web run build",
+    "deploy:pages:local": "bash tools/publish-pages-local.sh",
     "build:webview": "pnpm --filter agent-flow-web run build:webview",
     "build:all": "pnpm run build:webview && pnpm run build:extension",
     "build:app": "node app/build.js",
