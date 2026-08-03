@@ -1,7 +1,7 @@
 {
   "schemaVersion": "education-agent-flow.v1",
   "courseId": "book-sdk-ko",
-  "generatedAt": "2026-08-03T19:55:50.719Z",
+  "generatedAt": "2026-08-03T20:12:40.884Z",
   "publicationPolicy": "Whitelisted normalized evidence only; no mock fallback.",
   "collections": [
     {
@@ -13020,6 +13020,842 @@
               "summary": "TypeScript 배열형 system prompt와 SYSTEM_PROMPT_DYNAMIC_BOUNDARY는 이 Python 0.2.128 실행에서 사용하거나 관찰하지 않았다.",
               "sourceRefs": [
                 "spec:claims:typescript-dynamic-boundary-not-observed"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ch08d",
+          "title": "8d장 동적 레이어: project instruction, isolation, skill과 MCP의 실제 경계",
+          "description": "Education Shell recorded run book-sdk-live-20260803",
+          "status": "verified_source",
+          "runtime": "claude-agent-sdk",
+          "provider": "claude",
+          "model": "claude-opus-5",
+          "chapterSlug": "ch08d",
+          "sourceEventCount": 105,
+          "publishedEventCount": 39,
+          "source": {
+            "path": "slide/.shared-course-visual/otel-course-runtime/recorded-runs/book-sdk-ko/ch08d/2026-08-03T20-15-00-000Z/trace.json",
+            "sha256": "d027aa43471a8ee34c0a458bde8ad8675ebadf0be016b4a33fcce70f5628267a",
+            "verification": "verified-source-artifact",
+            "recordedAt": "2026-08-03T20:15:00.000Z"
+          },
+          "events": [
+            {
+              "id": "book-sdk-live-20260803:prompt",
+              "observedOffsetMs": 0,
+              "eventType": "prompt.submitted",
+              "actor": "user",
+              "evidenceLevel": "Configured",
+              "summary": "project instruction과 settings isolation을 같은 질문으로 비교하고, skill registry와 실제 MCP use/result, 텍스트로 생성된 가짜 Bash transcript를 typed SDK/host/OTel 사건으로 구분한다.",
+              "sourceRefs": [
+                "publication-spec:public_prompt"
+              ],
+              "sequence": 0,
+              "playbackOffsetMs": 220
+            },
+            {
+              "id": "105511-0c4575df:process:0",
+              "observedOffsetMs": 1000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:105511-0c4575df:process-event:0"
+              ],
+              "attemptId": "105511-0c4575df",
+              "sequence": 1,
+              "playbackOffsetMs": 1000
+            },
+            {
+              "id": "105511-0c4575df:sdk.init",
+              "observedOffsetMs": 2114,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "project CLAUDE.md 고유 marker 행동: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:105511-0c4575df:sdk-message:1"
+              ],
+              "attemptId": "105511-0c4575df",
+              "caseId": "project-instructions-loaded",
+              "annotationMode": "unreported",
+              "sequence": 2,
+              "playbackOffsetMs": 2114
+            },
+            {
+              "id": "105511-0c4575df:message_stop",
+              "observedOffsetMs": 3985,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:105511-0c4575df:sdk-message:10"
+              ],
+              "attemptId": "105511-0c4575df",
+              "sequence": 3,
+              "playbackOffsetMs": 3985
+            },
+            {
+              "id": "105511-0c4575df:result",
+              "observedOffsetMs": 3986,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:105511-0c4575df:sdk-message:12"
+              ],
+              "attemptId": "105511-0c4575df",
+              "sequence": 4,
+              "playbackOffsetMs": 4205
+            },
+            {
+              "id": "105511-0c4575df:process:13",
+              "observedOffsetMs": 4502,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:105511-0c4575df:process-event:13"
+              ],
+              "attemptId": "105511-0c4575df",
+              "sequence": 5,
+              "playbackOffsetMs": 4502
+            },
+            {
+              "id": "105549-8fc27cde:process:0",
+              "observedOffsetMs": 11000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:105549-8fc27cde:process-event:0"
+              ],
+              "attemptId": "105549-8fc27cde",
+              "sequence": 6,
+              "playbackOffsetMs": 11000
+            },
+            {
+              "id": "105549-8fc27cde:sdk.init",
+              "observedOffsetMs": 11958,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "settings isolation과 text-only 가짜 Bash transcript: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:105549-8fc27cde:sdk-message:1"
+              ],
+              "attemptId": "105549-8fc27cde",
+              "caseId": "isolation-instructions-missing",
+              "annotationMode": "unreported",
+              "sequence": 7,
+              "playbackOffsetMs": 11958
+            },
+            {
+              "id": "105633-ee1cdfa1:process:0",
+              "observedOffsetMs": 21000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:105633-ee1cdfa1:process-event:0"
+              ],
+              "attemptId": "105633-ee1cdfa1",
+              "sequence": 8,
+              "playbackOffsetMs": 21000
+            },
+            {
+              "id": "105633-ee1cdfa1:sdk.init",
+              "observedOffsetMs": 22183,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "skill registry와 실제 MCP tool/result: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:105633-ee1cdfa1:sdk-message:1"
+              ],
+              "attemptId": "105633-ee1cdfa1",
+              "caseId": "skill-and-mcp-used",
+              "annotationMode": "unreported",
+              "sequence": 9,
+              "playbackOffsetMs": 22183
+            },
+            {
+              "id": "105549-8fc27cde:message_stop",
+              "observedOffsetMs": 24691,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:105549-8fc27cde:sdk-message:44"
+              ],
+              "attemptId": "105549-8fc27cde",
+              "sequence": 10,
+              "playbackOffsetMs": 24691
+            },
+            {
+              "id": "105549-8fc27cde:result",
+              "observedOffsetMs": 24692,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:105549-8fc27cde:sdk-message:45"
+              ],
+              "attemptId": "105549-8fc27cde",
+              "sequence": 11,
+              "playbackOffsetMs": 24911
+            },
+            {
+              "id": "105549-8fc27cde:process:46",
+              "observedOffsetMs": 25207,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:105549-8fc27cde:process-event:46"
+              ],
+              "attemptId": "105549-8fc27cde",
+              "sequence": 12,
+              "playbackOffsetMs": 25207
+            },
+            {
+              "id": "105633-ee1cdfa1:toolu_019VzSGfpwmSpfnBjV1z6Zg1",
+              "observedOffsetMs": 26109,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__dynamic__read_dynamic_context {'scope': 'session'}",
+              "sourceRefs": [
+                "attempt:105633-ee1cdfa1:sdk-message:16"
+              ],
+              "toolName": "mcp__dynamic__read_dynamic_context",
+              "toolUseId": "105633-ee1cdfa1:toolu_019VzSGfpwmSpfnBjV1z6Zg1",
+              "attemptId": "105633-ee1cdfa1",
+              "caseId": "skill-and-mcp-used",
+              "sequence": 13,
+              "playbackOffsetMs": 26109
+            },
+            {
+              "id": "105633-ee1cdfa1:process:17",
+              "observedOffsetMs": 26112,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__dynamic__read_dynamic_context: completed",
+              "sourceRefs": [
+                "attempt:105633-ee1cdfa1:process-event:17"
+              ],
+              "toolName": "mcp__dynamic__read_dynamic_context",
+              "attemptId": "105633-ee1cdfa1",
+              "outcome": "completed",
+              "sequence": 14,
+              "playbackOffsetMs": 26329
+            },
+            {
+              "id": "105633-ee1cdfa1:toolu_019VzSGfpwmSpfnBjV1z6Zg1:result",
+              "observedOffsetMs": 26114,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__dynamic__read_dynamic_context: result received",
+              "sourceRefs": [
+                "attempt:105633-ee1cdfa1:sdk-message:19"
+              ],
+              "toolName": "mcp__dynamic__read_dynamic_context",
+              "toolUseId": "105633-ee1cdfa1:toolu_019VzSGfpwmSpfnBjV1z6Zg1",
+              "attemptId": "105633-ee1cdfa1",
+              "sequence": 15,
+              "playbackOffsetMs": 26549
+            },
+            {
+              "id": "105633-ee1cdfa1:message_stop",
+              "observedOffsetMs": 26138,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:105633-ee1cdfa1:sdk-message:21"
+              ],
+              "attemptId": "105633-ee1cdfa1",
+              "sequence": 16,
+              "playbackOffsetMs": 26769
+            },
+            {
+              "id": "105633-ee1cdfa1:message_stop",
+              "observedOffsetMs": 31449,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:105633-ee1cdfa1:sdk-message:41"
+              ],
+              "attemptId": "105633-ee1cdfa1",
+              "sequence": 17,
+              "playbackOffsetMs": 31449
+            },
+            {
+              "id": "105633-ee1cdfa1:result",
+              "observedOffsetMs": 31453,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:105633-ee1cdfa1:sdk-message:42"
+              ],
+              "attemptId": "105633-ee1cdfa1",
+              "sequence": 18,
+              "playbackOffsetMs": 31669
+            },
+            {
+              "id": "105633-ee1cdfa1:process:43",
+              "observedOffsetMs": 31972,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:105633-ee1cdfa1:process-event:43"
+              ],
+              "attemptId": "105633-ee1cdfa1",
+              "sequence": 19,
+              "playbackOffsetMs": 31972
+            },
+            {
+              "id": "claim:project-marker-returned-without-tools",
+              "observedOffsetMs": 32672,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "project case는 tools 0에서 user prompt에 없는 무작위 CLAUDE.md marker를 정확히 반환하고 success로 끝났다.",
+              "sourceRefs": [
+                "attempt:105511-0c4575df:sdk-message:1",
+                "attempt:105511-0c4575df:sdk-message:7",
+                "attempt:105511-0c4575df:sdk-message:12"
+              ],
+              "claimId": "project-marker-returned-without-tools",
+              "claimStatus": "observed",
+              "sequence": 20,
+              "playbackOffsetMs": 32672
+            },
+            {
+              "id": "claim:isolation-marker-missing",
+              "observedOffsetMs": 33072,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "setting_sources=[] case에서는 marker가 raw에 나타나지 않았고 final은 MISSING이었다.",
+              "sourceRefs": [
+                "attempt:105549-8fc27cde:sdk-message:1",
+                "attempt:105549-8fc27cde:sdk-message:41",
+                "attempt:105549-8fc27cde:sdk-message:45"
+              ],
+              "claimId": "isolation-marker-missing",
+              "claimStatus": "observed",
+              "sequence": 21,
+              "playbackOffsetMs": 33072
+            },
+            {
+              "id": "claim:skill-and-mcp-listed",
+              "observedOffsetMs": 33472,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "skill+MCP init에는 dynamic-evidence skill, connected dynamic server, MCP 도구가 함께 나타났다.",
+              "sourceRefs": [
+                "attempt:105633-ee1cdfa1:sdk-message:1"
+              ],
+              "claimId": "skill-and-mcp-listed",
+              "claimStatus": "observed",
+              "sequence": 22,
+              "playbackOffsetMs": 33472
+            },
+            {
+              "id": "claim:mcp-tool-result-and-host-execution",
+              "observedOffsetMs": 33872,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "MCP ToolUseBlock seq 16, marker ToolResultBlock seq 19, host tool.execution seq 17, final marker가 연결됐다.",
+              "sourceRefs": [
+                "attempt:105633-ee1cdfa1:sdk-message:16",
+                "attempt:105633-ee1cdfa1:process-event:17",
+                "attempt:105633-ee1cdfa1:sdk-message:19",
+                "attempt:105633-ee1cdfa1:sdk-message:38"
+              ],
+              "claimId": "mcp-tool-result-and-host-execution",
+              "claimStatus": "observed",
+              "sequence": 23,
+              "playbackOffsetMs": 33872
+            },
+            {
+              "id": "claim:all-attempt-integrity-matches",
+              "observedOffsetMs": 34272,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "세 attempt의 integrity manifest에 있는 모든 evidence file SHA-256이 현재 파일과 일치했다.",
+              "sourceRefs": [
+                "spec:claims:all-attempt-integrity-matches"
+              ],
+              "claimId": "all-attempt-integrity-matches",
+              "claimStatus": "observed",
+              "sequence": 24,
+              "playbackOffsetMs": 34272
+            },
+            {
+              "id": "claim:isolation-bash-transcript-is-not-tool-execution",
+              "observedOffsetMs": 34672,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "isolation seq 28의 Bash 호출/ls 출력은 TextBlock 문자열이다. tools 0이고 typed tool/result와 host 실행 사건이 없어 실제 검사가 아니다.",
+              "sourceRefs": [
+                "attempt:105549-8fc27cde:sdk-message:1",
+                "attempt:105549-8fc27cde:sdk-message:28",
+                "attempt:105549-8fc27cde:process-event:46"
+              ],
+              "claimId": "isolation-bash-transcript-is-not-tool-execution",
+              "claimStatus": "correction_required",
+              "sequence": 25,
+              "playbackOffsetMs": 34672
+            },
+            {
+              "id": "claim:isolation-workspace-explanation-is-false",
+              "observedOffsetMs": 35072,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "final의 workspace empty/no CLAUDE.md 설명은 파일을 만든 host probe와 충돌하며 실제 filesystem tool evidence도 없다.",
+              "sourceRefs": [
+                "attempt:105549-8fc27cde:sdk-message:41",
+                "spec:claims:probe-fixture-not-provenance-bound"
+              ],
+              "claimId": "isolation-workspace-explanation-is-false",
+              "claimStatus": "correction_required",
+              "sequence": 26,
+              "playbackOffsetMs": 35072
+            },
+            {
+              "id": "claim:setting-sources-empty-is-not-total-capability-isolation",
+              "observedOffsetMs": 35472,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "setting_sources=[] init에도 기본 skills 16개와 기본 agents 5개가 남았다. project marker 제외를 모든 능력 제거로 일반화하면 안 된다.",
+              "sourceRefs": [
+                "attempt:105549-8fc27cde:sdk-message:1"
+              ],
+              "claimId": "setting-sources-empty-is-not-total-capability-isolation",
+              "claimStatus": "correction_required",
+              "sequence": 27,
+              "playbackOffsetMs": 35472
+            },
+            {
+              "id": "claim:skill-tool-absence-is-not-skill-registry-absence",
+              "observedOffsetMs": 35872,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "별도 Skill tool은 없지만 init.skills에는 dynamic-evidence가 있다. final의 skill not exposed 설명은 두 표면을 혼동한다.",
+              "sourceRefs": [
+                "attempt:105633-ee1cdfa1:sdk-message:1",
+                "attempt:105633-ee1cdfa1:sdk-message:38"
+              ],
+              "claimId": "skill-tool-absence-is-not-skill-registry-absence",
+              "claimStatus": "correction_required",
+              "sequence": 28,
+              "playbackOffsetMs": 35872
+            },
+            {
+              "id": "claim:skill-causality-is-confounded",
+              "observedOffsetMs": 36272,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "user prompt도 skill 사용을 직접 요구했고 제공된 tool은 MCP 하나뿐이어서 SKILL.md 문구의 단독 인과 효과를 증명하지 못했다.",
+              "sourceRefs": [
+                "attempt:105633-ee1cdfa1:manifest:option_summary",
+                "attempt:105633-ee1cdfa1:sdk-message:1",
+                "attempt:105633-ee1cdfa1:sdk-message:16"
+              ],
+              "claimId": "skill-causality-is-confounded",
+              "claimStatus": "correction_required",
+              "sequence": 29,
+              "playbackOffsetMs": 36272
+            },
+            {
+              "id": "claim:primary-opus-is-not-only-provider-usage",
+              "observedOffsetMs": 36672,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "isolation과 skill+MCP의 primary assistant는 Opus 5지만 Result model_usage에는 Haiku 4.5 보조 사용도 있다.",
+              "sourceRefs": [
+                "attempt:105549-8fc27cde:sdk-message:45",
+                "attempt:105633-ee1cdfa1:sdk-message:42"
+              ],
+              "claimId": "primary-opus-is-not-only-provider-usage",
+              "claimStatus": "correction_required",
+              "sequence": 30,
+              "playbackOffsetMs": 36672
+            },
+            {
+              "id": "claim:captured-is-not-claim-pass",
+              "observedOffsetMs": 37072,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "OTel oracle.verdict CAPTURED와 assertion count 0은 raw 수집 완료 표식이지 동적 레이어 주장 합격이 아니다.",
+              "sourceRefs": [
+                "spec:claims:captured-is-not-claim-pass"
+              ],
+              "claimId": "captured-is-not-claim-pass",
+              "claimStatus": "correction_required",
+              "sequence": 31,
+              "playbackOffsetMs": 37072
+            },
+            {
+              "id": "claim:probe-fixture-not-provenance-bound",
+              "observedOffsetMs": 37472,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "manifest provenance는 장 원문과 option summary를 묶지만 exact prompt, probe source, CLAUDE.md/SKILL.md, MCP handler hash를 묶지 않았다.",
+              "sourceRefs": [
+                "attempt:105511-0c4575df:manifest:option_summary",
+                "attempt:105549-8fc27cde:manifest:option_summary",
+                "attempt:105633-ee1cdfa1:manifest:option_summary"
+              ],
+              "claimId": "probe-fixture-not-provenance-bound",
+              "claimStatus": "correction_required",
+              "sequence": 32,
+              "playbackOffsetMs": 37472
+            },
+            {
+              "id": "claim:instruction-hooks-not-observed",
+              "observedOffsetMs": 37872,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "include_hook_events를 구성했지만 세 attempt의 hook callback과 dedicated InstructionsLoaded/ConfigChange 사건은 0개다.",
+              "sourceRefs": [
+                "spec:claims:instruction-hooks-not-observed"
+              ],
+              "claimId": "instruction-hooks-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 33,
+              "playbackOffsetMs": 37872
+            },
+            {
+              "id": "claim:exact-provider-prompt-receipt-not-observed",
+              "observedOffsetMs": 38272,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "raw init은 exact system prompt나 provider 직렬화 payload를 제공하지 않아 숨은 prompt 전문을 복원할 수 없다.",
+              "sourceRefs": [
+                "spec:claims:exact-provider-prompt-receipt-not-observed"
+              ],
+              "claimId": "exact-provider-prompt-receipt-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 34,
+              "playbackOffsetMs": 38272
+            },
+            {
+              "id": "claim:local-plugin-use-not-observed",
+              "observedOffsetMs": 38672,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "유효한 local plugin package와 후속 command/agent/hook 사건을 실행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:local-plugin-use-not-observed"
+              ],
+              "claimId": "local-plugin-use-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 35,
+              "playbackOffsetMs": 38672
+            },
+            {
+              "id": "claim:typescript-dynamic-boundary-not-observed",
+              "observedOffsetMs": 39072,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "TypeScript SYSTEM_PROMPT_DYNAMIC_BOUNDARY 배열은 이 Python 0.2.128 실행에서 사용하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:typescript-dynamic-boundary-not-observed"
+              ],
+              "claimId": "typescript-dynamic-boundary-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 36,
+              "playbackOffsetMs": 39072
+            },
+            {
+              "id": "claim:repeated-setting-source-matrix-not-observed",
+              "observedOffsetMs": 39472,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "project와 empty 설정을 한 번씩 실행했으므로 user/project/local 조합의 반복 분포는 관찰하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:repeated-setting-source-matrix-not-observed"
+              ],
+              "claimId": "repeated-setting-source-matrix-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 37,
+              "playbackOffsetMs": 39472
+            },
+            {
+              "id": "claim:permission-behavior-not-observed",
+              "observedOffsetMs": 39872,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "세 attempt의 permission callback은 0개라 동적 레이어와 승인 행동의 관계를 관찰하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:permission-behavior-not-observed"
+              ],
+              "claimId": "permission-behavior-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 38,
+              "playbackOffsetMs": 39872
+            }
+          ],
+          "facts": [
+            {
+              "label": "raw source events",
+              "value": "105"
+            },
+            {
+              "label": "public projection",
+              "value": "39"
+            },
+            {
+              "label": "tool uses",
+              "value": "1"
+            },
+            {
+              "label": "tool results",
+              "value": "1"
+            },
+            {
+              "label": "observed claims",
+              "value": "5"
+            },
+            {
+              "label": "needs observation",
+              "value": "6"
+            },
+            {
+              "label": "invalid attempts",
+              "value": "0"
+            },
+            {
+              "label": "proof gate",
+              "value": "accepted_with_notes"
+            }
+          ],
+          "claims": [
+            {
+              "id": "project-marker-returned-without-tools",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "project case는 tools 0에서 user prompt에 없는 무작위 CLAUDE.md marker를 정확히 반환하고 success로 끝났다.",
+              "sourceRefs": [
+                "attempt:105511-0c4575df:sdk-message:1",
+                "attempt:105511-0c4575df:sdk-message:7",
+                "attempt:105511-0c4575df:sdk-message:12"
+              ]
+            },
+            {
+              "id": "isolation-marker-missing",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "setting_sources=[] case에서는 marker가 raw에 나타나지 않았고 final은 MISSING이었다.",
+              "sourceRefs": [
+                "attempt:105549-8fc27cde:sdk-message:1",
+                "attempt:105549-8fc27cde:sdk-message:41",
+                "attempt:105549-8fc27cde:sdk-message:45"
+              ]
+            },
+            {
+              "id": "skill-and-mcp-listed",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "skill+MCP init에는 dynamic-evidence skill, connected dynamic server, MCP 도구가 함께 나타났다.",
+              "sourceRefs": [
+                "attempt:105633-ee1cdfa1:sdk-message:1"
+              ]
+            },
+            {
+              "id": "mcp-tool-result-and-host-execution",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "MCP ToolUseBlock seq 16, marker ToolResultBlock seq 19, host tool.execution seq 17, final marker가 연결됐다.",
+              "sourceRefs": [
+                "attempt:105633-ee1cdfa1:sdk-message:16",
+                "attempt:105633-ee1cdfa1:process-event:17",
+                "attempt:105633-ee1cdfa1:sdk-message:19",
+                "attempt:105633-ee1cdfa1:sdk-message:38"
+              ]
+            },
+            {
+              "id": "all-attempt-integrity-matches",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "세 attempt의 integrity manifest에 있는 모든 evidence file SHA-256이 현재 파일과 일치했다.",
+              "sourceRefs": [
+                "spec:claims:all-attempt-integrity-matches"
+              ]
+            },
+            {
+              "id": "isolation-bash-transcript-is-not-tool-execution",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "isolation seq 28의 Bash 호출/ls 출력은 TextBlock 문자열이다. tools 0이고 typed tool/result와 host 실행 사건이 없어 실제 검사가 아니다.",
+              "sourceRefs": [
+                "attempt:105549-8fc27cde:sdk-message:1",
+                "attempt:105549-8fc27cde:sdk-message:28",
+                "attempt:105549-8fc27cde:process-event:46"
+              ]
+            },
+            {
+              "id": "isolation-workspace-explanation-is-false",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "final의 workspace empty/no CLAUDE.md 설명은 파일을 만든 host probe와 충돌하며 실제 filesystem tool evidence도 없다.",
+              "sourceRefs": [
+                "attempt:105549-8fc27cde:sdk-message:41",
+                "spec:claims:probe-fixture-not-provenance-bound"
+              ]
+            },
+            {
+              "id": "setting-sources-empty-is-not-total-capability-isolation",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "setting_sources=[] init에도 기본 skills 16개와 기본 agents 5개가 남았다. project marker 제외를 모든 능력 제거로 일반화하면 안 된다.",
+              "sourceRefs": [
+                "attempt:105549-8fc27cde:sdk-message:1"
+              ]
+            },
+            {
+              "id": "skill-tool-absence-is-not-skill-registry-absence",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "별도 Skill tool은 없지만 init.skills에는 dynamic-evidence가 있다. final의 skill not exposed 설명은 두 표면을 혼동한다.",
+              "sourceRefs": [
+                "attempt:105633-ee1cdfa1:sdk-message:1",
+                "attempt:105633-ee1cdfa1:sdk-message:38"
+              ]
+            },
+            {
+              "id": "skill-causality-is-confounded",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "user prompt도 skill 사용을 직접 요구했고 제공된 tool은 MCP 하나뿐이어서 SKILL.md 문구의 단독 인과 효과를 증명하지 못했다.",
+              "sourceRefs": [
+                "attempt:105633-ee1cdfa1:manifest:option_summary",
+                "attempt:105633-ee1cdfa1:sdk-message:1",
+                "attempt:105633-ee1cdfa1:sdk-message:16"
+              ]
+            },
+            {
+              "id": "primary-opus-is-not-only-provider-usage",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "isolation과 skill+MCP의 primary assistant는 Opus 5지만 Result model_usage에는 Haiku 4.5 보조 사용도 있다.",
+              "sourceRefs": [
+                "attempt:105549-8fc27cde:sdk-message:45",
+                "attempt:105633-ee1cdfa1:sdk-message:42"
+              ]
+            },
+            {
+              "id": "captured-is-not-claim-pass",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "OTel oracle.verdict CAPTURED와 assertion count 0은 raw 수집 완료 표식이지 동적 레이어 주장 합격이 아니다.",
+              "sourceRefs": [
+                "spec:claims:captured-is-not-claim-pass"
+              ]
+            },
+            {
+              "id": "probe-fixture-not-provenance-bound",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "manifest provenance는 장 원문과 option summary를 묶지만 exact prompt, probe source, CLAUDE.md/SKILL.md, MCP handler hash를 묶지 않았다.",
+              "sourceRefs": [
+                "attempt:105511-0c4575df:manifest:option_summary",
+                "attempt:105549-8fc27cde:manifest:option_summary",
+                "attempt:105633-ee1cdfa1:manifest:option_summary"
+              ]
+            },
+            {
+              "id": "instruction-hooks-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "include_hook_events를 구성했지만 세 attempt의 hook callback과 dedicated InstructionsLoaded/ConfigChange 사건은 0개다.",
+              "sourceRefs": [
+                "spec:claims:instruction-hooks-not-observed"
+              ]
+            },
+            {
+              "id": "exact-provider-prompt-receipt-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "raw init은 exact system prompt나 provider 직렬화 payload를 제공하지 않아 숨은 prompt 전문을 복원할 수 없다.",
+              "sourceRefs": [
+                "spec:claims:exact-provider-prompt-receipt-not-observed"
+              ]
+            },
+            {
+              "id": "local-plugin-use-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "유효한 local plugin package와 후속 command/agent/hook 사건을 실행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:local-plugin-use-not-observed"
+              ]
+            },
+            {
+              "id": "typescript-dynamic-boundary-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "TypeScript SYSTEM_PROMPT_DYNAMIC_BOUNDARY 배열은 이 Python 0.2.128 실행에서 사용하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:typescript-dynamic-boundary-not-observed"
+              ]
+            },
+            {
+              "id": "repeated-setting-source-matrix-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "project와 empty 설정을 한 번씩 실행했으므로 user/project/local 조합의 반복 분포는 관찰하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:repeated-setting-source-matrix-not-observed"
+              ]
+            },
+            {
+              "id": "permission-behavior-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "세 attempt의 permission callback은 0개라 동적 레이어와 승인 행동의 관계를 관찰하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:permission-behavior-not-observed"
               ]
             }
           ]
