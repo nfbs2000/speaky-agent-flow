@@ -1,7 +1,7 @@
 {
   "schemaVersion": "education-agent-flow.v1",
   "courseId": "book-sdk-ko",
-  "generatedAt": "2026-08-03T19:13:49.926Z",
+  "generatedAt": "2026-08-03T19:36:20.018Z",
   "publicationPolicy": "Whitelisted normalized evidence only; no mock fallback.",
   "collections": [
     {
@@ -9300,6 +9300,2325 @@
               "sourceRefs": [
                 "attempt:104030-78617aa1:sdk-message:3",
                 "attempt:104110-7a6f1e3e:sdk-message:3"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ch08",
+          "title": "8장 도구 프롬프트: description/schema, disallowed Bash, Agent 전역 표면",
+          "description": "Education Shell recorded run book-sdk-live-20260803",
+          "status": "verified_source",
+          "runtime": "claude-agent-sdk",
+          "provider": "claude",
+          "model": "claude-opus-5",
+          "chapterSlug": "ch08",
+          "sourceEventCount": 664,
+          "publishedEventCount": 130,
+          "source": {
+            "path": "slide/.shared-course-visual/otel-course-runtime/recorded-runs/book-sdk-ko/ch08/2026-08-03T19-30-00-000Z/trace.json",
+            "sha256": "b6a6fc0ae3b1a137728e142c2d2521217952ea367daa65f01429ada40e34f817",
+            "verification": "verified-source-artifact",
+            "recordedAt": "2026-08-03T19:30:00.000Z"
+          },
+          "events": [
+            {
+              "id": "book-sdk-live-20260803:prompt",
+              "observedOffsetMs": 0,
+              "eventType": "prompt.submitted",
+              "actor": "user",
+              "evidenceLevel": "Configured",
+              "summary": "실제 Opus 5 SDK 실행에서 같은 입력의 vague/rich tool description과 schema, built-in Bash disallow, Agent worker의 전역 tool surface 실패와 수정을 순서대로 읽고 관찰·교정·미관찰 경계를 분리한다.",
+              "sourceRefs": [
+                "publication-spec:public_prompt"
+              ],
+              "sequence": 0,
+              "playbackOffsetMs": 220
+            },
+            {
+              "id": "104326-a2a8922b:process:0",
+              "observedOffsetMs": 1000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:process-event:0"
+              ],
+              "attemptId": "104326-a2a8922b",
+              "sequence": 1,
+              "playbackOffsetMs": 1000
+            },
+            {
+              "id": "104326-a2a8922b:sdk.init",
+              "observedOffsetMs": 2097,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "vague description/schema와 fallback control: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:1"
+              ],
+              "attemptId": "104326-a2a8922b",
+              "caseId": "vague-search-description",
+              "annotationMode": "unreported",
+              "sequence": 2,
+              "playbackOffsetMs": 2097
+            },
+            {
+              "id": "104326-a2a8922b:toolu_01K6uguwiLmKcMFGqUZuGBCw",
+              "observedOffsetMs": 5331,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence {'query': 'destructive shared actions rule'}",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:14"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104326-a2a8922b:toolu_01K6uguwiLmKcMFGqUZuGBCw",
+              "attemptId": "104326-a2a8922b",
+              "caseId": "vague-search-description",
+              "sequence": 3,
+              "playbackOffsetMs": 5331
+            },
+            {
+              "id": "104326-a2a8922b:process:15",
+              "observedOffsetMs": 5333,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__evidence__search_evidence: empty",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:process-event:15"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "attemptId": "104326-a2a8922b",
+              "outcome": "empty",
+              "sequence": 4,
+              "playbackOffsetMs": 5551
+            },
+            {
+              "id": "104326-a2a8922b:toolu_01K6uguwiLmKcMFGqUZuGBCw:result",
+              "observedOffsetMs": 5336,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence: result received",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:19"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104326-a2a8922b:toolu_01K6uguwiLmKcMFGqUZuGBCw",
+              "attemptId": "104326-a2a8922b",
+              "sequence": 5,
+              "playbackOffsetMs": 5771
+            },
+            {
+              "id": "104326-a2a8922b:toolu_01At5B5Vo1pd6tw9ZqByyrYM",
+              "observedOffsetMs": 5341,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__shell_style_search {'query': 'destructive action marker'}",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:22"
+              ],
+              "toolName": "mcp__evidence__shell_style_search",
+              "toolUseId": "104326-a2a8922b:toolu_01At5B5Vo1pd6tw9ZqByyrYM",
+              "attemptId": "104326-a2a8922b",
+              "caseId": "vague-search-description",
+              "sequence": 6,
+              "playbackOffsetMs": 5991
+            },
+            {
+              "id": "104326-a2a8922b:process:23",
+              "observedOffsetMs": 5342,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__evidence__shell_style_search: matched",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:process-event:23"
+              ],
+              "toolName": "mcp__evidence__shell_style_search",
+              "attemptId": "104326-a2a8922b",
+              "outcome": "matched",
+              "sequence": 7,
+              "playbackOffsetMs": 6211
+            },
+            {
+              "id": "104326-a2a8922b:toolu_01At5B5Vo1pd6tw9ZqByyrYM:result",
+              "observedOffsetMs": 5344,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__shell_style_search: result received",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:25"
+              ],
+              "toolName": "mcp__evidence__shell_style_search",
+              "toolUseId": "104326-a2a8922b:toolu_01At5B5Vo1pd6tw9ZqByyrYM",
+              "attemptId": "104326-a2a8922b",
+              "sequence": 8,
+              "playbackOffsetMs": 6431
+            },
+            {
+              "id": "104326-a2a8922b:message_stop",
+              "observedOffsetMs": 5362,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:27"
+              ],
+              "attemptId": "104326-a2a8922b",
+              "sequence": 9,
+              "playbackOffsetMs": 6651
+            },
+            {
+              "id": "104326-a2a8922b:toolu_01Nv2pDYVhG3CRNtkGZnwG5E",
+              "observedOffsetMs": 10266,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence {'query': 'policy.md destructive shared resource irreversible confirmation'}",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:48"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104326-a2a8922b:toolu_01Nv2pDYVhG3CRNtkGZnwG5E",
+              "attemptId": "104326-a2a8922b",
+              "caseId": "vague-search-description",
+              "sequence": 10,
+              "playbackOffsetMs": 10266
+            },
+            {
+              "id": "104326-a2a8922b:process:49",
+              "observedOffsetMs": 10268,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__evidence__search_evidence: empty",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:process-event:49"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "attemptId": "104326-a2a8922b",
+              "outcome": "empty",
+              "sequence": 11,
+              "playbackOffsetMs": 10486
+            },
+            {
+              "id": "104326-a2a8922b:toolu_01Nv2pDYVhG3CRNtkGZnwG5E:result",
+              "observedOffsetMs": 10271,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence: result received",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:52"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104326-a2a8922b:toolu_01Nv2pDYVhG3CRNtkGZnwG5E",
+              "attemptId": "104326-a2a8922b",
+              "sequence": 12,
+              "playbackOffsetMs": 10706
+            },
+            {
+              "id": "104326-a2a8922b:toolu_017c3pezSrYw52Z5938UwMTX",
+              "observedOffsetMs": 10604,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence {'query': 'CH08_TOOL_PROMPT_POLICY_V1'}",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:56"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104326-a2a8922b:toolu_017c3pezSrYw52Z5938UwMTX",
+              "attemptId": "104326-a2a8922b",
+              "caseId": "vague-search-description",
+              "sequence": 13,
+              "playbackOffsetMs": 10926
+            },
+            {
+              "id": "104326-a2a8922b:process:57",
+              "observedOffsetMs": 10606,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__evidence__search_evidence: empty",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:process-event:57"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "attemptId": "104326-a2a8922b",
+              "outcome": "empty",
+              "sequence": 14,
+              "playbackOffsetMs": 11146
+            },
+            {
+              "id": "104326-a2a8922b:toolu_017c3pezSrYw52Z5938UwMTX:result",
+              "observedOffsetMs": 10608,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence: result received",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:59"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104326-a2a8922b:toolu_017c3pezSrYw52Z5938UwMTX",
+              "attemptId": "104326-a2a8922b",
+              "sequence": 15,
+              "playbackOffsetMs": 11366
+            },
+            {
+              "id": "104326-a2a8922b:message_stop",
+              "observedOffsetMs": 10611,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:61"
+              ],
+              "attemptId": "104326-a2a8922b",
+              "sequence": 16,
+              "playbackOffsetMs": 11586
+            },
+            {
+              "id": "104443-c119bcec:process:0",
+              "observedOffsetMs": 11000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:process-event:0"
+              ],
+              "attemptId": "104443-c119bcec",
+              "sequence": 17,
+              "playbackOffsetMs": 11806
+            },
+            {
+              "id": "104443-c119bcec:sdk.init",
+              "observedOffsetMs": 12008,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "rich description/schema와 keyword 복구: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:sdk-message:1"
+              ],
+              "attemptId": "104443-c119bcec",
+              "caseId": "rich-search-description",
+              "annotationMode": "unreported",
+              "sequence": 18,
+              "playbackOffsetMs": 12026
+            },
+            {
+              "id": "104443-c119bcec:toolu_016GSZgwC2jVkFW8gQT1QbN6",
+              "observedOffsetMs": 14636,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence {'query': 'destructive shared actions'}",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:sdk-message:14"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104443-c119bcec:toolu_016GSZgwC2jVkFW8gQT1QbN6",
+              "attemptId": "104443-c119bcec",
+              "caseId": "rich-search-description",
+              "sequence": 19,
+              "playbackOffsetMs": 14636
+            },
+            {
+              "id": "104443-c119bcec:process:15",
+              "observedOffsetMs": 14639,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__evidence__search_evidence: empty",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:process-event:15"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "attemptId": "104443-c119bcec",
+              "outcome": "empty",
+              "sequence": 20,
+              "playbackOffsetMs": 14856
+            },
+            {
+              "id": "104443-c119bcec:toolu_016GSZgwC2jVkFW8gQT1QbN6:result",
+              "observedOffsetMs": 14642,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence: result received",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:sdk-message:17"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104443-c119bcec:toolu_016GSZgwC2jVkFW8gQT1QbN6",
+              "attemptId": "104443-c119bcec",
+              "sequence": 21,
+              "playbackOffsetMs": 15076
+            },
+            {
+              "id": "104443-c119bcec:toolu_01Ujgzt38ggsjoRqtyThyuUj",
+              "observedOffsetMs": 14685,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence {'query': 'approval'}",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:sdk-message:22"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104443-c119bcec:toolu_01Ujgzt38ggsjoRqtyThyuUj",
+              "attemptId": "104443-c119bcec",
+              "caseId": "rich-search-description",
+              "sequence": 22,
+              "playbackOffsetMs": 15296
+            },
+            {
+              "id": "104443-c119bcec:process:23",
+              "observedOffsetMs": 14686,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__evidence__search_evidence: matched",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:process-event:23"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "attemptId": "104443-c119bcec",
+              "outcome": "matched",
+              "sequence": 23,
+              "playbackOffsetMs": 15516
+            },
+            {
+              "id": "104443-c119bcec:toolu_01Ujgzt38ggsjoRqtyThyuUj:result",
+              "observedOffsetMs": 14688,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence: result received",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:sdk-message:25"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104443-c119bcec:toolu_01Ujgzt38ggsjoRqtyThyuUj",
+              "attemptId": "104443-c119bcec",
+              "sequence": 24,
+              "playbackOffsetMs": 15736
+            },
+            {
+              "id": "104443-c119bcec:message_stop",
+              "observedOffsetMs": 14699,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:sdk-message:27"
+              ],
+              "attemptId": "104443-c119bcec",
+              "sequence": 25,
+              "playbackOffsetMs": 15956
+            },
+            {
+              "id": "104326-a2a8922b:toolu_01TgZ4iVTxiW6RZHaTF9e6Pg",
+              "observedOffsetMs": 15132,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__shell_style_search {'query': 'grep -n \"CH08_TOOL_PROMPT_POLICY_V1\" policy.md'}",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:82"
+              ],
+              "toolName": "mcp__evidence__shell_style_search",
+              "toolUseId": "104326-a2a8922b:toolu_01TgZ4iVTxiW6RZHaTF9e6Pg",
+              "attemptId": "104326-a2a8922b",
+              "caseId": "vague-search-description",
+              "sequence": 26,
+              "playbackOffsetMs": 16176
+            },
+            {
+              "id": "104326-a2a8922b:process:83",
+              "observedOffsetMs": 15133,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__evidence__shell_style_search: matched",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:process-event:83"
+              ],
+              "toolName": "mcp__evidence__shell_style_search",
+              "attemptId": "104326-a2a8922b",
+              "outcome": "matched",
+              "sequence": 27,
+              "playbackOffsetMs": 16396
+            },
+            {
+              "id": "104326-a2a8922b:toolu_01LMti3tzUuCDTtWT9YuKEHX",
+              "observedOffsetMs": 15136,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__shell_style_search {'query': 'zzqx_nonexistent_marker_check'}",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:89"
+              ],
+              "toolName": "mcp__evidence__shell_style_search",
+              "toolUseId": "104326-a2a8922b:toolu_01LMti3tzUuCDTtWT9YuKEHX",
+              "attemptId": "104326-a2a8922b",
+              "caseId": "vague-search-description",
+              "sequence": 28,
+              "playbackOffsetMs": 16616
+            },
+            {
+              "id": "104326-a2a8922b:process:90",
+              "observedOffsetMs": 15137,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__evidence__shell_style_search: matched",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:process-event:90"
+              ],
+              "toolName": "mcp__evidence__shell_style_search",
+              "attemptId": "104326-a2a8922b",
+              "outcome": "matched",
+              "sequence": 29,
+              "playbackOffsetMs": 16836
+            },
+            {
+              "id": "104326-a2a8922b:message_stop",
+              "observedOffsetMs": 15139,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:93"
+              ],
+              "attemptId": "104326-a2a8922b",
+              "sequence": 30,
+              "playbackOffsetMs": 17056
+            },
+            {
+              "id": "104326-a2a8922b:toolu_01TgZ4iVTxiW6RZHaTF9e6Pg:result",
+              "observedOffsetMs": 15139,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__shell_style_search: result received",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:94"
+              ],
+              "toolName": "mcp__evidence__shell_style_search",
+              "toolUseId": "104326-a2a8922b:toolu_01TgZ4iVTxiW6RZHaTF9e6Pg",
+              "attemptId": "104326-a2a8922b",
+              "sequence": 31,
+              "playbackOffsetMs": 17276
+            },
+            {
+              "id": "104326-a2a8922b:toolu_01LMti3tzUuCDTtWT9YuKEHX:result",
+              "observedOffsetMs": 15140,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__shell_style_search: result received",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:95"
+              ],
+              "toolName": "mcp__evidence__shell_style_search",
+              "toolUseId": "104326-a2a8922b:toolu_01LMti3tzUuCDTtWT9YuKEHX",
+              "attemptId": "104326-a2a8922b",
+              "sequence": 32,
+              "playbackOffsetMs": 17496
+            },
+            {
+              "id": "104443-c119bcec:toolu_01F4fS6LMrcPG4GSBxx5f2xV",
+              "observedOffsetMs": 19019,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence {'query': 'CH08_TOOL_PROMPT_POLICY_V1'}",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:sdk-message:48"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104443-c119bcec:toolu_01F4fS6LMrcPG4GSBxx5f2xV",
+              "attemptId": "104443-c119bcec",
+              "caseId": "rich-search-description",
+              "sequence": 33,
+              "playbackOffsetMs": 19019
+            },
+            {
+              "id": "104443-c119bcec:process:49",
+              "observedOffsetMs": 19020,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__evidence__search_evidence: empty",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:process-event:49"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "attemptId": "104443-c119bcec",
+              "outcome": "empty",
+              "sequence": 34,
+              "playbackOffsetMs": 19239
+            },
+            {
+              "id": "104443-c119bcec:toolu_01F4fS6LMrcPG4GSBxx5f2xV:result",
+              "observedOffsetMs": 19022,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence: result received",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:sdk-message:51"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104443-c119bcec:toolu_01F4fS6LMrcPG4GSBxx5f2xV",
+              "attemptId": "104443-c119bcec",
+              "sequence": 35,
+              "playbackOffsetMs": 19459
+            },
+            {
+              "id": "104443-c119bcec:toolu_01AhAHMr7dEo9C47VC5Q7eVA",
+              "observedOffsetMs": 19063,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence {'query': 'permission'}",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:sdk-message:56"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104443-c119bcec:toolu_01AhAHMr7dEo9C47VC5Q7eVA",
+              "attemptId": "104443-c119bcec",
+              "caseId": "rich-search-description",
+              "sequence": 36,
+              "playbackOffsetMs": 19679
+            },
+            {
+              "id": "104443-c119bcec:process:57",
+              "observedOffsetMs": 19065,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__evidence__search_evidence: matched",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:process-event:57"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "attemptId": "104443-c119bcec",
+              "outcome": "matched",
+              "sequence": 37,
+              "playbackOffsetMs": 19899
+            },
+            {
+              "id": "104443-c119bcec:toolu_01AhAHMr7dEo9C47VC5Q7eVA:result",
+              "observedOffsetMs": 19067,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence: result received",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:sdk-message:59"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104443-c119bcec:toolu_01AhAHMr7dEo9C47VC5Q7eVA",
+              "attemptId": "104443-c119bcec",
+              "sequence": 38,
+              "playbackOffsetMs": 20119
+            },
+            {
+              "id": "104443-c119bcec:message_stop",
+              "observedOffsetMs": 19141,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:sdk-message:61"
+              ],
+              "attemptId": "104443-c119bcec",
+              "sequence": 39,
+              "playbackOffsetMs": 20339
+            },
+            {
+              "id": "104326-a2a8922b:toolu_01ARjV4AjufjDkzQgrv7L82F",
+              "observedOffsetMs": 20436,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence {'query': 'require approval before deleting shared environment'}",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:115"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104326-a2a8922b:toolu_01ARjV4AjufjDkzQgrv7L82F",
+              "attemptId": "104326-a2a8922b",
+              "caseId": "vague-search-description",
+              "sequence": 40,
+              "playbackOffsetMs": 20559
+            },
+            {
+              "id": "104326-a2a8922b:process:116",
+              "observedOffsetMs": 20437,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__evidence__search_evidence: matched",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:process-event:116"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "attemptId": "104326-a2a8922b",
+              "outcome": "matched",
+              "sequence": 41,
+              "playbackOffsetMs": 20779
+            },
+            {
+              "id": "104326-a2a8922b:toolu_01ARjV4AjufjDkzQgrv7L82F:result",
+              "observedOffsetMs": 20439,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence: result received",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:120"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104326-a2a8922b:toolu_01ARjV4AjufjDkzQgrv7L82F",
+              "attemptId": "104326-a2a8922b",
+              "sequence": 42,
+              "playbackOffsetMs": 20999
+            },
+            {
+              "id": "104326-a2a8922b:toolu_01QzJDt7zgzEwXAXnccaGUd9",
+              "observedOffsetMs": 20741,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence {'query': 'tool use policy guardrails'}",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:123"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104326-a2a8922b:toolu_01QzJDt7zgzEwXAXnccaGUd9",
+              "attemptId": "104326-a2a8922b",
+              "caseId": "vague-search-description",
+              "sequence": 43,
+              "playbackOffsetMs": 21219
+            },
+            {
+              "id": "104326-a2a8922b:process:124",
+              "observedOffsetMs": 20742,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__evidence__search_evidence: empty",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:process-event:124"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "attemptId": "104326-a2a8922b",
+              "outcome": "empty",
+              "sequence": 44,
+              "playbackOffsetMs": 21439
+            },
+            {
+              "id": "104326-a2a8922b:toolu_01QzJDt7zgzEwXAXnccaGUd9:result",
+              "observedOffsetMs": 20744,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence: result received",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:126"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104326-a2a8922b:toolu_01QzJDt7zgzEwXAXnccaGUd9",
+              "attemptId": "104326-a2a8922b",
+              "sequence": 45,
+              "playbackOffsetMs": 21659
+            },
+            {
+              "id": "104326-a2a8922b:message_stop",
+              "observedOffsetMs": 20765,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:128"
+              ],
+              "attemptId": "104326-a2a8922b",
+              "sequence": 46,
+              "playbackOffsetMs": 21879
+            },
+            {
+              "id": "104523-e1aa0451:process:0",
+              "observedOffsetMs": 21000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:104523-e1aa0451:process-event:0"
+              ],
+              "attemptId": "104523-e1aa0451",
+              "sequence": 47,
+              "playbackOffsetMs": 22099
+            },
+            {
+              "id": "104523-e1aa0451:sdk.init",
+              "observedOffsetMs": 21920,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "built-in Bash가 제거된 Read 경로: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:104523-e1aa0451:sdk-message:1"
+              ],
+              "attemptId": "104523-e1aa0451",
+              "caseId": "disallowed-bash-visibility",
+              "annotationMode": "unreported",
+              "sequence": 48,
+              "playbackOffsetMs": 22319
+            },
+            {
+              "id": "104523-e1aa0451:toolu_01Vrosjot65dqfSA4b8RczKU",
+              "observedOffsetMs": 25125,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:104523-e1aa0451:sdk-message:14"
+              ],
+              "toolName": "Read",
+              "toolUseId": "104523-e1aa0451:toolu_01Vrosjot65dqfSA4b8RczKU",
+              "attemptId": "104523-e1aa0451",
+              "caseId": "disallowed-bash-visibility",
+              "sequence": 49,
+              "playbackOffsetMs": 25125
+            },
+            {
+              "id": "104523-e1aa0451:toolu_01Vrosjot65dqfSA4b8RczKU:result",
+              "observedOffsetMs": 25130,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: error",
+              "sourceRefs": [
+                "attempt:104523-e1aa0451:sdk-message:16"
+              ],
+              "toolName": "Read",
+              "toolUseId": "104523-e1aa0451:toolu_01Vrosjot65dqfSA4b8RczKU",
+              "attemptId": "104523-e1aa0451",
+              "sequence": 50,
+              "playbackOffsetMs": 25345
+            },
+            {
+              "id": "104523-e1aa0451:message_stop",
+              "observedOffsetMs": 25132,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104523-e1aa0451:sdk-message:18"
+              ],
+              "attemptId": "104523-e1aa0451",
+              "sequence": 51,
+              "playbackOffsetMs": 25565
+            },
+            {
+              "id": "104523-e1aa0451:toolu_01EhMLmbXh6cgRouEKS3z83t",
+              "observedOffsetMs": 28120,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:104523-e1aa0451:sdk-message:30"
+              ],
+              "toolName": "Read",
+              "toolUseId": "104523-e1aa0451:toolu_01EhMLmbXh6cgRouEKS3z83t",
+              "attemptId": "104523-e1aa0451",
+              "caseId": "disallowed-bash-visibility",
+              "sequence": 52,
+              "playbackOffsetMs": 28120
+            },
+            {
+              "id": "104523-e1aa0451:toolu_01EhMLmbXh6cgRouEKS3z83t:result",
+              "observedOffsetMs": 28123,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: result received",
+              "sourceRefs": [
+                "attempt:104523-e1aa0451:sdk-message:32"
+              ],
+              "toolName": "Read",
+              "toolUseId": "104523-e1aa0451:toolu_01EhMLmbXh6cgRouEKS3z83t",
+              "attemptId": "104523-e1aa0451",
+              "sequence": 53,
+              "playbackOffsetMs": 28340
+            },
+            {
+              "id": "104523-e1aa0451:message_stop",
+              "observedOffsetMs": 28144,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104523-e1aa0451:sdk-message:34"
+              ],
+              "attemptId": "104523-e1aa0451",
+              "sequence": 54,
+              "playbackOffsetMs": 28560
+            },
+            {
+              "id": "104326-a2a8922b:toolu_01Ck8it2TfEujfNoCBHViDwS",
+              "observedOffsetMs": 28927,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence {'query': 'require approval before deleting shared environment'}",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:149"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104326-a2a8922b:toolu_01Ck8it2TfEujfNoCBHViDwS",
+              "attemptId": "104326-a2a8922b",
+              "caseId": "vague-search-description",
+              "sequence": 55,
+              "playbackOffsetMs": 28927
+            },
+            {
+              "id": "104326-a2a8922b:process:150",
+              "observedOffsetMs": 28928,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__evidence__search_evidence: matched",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:process-event:150"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "attemptId": "104326-a2a8922b",
+              "outcome": "matched",
+              "sequence": 56,
+              "playbackOffsetMs": 29147
+            },
+            {
+              "id": "104326-a2a8922b:toolu_01Ck8it2TfEujfNoCBHViDwS:result",
+              "observedOffsetMs": 28932,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence: result received",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:156"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104326-a2a8922b:toolu_01Ck8it2TfEujfNoCBHViDwS",
+              "attemptId": "104326-a2a8922b",
+              "sequence": 57,
+              "playbackOffsetMs": 29367
+            },
+            {
+              "id": "104326-a2a8922b:toolu_012ZjUjVsRz87AoYvCCJQjFm",
+              "observedOffsetMs": 28936,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence {'query': 'explicit approval destructive shared'}",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:157"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104326-a2a8922b:toolu_012ZjUjVsRz87AoYvCCJQjFm",
+              "attemptId": "104326-a2a8922b",
+              "caseId": "vague-search-description",
+              "sequence": 58,
+              "playbackOffsetMs": 29587
+            },
+            {
+              "id": "104326-a2a8922b:process:158",
+              "observedOffsetMs": 28937,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__evidence__search_evidence: matched",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:process-event:158"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "attemptId": "104326-a2a8922b",
+              "outcome": "matched",
+              "sequence": 59,
+              "playbackOffsetMs": 29807
+            },
+            {
+              "id": "104326-a2a8922b:toolu_012ZjUjVsRz87AoYvCCJQjFm:result",
+              "observedOffsetMs": 28938,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__evidence__search_evidence: result received",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:160"
+              ],
+              "toolName": "mcp__evidence__search_evidence",
+              "toolUseId": "104326-a2a8922b:toolu_012ZjUjVsRz87AoYvCCJQjFm",
+              "attemptId": "104326-a2a8922b",
+              "sequence": 60,
+              "playbackOffsetMs": 30027
+            },
+            {
+              "id": "104326-a2a8922b:message_stop",
+              "observedOffsetMs": 28950,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:162"
+              ],
+              "attemptId": "104326-a2a8922b",
+              "sequence": 61,
+              "playbackOffsetMs": 30247
+            },
+            {
+              "id": "104600-de788e47:process:0",
+              "observedOffsetMs": 31000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:104600-de788e47:process-event:0"
+              ],
+              "attemptId": "104600-de788e47",
+              "sequence": 62,
+              "playbackOffsetMs": 31000
+            },
+            {
+              "id": "104443-c119bcec:message_stop",
+              "observedOffsetMs": 31366,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:sdk-message:94"
+              ],
+              "attemptId": "104443-c119bcec",
+              "sequence": 63,
+              "playbackOffsetMs": 31366
+            },
+            {
+              "id": "104443-c119bcec:result",
+              "observedOffsetMs": 31367,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:sdk-message:95"
+              ],
+              "attemptId": "104443-c119bcec",
+              "sequence": 64,
+              "playbackOffsetMs": 31586
+            },
+            {
+              "id": "104443-c119bcec:process:96",
+              "observedOffsetMs": 31647,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:process-event:96"
+              ],
+              "attemptId": "104443-c119bcec",
+              "sequence": 65,
+              "playbackOffsetMs": 31806
+            },
+            {
+              "id": "104600-de788e47:sdk.init",
+              "observedOffsetMs": 32030,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "worker Read가 없는 전역 표면의 실패: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:104600-de788e47:sdk-message:1"
+              ],
+              "attemptId": "104600-de788e47",
+              "caseId": "agent-global-surface-failure",
+              "annotationMode": "unreported",
+              "sequence": 66,
+              "playbackOffsetMs": 32030
+            },
+            {
+              "id": "104523-e1aa0451:message_stop",
+              "observedOffsetMs": 32658,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104523-e1aa0451:sdk-message:47"
+              ],
+              "attemptId": "104523-e1aa0451",
+              "sequence": 67,
+              "playbackOffsetMs": 32658
+            },
+            {
+              "id": "104523-e1aa0451:result",
+              "observedOffsetMs": 32661,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:104523-e1aa0451:sdk-message:48"
+              ],
+              "attemptId": "104523-e1aa0451",
+              "sequence": 68,
+              "playbackOffsetMs": 32878
+            },
+            {
+              "id": "104523-e1aa0451:process:49",
+              "observedOffsetMs": 33179,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:104523-e1aa0451:process-event:49"
+              ],
+              "attemptId": "104523-e1aa0451",
+              "sequence": 69,
+              "playbackOffsetMs": 33179
+            },
+            {
+              "id": "104600-de788e47:toolu_01PpQoRALWnegLRwEM9et5KS",
+              "observedOffsetMs": 36777,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Agent {'description': 'Review evidence-to-claim link', 'run_in_background': False, 'subagent_type': 'evidence-reviewer'}",
+              "sourceRefs": [
+                "attempt:104600-de788e47:sdk-message:20"
+              ],
+              "toolName": "Agent",
+              "toolUseId": "104600-de788e47:toolu_01PpQoRALWnegLRwEM9et5KS",
+              "attemptId": "104600-de788e47",
+              "caseId": "agent-global-surface-failure",
+              "sequence": 70,
+              "playbackOffsetMs": 36777
+            },
+            {
+              "id": "104600-de788e47:toolu_01PpQoRALWnegLRwEM9et5KS:result",
+              "observedOffsetMs": 36785,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Agent: error",
+              "sourceRefs": [
+                "attempt:104600-de788e47:sdk-message:26"
+              ],
+              "toolName": "Agent",
+              "toolUseId": "104600-de788e47:toolu_01PpQoRALWnegLRwEM9et5KS",
+              "attemptId": "104600-de788e47",
+              "sequence": 71,
+              "playbackOffsetMs": 36997
+            },
+            {
+              "id": "104600-de788e47:message_stop",
+              "observedOffsetMs": 36795,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104600-de788e47:sdk-message:28"
+              ],
+              "attemptId": "104600-de788e47",
+              "sequence": 72,
+              "playbackOffsetMs": 37217
+            },
+            {
+              "id": "104843-e6d50d01:process:0",
+              "observedOffsetMs": 41000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:process-event:0"
+              ],
+              "attemptId": "104843-e6d50d01",
+              "sequence": 73,
+              "playbackOffsetMs": 41000
+            },
+            {
+              "id": "104843-e6d50d01:sdk.init",
+              "observedOffsetMs": 42126,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "전역 Read 추가 뒤 nested worker 실행: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:1"
+              ],
+              "attemptId": "104843-e6d50d01",
+              "caseId": "agent-global-surface-repair",
+              "annotationMode": "unreported",
+              "sequence": 74,
+              "playbackOffsetMs": 42126
+            },
+            {
+              "id": "104326-a2a8922b:message_stop",
+              "observedOffsetMs": 44002,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:201"
+              ],
+              "attemptId": "104326-a2a8922b",
+              "sequence": 75,
+              "playbackOffsetMs": 44002
+            },
+            {
+              "id": "104326-a2a8922b:result",
+              "observedOffsetMs": 44006,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:202"
+              ],
+              "attemptId": "104326-a2a8922b",
+              "sequence": 76,
+              "playbackOffsetMs": 44222
+            },
+            {
+              "id": "104326-a2a8922b:process:203",
+              "observedOffsetMs": 44318,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:process-event:203"
+              ],
+              "attemptId": "104326-a2a8922b",
+              "sequence": 77,
+              "playbackOffsetMs": 44442
+            },
+            {
+              "id": "104843-e6d50d01:toolu_01R1JswsxrSJMrHjtGPk5HHM",
+              "observedOffsetMs": 47910,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Agent {'description': 'Review evidence-to-claim link', 'run_in_background': False, 'subagent_type': 'evidence-reviewer'}",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:21"
+              ],
+              "toolName": "Agent",
+              "toolUseId": "104843-e6d50d01:toolu_01R1JswsxrSJMrHjtGPk5HHM",
+              "attemptId": "104843-e6d50d01",
+              "caseId": "agent-global-surface-repair",
+              "sequence": 78,
+              "playbackOffsetMs": 47910
+            },
+            {
+              "id": "104843-e6d50d01:message_stop",
+              "observedOffsetMs": 47940,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:26"
+              ],
+              "attemptId": "104843-e6d50d01",
+              "sequence": 79,
+              "playbackOffsetMs": 48130
+            },
+            {
+              "id": "104600-de788e47:toolu_01FmdjRRXDsWEbChUoRiQtb4",
+              "observedOffsetMs": 48116,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Agent {'description': 'Inspect evidence-reviewer config', 'run_in_background': False, 'subagent_type': 'Explore'}",
+              "sourceRefs": [
+                "attempt:104600-de788e47:sdk-message:62"
+              ],
+              "toolName": "Agent",
+              "toolUseId": "104600-de788e47:toolu_01FmdjRRXDsWEbChUoRiQtb4",
+              "attemptId": "104600-de788e47",
+              "caseId": "agent-global-surface-failure",
+              "sequence": 80,
+              "playbackOffsetMs": 48350
+            },
+            {
+              "id": "104600-de788e47:message_stop",
+              "observedOffsetMs": 48238,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104600-de788e47:sdk-message:67"
+              ],
+              "attemptId": "104600-de788e47",
+              "sequence": 81,
+              "playbackOffsetMs": 48570
+            },
+            {
+              "id": "104843-e6d50d01:toolu_01TMfgYsgPUYLjTy5ZBSyHnd",
+              "observedOffsetMs": 51396,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:28"
+              ],
+              "toolName": "Read",
+              "toolUseId": "104843-e6d50d01:toolu_01TMfgYsgPUYLjTy5ZBSyHnd",
+              "attemptId": "104843-e6d50d01",
+              "caseId": "agent-global-surface-repair",
+              "sequence": 82,
+              "playbackOffsetMs": 51396
+            },
+            {
+              "id": "104843-e6d50d01:toolu_01TMfgYsgPUYLjTy5ZBSyHnd:result",
+              "observedOffsetMs": 51398,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: result received",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:29"
+              ],
+              "toolName": "Read",
+              "toolUseId": "104843-e6d50d01:toolu_01TMfgYsgPUYLjTy5ZBSyHnd",
+              "attemptId": "104843-e6d50d01",
+              "sequence": 83,
+              "playbackOffsetMs": 51616
+            },
+            {
+              "id": "104843-e6d50d01:toolu_01PUmCu7HUkt1xxkMcEbScc9",
+              "observedOffsetMs": 59110,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:31"
+              ],
+              "toolName": "Read",
+              "toolUseId": "104843-e6d50d01:toolu_01PUmCu7HUkt1xxkMcEbScc9",
+              "attemptId": "104843-e6d50d01",
+              "caseId": "agent-global-surface-repair",
+              "sequence": 84,
+              "playbackOffsetMs": 59110
+            },
+            {
+              "id": "104843-e6d50d01:toolu_01PUmCu7HUkt1xxkMcEbScc9:result",
+              "observedOffsetMs": 59112,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: result received",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:32"
+              ],
+              "toolName": "Read",
+              "toolUseId": "104843-e6d50d01:toolu_01PUmCu7HUkt1xxkMcEbScc9",
+              "attemptId": "104843-e6d50d01",
+              "sequence": 85,
+              "playbackOffsetMs": 59330
+            },
+            {
+              "id": "104600-de788e47:toolu_01FmdjRRXDsWEbChUoRiQtb4:result",
+              "observedOffsetMs": 61876,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Agent: result received",
+              "sourceRefs": [
+                "attempt:104600-de788e47:sdk-message:70"
+              ],
+              "toolName": "Agent",
+              "toolUseId": "104600-de788e47:toolu_01FmdjRRXDsWEbChUoRiQtb4",
+              "attemptId": "104600-de788e47",
+              "sequence": 86,
+              "playbackOffsetMs": 61876
+            },
+            {
+              "id": "104843-e6d50d01:toolu_01WQVFE9V6nVikhzSVb2sWSH",
+              "observedOffsetMs": 66296,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:34"
+              ],
+              "toolName": "Read",
+              "toolUseId": "104843-e6d50d01:toolu_01WQVFE9V6nVikhzSVb2sWSH",
+              "attemptId": "104843-e6d50d01",
+              "caseId": "agent-global-surface-repair",
+              "sequence": 87,
+              "playbackOffsetMs": 66296
+            },
+            {
+              "id": "104843-e6d50d01:toolu_01WQVFE9V6nVikhzSVb2sWSH:result",
+              "observedOffsetMs": 66299,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: error",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:35"
+              ],
+              "toolName": "Read",
+              "toolUseId": "104843-e6d50d01:toolu_01WQVFE9V6nVikhzSVb2sWSH",
+              "attemptId": "104843-e6d50d01",
+              "sequence": 88,
+              "playbackOffsetMs": 66516
+            },
+            {
+              "id": "104843-e6d50d01:toolu_01R1JswsxrSJMrHjtGPk5HHM:result",
+              "observedOffsetMs": 66310,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Agent: result received",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:38"
+              ],
+              "toolName": "Agent",
+              "toolUseId": "104843-e6d50d01:toolu_01R1JswsxrSJMrHjtGPk5HHM",
+              "attemptId": "104843-e6d50d01",
+              "sequence": 89,
+              "playbackOffsetMs": 66736
+            },
+            {
+              "id": "104843-e6d50d01:toolu_01JEGGpf69bgMYot4F1rh1J9",
+              "observedOffsetMs": 74189,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:62"
+              ],
+              "toolName": "Read",
+              "toolUseId": "104843-e6d50d01:toolu_01JEGGpf69bgMYot4F1rh1J9",
+              "attemptId": "104843-e6d50d01",
+              "caseId": "agent-global-surface-repair",
+              "sequence": 90,
+              "playbackOffsetMs": 74189
+            },
+            {
+              "id": "104843-e6d50d01:toolu_01JEGGpf69bgMYot4F1rh1J9:result",
+              "observedOffsetMs": 74191,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: error",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:64"
+              ],
+              "toolName": "Read",
+              "toolUseId": "104843-e6d50d01:toolu_01JEGGpf69bgMYot4F1rh1J9",
+              "attemptId": "104843-e6d50d01",
+              "sequence": 91,
+              "playbackOffsetMs": 74409
+            },
+            {
+              "id": "104843-e6d50d01:message_stop",
+              "observedOffsetMs": 74217,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:66"
+              ],
+              "attemptId": "104843-e6d50d01",
+              "sequence": 92,
+              "playbackOffsetMs": 74629
+            },
+            {
+              "id": "104600-de788e47:toolu_01T3j9JgTDyRW3SMK9WyA5JG",
+              "observedOffsetMs": 74283,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Agent {'description': 'Get frontmatter tools lines only', 'run_in_background': False, 'subagent_type': 'Explore'}",
+              "sourceRefs": [
+                "attempt:104600-de788e47:sdk-message:98"
+              ],
+              "toolName": "Agent",
+              "toolUseId": "104600-de788e47:toolu_01T3j9JgTDyRW3SMK9WyA5JG",
+              "attemptId": "104600-de788e47",
+              "caseId": "agent-global-surface-failure",
+              "sequence": 93,
+              "playbackOffsetMs": 74849
+            },
+            {
+              "id": "104600-de788e47:message_stop",
+              "observedOffsetMs": 74302,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104600-de788e47:sdk-message:103"
+              ],
+              "attemptId": "104600-de788e47",
+              "sequence": 94,
+              "playbackOffsetMs": 75069
+            },
+            {
+              "id": "104843-e6d50d01:toolu_01BKB1zUTCbns3x37AWr9xMU",
+              "observedOffsetMs": 77211,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:74"
+              ],
+              "toolName": "Read",
+              "toolUseId": "104843-e6d50d01:toolu_01BKB1zUTCbns3x37AWr9xMU",
+              "attemptId": "104843-e6d50d01",
+              "caseId": "agent-global-surface-repair",
+              "sequence": 95,
+              "playbackOffsetMs": 77211
+            },
+            {
+              "id": "104843-e6d50d01:toolu_01BKB1zUTCbns3x37AWr9xMU:result",
+              "observedOffsetMs": 77214,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: result received",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:76"
+              ],
+              "toolName": "Read",
+              "toolUseId": "104843-e6d50d01:toolu_01BKB1zUTCbns3x37AWr9xMU",
+              "attemptId": "104843-e6d50d01",
+              "sequence": 96,
+              "playbackOffsetMs": 77431
+            },
+            {
+              "id": "104843-e6d50d01:message_stop",
+              "observedOffsetMs": 77250,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:78"
+              ],
+              "attemptId": "104843-e6d50d01",
+              "sequence": 97,
+              "playbackOffsetMs": 77651
+            },
+            {
+              "id": "104843-e6d50d01:toolu_01Aa2fC8Fa95jRhbA1Mn8nKv",
+              "observedOffsetMs": 88336,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Agent {'description': 'Review evidence-to-claim link', 'run_in_background': False, 'subagent_type': 'evidence-reviewer'}",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:113"
+              ],
+              "toolName": "Agent",
+              "toolUseId": "104843-e6d50d01:toolu_01Aa2fC8Fa95jRhbA1Mn8nKv",
+              "attemptId": "104843-e6d50d01",
+              "caseId": "agent-global-surface-repair",
+              "sequence": 98,
+              "playbackOffsetMs": 88336
+            },
+            {
+              "id": "104843-e6d50d01:message_stop",
+              "observedOffsetMs": 88348,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:118"
+              ],
+              "attemptId": "104843-e6d50d01",
+              "sequence": 99,
+              "playbackOffsetMs": 88556
+            },
+            {
+              "id": "104843-e6d50d01:toolu_01TasffyXfpWGex4NQyLAP3V",
+              "observedOffsetMs": 91922,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:120"
+              ],
+              "toolName": "Read",
+              "toolUseId": "104843-e6d50d01:toolu_01TasffyXfpWGex4NQyLAP3V",
+              "attemptId": "104843-e6d50d01",
+              "caseId": "agent-global-surface-repair",
+              "sequence": 100,
+              "playbackOffsetMs": 91922
+            },
+            {
+              "id": "104843-e6d50d01:toolu_01TasffyXfpWGex4NQyLAP3V:result",
+              "observedOffsetMs": 91923,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: result received",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:121"
+              ],
+              "toolName": "Read",
+              "toolUseId": "104843-e6d50d01:toolu_01TasffyXfpWGex4NQyLAP3V",
+              "attemptId": "104843-e6d50d01",
+              "sequence": 101,
+              "playbackOffsetMs": 92142
+            },
+            {
+              "id": "104843-e6d50d01:toolu_01NdLqECy9rdBFF1cyN1uNa1",
+              "observedOffsetMs": 93051,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:123"
+              ],
+              "toolName": "Read",
+              "toolUseId": "104843-e6d50d01:toolu_01NdLqECy9rdBFF1cyN1uNa1",
+              "attemptId": "104843-e6d50d01",
+              "caseId": "agent-global-surface-repair",
+              "sequence": 102,
+              "playbackOffsetMs": 93051
+            },
+            {
+              "id": "104843-e6d50d01:toolu_01NdLqECy9rdBFF1cyN1uNa1:result",
+              "observedOffsetMs": 93052,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: result received",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:124"
+              ],
+              "toolName": "Read",
+              "toolUseId": "104843-e6d50d01:toolu_01NdLqECy9rdBFF1cyN1uNa1",
+              "attemptId": "104843-e6d50d01",
+              "sequence": 103,
+              "playbackOffsetMs": 93271
+            },
+            {
+              "id": "104600-de788e47:toolu_01T3j9JgTDyRW3SMK9WyA5JG:result",
+              "observedOffsetMs": 95295,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Agent: result received",
+              "sourceRefs": [
+                "attempt:104600-de788e47:sdk-message:106"
+              ],
+              "toolName": "Agent",
+              "toolUseId": "104600-de788e47:toolu_01T3j9JgTDyRW3SMK9WyA5JG",
+              "attemptId": "104600-de788e47",
+              "sequence": 104,
+              "playbackOffsetMs": 95295
+            },
+            {
+              "id": "104843-e6d50d01:toolu_01Aa2fC8Fa95jRhbA1Mn8nKv:result",
+              "observedOffsetMs": 104478,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Agent: result received",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:127"
+              ],
+              "toolName": "Agent",
+              "toolUseId": "104843-e6d50d01:toolu_01Aa2fC8Fa95jRhbA1Mn8nKv",
+              "attemptId": "104843-e6d50d01",
+              "sequence": 105,
+              "playbackOffsetMs": 104478
+            },
+            {
+              "id": "104843-e6d50d01:message_stop",
+              "observedOffsetMs": 114983,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:153"
+              ],
+              "attemptId": "104843-e6d50d01",
+              "sequence": 106,
+              "playbackOffsetMs": 114983
+            },
+            {
+              "id": "104843-e6d50d01:result",
+              "observedOffsetMs": 114984,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:154"
+              ],
+              "attemptId": "104843-e6d50d01",
+              "sequence": 107,
+              "playbackOffsetMs": 115203
+            },
+            {
+              "id": "104843-e6d50d01:process:155",
+              "observedOffsetMs": 115482,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:process-event:155"
+              ],
+              "attemptId": "104843-e6d50d01",
+              "sequence": 108,
+              "playbackOffsetMs": 115482
+            },
+            {
+              "id": "104600-de788e47:message_stop",
+              "observedOffsetMs": 117502,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:104600-de788e47:sdk-message:154"
+              ],
+              "attemptId": "104600-de788e47",
+              "sequence": 109,
+              "playbackOffsetMs": 117502
+            },
+            {
+              "id": "104600-de788e47:result",
+              "observedOffsetMs": 117511,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:104600-de788e47:sdk-message:155"
+              ],
+              "attemptId": "104600-de788e47",
+              "sequence": 110,
+              "playbackOffsetMs": 117722
+            },
+            {
+              "id": "104600-de788e47:process:156",
+              "observedOffsetMs": 117815,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:104600-de788e47:process-event:156"
+              ],
+              "attemptId": "104600-de788e47",
+              "sequence": 111,
+              "playbackOffsetMs": 117942
+            },
+            {
+              "id": "claim:fixed-input-description-schema-pair",
+              "observedOffsetMs": 118515,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "vague와 rich attempt는 fixture, user prompt, chapter source, requested/actual model이 같고 host source에서 tool description과 input schema 설명을 다르게 구성했다.",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:manifest:option_summary",
+                "attempt:104443-c119bcec:manifest:option_summary"
+              ],
+              "claimId": "fixed-input-description-schema-pair",
+              "claimStatus": "observed",
+              "sequence": 112,
+              "playbackOffsetMs": 118515
+            },
+            {
+              "id": "claim:vague-fallback-control-and-ten-calls",
+              "observedOffsetMs": 118915,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "vague run은 10회 호출했고 의미 없는 control query에도 같은 marker를 주는 fallback을 발견해 최종 근거에서 제외했다.",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:89",
+                "attempt:104326-a2a8922b:sdk-message:95",
+                "attempt:104326-a2a8922b:sdk-message:198",
+                "attempt:104326-a2a8922b:sdk-message:202"
+              ],
+              "claimId": "vague-fallback-control-and-ten-calls",
+              "claimStatus": "observed",
+              "sequence": 113,
+              "playbackOffsetMs": 118915
+            },
+            {
+              "id": "claim:rich-keyword-recovery-and-four-calls",
+              "observedOffsetMs": 119315,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "rich run은 첫 NO_MATCH 뒤 approval과 permission으로 query를 바꾸고 structured search 네 번만 사용해 성공했다.",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:sdk-message:14",
+                "attempt:104443-c119bcec:sdk-message:17",
+                "attempt:104443-c119bcec:sdk-message:22",
+                "attempt:104443-c119bcec:sdk-message:25",
+                "attempt:104443-c119bcec:sdk-message:56",
+                "attempt:104443-c119bcec:sdk-message:59",
+                "attempt:104443-c119bcec:sdk-message:95"
+              ],
+              "claimId": "rich-keyword-recovery-and-four-calls",
+              "claimStatus": "observed",
+              "sequence": 114,
+              "playbackOffsetMs": 119315
+            },
+            {
+              "id": "claim:both-runs-recovered-after-empty",
+              "observedOffsetMs": 119715,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "두 run 모두 첫 빈 결과를 결론으로 삼지 않고 query를 바꿨으며 최종 답에서 관찰과 추론을 분리했다.",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:19",
+                "attempt:104326-a2a8922b:sdk-message:198",
+                "attempt:104443-c119bcec:sdk-message:17",
+                "attempt:104443-c119bcec:sdk-message:91"
+              ],
+              "claimId": "both-runs-recovered-after-empty",
+              "claimStatus": "observed",
+              "sequence": 115,
+              "playbackOffsetMs": 119715
+            },
+            {
+              "id": "claim:disallowed-bash-removed-from-built-in-init",
+              "observedOffsetMs": 120115,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "Read와 Bash를 tools/allowed에 함께 넣고 Bash를 disallowed로 둔 실행의 init에는 Read만 있었고 Bash use는 0이었다.",
+              "sourceRefs": [
+                "attempt:104523-e1aa0451:manifest:option_summary",
+                "attempt:104523-e1aa0451:sdk-message:1",
+                "attempt:104523-e1aa0451:sdk-message:14",
+                "attempt:104523-e1aa0451:sdk-message:30",
+                "attempt:104523-e1aa0451:sdk-message:48"
+              ],
+              "claimId": "disallowed-bash-removed-from-built-in-init",
+              "claimStatus": "observed",
+              "sequence": 116,
+              "playbackOffsetMs": 120115
+            },
+            {
+              "id": "claim:role-selected-and-nested-read-executed",
+              "observedOffsetMs": 120515,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "agent 이름을 말하지 않은 prompt에서 parent가 evidence-reviewer를 선택했고 수정 run의 같은 parent tool ID 아래 nested Read가 review와 policy 파일을 읽었다.",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:21",
+                "attempt:104843-e6d50d01:sdk-message:28",
+                "attempt:104843-e6d50d01:sdk-message:29",
+                "attempt:104843-e6d50d01:sdk-message:31",
+                "attempt:104843-e6d50d01:sdk-message:32"
+              ],
+              "claimId": "role-selected-and-nested-read-executed",
+              "claimStatus": "observed",
+              "sequence": 117,
+              "playbackOffsetMs": 120515
+            },
+            {
+              "id": "claim:global-surface-failure-and-repair-sequence",
+              "observedOffsetMs": 120915,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "첫 init의 Task-only 표면에서는 worker Read가 거부됐고 수정 init의 Task+Read 표면에서는 nested Read와 specialist 결과가 실행됐다.",
+              "sourceRefs": [
+                "attempt:104600-de788e47:sdk-message:1",
+                "attempt:104600-de788e47:sdk-message:22",
+                "attempt:104600-de788e47:sdk-message:26",
+                "attempt:104843-e6d50d01:sdk-message:1",
+                "attempt:104843-e6d50d01:sdk-message:120",
+                "attempt:104843-e6d50d01:sdk-message:124",
+                "attempt:104843-e6d50d01:sdk-message:127"
+              ],
+              "claimId": "global-surface-failure-and-repair-sequence",
+              "claimStatus": "observed",
+              "sequence": 118,
+              "playbackOffsetMs": 120915
+            },
+            {
+              "id": "claim:result-success-is-not-subtask-success",
+              "observedOffsetMs": 121315,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "실패 attempt의 specialist task와 ToolResult는 failed/error였지만 terminal SDK Result는 success/completed였으므로 run-level success만으로 내부 task 성공을 선언하면 안 된다.",
+              "sourceRefs": [
+                "attempt:104600-de788e47:sdk-message:22",
+                "attempt:104600-de788e47:sdk-message:26",
+                "attempt:104600-de788e47:sdk-message:155"
+              ],
+              "claimId": "result-success-is-not-subtask-success",
+              "claimStatus": "correction_required",
+              "sequence": 119,
+              "playbackOffsetMs": 121315
+            },
+            {
+              "id": "claim:agent-option-and-init-task-name-boundary",
+              "observedOffsetMs": 121715,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "Python option과 완성 ToolUseBlock은 Agent 이름을 사용했지만 init은 Task로 노출했으므로 둘을 서로 다른 위임 도구로 중복 집계하지 않는다.",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:1",
+                "attempt:104843-e6d50d01:sdk-message:21"
+              ],
+              "claimId": "agent-option-and-init-task-name-boundary",
+              "claimStatus": "correction_required",
+              "sequence": 120,
+              "playbackOffsetMs": 121715
+            },
+            {
+              "id": "claim:primary-opus-is-not-only-provider-usage",
+              "observedOffsetMs": 122115,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "다섯 init과 primary assistant는 Opus 5지만 모든 Result model_usage에는 Haiku 4.5 보조 사용도 기록됐다.",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:202",
+                "attempt:104443-c119bcec:sdk-message:95",
+                "attempt:104523-e1aa0451:sdk-message:48",
+                "attempt:104600-de788e47:sdk-message:155",
+                "attempt:104843-e6d50d01:sdk-message:154"
+              ],
+              "claimId": "primary-opus-is-not-only-provider-usage",
+              "claimStatus": "correction_required",
+              "sequence": 121,
+              "playbackOffsetMs": 122115
+            },
+            {
+              "id": "claim:single-pair-does-not-prove-description-causality",
+              "observedOffsetMs": 122515,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "한 번씩 fixed-order로 실행한 10회 대 4회, 비용과 시간 차이는 관찰값이지 description/schema 효과의 일반 인과나 승자가 아니다.",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:202",
+                "attempt:104443-c119bcec:sdk-message:95"
+              ],
+              "claimId": "single-pair-does-not-prove-description-causality",
+              "claimStatus": "correction_required",
+              "sequence": 122,
+              "playbackOffsetMs": 122515
+            },
+            {
+              "id": "claim:probe-source-not-bound-in-attempt-provenance",
+              "observedOffsetMs": 122915,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "당시 manifest provenance는 장 원문과 option summary를 묶었지만 probe source와 완전한 tools option hash를 묶지 않아 artifact만으로 수정의 유일 변수를 증명할 수 없다.",
+              "sourceRefs": [
+                "attempt:104600-de788e47:manifest:option_summary",
+                "attempt:104843-e6d50d01:manifest:option_summary"
+              ],
+              "claimId": "probe-source-not-bound-in-attempt-provenance",
+              "claimStatus": "correction_required",
+              "sequence": 123,
+              "playbackOffsetMs": 122915
+            },
+            {
+              "id": "claim:exact-description-provider-receipt-not-observed",
+              "observedOffsetMs": 123315,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "host code의 description/schema 구성은 확인했지만 raw init에는 도구 이름만 있어 provider가 받은 exact 직렬화 text는 관찰하지 못했다.",
+              "sourceRefs": [
+                "spec:claims:exact-description-provider-receipt-not-observed"
+              ],
+              "claimId": "exact-description-provider-receipt-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 124,
+              "playbackOffsetMs": 123315
+            },
+            {
+              "id": "claim:read-vs-bash-visible-choice-not-observed",
+              "observedOffsetMs": 123715,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "disallowed case는 Bash를 표면에서 제거했으므로 Read와 Bash가 함께 보일 때 모델이 설명만으로 Read를 우선하는지는 관찰하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:read-vs-bash-visible-choice-not-observed"
+              ],
+              "claimId": "read-vs-bash-visible-choice-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 125,
+              "playbackOffsetMs": 123715
+            },
+            {
+              "id": "claim:permission-decision-not-observed",
+              "observedOffsetMs": 124115,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "다섯 attempt의 permission callback과 hook callback은 0개여서 tool description과 사용자 승인 결정의 연결은 관찰하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:permission-decision-not-observed"
+              ],
+              "claimId": "permission-decision-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 126,
+              "playbackOffsetMs": 124115
+            },
+            {
+              "id": "claim:efficient-single-delegation-not-observed",
+              "observedOffsetMs": 124515,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "수정 run에서도 첫 specialist output이 불완전해 parent 직접 Read와 두 번째 위임이 필요했으므로 최적의 단일 위임은 관찰하지 않았다.",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:37",
+                "attempt:104843-e6d50d01:sdk-message:56",
+                "attempt:104843-e6d50d01:sdk-message:113",
+                "attempt:104843-e6d50d01:sdk-message:127"
+              ],
+              "claimId": "efficient-single-delegation-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 127,
+              "playbackOffsetMs": 124515
+            },
+            {
+              "id": "claim:typescript-agent-surfaces-not-observed-in-python",
+              "observedOffsetMs": 124915,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "toolConfig, forwardSubagentText, agentProgressSummaries는 이 Python 0.2.128 실행에서 option으로 사용하거나 관찰하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:typescript-agent-surfaces-not-observed-in-python"
+              ],
+              "claimId": "typescript-agent-surfaces-not-observed-in-python",
+              "claimStatus": "additional_observation_required",
+              "sequence": 128,
+              "playbackOffsetMs": 124915
+            },
+            {
+              "id": "claim:rate-limit-event-influence-not-observed",
+              "observedOffsetMs": 125315,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "다섯 실행에 allowed_warning과 utilization 0.76이 있었지만 호출 수, 비용, task 결과에 미친 인과 영향은 관찰하지 않았다.",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:3",
+                "attempt:104443-c119bcec:sdk-message:3",
+                "attempt:104523-e1aa0451:sdk-message:3",
+                "attempt:104600-de788e47:sdk-message:6",
+                "attempt:104843-e6d50d01:sdk-message:3"
+              ],
+              "claimId": "rate-limit-event-influence-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 129,
+              "playbackOffsetMs": 125315
+            }
+          ],
+          "facts": [
+            {
+              "label": "raw source events",
+              "value": "664"
+            },
+            {
+              "label": "public projection",
+              "value": "130"
+            },
+            {
+              "label": "tool uses",
+              "value": "28"
+            },
+            {
+              "label": "tool results",
+              "value": "28"
+            },
+            {
+              "label": "observed claims",
+              "value": "7"
+            },
+            {
+              "label": "needs observation",
+              "value": "6"
+            },
+            {
+              "label": "invalid attempts",
+              "value": "1"
+            },
+            {
+              "label": "proof gate",
+              "value": "accepted_with_notes"
+            }
+          ],
+          "claims": [
+            {
+              "id": "fixed-input-description-schema-pair",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "vague와 rich attempt는 fixture, user prompt, chapter source, requested/actual model이 같고 host source에서 tool description과 input schema 설명을 다르게 구성했다.",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:manifest:option_summary",
+                "attempt:104443-c119bcec:manifest:option_summary"
+              ]
+            },
+            {
+              "id": "vague-fallback-control-and-ten-calls",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "vague run은 10회 호출했고 의미 없는 control query에도 같은 marker를 주는 fallback을 발견해 최종 근거에서 제외했다.",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:89",
+                "attempt:104326-a2a8922b:sdk-message:95",
+                "attempt:104326-a2a8922b:sdk-message:198",
+                "attempt:104326-a2a8922b:sdk-message:202"
+              ]
+            },
+            {
+              "id": "rich-keyword-recovery-and-four-calls",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "rich run은 첫 NO_MATCH 뒤 approval과 permission으로 query를 바꾸고 structured search 네 번만 사용해 성공했다.",
+              "sourceRefs": [
+                "attempt:104443-c119bcec:sdk-message:14",
+                "attempt:104443-c119bcec:sdk-message:17",
+                "attempt:104443-c119bcec:sdk-message:22",
+                "attempt:104443-c119bcec:sdk-message:25",
+                "attempt:104443-c119bcec:sdk-message:56",
+                "attempt:104443-c119bcec:sdk-message:59",
+                "attempt:104443-c119bcec:sdk-message:95"
+              ]
+            },
+            {
+              "id": "both-runs-recovered-after-empty",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "두 run 모두 첫 빈 결과를 결론으로 삼지 않고 query를 바꿨으며 최종 답에서 관찰과 추론을 분리했다.",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:19",
+                "attempt:104326-a2a8922b:sdk-message:198",
+                "attempt:104443-c119bcec:sdk-message:17",
+                "attempt:104443-c119bcec:sdk-message:91"
+              ]
+            },
+            {
+              "id": "disallowed-bash-removed-from-built-in-init",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "Read와 Bash를 tools/allowed에 함께 넣고 Bash를 disallowed로 둔 실행의 init에는 Read만 있었고 Bash use는 0이었다.",
+              "sourceRefs": [
+                "attempt:104523-e1aa0451:manifest:option_summary",
+                "attempt:104523-e1aa0451:sdk-message:1",
+                "attempt:104523-e1aa0451:sdk-message:14",
+                "attempt:104523-e1aa0451:sdk-message:30",
+                "attempt:104523-e1aa0451:sdk-message:48"
+              ]
+            },
+            {
+              "id": "role-selected-and-nested-read-executed",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "agent 이름을 말하지 않은 prompt에서 parent가 evidence-reviewer를 선택했고 수정 run의 같은 parent tool ID 아래 nested Read가 review와 policy 파일을 읽었다.",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:21",
+                "attempt:104843-e6d50d01:sdk-message:28",
+                "attempt:104843-e6d50d01:sdk-message:29",
+                "attempt:104843-e6d50d01:sdk-message:31",
+                "attempt:104843-e6d50d01:sdk-message:32"
+              ]
+            },
+            {
+              "id": "global-surface-failure-and-repair-sequence",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "첫 init의 Task-only 표면에서는 worker Read가 거부됐고 수정 init의 Task+Read 표면에서는 nested Read와 specialist 결과가 실행됐다.",
+              "sourceRefs": [
+                "attempt:104600-de788e47:sdk-message:1",
+                "attempt:104600-de788e47:sdk-message:22",
+                "attempt:104600-de788e47:sdk-message:26",
+                "attempt:104843-e6d50d01:sdk-message:1",
+                "attempt:104843-e6d50d01:sdk-message:120",
+                "attempt:104843-e6d50d01:sdk-message:124",
+                "attempt:104843-e6d50d01:sdk-message:127"
+              ]
+            },
+            {
+              "id": "result-success-is-not-subtask-success",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "실패 attempt의 specialist task와 ToolResult는 failed/error였지만 terminal SDK Result는 success/completed였으므로 run-level success만으로 내부 task 성공을 선언하면 안 된다.",
+              "sourceRefs": [
+                "attempt:104600-de788e47:sdk-message:22",
+                "attempt:104600-de788e47:sdk-message:26",
+                "attempt:104600-de788e47:sdk-message:155"
+              ]
+            },
+            {
+              "id": "agent-option-and-init-task-name-boundary",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "Python option과 완성 ToolUseBlock은 Agent 이름을 사용했지만 init은 Task로 노출했으므로 둘을 서로 다른 위임 도구로 중복 집계하지 않는다.",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:1",
+                "attempt:104843-e6d50d01:sdk-message:21"
+              ]
+            },
+            {
+              "id": "primary-opus-is-not-only-provider-usage",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "다섯 init과 primary assistant는 Opus 5지만 모든 Result model_usage에는 Haiku 4.5 보조 사용도 기록됐다.",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:202",
+                "attempt:104443-c119bcec:sdk-message:95",
+                "attempt:104523-e1aa0451:sdk-message:48",
+                "attempt:104600-de788e47:sdk-message:155",
+                "attempt:104843-e6d50d01:sdk-message:154"
+              ]
+            },
+            {
+              "id": "single-pair-does-not-prove-description-causality",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "한 번씩 fixed-order로 실행한 10회 대 4회, 비용과 시간 차이는 관찰값이지 description/schema 효과의 일반 인과나 승자가 아니다.",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:202",
+                "attempt:104443-c119bcec:sdk-message:95"
+              ]
+            },
+            {
+              "id": "probe-source-not-bound-in-attempt-provenance",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "당시 manifest provenance는 장 원문과 option summary를 묶었지만 probe source와 완전한 tools option hash를 묶지 않아 artifact만으로 수정의 유일 변수를 증명할 수 없다.",
+              "sourceRefs": [
+                "attempt:104600-de788e47:manifest:option_summary",
+                "attempt:104843-e6d50d01:manifest:option_summary"
+              ]
+            },
+            {
+              "id": "exact-description-provider-receipt-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "host code의 description/schema 구성은 확인했지만 raw init에는 도구 이름만 있어 provider가 받은 exact 직렬화 text는 관찰하지 못했다.",
+              "sourceRefs": [
+                "spec:claims:exact-description-provider-receipt-not-observed"
+              ]
+            },
+            {
+              "id": "read-vs-bash-visible-choice-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "disallowed case는 Bash를 표면에서 제거했으므로 Read와 Bash가 함께 보일 때 모델이 설명만으로 Read를 우선하는지는 관찰하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:read-vs-bash-visible-choice-not-observed"
+              ]
+            },
+            {
+              "id": "permission-decision-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "다섯 attempt의 permission callback과 hook callback은 0개여서 tool description과 사용자 승인 결정의 연결은 관찰하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:permission-decision-not-observed"
+              ]
+            },
+            {
+              "id": "efficient-single-delegation-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "수정 run에서도 첫 specialist output이 불완전해 parent 직접 Read와 두 번째 위임이 필요했으므로 최적의 단일 위임은 관찰하지 않았다.",
+              "sourceRefs": [
+                "attempt:104843-e6d50d01:sdk-message:37",
+                "attempt:104843-e6d50d01:sdk-message:56",
+                "attempt:104843-e6d50d01:sdk-message:113",
+                "attempt:104843-e6d50d01:sdk-message:127"
+              ]
+            },
+            {
+              "id": "typescript-agent-surfaces-not-observed-in-python",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "toolConfig, forwardSubagentText, agentProgressSummaries는 이 Python 0.2.128 실행에서 option으로 사용하거나 관찰하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:typescript-agent-surfaces-not-observed-in-python"
+              ]
+            },
+            {
+              "id": "rate-limit-event-influence-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "다섯 실행에 allowed_warning과 utilization 0.76이 있었지만 호출 수, 비용, task 결과에 미친 인과 영향은 관찰하지 않았다.",
+              "sourceRefs": [
+                "attempt:104326-a2a8922b:sdk-message:3",
+                "attempt:104443-c119bcec:sdk-message:3",
+                "attempt:104523-e1aa0451:sdk-message:3",
+                "attempt:104600-de788e47:sdk-message:6",
+                "attempt:104843-e6d50d01:sdk-message:3"
               ]
             }
           ]
