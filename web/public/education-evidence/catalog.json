@@ -1,7 +1,7 @@
 {
   "schemaVersion": "education-agent-flow.v1",
   "courseId": "book-sdk-ko",
-  "generatedAt": "2026-08-03T21:57:48.335Z",
+  "generatedAt": "2026-08-03T22:30:48.818Z",
   "publicationPolicy": "Whitelisted normalized evidence only; no mock fallback.",
   "collections": [
     {
@@ -20147,6 +20147,1159 @@
               "summary": "chapter, probe, case, runtime source hash를 모두 attempt에 묶는 새 provenance manifest가 필요하다.",
               "sourceRefs": [
                 "spec:claims:full-source-provenance-not-observed"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ch12",
+          "title": "12장 토큰 예산: runtime overflow와 host preview 분리",
+          "description": "Education Shell recorded run book-sdk-live-20260803",
+          "status": "verified_source",
+          "runtime": "claude-agent-sdk",
+          "provider": "claude",
+          "model": "claude-opus-5",
+          "chapterSlug": "ch12",
+          "sourceEventCount": 124,
+          "publishedEventCount": 51,
+          "source": {
+            "path": "slide/.shared-course-visual/otel-course-runtime/recorded-runs/book-sdk-ko/ch12/2026-08-03T22-17-59-825360Z/trace.json",
+            "sha256": "76a7fb8ca0aaac67d86f30846890381a292056769f8ad5bb9821623e6b2e3ee8",
+            "verification": "verified-source-artifact",
+            "recordedAt": "2026-08-03T22:17:59.825360Z"
+          },
+          "events": [
+            {
+              "id": "book-sdk-live-20260803:prompt",
+              "observedOffsetMs": 0,
+              "eventType": "prompt.submitted",
+              "actor": "user",
+              "evidenceLevel": "Configured",
+              "summary": "같은 60,082-character MCP 결과를 현재 Agent SDK/Claude Code runtime에 그대로 반환하는 실행과 host가 전체 결과를 먼저 저장하고 340-character preview만 반환하는 실행으로 나눈다. ToolUse, handler process, ToolResult, disk read-back, terminal Result, thinking estimate와 model-indexed usage를 비교해 자동 외부화와 application policy를 구분한다.",
+              "sourceRefs": [
+                "publication-spec:public_prompt"
+              ],
+              "sequence": 0,
+              "playbackOffsetMs": 220
+            },
+            {
+              "id": "221711-cf0efe19:process:0",
+              "observedOffsetMs": 1000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:process-event:0"
+              ],
+              "attemptId": "221711-cf0efe19",
+              "sequence": 1,
+              "playbackOffsetMs": 1000
+            },
+            {
+              "id": "221711-cf0efe19:sdk.init",
+              "observedOffsetMs": 2211,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "runtime overflow replacement와 spill file read-back: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:1"
+              ],
+              "attemptId": "221711-cf0efe19",
+              "caseId": "inline-over-50k",
+              "annotationMode": "unreported",
+              "sequence": 2,
+              "playbackOffsetMs": 2211
+            },
+            {
+              "id": "221711-cf0efe19:toolu_01GvrsJYfMeXP7aDMhCmHfBC",
+              "observedOffsetMs": 4803,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__budget_evidence__deliver_large_output {}",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:15"
+              ],
+              "toolName": "mcp__budget_evidence__deliver_large_output",
+              "toolUseId": "221711-cf0efe19:toolu_01GvrsJYfMeXP7aDMhCmHfBC",
+              "attemptId": "221711-cf0efe19",
+              "caseId": "inline-over-50k",
+              "sequence": 3,
+              "playbackOffsetMs": 4803
+            },
+            {
+              "id": "221711-cf0efe19:process:16",
+              "observedOffsetMs": 4807,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__budget_evidence__deliver_large_output: inline-60082-characters",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:process-event:16"
+              ],
+              "toolName": "mcp__budget_evidence__deliver_large_output",
+              "attemptId": "221711-cf0efe19",
+              "outcome": "inline-60082-characters",
+              "sequence": 4,
+              "playbackOffsetMs": 5023
+            },
+            {
+              "id": "221711-cf0efe19:message_stop",
+              "observedOffsetMs": 4820,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:19"
+              ],
+              "attemptId": "221711-cf0efe19",
+              "sequence": 5,
+              "playbackOffsetMs": 5243
+            },
+            {
+              "id": "221711-cf0efe19:toolu_01GvrsJYfMeXP7aDMhCmHfBC:result",
+              "observedOffsetMs": 5244,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__budget_evidence__deliver_large_output: result received",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:20"
+              ],
+              "toolName": "mcp__budget_evidence__deliver_large_output",
+              "toolUseId": "221711-cf0efe19:toolu_01GvrsJYfMeXP7aDMhCmHfBC",
+              "attemptId": "221711-cf0efe19",
+              "sequence": 6,
+              "playbackOffsetMs": 5463
+            },
+            {
+              "id": "221742-59006bcd:process:0",
+              "observedOffsetMs": 11000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:221742-59006bcd:process-event:0"
+              ],
+              "attemptId": "221742-59006bcd",
+              "sequence": 7,
+              "playbackOffsetMs": 11000
+            },
+            {
+              "id": "221742-59006bcd:sdk.init",
+              "observedOffsetMs": 12060,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host 선저장과 bounded preview: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:221742-59006bcd:sdk-message:1"
+              ],
+              "attemptId": "221742-59006bcd",
+              "caseId": "host-persisted-preview",
+              "annotationMode": "unreported",
+              "sequence": 8,
+              "playbackOffsetMs": 12060
+            },
+            {
+              "id": "221742-59006bcd:toolu_01UXvUjTa8FjzE7W17jYwSH5",
+              "observedOffsetMs": 14760,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__budget_evidence__deliver_large_output {}",
+              "sourceRefs": [
+                "attempt:221742-59006bcd:sdk-message:14"
+              ],
+              "toolName": "mcp__budget_evidence__deliver_large_output",
+              "toolUseId": "221742-59006bcd:toolu_01UXvUjTa8FjzE7W17jYwSH5",
+              "attemptId": "221742-59006bcd",
+              "caseId": "host-persisted-preview",
+              "sequence": 9,
+              "playbackOffsetMs": 14760
+            },
+            {
+              "id": "221742-59006bcd:process:15",
+              "observedOffsetMs": 14770,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.artifact.persisted",
+              "sourceRefs": [
+                "attempt:221742-59006bcd:process-event:15"
+              ],
+              "attemptId": "221742-59006bcd",
+              "sequence": 10,
+              "playbackOffsetMs": 14980
+            },
+            {
+              "id": "221742-59006bcd:process:16",
+              "observedOffsetMs": 14771,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__budget_evidence__deliver_large_output: persisted-full-60082-returned-preview-340",
+              "sourceRefs": [
+                "attempt:221742-59006bcd:process-event:16"
+              ],
+              "toolName": "mcp__budget_evidence__deliver_large_output",
+              "attemptId": "221742-59006bcd",
+              "outcome": "persisted-full-60082-returned-preview-340",
+              "sequence": 11,
+              "playbackOffsetMs": 15200
+            },
+            {
+              "id": "221742-59006bcd:toolu_01UXvUjTa8FjzE7W17jYwSH5:result",
+              "observedOffsetMs": 14778,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__budget_evidence__deliver_large_output: result received",
+              "sourceRefs": [
+                "attempt:221742-59006bcd:sdk-message:18"
+              ],
+              "toolName": "mcp__budget_evidence__deliver_large_output",
+              "toolUseId": "221742-59006bcd:toolu_01UXvUjTa8FjzE7W17jYwSH5",
+              "attemptId": "221742-59006bcd",
+              "sequence": 12,
+              "playbackOffsetMs": 15420
+            },
+            {
+              "id": "221742-59006bcd:message_stop",
+              "observedOffsetMs": 14784,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:221742-59006bcd:sdk-message:20"
+              ],
+              "attemptId": "221742-59006bcd",
+              "sequence": 13,
+              "playbackOffsetMs": 15640
+            },
+            {
+              "id": "221711-cf0efe19:message_stop",
+              "observedOffsetMs": 23162,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:64"
+              ],
+              "attemptId": "221711-cf0efe19",
+              "sequence": 14,
+              "playbackOffsetMs": 23162
+            },
+            {
+              "id": "221711-cf0efe19:result",
+              "observedOffsetMs": 23172,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:65"
+              ],
+              "attemptId": "221711-cf0efe19",
+              "sequence": 15,
+              "playbackOffsetMs": 23382
+            },
+            {
+              "id": "221711-cf0efe19:process:66",
+              "observedOffsetMs": 23699,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.runtime-overflow.snapshotted",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:process-event:66"
+              ],
+              "attemptId": "221711-cf0efe19",
+              "sequence": 16,
+              "playbackOffsetMs": 23699
+            },
+            {
+              "id": "221711-cf0efe19:process:67",
+              "observedOffsetMs": 23702,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:process-event:67"
+              ],
+              "attemptId": "221711-cf0efe19",
+              "sequence": 17,
+              "playbackOffsetMs": 23919
+            },
+            {
+              "id": "221742-59006bcd:message_stop",
+              "observedOffsetMs": 27571,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:221742-59006bcd:sdk-message:53"
+              ],
+              "attemptId": "221742-59006bcd",
+              "sequence": 18,
+              "playbackOffsetMs": 27571
+            },
+            {
+              "id": "221742-59006bcd:result",
+              "observedOffsetMs": 27582,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:221742-59006bcd:sdk-message:54"
+              ],
+              "attemptId": "221742-59006bcd",
+              "sequence": 19,
+              "playbackOffsetMs": 27791
+            },
+            {
+              "id": "221742-59006bcd:process:55",
+              "observedOffsetMs": 28118,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:221742-59006bcd:process-event:55"
+              ],
+              "attemptId": "221742-59006bcd",
+              "sequence": 20,
+              "playbackOffsetMs": 28118
+            },
+            {
+              "id": "claim:attempt-integrity-files-match",
+              "observedOffsetMs": 28818,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "두 accepted attempt의 integrity manifest가 열거한 manifest, verdict, raw 4종, OTel, artifact SHA-256 각 8개를 현재 파일에서 다시 계산해 모두 일치했다.",
+              "sourceRefs": [
+                "spec:claims:attempt-integrity-files-match"
+              ],
+              "claimId": "attempt-integrity-files-match",
+              "claimStatus": "observed",
+              "sequence": 21,
+              "playbackOffsetMs": 28818
+            },
+            {
+              "id": "claim:actual-opus-and-serial-execution",
+              "observedOffsetMs": 29218,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "두 init과 terminal capture는 actual model Opus 5를 기록했고 manifest는 provider concurrency 1을 기록했다. 첫 실행 종료 뒤 두 번째 실행을 시작했다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:manifest:option_summary",
+                "attempt:221742-59006bcd:manifest:option_summary",
+                "attempt:221711-cf0efe19:process-event:67",
+                "attempt:221742-59006bcd:process-event:55"
+              ],
+              "claimId": "actual-opus-and-serial-execution",
+              "claimStatus": "observed",
+              "sequence": 22,
+              "playbackOffsetMs": 29218
+            },
+            {
+              "id": "claim:four-source-hashes-bound-at-execution",
+              "observedOffsetMs": 29618,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "두 manifest는 실행 당시 chapter, probe, case, runtime source SHA-256 네 개를 묶었고 실행 직후 파일 hash와 일치했다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:manifest:option_summary",
+                "attempt:221742-59006bcd:manifest:option_summary"
+              ],
+              "claimId": "four-source-hashes-bound-at-execution",
+              "claimStatus": "observed",
+              "sequence": 23,
+              "playbackOffsetMs": 29618
+            },
+            {
+              "id": "claim:same-controlled-full-output",
+              "observedOffsetMs": 30018,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "두 case의 accepted artifact는 60,082 bytes/characters, 같은 head/tail marker, 같은 content SHA-256을 가진다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:process-event:66",
+                "attempt:221742-59006bcd:process-event:55"
+              ],
+              "claimId": "same-controlled-full-output",
+              "claimStatus": "observed",
+              "sequence": 24,
+              "playbackOffsetMs": 30018
+            },
+            {
+              "id": "claim:runtime-overflow-chain",
+              "observedOffsetMs": 30418,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "runtime case는 ToolUse 15, handler process 16, 1,587-character replacement ToolResult 20, terminal success 65로 이어진다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:15",
+                "attempt:221711-cf0efe19:process-event:16",
+                "attempt:221711-cf0efe19:sdk-message:20",
+                "attempt:221711-cf0efe19:sdk-message:65"
+              ],
+              "claimId": "runtime-overflow-chain",
+              "claimStatus": "observed",
+              "sequence": 25,
+              "playbackOffsetMs": 30418
+            },
+            {
+              "id": "claim:runtime-spill-read-back",
+              "observedOffsetMs": 30818,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "capture host는 정리 전에 runtime이 보고한 file을 열어 size, marker, hash를 검증하고 content-addressed evidence copy로 보존했다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:process-event:66"
+              ],
+              "claimId": "runtime-spill-read-back",
+              "claimStatus": "observed",
+              "sequence": 26,
+              "playbackOffsetMs": 30818
+            },
+            {
+              "id": "claim:host-persisted-preview-chain",
+              "observedOffsetMs": 31218,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "host case는 persist process 15, handler process 16, 실제 model-visible 340-character ToolResult 18, terminal success 54로 이어진다.",
+              "sourceRefs": [
+                "attempt:221742-59006bcd:process-event:15",
+                "attempt:221742-59006bcd:process-event:16",
+                "attempt:221742-59006bcd:sdk-message:18",
+                "attempt:221742-59006bcd:sdk-message:54"
+              ],
+              "claimId": "host-persisted-preview-chain",
+              "claimStatus": "observed",
+              "sequence": 27,
+              "playbackOffsetMs": 31218
+            },
+            {
+              "id": "claim:error-text-flag-and-terminal-state-differ",
+              "observedOffsetMs": 31618,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "runtime ToolResult text는 Error로 시작하지만 block is_error는 null이고 terminal Result는 success, is_error false, completed다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:20",
+                "attempt:221711-cf0efe19:sdk-message:65",
+                "attempt:221711-cf0efe19:process-event:67"
+              ],
+              "claimId": "error-text-flag-and-terminal-state-differ",
+              "claimStatus": "observed",
+              "sequence": 28,
+              "playbackOffsetMs": 31618
+            },
+            {
+              "id": "claim:token-surfaces-recorded",
+              "observedOffsetMs": 32018,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "두 run은 stream thinking estimate, terminal API usage, Opus 5와 Haiku 4.5의 model-indexed provider usage를 별도 필드로 기록했다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:24",
+                "attempt:221711-cf0efe19:sdk-message:30",
+                "attempt:221711-cf0efe19:sdk-message:65",
+                "attempt:221742-59006bcd:sdk-message:24",
+                "attempt:221742-59006bcd:sdk-message:26",
+                "attempt:221742-59006bcd:sdk-message:54"
+              ],
+              "claimId": "token-surfaces-recorded",
+              "claimStatus": "observed",
+              "sequence": 29,
+              "playbackOffsetMs": 32018
+            },
+            {
+              "id": "claim:raw-and-otel-sequences-align",
+              "observedOffsetMs": 32418,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "runtime raw SDK 64개와 host raw SDK 52개는 각 OTel sdk.message sequence와 정확히 일치하고 두 trace는 71/59 span을 가진다.",
+              "sourceRefs": [
+                "spec:claims:raw-and-otel-sequences-align"
+              ],
+              "claimId": "raw-and-otel-sequences-align",
+              "claimStatus": "observed",
+              "sequence": 30,
+              "playbackOffsetMs": 32418
+            },
+            {
+              "id": "claim:single-point-is-not-exact-50k-boundary",
+              "observedOffsetMs": 32818,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "60,082-character 한 지점의 외부화는 exact 50,000-character threshold를 확정하지 않는다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:process-event:16",
+                "attempt:221711-cf0efe19:sdk-message:20"
+              ],
+              "claimId": "single-point-is-not-exact-50k-boundary",
+              "claimStatus": "correction_required",
+              "sequence": 31,
+              "playbackOffsetMs": 32818
+            },
+            {
+              "id": "claim:aggregate-200k-limit-not-observed",
+              "observedOffsetMs": 33218,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "같은 turn에서 여러 tool result를 합산하는 workload를 실행하지 않았으므로 200K aggregate limit을 관찰 사실로 쓸 수 없다.",
+              "sourceRefs": [
+                "spec:claims:aggregate-200k-limit-not-observed"
+              ],
+              "claimId": "aggregate-200k-limit-not-observed",
+              "claimStatus": "correction_required",
+              "sequence": 32,
+              "playbackOffsetMs": 33218
+            },
+            {
+              "id": "claim:characters-bytes-repr-and-tokens-differ",
+              "observedOffsetMs": 33618,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "이번 ASCII artifact의 bytes와 characters가 같아도 character, byte, Python representation, API token은 서로 다른 단위다. host ToolResult는 실제 text 340, representation 376이다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:process-event:66",
+                "attempt:221742-59006bcd:sdk-message:18",
+                "attempt:221742-59006bcd:process-event:55"
+              ],
+              "claimId": "characters-bytes-repr-and-tokens-differ",
+              "claimStatus": "correction_required",
+              "sequence": 33,
+              "playbackOffsetMs": 33618
+            },
+            {
+              "id": "claim:sdk-files-persisted-event-is-not-current-python-type",
+              "observedOffsetMs": 34018,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "Python Agent SDK 0.2.128은 SDKFilesPersistedEvent를 export하지 않고 두 run에도 전용 persisted SystemMessage가 없다.",
+              "sourceRefs": [
+                "spec:claims:sdk-files-persisted-event-is-not-current-python-type"
+              ],
+              "claimId": "sdk-files-persisted-event-is-not-current-python-type",
+              "claimStatus": "correction_required",
+              "sequence": 34,
+              "playbackOffsetMs": 34018
+            },
+            {
+              "id": "claim:overflow-text-is-not-run-failure",
+              "observedOffsetMs": 34418,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "overflow notice의 Error prefix를 ToolResult error flag 또는 terminal run failure와 합치면 안 된다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:20",
+                "attempt:221711-cf0efe19:sdk-message:65"
+              ],
+              "claimId": "overflow-text-is-not-run-failure",
+              "claimStatus": "correction_required",
+              "sequence": 35,
+              "playbackOffsetMs": 34418
+            },
+            {
+              "id": "claim:model-attribution-is-not-host-ownership-proof",
+              "observedOffsetMs": 34818,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "runtime final의 host tool policy attribution은 handler가 write하지 않았다는 controlled process evidence와 충돌하므로 소유권 증거로 쓰지 않는다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:process-event:16",
+                "attempt:221711-cf0efe19:process-event:66",
+                "attempt:221711-cf0efe19:sdk-message:65"
+              ],
+              "claimId": "model-attribution-is-not-host-ownership-proof",
+              "claimStatus": "correction_required",
+              "sequence": 36,
+              "playbackOffsetMs": 34818
+            },
+            {
+              "id": "claim:exact-internal-writer-is-not-observed",
+              "observedOffsetMs": 35218,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "controlled handler 뒤와 model ToolResult 앞의 pipeline 외부화는 관찰했지만 전용 event가 없어 숨은 내부 writer component는 특정하지 않는다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:process-event:16",
+                "attempt:221711-cf0efe19:sdk-message:20",
+                "attempt:221711-cf0efe19:process-event:66"
+              ],
+              "claimId": "exact-internal-writer-is-not-observed",
+              "claimStatus": "correction_required",
+              "sequence": 37,
+              "playbackOffsetMs": 35218
+            },
+            {
+              "id": "claim:host-self-report-is-not-disk-proof",
+              "observedOffsetMs": 35618,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "preview의 path/hash 자기보고가 아니라 host process event와 capture-time disk read-back이 persistence를 증명한다.",
+              "sourceRefs": [
+                "attempt:221742-59006bcd:process-event:15",
+                "attempt:221742-59006bcd:sdk-message:18",
+                "attempt:221742-59006bcd:process-event:55"
+              ],
+              "claimId": "host-self-report-is-not-disk-proof",
+              "claimStatus": "correction_required",
+              "sequence": 38,
+              "playbackOffsetMs": 35618
+            },
+            {
+              "id": "claim:thinking-estimate-is-not-terminal-usage",
+              "observedOffsetMs": 36018,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "thinking_tokens의 estimated_tokens는 stream 추정 신호이며 terminal API input/output usage나 billing count가 아니다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:30",
+                "attempt:221711-cf0efe19:sdk-message:65",
+                "attempt:221742-59006bcd:sdk-message:26",
+                "attempt:221742-59006bcd:sdk-message:54"
+              ],
+              "claimId": "thinking-estimate-is-not-terminal-usage",
+              "claimStatus": "correction_required",
+              "sequence": 39,
+              "playbackOffsetMs": 36018
+            },
+            {
+              "id": "claim:primary-opus-is-not-only-provider-usage",
+              "observedOffsetMs": 36418,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "primary assistant model은 Opus 5지만 두 terminal model_usage에는 Haiku 4.5도 있어 전체 provider usage를 Opus 하나로 쓰면 안 된다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:65",
+                "attempt:221742-59006bcd:sdk-message:54"
+              ],
+              "claimId": "primary-opus-is-not-only-provider-usage",
+              "claimStatus": "correction_required",
+              "sequence": 40,
+              "playbackOffsetMs": 36418
+            },
+            {
+              "id": "claim:two-run-usage-difference-is-not-general-savings",
+              "observedOffsetMs": 36818,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "두 independent run의 usage 차이에는 answer 길이와 cache 상태가 섞여 있어 persisted-preview의 일반 비용 절감률로 확대할 수 없다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:65",
+                "attempt:221742-59006bcd:sdk-message:54"
+              ],
+              "claimId": "two-run-usage-difference-is-not-general-savings",
+              "claimStatus": "correction_required",
+              "sequence": 41,
+              "playbackOffsetMs": 36818
+            },
+            {
+              "id": "claim:captured-is-not-claim-pass",
+              "observedOffsetMs": 37218,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "OTel CAPTURED, assertion count 0, verdict TODO, passed null은 raw 수집 완료와 수동 판독 대기 상태이며 threshold claim pass가 아니다.",
+              "sourceRefs": [
+                "spec:claims:captured-is-not-claim-pass"
+              ],
+              "claimId": "captured-is-not-claim-pass",
+              "claimStatus": "correction_required",
+              "sequence": 42,
+              "playbackOffsetMs": 37218
+            },
+            {
+              "id": "claim:otel-is-not-independent-provider-proof",
+              "observedOffsetMs": 37618,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "같은 recorder가 raw SDK와 process event를 OTel로 투영했으므로 OTel을 독립 provider 관측기로 부르면 안 된다.",
+              "sourceRefs": [
+                "spec:claims:otel-is-not-independent-provider-proof"
+              ],
+              "claimId": "otel-is-not-independent-provider-proof",
+              "claimStatus": "correction_required",
+              "sequence": 43,
+              "playbackOffsetMs": 37618
+            },
+            {
+              "id": "claim:public-projection-must-redact-runtime-identifiers",
+              "observedOffsetMs": 38018,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "runtime overflow text의 로컬 절대경로와 session identifier는 private read-back에만 필요하며 공개 projection에는 content hash와 redacted label만 남긴다.",
+              "sourceRefs": [
+                "spec:claims:public-projection-must-redact-runtime-identifiers"
+              ],
+              "claimId": "public-projection-must-redact-runtime-identifiers",
+              "claimStatus": "correction_required",
+              "sequence": 44,
+              "playbackOffsetMs": 38018
+            },
+            {
+              "id": "claim:exact-boundary-sweep-not-observed",
+              "observedOffsetMs": 38418,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "49K/50K/51K와 서로 다른 token density payload를 순차 실행해 exact boundary와 governing unit를 찾아야 한다.",
+              "sourceRefs": [
+                "spec:claims:exact-boundary-sweep-not-observed"
+              ],
+              "claimId": "exact-boundary-sweep-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 45,
+              "playbackOffsetMs": 38418
+            },
+            {
+              "id": "claim:aggregate-budget-pressure-not-observed",
+              "observedOffsetMs": 38818,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "같은 turn의 여러 tool result가 만드는 aggregate budget pressure는 별도 controlled workload가 필요하다.",
+              "sourceRefs": [
+                "spec:claims:aggregate-budget-pressure-not-observed"
+              ],
+              "claimId": "aggregate-budget-pressure-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 46,
+              "playbackOffsetMs": 38818
+            },
+            {
+              "id": "claim:runtime-spill-lifecycle-not-observed",
+              "observedOffsetMs": 39218,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "runtime 원본 spill file이 session 또는 process cleanup 뒤 얼마나 유지되는지는 관찰하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:runtime-spill-lifecycle-not-observed"
+              ],
+              "claimId": "runtime-spill-lifecycle-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 47,
+              "playbackOffsetMs": 39218
+            },
+            {
+              "id": "claim:messages-api-count-token-comparison-not-observed",
+              "observedOffsetMs": 39618,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "cookbook의 Messages API count_tokens와 Agent SDK runtime usage를 같은 실행 계약으로 비교하는 별도 API-family 실험이 필요하다.",
+              "sourceRefs": [
+                "spec:claims:messages-api-count-token-comparison-not-observed"
+              ],
+              "claimId": "messages-api-count-token-comparison-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 48,
+              "playbackOffsetMs": 39618
+            },
+            {
+              "id": "claim:repeated-cost-latency-distribution-not-observed",
+              "observedOffsetMs": 40018,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "한 쌍의 run은 benchmark가 아니므로 preview 정책의 cost와 latency 분포는 반복 표본이 필요하다.",
+              "sourceRefs": [
+                "spec:claims:repeated-cost-latency-distribution-not-observed"
+              ],
+              "claimId": "repeated-cost-latency-distribution-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 49,
+              "playbackOffsetMs": 40018
+            },
+            {
+              "id": "claim:unicode-unit-separation-not-observed",
+              "observedOffsetMs": 40418,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "Unicode payload로 byte, character, serialized representation, token 단위가 갈라지는 실행을 추가해야 한다.",
+              "sourceRefs": [
+                "spec:claims:unicode-unit-separation-not-observed"
+              ],
+              "claimId": "unicode-unit-separation-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 50,
+              "playbackOffsetMs": 40418
+            }
+          ],
+          "facts": [
+            {
+              "label": "raw source events",
+              "value": "124"
+            },
+            {
+              "label": "public projection",
+              "value": "51"
+            },
+            {
+              "label": "tool uses",
+              "value": "2"
+            },
+            {
+              "label": "tool results",
+              "value": "2"
+            },
+            {
+              "label": "observed claims",
+              "value": "10"
+            },
+            {
+              "label": "needs observation",
+              "value": "6"
+            },
+            {
+              "label": "invalid attempts",
+              "value": "2"
+            },
+            {
+              "label": "proof gate",
+              "value": "accepted_with_notes"
+            }
+          ],
+          "claims": [
+            {
+              "id": "attempt-integrity-files-match",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "두 accepted attempt의 integrity manifest가 열거한 manifest, verdict, raw 4종, OTel, artifact SHA-256 각 8개를 현재 파일에서 다시 계산해 모두 일치했다.",
+              "sourceRefs": [
+                "spec:claims:attempt-integrity-files-match"
+              ]
+            },
+            {
+              "id": "actual-opus-and-serial-execution",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "두 init과 terminal capture는 actual model Opus 5를 기록했고 manifest는 provider concurrency 1을 기록했다. 첫 실행 종료 뒤 두 번째 실행을 시작했다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:manifest:option_summary",
+                "attempt:221742-59006bcd:manifest:option_summary",
+                "attempt:221711-cf0efe19:process-event:67",
+                "attempt:221742-59006bcd:process-event:55"
+              ]
+            },
+            {
+              "id": "four-source-hashes-bound-at-execution",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "두 manifest는 실행 당시 chapter, probe, case, runtime source SHA-256 네 개를 묶었고 실행 직후 파일 hash와 일치했다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:manifest:option_summary",
+                "attempt:221742-59006bcd:manifest:option_summary"
+              ]
+            },
+            {
+              "id": "same-controlled-full-output",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "두 case의 accepted artifact는 60,082 bytes/characters, 같은 head/tail marker, 같은 content SHA-256을 가진다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:process-event:66",
+                "attempt:221742-59006bcd:process-event:55"
+              ]
+            },
+            {
+              "id": "runtime-overflow-chain",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "runtime case는 ToolUse 15, handler process 16, 1,587-character replacement ToolResult 20, terminal success 65로 이어진다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:15",
+                "attempt:221711-cf0efe19:process-event:16",
+                "attempt:221711-cf0efe19:sdk-message:20",
+                "attempt:221711-cf0efe19:sdk-message:65"
+              ]
+            },
+            {
+              "id": "runtime-spill-read-back",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "capture host는 정리 전에 runtime이 보고한 file을 열어 size, marker, hash를 검증하고 content-addressed evidence copy로 보존했다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:process-event:66"
+              ]
+            },
+            {
+              "id": "host-persisted-preview-chain",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "host case는 persist process 15, handler process 16, 실제 model-visible 340-character ToolResult 18, terminal success 54로 이어진다.",
+              "sourceRefs": [
+                "attempt:221742-59006bcd:process-event:15",
+                "attempt:221742-59006bcd:process-event:16",
+                "attempt:221742-59006bcd:sdk-message:18",
+                "attempt:221742-59006bcd:sdk-message:54"
+              ]
+            },
+            {
+              "id": "error-text-flag-and-terminal-state-differ",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "runtime ToolResult text는 Error로 시작하지만 block is_error는 null이고 terminal Result는 success, is_error false, completed다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:20",
+                "attempt:221711-cf0efe19:sdk-message:65",
+                "attempt:221711-cf0efe19:process-event:67"
+              ]
+            },
+            {
+              "id": "token-surfaces-recorded",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "두 run은 stream thinking estimate, terminal API usage, Opus 5와 Haiku 4.5의 model-indexed provider usage를 별도 필드로 기록했다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:24",
+                "attempt:221711-cf0efe19:sdk-message:30",
+                "attempt:221711-cf0efe19:sdk-message:65",
+                "attempt:221742-59006bcd:sdk-message:24",
+                "attempt:221742-59006bcd:sdk-message:26",
+                "attempt:221742-59006bcd:sdk-message:54"
+              ]
+            },
+            {
+              "id": "raw-and-otel-sequences-align",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "runtime raw SDK 64개와 host raw SDK 52개는 각 OTel sdk.message sequence와 정확히 일치하고 두 trace는 71/59 span을 가진다.",
+              "sourceRefs": [
+                "spec:claims:raw-and-otel-sequences-align"
+              ]
+            },
+            {
+              "id": "single-point-is-not-exact-50k-boundary",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "60,082-character 한 지점의 외부화는 exact 50,000-character threshold를 확정하지 않는다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:process-event:16",
+                "attempt:221711-cf0efe19:sdk-message:20"
+              ]
+            },
+            {
+              "id": "aggregate-200k-limit-not-observed",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "같은 turn에서 여러 tool result를 합산하는 workload를 실행하지 않았으므로 200K aggregate limit을 관찰 사실로 쓸 수 없다.",
+              "sourceRefs": [
+                "spec:claims:aggregate-200k-limit-not-observed"
+              ]
+            },
+            {
+              "id": "characters-bytes-repr-and-tokens-differ",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "이번 ASCII artifact의 bytes와 characters가 같아도 character, byte, Python representation, API token은 서로 다른 단위다. host ToolResult는 실제 text 340, representation 376이다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:process-event:66",
+                "attempt:221742-59006bcd:sdk-message:18",
+                "attempt:221742-59006bcd:process-event:55"
+              ]
+            },
+            {
+              "id": "sdk-files-persisted-event-is-not-current-python-type",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "Python Agent SDK 0.2.128은 SDKFilesPersistedEvent를 export하지 않고 두 run에도 전용 persisted SystemMessage가 없다.",
+              "sourceRefs": [
+                "spec:claims:sdk-files-persisted-event-is-not-current-python-type"
+              ]
+            },
+            {
+              "id": "overflow-text-is-not-run-failure",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "overflow notice의 Error prefix를 ToolResult error flag 또는 terminal run failure와 합치면 안 된다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:20",
+                "attempt:221711-cf0efe19:sdk-message:65"
+              ]
+            },
+            {
+              "id": "model-attribution-is-not-host-ownership-proof",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "runtime final의 host tool policy attribution은 handler가 write하지 않았다는 controlled process evidence와 충돌하므로 소유권 증거로 쓰지 않는다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:process-event:16",
+                "attempt:221711-cf0efe19:process-event:66",
+                "attempt:221711-cf0efe19:sdk-message:65"
+              ]
+            },
+            {
+              "id": "exact-internal-writer-is-not-observed",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "controlled handler 뒤와 model ToolResult 앞의 pipeline 외부화는 관찰했지만 전용 event가 없어 숨은 내부 writer component는 특정하지 않는다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:process-event:16",
+                "attempt:221711-cf0efe19:sdk-message:20",
+                "attempt:221711-cf0efe19:process-event:66"
+              ]
+            },
+            {
+              "id": "host-self-report-is-not-disk-proof",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "preview의 path/hash 자기보고가 아니라 host process event와 capture-time disk read-back이 persistence를 증명한다.",
+              "sourceRefs": [
+                "attempt:221742-59006bcd:process-event:15",
+                "attempt:221742-59006bcd:sdk-message:18",
+                "attempt:221742-59006bcd:process-event:55"
+              ]
+            },
+            {
+              "id": "thinking-estimate-is-not-terminal-usage",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "thinking_tokens의 estimated_tokens는 stream 추정 신호이며 terminal API input/output usage나 billing count가 아니다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:30",
+                "attempt:221711-cf0efe19:sdk-message:65",
+                "attempt:221742-59006bcd:sdk-message:26",
+                "attempt:221742-59006bcd:sdk-message:54"
+              ]
+            },
+            {
+              "id": "primary-opus-is-not-only-provider-usage",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "primary assistant model은 Opus 5지만 두 terminal model_usage에는 Haiku 4.5도 있어 전체 provider usage를 Opus 하나로 쓰면 안 된다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:65",
+                "attempt:221742-59006bcd:sdk-message:54"
+              ]
+            },
+            {
+              "id": "two-run-usage-difference-is-not-general-savings",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "두 independent run의 usage 차이에는 answer 길이와 cache 상태가 섞여 있어 persisted-preview의 일반 비용 절감률로 확대할 수 없다.",
+              "sourceRefs": [
+                "attempt:221711-cf0efe19:sdk-message:65",
+                "attempt:221742-59006bcd:sdk-message:54"
+              ]
+            },
+            {
+              "id": "captured-is-not-claim-pass",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "OTel CAPTURED, assertion count 0, verdict TODO, passed null은 raw 수집 완료와 수동 판독 대기 상태이며 threshold claim pass가 아니다.",
+              "sourceRefs": [
+                "spec:claims:captured-is-not-claim-pass"
+              ]
+            },
+            {
+              "id": "otel-is-not-independent-provider-proof",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "같은 recorder가 raw SDK와 process event를 OTel로 투영했으므로 OTel을 독립 provider 관측기로 부르면 안 된다.",
+              "sourceRefs": [
+                "spec:claims:otel-is-not-independent-provider-proof"
+              ]
+            },
+            {
+              "id": "public-projection-must-redact-runtime-identifiers",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "runtime overflow text의 로컬 절대경로와 session identifier는 private read-back에만 필요하며 공개 projection에는 content hash와 redacted label만 남긴다.",
+              "sourceRefs": [
+                "spec:claims:public-projection-must-redact-runtime-identifiers"
+              ]
+            },
+            {
+              "id": "exact-boundary-sweep-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "49K/50K/51K와 서로 다른 token density payload를 순차 실행해 exact boundary와 governing unit를 찾아야 한다.",
+              "sourceRefs": [
+                "spec:claims:exact-boundary-sweep-not-observed"
+              ]
+            },
+            {
+              "id": "aggregate-budget-pressure-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "같은 turn의 여러 tool result가 만드는 aggregate budget pressure는 별도 controlled workload가 필요하다.",
+              "sourceRefs": [
+                "spec:claims:aggregate-budget-pressure-not-observed"
+              ]
+            },
+            {
+              "id": "runtime-spill-lifecycle-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "runtime 원본 spill file이 session 또는 process cleanup 뒤 얼마나 유지되는지는 관찰하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:runtime-spill-lifecycle-not-observed"
+              ]
+            },
+            {
+              "id": "messages-api-count-token-comparison-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "cookbook의 Messages API count_tokens와 Agent SDK runtime usage를 같은 실행 계약으로 비교하는 별도 API-family 실험이 필요하다.",
+              "sourceRefs": [
+                "spec:claims:messages-api-count-token-comparison-not-observed"
+              ]
+            },
+            {
+              "id": "repeated-cost-latency-distribution-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "한 쌍의 run은 benchmark가 아니므로 preview 정책의 cost와 latency 분포는 반복 표본이 필요하다.",
+              "sourceRefs": [
+                "spec:claims:repeated-cost-latency-distribution-not-observed"
+              ]
+            },
+            {
+              "id": "unicode-unit-separation-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "Unicode payload로 byte, character, serialized representation, token 단위가 갈라지는 실행을 추가해야 한다.",
+              "sourceRefs": [
+                "spec:claims:unicode-unit-separation-not-observed"
               ]
             }
           ]
