@@ -29,6 +29,20 @@ export interface EducationEvidenceEvent {
   routeKind?: string
   sender?: string
   target?: string
+  attemptId?: string
+  caseId?: string
+  annotationMode?: string
+  outcome?: string
+  claimId?: string
+  claimStatus?: string
+}
+
+export interface EducationEvidenceClaim {
+  id: string
+  status: 'observed' | 'additional_observation_required' | string
+  evidenceLevel: string
+  summary: string
+  sourceRefs: string[]
 }
 
 export interface EducationEvidenceRun {
@@ -45,6 +59,7 @@ export interface EducationEvidenceRun {
   source: EducationEvidenceSource
   events: EducationEvidenceEvent[]
   facts: Array<{ label: string; value: string }>
+  claims?: EducationEvidenceClaim[]
 }
 
 export interface EducationEvidenceCollection {

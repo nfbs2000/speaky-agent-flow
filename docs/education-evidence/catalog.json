@@ -1,7 +1,7 @@
 {
   "schemaVersion": "education-agent-flow.v1",
   "courseId": "book-sdk-ko",
-  "generatedAt": "2026-07-31T03:20:14.019Z",
+  "generatedAt": "2026-08-03T06:53:00.561Z",
   "publicationPolicy": "Whitelisted normalized evidence only; no mock fallback.",
   "collections": [
     {
@@ -525,7 +525,11 @@
           ],
           "facts": [
             {
-              "label": "source events",
+              "label": "raw source events",
+              "value": "38"
+            },
+            {
+              "label": "public projection",
               "value": "38"
             },
             {
@@ -537,10 +541,23 @@
               "value": "0"
             },
             {
-              "label": "permissions",
+              "label": "observed claims",
               "value": "0"
+            },
+            {
+              "label": "needs observation",
+              "value": "0"
+            },
+            {
+              "label": "invalid attempts",
+              "value": "0"
+            },
+            {
+              "label": "proof gate",
+              "value": "not recorded"
             }
-          ]
+          ],
+          "claims": []
         },
         {
           "id": "ch02",
@@ -2777,7 +2794,11 @@
           ],
           "facts": [
             {
-              "label": "source events",
+              "label": "raw source events",
+              "value": "167"
+            },
+            {
+              "label": "public projection",
               "value": "167"
             },
             {
@@ -2789,10 +2810,23 @@
               "value": "7"
             },
             {
-              "label": "permissions",
-              "value": "2"
+              "label": "observed claims",
+              "value": "0"
+            },
+            {
+              "label": "needs observation",
+              "value": "0"
+            },
+            {
+              "label": "invalid attempts",
+              "value": "0"
+            },
+            {
+              "label": "proof gate",
+              "value": "not recorded"
             }
-          ]
+          ],
+          "claims": []
         },
         {
           "id": "ch03",
@@ -7493,7 +7527,11 @@
           ],
           "facts": [
             {
-              "label": "source events",
+              "label": "raw source events",
+              "value": "356"
+            },
+            {
+              "label": "public projection",
               "value": "356"
             },
             {
@@ -7505,4350 +7543,667 @@
               "value": "10"
             },
             {
-              "label": "permissions",
+              "label": "observed claims",
               "value": "0"
+            },
+            {
+              "label": "needs observation",
+              "value": "0"
+            },
+            {
+              "label": "invalid attempts",
+              "value": "0"
+            },
+            {
+              "label": "proof gate",
+              "value": "not recorded"
             }
-          ]
+          ],
+          "claims": []
         },
         {
           "id": "ch04",
-          "title": "4장 도구 실행 오케스트레이션 — 권한, 동시성, 스트리밍, 인터럽트",
-          "description": "Education Shell recorded run session-1778497977826",
-          "status": "recorded_projection",
+          "title": "4장 도구 실행 오케스트레이션: 권한, 동시성, 스트리밍, 인터럽트",
+          "description": "Education Shell recorded run book-sdk-live-20260803",
+          "status": "verified_source",
           "runtime": "claude-agent-sdk",
           "provider": "claude",
-          "model": "claude-sonnet-4-6",
+          "model": "claude-opus-5",
           "chapterSlug": "ch04",
-          "sourceEventCount": 328,
-          "publishedEventCount": 328,
+          "sourceEventCount": 95,
+          "publishedEventCount": 32,
           "source": {
-            "path": "slide/.shared-course-visual/otel-course-runtime/recorded-runs/book-sdk-ko/ch04/2026-05-11T11-14-27-096Z/trace.json",
-            "sha256": "1c4f86631bc6f6a70d690bffba1a4d7cce9aa2f70ca2a64b6d29c775c783176f",
-            "verification": "legacy-recorded-run; source artifacts present",
-            "recordedAt": "2026-05-11T11-14-27-096Z"
+            "path": "slide/.shared-course-visual/otel-course-runtime/recorded-runs/book-sdk-ko/ch04/2026-08-03T05-25-15-785Z/trace.json",
+            "sha256": "658158830a8f0a8742b1bed330341f1688f1f76a9f5f72985a558333df98ef76",
+            "verification": "verified-source-artifact",
+            "recordedAt": "2026-08-03T05:25:15.785Z"
           },
           "events": [
             {
-              "id": "session-1778497977826:prompt.submitted",
+              "id": "book-sdk-live-20260803:prompt",
               "observedOffsetMs": 0,
               "eventType": "prompt.submitted",
               "actor": "user",
               "evidenceLevel": "Configured",
-              "summary": "책 학습 시작: 4장 도구 실행 오케스트레이션 — 권한, 동시성, 스트리밍, 인터럽트 책 트랙: SDK Book 현재 학습 초점: 도구 실행은 어떻게 안전하게 병렬화되는가 이 프롬프트는 런타임 증명 요청이 아니라 학습 시작점이다. 현재 선택된 실험 리포에서 필요한 문서, 코드, 이벤트를 먼저 확인하고 다음만 정리해줘: 1. 이 주제의 핵심 질문과 수업 목표 2. 학습자가 먼저 이해해야 할 개념 3개 3. 실제로 증명하려면 어떤",
+              "summary": "Python Claude Agent SDK에서 read-only 도구, mutation 도구, interrupt의 실제 host 경계를 비교한다.",
               "sourceRefs": [
-                "session-1778497977826:prompt.submitted"
+                "publication-spec:public_prompt"
               ],
               "sequence": 0,
               "playbackOffsetMs": 220
             },
             {
-              "id": "da79880b-a714-4c58-9a8a-e5961ec6b45a",
-              "observedOffsetMs": 700,
-              "eventType": "hook.event",
-              "actor": "runtime",
-              "evidenceLevel": "Observed",
-              "summary": "SessionStart:startup: SessionStart",
-              "sourceRefs": [
-                "da79880b-a714-4c58-9a8a-e5961ec6b45a"
-              ],
-              "sequence": 1,
-              "playbackOffsetMs": 700
-            },
-            {
-              "id": "e53d2f70-0550-4802-a11b-32d8efc25630",
-              "observedOffsetMs": 1400,
-              "eventType": "hook.event",
-              "actor": "runtime",
-              "evidenceLevel": "Observed",
-              "summary": "SessionStart:startup: SessionStart",
-              "sourceRefs": [
-                "e53d2f70-0550-4802-a11b-32d8efc25630"
-              ],
-              "sequence": 2,
-              "playbackOffsetMs": 1400
-            },
-            {
-              "id": "ca655118-ebb0-4a17-98ba-53e130b70140",
-              "observedOffsetMs": 2100,
+              "id": "052242-c66552af:sdk.init",
+              "observedOffsetMs": 2153,
               "eventType": "sdk.init",
               "actor": "runtime",
               "evidenceLevel": "Observed",
-              "summary": "model=claude-sonnet-4-6 permissionMode=bypassPermissions",
+              "summary": "readOnlyHint=true인 두 custom MCP handler: claude-opus-5, Python Agent SDK live run",
               "sourceRefs": [
-                "ca655118-ebb0-4a17-98ba-53e130b70140"
+                "attempt:052242-c66552af:sdk-message:2"
               ],
-              "sequence": 3,
-              "playbackOffsetMs": 2100
+              "attemptId": "052242-c66552af",
+              "caseId": "read-only-handler-overlap",
+              "annotationMode": "read-only",
+              "sequence": 1,
+              "playbackOffsetMs": 2153
             },
             {
-              "id": "56075d27-95aa-4d9b-988e-a0237b130c42",
-              "observedOffsetMs": 2800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "message_start",
-              "sourceRefs": [
-                "56075d27-95aa-4d9b-988e-a0237b130c42"
-              ],
-              "sequence": 4,
-              "playbackOffsetMs": 2800
-            },
-            {
-              "id": "c3154a3a-ee22-4cbb-a98e-cb046373ddee",
-              "observedOffsetMs": 3500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_start",
-              "sourceRefs": [
-                "c3154a3a-ee22-4cbb-a98e-cb046373ddee"
-              ],
-              "sequence": 5,
-              "playbackOffsetMs": 3500
-            },
-            {
-              "id": "b3565719-36ac-42c7-afe6-5fa319a701e7",
-              "observedOffsetMs": 4200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "b3565719-36ac-42c7-afe6-5fa319a701e7"
-              ],
-              "sequence": 6,
-              "playbackOffsetMs": 4200
-            },
-            {
-              "id": "b3d66cc2-e348-4549-9d05-6995687beb3a",
-              "observedOffsetMs": 4900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "b3d66cc2-e348-4549-9d05-6995687beb3a"
-              ],
-              "sequence": 7,
-              "playbackOffsetMs": 4900
-            },
-            {
-              "id": "b7c1841e-4cda-4ab5-ade6-4cc868646035",
-              "observedOffsetMs": 5600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "b7c1841e-4cda-4ab5-ade6-4cc868646035"
-              ],
-              "sequence": 8,
-              "playbackOffsetMs": 5600
-            },
-            {
-              "id": "63aebb0f-d669-4313-be80-2d4edb221073",
-              "observedOffsetMs": 6300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "63aebb0f-d669-4313-be80-2d4edb221073"
-              ],
-              "sequence": 9,
-              "playbackOffsetMs": 6300
-            },
-            {
-              "id": "2f98bdbd-8975-4d64-84c9-09e81d016482",
-              "observedOffsetMs": 7000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "2f98bdbd-8975-4d64-84c9-09e81d016482"
-              ],
-              "sequence": 10,
-              "playbackOffsetMs": 7000
-            },
-            {
-              "id": "b8cc29b8-3ce2-4264-9643-2089808ef8cb",
-              "observedOffsetMs": 7700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "b8cc29b8-3ce2-4264-9643-2089808ef8cb"
-              ],
-              "sequence": 11,
-              "playbackOffsetMs": 7700
-            },
-            {
-              "id": "076035c3-2568-431d-967c-ae7a2b3d7627",
-              "observedOffsetMs": 8400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "076035c3-2568-431d-967c-ae7a2b3d7627"
-              ],
-              "sequence": 12,
-              "playbackOffsetMs": 8400
-            },
-            {
-              "id": "04ba7a77-6b33-4957-adad-12514821000e",
-              "observedOffsetMs": 9100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "04ba7a77-6b33-4957-adad-12514821000e"
-              ],
-              "sequence": 13,
-              "playbackOffsetMs": 9100
-            },
-            {
-              "id": "701b900a-9f10-4832-b5ff-b0aac0ff689d",
-              "observedOffsetMs": 9800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "701b900a-9f10-4832-b5ff-b0aac0ff689d"
-              ],
-              "sequence": 14,
-              "playbackOffsetMs": 9800
-            },
-            {
-              "id": "30b875ad-f0c1-4f24-8863-e1310382f52e",
-              "observedOffsetMs": 10500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "30b875ad-f0c1-4f24-8863-e1310382f52e"
-              ],
-              "sequence": 15,
-              "playbackOffsetMs": 10500
-            },
-            {
-              "id": "d551178e-4c00-4f17-ab9e-da2011fdc2b7",
-              "observedOffsetMs": 11200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "d551178e-4c00-4f17-ab9e-da2011fdc2b7"
-              ],
-              "sequence": 16,
-              "playbackOffsetMs": 11200
-            },
-            {
-              "id": "2f634192-caee-4004-a27a-ea5fc26f92b1",
-              "observedOffsetMs": 11900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "2f634192-caee-4004-a27a-ea5fc26f92b1"
-              ],
-              "sequence": 17,
-              "playbackOffsetMs": 11900
-            },
-            {
-              "id": "fc9ff28e-a18e-4475-8037-a4dcefcbebbb",
-              "observedOffsetMs": 12600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "fc9ff28e-a18e-4475-8037-a4dcefcbebbb"
-              ],
-              "sequence": 18,
-              "playbackOffsetMs": 12600
-            },
-            {
-              "id": "178ef5d0-e6d1-429f-8969-1378a7c1dd20",
-              "observedOffsetMs": 13300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "178ef5d0-e6d1-429f-8969-1378a7c1dd20"
-              ],
-              "sequence": 19,
-              "playbackOffsetMs": 13300
-            },
-            {
-              "id": "8815020b-e58b-4ce9-9b33-da1276f91e30",
-              "observedOffsetMs": 14000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "8815020b-e58b-4ce9-9b33-da1276f91e30"
-              ],
-              "sequence": 20,
-              "playbackOffsetMs": 14000
-            },
-            {
-              "id": "ce408bc5-46b9-4edb-95b8-b0d147f9e5cb",
-              "observedOffsetMs": 14700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "ce408bc5-46b9-4edb-95b8-b0d147f9e5cb"
-              ],
-              "sequence": 21,
-              "playbackOffsetMs": 14700
-            },
-            {
-              "id": "7f3d611a-9c2f-4d72-8354-7fb99bc0d3f6",
-              "observedOffsetMs": 15400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "7f3d611a-9c2f-4d72-8354-7fb99bc0d3f6"
-              ],
-              "sequence": 22,
-              "playbackOffsetMs": 15400
-            },
-            {
-              "id": "10a3f7bf-7fc0-4642-a987-bd5e16d82f5e",
-              "observedOffsetMs": 16100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "10a3f7bf-7fc0-4642-a987-bd5e16d82f5e"
-              ],
-              "sequence": 23,
-              "playbackOffsetMs": 16100
-            },
-            {
-              "id": "c103bfea-52b7-4819-ab61-45d13b23951f",
-              "observedOffsetMs": 16800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "{\"model\":\"claude-sonnet-4-6\",\"id\":\"msg_01Ep5Qn3Zs6sxCPueqAHjj4f\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[{\"type\":\"thinking\",\"thinking\":\"The user is asking me to start a learning session for Chapter 4 of what seems to be an SDK Book a",
-              "sourceRefs": [
-                "c103bfea-52b7-4819-ab61-45d13b23951f"
-              ],
-              "sequence": 24,
-              "playbackOffsetMs": 16800
-            },
-            {
-              "id": "6835bd75-a39c-4506-9ac0-67b24497087d",
-              "observedOffsetMs": 17500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_stop",
-              "sourceRefs": [
-                "6835bd75-a39c-4506-9ac0-67b24497087d"
-              ],
-              "sequence": 25,
-              "playbackOffsetMs": 17500
-            },
-            {
-              "id": "toolu_01NtsfGjnXMhXxeZkLz3fMJ2",
-              "observedOffsetMs": 18200,
+              "id": "052242-c66552af:toolu_014zZrdFqFYZvwdod9AmC8Xv",
+              "observedOffsetMs": 4794,
               "eventType": "tool.use",
               "actor": "claude",
               "evidenceLevel": "Observed",
-              "summary": "Skill {}",
+              "summary": "mcp__orchestration__left_probe {'label': 'left'}",
               "sourceRefs": [
-                "73fd17d7-24b3-49e3-b6ad-95502d0cadd7"
+                "attempt:052242-c66552af:sdk-message:15"
               ],
-              "toolName": "Skill",
-              "toolUseId": "toolu_01NtsfGjnXMhXxeZkLz3fMJ2",
-              "sequence": 26,
-              "playbackOffsetMs": 18200
+              "toolName": "mcp__orchestration__left_probe",
+              "toolUseId": "052242-c66552af:toolu_014zZrdFqFYZvwdod9AmC8Xv",
+              "attemptId": "052242-c66552af",
+              "caseId": "read-only-handler-overlap",
+              "sequence": 2,
+              "playbackOffsetMs": 4794
             },
             {
-              "id": "dd63ea80-1723-4c6f-af84-615fbe62c86f",
-              "observedOffsetMs": 18900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "dd63ea80-1723-4c6f-af84-615fbe62c86f"
-              ],
-              "sequence": 27,
-              "playbackOffsetMs": 18900
-            },
-            {
-              "id": "a1d9acf7-c914-4bbf-a9ef-13396200a49e",
-              "observedOffsetMs": 19600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "a1d9acf7-c914-4bbf-a9ef-13396200a49e"
-              ],
-              "sequence": 28,
-              "playbackOffsetMs": 19600
-            },
-            {
-              "id": "a5582d17-9633-44ce-9b8a-d894b437b015",
-              "observedOffsetMs": 20300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "a5582d17-9633-44ce-9b8a-d894b437b015"
-              ],
-              "sequence": 29,
-              "playbackOffsetMs": 20300
-            },
-            {
-              "id": "c26fc9a0-32c5-478e-b778-18a58729bf80",
-              "observedOffsetMs": 21000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "c26fc9a0-32c5-478e-b778-18a58729bf80"
-              ],
-              "sequence": 30,
-              "playbackOffsetMs": 21000
-            },
-            {
-              "id": "78761d0c-8119-44b5-849e-129d7557459d",
-              "observedOffsetMs": 21700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "78761d0c-8119-44b5-849e-129d7557459d"
-              ],
-              "sequence": 31,
-              "playbackOffsetMs": 21700
-            },
-            {
-              "id": "92f7bf54-33d9-4701-a749-55a647656752",
-              "observedOffsetMs": 22400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "92f7bf54-33d9-4701-a749-55a647656752"
-              ],
-              "sequence": 32,
-              "playbackOffsetMs": 22400
-            },
-            {
-              "id": "toolu_01NtsfGjnXMhXxeZkLz3fMJ2",
-              "observedOffsetMs": 23100,
-              "eventType": "tool.use",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "Skill {\"skill\":\"dashscope-book-context\"}",
-              "sourceRefs": [
-                "cc398c03-2375-4364-91fb-6b53c63a5427"
-              ],
-              "toolName": "Skill",
-              "toolUseId": "toolu_01NtsfGjnXMhXxeZkLz3fMJ2",
-              "sequence": 33,
-              "playbackOffsetMs": 23100
-            },
-            {
-              "id": "f9deb52d-dab7-4cbf-92dc-203e8eaf9f5d",
-              "observedOffsetMs": 23800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_stop",
-              "sourceRefs": [
-                "f9deb52d-dab7-4cbf-92dc-203e8eaf9f5d"
-              ],
-              "sequence": 34,
-              "playbackOffsetMs": 23800
-            },
-            {
-              "id": "11cccffa-d45e-405c-9b18-c03c1e0e4606",
-              "observedOffsetMs": 24500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "message_delta",
-              "sourceRefs": [
-                "11cccffa-d45e-405c-9b18-c03c1e0e4606"
-              ],
-              "sequence": 35,
-              "playbackOffsetMs": 24500
-            },
-            {
-              "id": "toolu_01NtsfGjnXMhXxeZkLz3fMJ2:result",
-              "observedOffsetMs": 25200,
-              "eventType": "tool.result",
-              "actor": "tool",
-              "evidenceLevel": "Observed",
-              "summary": "toolu_01NtsfGjnXMhXxeZkLz3fMJ2",
-              "sourceRefs": [
-                "b13817e9-d2ca-492e-883f-f3a0120892fe"
-              ],
-              "toolUseId": "toolu_01NtsfGjnXMhXxeZkLz3fMJ2",
-              "sequence": 36,
-              "playbackOffsetMs": 25200
-            },
-            {
-              "id": "8f9cf1a0-ac34-49e7-98b0-70fdad079e79",
-              "observedOffsetMs": 25900,
-              "eventType": "hook.event",
-              "actor": "user",
-              "evidenceLevel": "Observed",
-              "summary": "Base directory for this skill: dashscope-book-context#194592j # dashscope Book Context This repository is a book/course target for: ```text /book dashscope ... ``` Project root: ```text vibe-with-claude-code-snapshot-dashscope#35ts9h ``` Ca",
-              "sourceRefs": [
-                "8f9cf1a0-ac34-49e7-98b0-70fdad079e79"
-              ],
-              "sequence": 37,
-              "playbackOffsetMs": 25900
-            },
-            {
-              "id": "7c4c1645-05ce-4832-8bab-159a62dcf921",
-              "observedOffsetMs": 26600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "message_stop",
-              "sourceRefs": [
-                "7c4c1645-05ce-4832-8bab-159a62dcf921"
-              ],
-              "sequence": 38,
-              "playbackOffsetMs": 26600
-            },
-            {
-              "id": "b23ec5b9-f17f-44b8-a67f-5b5db9f63daf",
-              "observedOffsetMs": 27300,
+              "id": "052242-c66552af:handler:a45ffbb736e74dce8f59a20e4aff41ba:start",
+              "observedOffsetMs": 4797,
               "eventType": "hook.event",
               "actor": "runtime",
               "evidenceLevel": "Observed",
-              "summary": "{\"status\":\"allowed\",\"resetsAt\":1778502000,\"rateLimitType\":\"five_hour\",\"overageStatus\":\"rejected\",\"overageDisabledReason\":\"org_level_disabled\",\"isUsingOverage\":false}",
+              "summary": "host handler started: mcp__orchestration__left_probe",
               "sourceRefs": [
-                "b23ec5b9-f17f-44b8-a67f-5b5db9f63daf"
+                "attempt:052242-c66552af:process-event:16"
               ],
-              "sequence": 39,
-              "playbackOffsetMs": 27300
+              "toolName": "mcp__orchestration__left_probe",
+              "attemptId": "052242-c66552af",
+              "sequence": 3,
+              "playbackOffsetMs": 5014
             },
             {
-              "id": "61a87c50-e6c2-4a9e-998c-024f5bf2186b",
-              "observedOffsetMs": 28000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "message_start",
-              "sourceRefs": [
-                "61a87c50-e6c2-4a9e-998c-024f5bf2186b"
-              ],
-              "sequence": 40,
-              "playbackOffsetMs": 28000
-            },
-            {
-              "id": "ad937db7-db35-43b2-9054-c67ecbeaabdf",
-              "observedOffsetMs": 28700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_start",
-              "sourceRefs": [
-                "ad937db7-db35-43b2-9054-c67ecbeaabdf"
-              ],
-              "sequence": 41,
-              "playbackOffsetMs": 28700
-            },
-            {
-              "id": "9b2edb45-359d-421c-81d5-fa77262f55a8",
-              "observedOffsetMs": 29400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "9b2edb45-359d-421c-81d5-fa77262f55a8"
-              ],
-              "sequence": 42,
-              "playbackOffsetMs": 29400
-            },
-            {
-              "id": "270281bb-4431-44ad-9a9e-99ed8c1e44be",
-              "observedOffsetMs": 30100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "270281bb-4431-44ad-9a9e-99ed8c1e44be"
-              ],
-              "sequence": 43,
-              "playbackOffsetMs": 30100
-            },
-            {
-              "id": "c6c51e05-3910-4f13-8de5-46dc45fb8e74",
-              "observedOffsetMs": 30800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "c6c51e05-3910-4f13-8de5-46dc45fb8e74"
-              ],
-              "sequence": 44,
-              "playbackOffsetMs": 30800
-            },
-            {
-              "id": "da40d0fc-8a51-4f3c-b1e4-06c93c52dff9",
-              "observedOffsetMs": 31500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "da40d0fc-8a51-4f3c-b1e4-06c93c52dff9"
-              ],
-              "sequence": 45,
-              "playbackOffsetMs": 31500
-            },
-            {
-              "id": "578bf403-738c-4801-9a30-314881a5775a",
-              "observedOffsetMs": 32200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "578bf403-738c-4801-9a30-314881a5775a"
-              ],
-              "sequence": 46,
-              "playbackOffsetMs": 32200
-            },
-            {
-              "id": "c4434c77-0f17-4578-afbe-ccfeb5431edc",
-              "observedOffsetMs": 32900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "c4434c77-0f17-4578-afbe-ccfeb5431edc"
-              ],
-              "sequence": 47,
-              "playbackOffsetMs": 32900
-            },
-            {
-              "id": "407690c3-1565-47f7-b248-513059f1511e",
-              "observedOffsetMs": 33600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "407690c3-1565-47f7-b248-513059f1511e"
-              ],
-              "sequence": 48,
-              "playbackOffsetMs": 33600
-            },
-            {
-              "id": "e36fcec2-0a56-4990-a344-3ddd77e3c25d",
-              "observedOffsetMs": 34300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "{\"model\":\"claude-sonnet-4-6\",\"id\":\"msg_01GRhkRTMPVTLJb627nMnUfS\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[{\"type\":\"thinking\",\"thinking\":\"The skill says to inspect the current repository first. But the project root mentioned in the ski",
-              "sourceRefs": [
-                "e36fcec2-0a56-4990-a344-3ddd77e3c25d"
-              ],
-              "sequence": 49,
-              "playbackOffsetMs": 34300
-            },
-            {
-              "id": "b762c810-e6e3-4036-8b3c-0873b0dee95e",
-              "observedOffsetMs": 35000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_stop",
-              "sourceRefs": [
-                "b762c810-e6e3-4036-8b3c-0873b0dee95e"
-              ],
-              "sequence": 50,
-              "playbackOffsetMs": 35000
-            },
-            {
-              "id": "toolu_01RNs7qmqsoZ3vMz5AYQWxFx",
-              "observedOffsetMs": 35700,
+              "id": "052242-c66552af:toolu_01HGTG3WHYZ21Yw1QbVy4wvq",
+              "observedOffsetMs": 5188,
               "eventType": "tool.use",
               "actor": "claude",
               "evidenceLevel": "Observed",
-              "summary": "Skill {}",
+              "summary": "mcp__orchestration__right_probe {'label': 'right'}",
               "sourceRefs": [
-                "c3d4cdff-d0e6-4790-bdd9-5ecfddfbd691"
+                "attempt:052242-c66552af:sdk-message:22"
               ],
-              "toolName": "Skill",
-              "toolUseId": "toolu_01RNs7qmqsoZ3vMz5AYQWxFx",
-              "sequence": 51,
-              "playbackOffsetMs": 35700
+              "toolName": "mcp__orchestration__right_probe",
+              "toolUseId": "052242-c66552af:toolu_01HGTG3WHYZ21Yw1QbVy4wvq",
+              "attemptId": "052242-c66552af",
+              "caseId": "read-only-handler-overlap",
+              "sequence": 4,
+              "playbackOffsetMs": 5234
             },
             {
-              "id": "3490fef4-0377-4052-a259-871fefd32a18",
-              "observedOffsetMs": 36400,
+              "id": "052242-c66552af:handler:c64354bcf6b649fa9c851064b2bdc751:start",
+              "observedOffsetMs": 5191,
               "eventType": "hook.event",
-              "actor": "claude",
+              "actor": "runtime",
               "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
+              "summary": "host handler started: mcp__orchestration__right_probe",
               "sourceRefs": [
-                "3490fef4-0377-4052-a259-871fefd32a18"
+                "attempt:052242-c66552af:process-event:23"
               ],
-              "sequence": 52,
-              "playbackOffsetMs": 36400
+              "toolName": "mcp__orchestration__right_probe",
+              "attemptId": "052242-c66552af",
+              "sequence": 5,
+              "playbackOffsetMs": 5454
             },
             {
-              "id": "0ffe043c-5052-49ef-997e-2a3f28713b7a",
-              "observedOffsetMs": 37100,
+              "id": "052242-c66552af:message_stop",
+              "observedOffsetMs": 5233,
               "eventType": "hook.event",
-              "actor": "claude",
+              "actor": "runtime",
               "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
+              "summary": "assistant stream message_stop",
               "sourceRefs": [
-                "0ffe043c-5052-49ef-997e-2a3f28713b7a"
+                "attempt:052242-c66552af:sdk-message:26"
               ],
-              "sequence": 53,
-              "playbackOffsetMs": 37100
+              "attemptId": "052242-c66552af",
+              "sequence": 6,
+              "playbackOffsetMs": 5674
             },
             {
-              "id": "47292906-ab90-469c-9798-043a8c8536c5",
-              "observedOffsetMs": 37800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "47292906-ab90-469c-9798-043a8c8536c5"
-              ],
-              "sequence": 54,
-              "playbackOffsetMs": 37800
-            },
-            {
-              "id": "63eb38bd-f6d7-423f-854c-30b93fa09af5",
-              "observedOffsetMs": 38500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "63eb38bd-f6d7-423f-854c-30b93fa09af5"
-              ],
-              "sequence": 55,
-              "playbackOffsetMs": 38500
-            },
-            {
-              "id": "a10d38cf-30f6-4047-ba18-606f20dc370b",
-              "observedOffsetMs": 39200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "a10d38cf-30f6-4047-ba18-606f20dc370b"
-              ],
-              "sequence": 56,
-              "playbackOffsetMs": 39200
-            },
-            {
-              "id": "7d1cae0f-89ac-48d7-b4c8-113c3851789b",
-              "observedOffsetMs": 39900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "7d1cae0f-89ac-48d7-b4c8-113c3851789b"
-              ],
-              "sequence": 57,
-              "playbackOffsetMs": 39900
-            },
-            {
-              "id": "toolu_01RNs7qmqsoZ3vMz5AYQWxFx",
-              "observedOffsetMs": 40600,
-              "eventType": "tool.use",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "Skill {\"skill\":\"book-sdk-live-visual-prompting\"}",
-              "sourceRefs": [
-                "20abd34d-8156-4d14-a75a-07828bde077f"
-              ],
-              "toolName": "Skill",
-              "toolUseId": "toolu_01RNs7qmqsoZ3vMz5AYQWxFx",
-              "sequence": 58,
-              "playbackOffsetMs": 40600
-            },
-            {
-              "id": "9c8a99da-54a0-4091-9912-66d76afa486d",
-              "observedOffsetMs": 41300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_stop",
-              "sourceRefs": [
-                "9c8a99da-54a0-4091-9912-66d76afa486d"
-              ],
-              "sequence": 59,
-              "playbackOffsetMs": 41300
-            },
-            {
-              "id": "657c12c5-c45a-4268-923b-c506531a4a24",
-              "observedOffsetMs": 42000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "message_delta",
-              "sourceRefs": [
-                "657c12c5-c45a-4268-923b-c506531a4a24"
-              ],
-              "sequence": 60,
-              "playbackOffsetMs": 42000
-            },
-            {
-              "id": "toolu_01RNs7qmqsoZ3vMz5AYQWxFx:result",
-              "observedOffsetMs": 42700,
+              "id": "052242-c66552af:toolu_014zZrdFqFYZvwdod9AmC8Xv:result",
+              "observedOffsetMs": 6050,
               "eventType": "tool.result",
               "actor": "tool",
               "evidenceLevel": "Observed",
-              "summary": "toolu_01RNs7qmqsoZ3vMz5AYQWxFx",
+              "summary": "mcp__orchestration__left_probe: completed (1252.638ms)",
               "sourceRefs": [
-                "76a4ba77-37d8-4f76-9e8f-fca037659a45"
+                "attempt:052242-c66552af:process-event:27"
               ],
-              "toolUseId": "toolu_01RNs7qmqsoZ3vMz5AYQWxFx",
-              "sequence": 61,
-              "playbackOffsetMs": 42700
+              "toolName": "mcp__orchestration__left_probe",
+              "toolUseId": "052242-c66552af:toolu_014zZrdFqFYZvwdod9AmC8Xv",
+              "attemptId": "052242-c66552af",
+              "outcome": "completed",
+              "sequence": 7,
+              "playbackOffsetMs": 6050
             },
             {
-              "id": "100de81b-44ef-4d66-b7f1-add1f6810743",
-              "observedOffsetMs": 43400,
-              "eventType": "hook.event",
-              "actor": "user",
-              "evidenceLevel": "Observed",
-              "summary": "Base directory for this skill: book-sdk-live-visual-prompting#zgffwa # Book SDK Live Visual Prompting Use this skill to turn a `book-sdk-ko` chapter into a decision-ready live visualization prompt. This skill designs the chapter lens. It do",
-              "sourceRefs": [
-                "100de81b-44ef-4d66-b7f1-add1f6810743"
-              ],
-              "sequence": 62,
-              "playbackOffsetMs": 43400
-            },
-            {
-              "id": "ad74a62a-a6c7-40e0-9e81-ece68bfe1b73",
-              "observedOffsetMs": 44100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "message_stop",
-              "sourceRefs": [
-                "ad74a62a-a6c7-40e0-9e81-ece68bfe1b73"
-              ],
-              "sequence": 63,
-              "playbackOffsetMs": 44100
-            },
-            {
-              "id": "1148ff40-1a76-4964-b009-9debc7e7fa9f",
-              "observedOffsetMs": 44800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "message_start",
-              "sourceRefs": [
-                "1148ff40-1a76-4964-b009-9debc7e7fa9f"
-              ],
-              "sequence": 64,
-              "playbackOffsetMs": 44800
-            },
-            {
-              "id": "189e6bcb-6f0a-445f-98a1-1176f40a5073",
-              "observedOffsetMs": 45500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_start",
-              "sourceRefs": [
-                "189e6bcb-6f0a-445f-98a1-1176f40a5073"
-              ],
-              "sequence": 65,
-              "playbackOffsetMs": 45500
-            },
-            {
-              "id": "2acd9d5e-0bb5-4c62-80ec-94beaaa8598e",
-              "observedOffsetMs": 46200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "2acd9d5e-0bb5-4c62-80ec-94beaaa8598e"
-              ],
-              "sequence": 66,
-              "playbackOffsetMs": 46200
-            },
-            {
-              "id": "68f11bb4-4734-481a-8de2-51dbab7e860b",
-              "observedOffsetMs": 46900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "68f11bb4-4734-481a-8de2-51dbab7e860b"
-              ],
-              "sequence": 67,
-              "playbackOffsetMs": 46900
-            },
-            {
-              "id": "1c4ec0af-8caf-4d9d-8156-8d4a10290c71",
-              "observedOffsetMs": 47600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "1c4ec0af-8caf-4d9d-8156-8d4a10290c71"
-              ],
-              "sequence": 68,
-              "playbackOffsetMs": 47600
-            },
-            {
-              "id": "21f96701-b2ae-4b4e-809d-0e15857d4cad",
-              "observedOffsetMs": 48300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "21f96701-b2ae-4b4e-809d-0e15857d4cad"
-              ],
-              "sequence": 69,
-              "playbackOffsetMs": 48300
-            },
-            {
-              "id": "7d64d2e7-5dca-4ecc-ac9a-70ee3bb23daf",
-              "observedOffsetMs": 49000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "7d64d2e7-5dca-4ecc-ac9a-70ee3bb23daf"
-              ],
-              "sequence": 70,
-              "playbackOffsetMs": 49000
-            },
-            {
-              "id": "40287a75-2a62-40f4-819d-f5b89773bf6c",
-              "observedOffsetMs": 49700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "40287a75-2a62-40f4-819d-f5b89773bf6c"
-              ],
-              "sequence": 71,
-              "playbackOffsetMs": 49700
-            },
-            {
-              "id": "b56392e3-1b1b-4fd5-b415-28e0d6b2db27",
-              "observedOffsetMs": 50400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "b56392e3-1b1b-4fd5-b415-28e0d6b2db27"
-              ],
-              "sequence": 72,
-              "playbackOffsetMs": 50400
-            },
-            {
-              "id": "a4b7ab95-cefd-469c-8f31-082aa2930970",
-              "observedOffsetMs": 51100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "a4b7ab95-cefd-469c-8f31-082aa2930970"
-              ],
-              "sequence": 73,
-              "playbackOffsetMs": 51100
-            },
-            {
-              "id": "71607473-8bd5-4e72-98e5-14162fa29068",
-              "observedOffsetMs": 51800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "71607473-8bd5-4e72-98e5-14162fa29068"
-              ],
-              "sequence": 74,
-              "playbackOffsetMs": 51800
-            },
-            {
-              "id": "ac04f727-4099-4846-a357-06b6e038c94c",
-              "observedOffsetMs": 52500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "{\"model\":\"claude-sonnet-4-6\",\"id\":\"msg_01ULgtXcruvNsGNjgvLaU236\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[{\"type\":\"thinking\",\"thinking\":\"Now I have good context. The skill says:\\n- Chapter 4: execution lanes for read-only parallel too",
-              "sourceRefs": [
-                "ac04f727-4099-4846-a357-06b6e038c94c"
-              ],
-              "sequence": 75,
-              "playbackOffsetMs": 52500
-            },
-            {
-              "id": "9e1be6c8-b789-46c0-b9c8-39a4d32cdae5",
-              "observedOffsetMs": 53200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_stop",
-              "sourceRefs": [
-                "9e1be6c8-b789-46c0-b9c8-39a4d32cdae5"
-              ],
-              "sequence": 76,
-              "playbackOffsetMs": 53200
-            },
-            {
-              "id": "e44dc9c2-aa3e-411c-89e5-26267c454dc7",
-              "observedOffsetMs": 53900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_start",
-              "sourceRefs": [
-                "e44dc9c2-aa3e-411c-89e5-26267c454dc7"
-              ],
-              "sequence": 77,
-              "playbackOffsetMs": 53900
-            },
-            {
-              "id": "ceecf08d-1e25-4525-beff-a90c91c57b14",
-              "observedOffsetMs": 54600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "ceecf08d-1e25-4525-beff-a90c91c57b14"
-              ],
-              "sequence": 78,
-              "playbackOffsetMs": 54600
-            },
-            {
-              "id": "07b71a70-8f0c-46a1-911f-5a13ee4fe340",
-              "observedOffsetMs": 55300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "07b71a70-8f0c-46a1-911f-5a13ee4fe340"
-              ],
-              "sequence": 79,
-              "playbackOffsetMs": 55300
-            },
-            {
-              "id": "1ce7d7d7-33cc-4b7d-9bc3-74a38f95da17",
-              "observedOffsetMs": 56000,
-              "eventType": "assistant.text",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "스킬 확인 완료. 이제 실제 repo에서 Chapter 4 소스를 확인한다.",
-              "sourceRefs": [
-                "1ce7d7d7-33cc-4b7d-9bc3-74a38f95da17"
-              ],
-              "sequence": 80,
-              "playbackOffsetMs": 56000
-            },
-            {
-              "id": "9763a5f0-15f1-4872-85ee-a8ca091abefc",
-              "observedOffsetMs": 56700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_stop",
-              "sourceRefs": [
-                "9763a5f0-15f1-4872-85ee-a8ca091abefc"
-              ],
-              "sequence": 81,
-              "playbackOffsetMs": 56700
-            },
-            {
-              "id": "toolu_01V1oAZ6kpRhYxyc3ATkEVHB",
-              "observedOffsetMs": 57400,
-              "eventType": "tool.use",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "Glob {}",
-              "sourceRefs": [
-                "a0276929-1b9b-48b7-b5a8-3e953e54cb1c"
-              ],
-              "toolName": "Glob",
-              "toolUseId": "toolu_01V1oAZ6kpRhYxyc3ATkEVHB",
-              "sequence": 82,
-              "playbackOffsetMs": 57400
-            },
-            {
-              "id": "44e7d262-b3b8-484b-b7fc-7c906d5dd8ed",
-              "observedOffsetMs": 58100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "44e7d262-b3b8-484b-b7fc-7c906d5dd8ed"
-              ],
-              "sequence": 83,
-              "playbackOffsetMs": 58100
-            },
-            {
-              "id": "9d7f1d85-1d9c-4ca9-b291-d2a8a6afb8d1",
-              "observedOffsetMs": 58800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "9d7f1d85-1d9c-4ca9-b291-d2a8a6afb8d1"
-              ],
-              "sequence": 84,
-              "playbackOffsetMs": 58800
-            },
-            {
-              "id": "1136772d-6569-4332-b9c8-e191d135d0e7",
-              "observedOffsetMs": 59500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "1136772d-6569-4332-b9c8-e191d135d0e7"
-              ],
-              "sequence": 85,
-              "playbackOffsetMs": 59500
-            },
-            {
-              "id": "99a2cc4c-9da9-494d-9299-c1533f83623b",
-              "observedOffsetMs": 60200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "99a2cc4c-9da9-494d-9299-c1533f83623b"
-              ],
-              "sequence": 86,
-              "playbackOffsetMs": 60200
-            },
-            {
-              "id": "f71b8909-d4bf-4084-8e85-d26b62f88ff3",
-              "observedOffsetMs": 60900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "f71b8909-d4bf-4084-8e85-d26b62f88ff3"
-              ],
-              "sequence": 87,
-              "playbackOffsetMs": 60900
-            },
-            {
-              "id": "fe427d47-96d0-4c01-825a-a043b543aba4",
-              "observedOffsetMs": 61600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "fe427d47-96d0-4c01-825a-a043b543aba4"
-              ],
-              "sequence": 88,
-              "playbackOffsetMs": 61600
-            },
-            {
-              "id": "toolu_01V1oAZ6kpRhYxyc3ATkEVHB",
-              "observedOffsetMs": 62300,
-              "eventType": "tool.use",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "Glob {\"pattern\":\"docs/book-sdk-ko/src/**\"}",
-              "sourceRefs": [
-                "6e8b4e4f-0a55-42c6-a4d1-978df1c0c890"
-              ],
-              "toolName": "Glob",
-              "toolUseId": "toolu_01V1oAZ6kpRhYxyc3ATkEVHB",
-              "sequence": 89,
-              "playbackOffsetMs": 62300
-            },
-            {
-              "id": "6ee2ecc8-8b6c-4aa8-9dc1-eba143360920",
-              "observedOffsetMs": 63000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_stop",
-              "sourceRefs": [
-                "6ee2ecc8-8b6c-4aa8-9dc1-eba143360920"
-              ],
-              "sequence": 90,
-              "playbackOffsetMs": 63000
-            },
-            {
-              "id": "toolu_01NDfWtUE6NUfYf3apY5bUMK",
-              "observedOffsetMs": 63700,
-              "eventType": "tool.use",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "Glob {}",
-              "sourceRefs": [
-                "37bb392d-2fdf-4a20-ae58-eb4cdc99693b"
-              ],
-              "toolName": "Glob",
-              "toolUseId": "toolu_01NDfWtUE6NUfYf3apY5bUMK",
-              "sequence": 91,
-              "playbackOffsetMs": 63700
-            },
-            {
-              "id": "1c3466a5-96aa-4d67-b091-74d3aa6544a3",
-              "observedOffsetMs": 64400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "1c3466a5-96aa-4d67-b091-74d3aa6544a3"
-              ],
-              "sequence": 92,
-              "playbackOffsetMs": 64400
-            },
-            {
-              "id": "9cac4b5b-d173-49f6-84d8-5c40450fed35",
-              "observedOffsetMs": 65100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "9cac4b5b-d173-49f6-84d8-5c40450fed35"
-              ],
-              "sequence": 93,
-              "playbackOffsetMs": 65100
-            },
-            {
-              "id": "e759e587-7a3d-4931-9eea-1744dfb7fe19",
-              "observedOffsetMs": 65800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "e759e587-7a3d-4931-9eea-1744dfb7fe19"
-              ],
-              "sequence": 94,
-              "playbackOffsetMs": 65800
-            },
-            {
-              "id": "107e591f-0466-48c1-b016-9c2c186700d3",
-              "observedOffsetMs": 66500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "107e591f-0466-48c1-b016-9c2c186700d3"
-              ],
-              "sequence": 95,
-              "playbackOffsetMs": 66500
-            },
-            {
-              "id": "0efe7a8c-addf-4ab1-9c52-f553a079faa9",
-              "observedOffsetMs": 67200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "0efe7a8c-addf-4ab1-9c52-f553a079faa9"
-              ],
-              "sequence": 96,
-              "playbackOffsetMs": 67200
-            },
-            {
-              "id": "c820abcf-4341-45ec-b24c-2931d80b1bcb",
-              "observedOffsetMs": 67900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "c820abcf-4341-45ec-b24c-2931d80b1bcb"
-              ],
-              "sequence": 97,
-              "playbackOffsetMs": 67900
-            },
-            {
-              "id": "toolu_01NDfWtUE6NUfYf3apY5bUMK",
-              "observedOffsetMs": 68600,
-              "eventType": "tool.use",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "Glob {\"pattern\":\"docs/book-sdk-ko/**/*.md\"}",
-              "sourceRefs": [
-                "e2f0bc81-7557-4ce1-9e7f-b24b48fc0c31"
-              ],
-              "toolName": "Glob",
-              "toolUseId": "toolu_01NDfWtUE6NUfYf3apY5bUMK",
-              "sequence": 98,
-              "playbackOffsetMs": 68600
-            },
-            {
-              "id": "d4af0f0b-ce04-424e-9db0-42af04423268",
-              "observedOffsetMs": 69300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_stop",
-              "sourceRefs": [
-                "d4af0f0b-ce04-424e-9db0-42af04423268"
-              ],
-              "sequence": 99,
-              "playbackOffsetMs": 69300
-            },
-            {
-              "id": "4cfb12c2-d348-402c-9cde-fc90b061b413",
-              "observedOffsetMs": 70000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "message_delta",
-              "sourceRefs": [
-                "4cfb12c2-d348-402c-9cde-fc90b061b413"
-              ],
-              "sequence": 100,
-              "playbackOffsetMs": 70000
-            },
-            {
-              "id": "470daab6-8cc7-4791-8584-4dda3b3ff78e",
-              "observedOffsetMs": 70700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "message_stop",
-              "sourceRefs": [
-                "470daab6-8cc7-4791-8584-4dda3b3ff78e"
-              ],
-              "sequence": 101,
-              "playbackOffsetMs": 70700
-            },
-            {
-              "id": "toolu_01NDfWtUE6NUfYf3apY5bUMK:result",
-              "observedOffsetMs": 71400,
+              "id": "052242-c66552af:toolu_01HGTG3WHYZ21Yw1QbVy4wvq:result",
+              "observedOffsetMs": 6444,
               "eventType": "tool.result",
               "actor": "tool",
               "evidenceLevel": "Observed",
-              "summary": "toolu_01NDfWtUE6NUfYf3apY5bUMK",
+              "summary": "mcp__orchestration__right_probe: completed (1253.093ms)",
               "sourceRefs": [
-                "8981b134-3460-4573-bf73-b37e47458b69"
+                "attempt:052242-c66552af:process-event:29"
               ],
-              "toolUseId": "toolu_01NDfWtUE6NUfYf3apY5bUMK",
-              "sequence": 102,
-              "playbackOffsetMs": 71400
+              "toolName": "mcp__orchestration__right_probe",
+              "toolUseId": "052242-c66552af:toolu_01HGTG3WHYZ21Yw1QbVy4wvq",
+              "attemptId": "052242-c66552af",
+              "outcome": "completed",
+              "sequence": 8,
+              "playbackOffsetMs": 6444
             },
             {
-              "id": "toolu_01V1oAZ6kpRhYxyc3ATkEVHB:result",
-              "observedOffsetMs": 72100,
-              "eventType": "tool.result",
-              "actor": "tool",
-              "evidenceLevel": "Observed",
-              "summary": "toolu_01V1oAZ6kpRhYxyc3ATkEVHB",
-              "sourceRefs": [
-                "1d7e3535-e3a0-4514-9522-deb48caeb811"
-              ],
-              "toolUseId": "toolu_01V1oAZ6kpRhYxyc3ATkEVHB",
-              "sequence": 103,
-              "playbackOffsetMs": 72100
-            },
-            {
-              "id": "8200f06c-0148-4117-b254-28ee2a3d9697",
-              "observedOffsetMs": 72800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "message_start",
-              "sourceRefs": [
-                "8200f06c-0148-4117-b254-28ee2a3d9697"
-              ],
-              "sequence": 104,
-              "playbackOffsetMs": 72800
-            },
-            {
-              "id": "65a33b01-40aa-4f41-9821-8e2b81a45054",
-              "observedOffsetMs": 73500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_start",
-              "sourceRefs": [
-                "65a33b01-40aa-4f41-9821-8e2b81a45054"
-              ],
-              "sequence": 105,
-              "playbackOffsetMs": 73500
-            },
-            {
-              "id": "d723a362-9bee-45bc-82a9-5c90d158d5a1",
-              "observedOffsetMs": 74200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "d723a362-9bee-45bc-82a9-5c90d158d5a1"
-              ],
-              "sequence": 106,
-              "playbackOffsetMs": 74200
-            },
-            {
-              "id": "44973135-03e6-4bc4-8295-2ce4777404a6",
-              "observedOffsetMs": 74900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "44973135-03e6-4bc4-8295-2ce4777404a6"
-              ],
-              "sequence": 107,
-              "playbackOffsetMs": 74900
-            },
-            {
-              "id": "476c7530-b448-4ee2-88e9-eeb5caec0cfa",
-              "observedOffsetMs": 75600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "476c7530-b448-4ee2-88e9-eeb5caec0cfa"
-              ],
-              "sequence": 108,
-              "playbackOffsetMs": 75600
-            },
-            {
-              "id": "c691d544-c16e-489a-934c-9a52057c81e5",
-              "observedOffsetMs": 76300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "c691d544-c16e-489a-934c-9a52057c81e5"
-              ],
-              "sequence": 109,
-              "playbackOffsetMs": 76300
-            },
-            {
-              "id": "163d15d4-c4d2-4c65-a918-3b0cf1cb3607",
-              "observedOffsetMs": 77000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "{\"model\":\"claude-sonnet-4-6\",\"id\":\"msg_01VjTgbhMjdzhxkkK6xybACK\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[{\"type\":\"thinking\",\"thinking\":\"Good, I can see there are two Chapter 4 files:\\n- `docs/book-sdk-ko/src/part1/ch04.md`\\n- `docs/b",
-              "sourceRefs": [
-                "163d15d4-c4d2-4c65-a918-3b0cf1cb3607"
-              ],
-              "sequence": 110,
-              "playbackOffsetMs": 77000
-            },
-            {
-              "id": "a568118b-aa9c-42cf-a041-631dc16596b5",
-              "observedOffsetMs": 77700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_stop",
-              "sourceRefs": [
-                "a568118b-aa9c-42cf-a041-631dc16596b5"
-              ],
-              "sequence": 111,
-              "playbackOffsetMs": 77700
-            },
-            {
-              "id": "443cbe54-1273-4f52-9647-4d78a6fa84b2",
-              "observedOffsetMs": 78400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_start",
-              "sourceRefs": [
-                "443cbe54-1273-4f52-9647-4d78a6fa84b2"
-              ],
-              "sequence": 112,
-              "playbackOffsetMs": 78400
-            },
-            {
-              "id": "8c3aef61-fb70-4495-ab4c-aae7d3cb415e",
-              "observedOffsetMs": 79100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "8c3aef61-fb70-4495-ab4c-aae7d3cb415e"
-              ],
-              "sequence": 113,
-              "playbackOffsetMs": 79100
-            },
-            {
-              "id": "085c989b-b776-48bc-b5a8-e2dc58fd5a99",
-              "observedOffsetMs": 79800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "085c989b-b776-48bc-b5a8-e2dc58fd5a99"
-              ],
-              "sequence": 114,
-              "playbackOffsetMs": 79800
-            },
-            {
-              "id": "3427ac32-87fd-4c10-8bbb-6b6d6f5c634e",
-              "observedOffsetMs": 80500,
-              "eventType": "assistant.text",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "Chapter 4 소스 파일이 두 개 있다. 병렬로 읽는다.",
-              "sourceRefs": [
-                "3427ac32-87fd-4c10-8bbb-6b6d6f5c634e"
-              ],
-              "sequence": 115,
-              "playbackOffsetMs": 80500
-            },
-            {
-              "id": "13b596b8-31be-457c-a236-d9860101e484",
-              "observedOffsetMs": 81200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_stop",
-              "sourceRefs": [
-                "13b596b8-31be-457c-a236-d9860101e484"
-              ],
-              "sequence": 116,
-              "playbackOffsetMs": 81200
-            },
-            {
-              "id": "toolu_01P7nMrSWLqc1qVRstWSUTST",
-              "observedOffsetMs": 81900,
-              "eventType": "tool.use",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "Read {}",
-              "sourceRefs": [
-                "e2b38395-8c67-41db-a811-4428381120dc"
-              ],
-              "toolName": "Read",
-              "toolUseId": "toolu_01P7nMrSWLqc1qVRstWSUTST",
-              "sequence": 117,
-              "playbackOffsetMs": 81900
-            },
-            {
-              "id": "c1f7ce10-f3d7-454a-a7e3-8485cbd77fd6",
-              "observedOffsetMs": 82600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "c1f7ce10-f3d7-454a-a7e3-8485cbd77fd6"
-              ],
-              "sequence": 118,
-              "playbackOffsetMs": 82600
-            },
-            {
-              "id": "d7ed6985-9323-4651-9a9d-9f04359cefb3",
-              "observedOffsetMs": 83300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "d7ed6985-9323-4651-9a9d-9f04359cefb3"
-              ],
-              "sequence": 119,
-              "playbackOffsetMs": 83300
-            },
-            {
-              "id": "49b092ea-9a0e-46d9-9ab6-ff60504e103d",
-              "observedOffsetMs": 84000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "49b092ea-9a0e-46d9-9ab6-ff60504e103d"
-              ],
-              "sequence": 120,
-              "playbackOffsetMs": 84000
-            },
-            {
-              "id": "48e136e8-412c-4e8b-8fd7-84c185ecafc8",
-              "observedOffsetMs": 84700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "48e136e8-412c-4e8b-8fd7-84c185ecafc8"
-              ],
-              "sequence": 121,
-              "playbackOffsetMs": 84700
-            },
-            {
-              "id": "fd43dd34-3f54-42cc-974c-b59b4f3944fd",
-              "observedOffsetMs": 85400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "fd43dd34-3f54-42cc-974c-b59b4f3944fd"
-              ],
-              "sequence": 122,
-              "playbackOffsetMs": 85400
-            },
-            {
-              "id": "9a31e4e8-0c36-4f2c-a831-9963b085ac1c",
-              "observedOffsetMs": 86100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "9a31e4e8-0c36-4f2c-a831-9963b085ac1c"
-              ],
-              "sequence": 123,
-              "playbackOffsetMs": 86100
-            },
-            {
-              "id": "f58ef533-4c96-4c5e-9657-e2250f305542",
-              "observedOffsetMs": 86800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "f58ef533-4c96-4c5e-9657-e2250f305542"
-              ],
-              "sequence": 124,
-              "playbackOffsetMs": 86800
-            },
-            {
-              "id": "1c0c6f3e-ad34-40a6-b8ce-5e62437ca965",
-              "observedOffsetMs": 87500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "1c0c6f3e-ad34-40a6-b8ce-5e62437ca965"
-              ],
-              "sequence": 125,
-              "playbackOffsetMs": 87500
-            },
-            {
-              "id": "9419f60c-cf7c-4266-8f9d-63317e174423",
-              "observedOffsetMs": 88200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "9419f60c-cf7c-4266-8f9d-63317e174423"
-              ],
-              "sequence": 126,
-              "playbackOffsetMs": 88200
-            },
-            {
-              "id": "eadcf3ff-a648-42dc-95c2-dea9b60410d5",
-              "observedOffsetMs": 88900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "eadcf3ff-a648-42dc-95c2-dea9b60410d5"
-              ],
-              "sequence": 127,
-              "playbackOffsetMs": 88900
-            },
-            {
-              "id": "bfbec538-c66d-4907-aef6-5465c411f5b3",
-              "observedOffsetMs": 89600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "bfbec538-c66d-4907-aef6-5465c411f5b3"
-              ],
-              "sequence": 128,
-              "playbackOffsetMs": 89600
-            },
-            {
-              "id": "cca64dee-ccd6-457d-a4bc-5a46419461cf",
-              "observedOffsetMs": 90300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "cca64dee-ccd6-457d-a4bc-5a46419461cf"
-              ],
-              "sequence": 129,
-              "playbackOffsetMs": 90300
-            },
-            {
-              "id": "6eb6817c-e904-440c-961f-56d03311df44",
-              "observedOffsetMs": 91000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "6eb6817c-e904-440c-961f-56d03311df44"
-              ],
-              "sequence": 130,
-              "playbackOffsetMs": 91000
-            },
-            {
-              "id": "f0047bd9-1ce2-43a7-bffb-935ddf144e04",
-              "observedOffsetMs": 91700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "f0047bd9-1ce2-43a7-bffb-935ddf144e04"
-              ],
-              "sequence": 131,
-              "playbackOffsetMs": 91700
-            },
-            {
-              "id": "106a7f6d-f609-4014-9b2a-456bf21319bf",
-              "observedOffsetMs": 92400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "106a7f6d-f609-4014-9b2a-456bf21319bf"
-              ],
-              "sequence": 132,
-              "playbackOffsetMs": 92400
-            },
-            {
-              "id": "3a52788e-ee18-49cf-9e52-0f3ff1767884",
-              "observedOffsetMs": 93100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "3a52788e-ee18-49cf-9e52-0f3ff1767884"
-              ],
-              "sequence": 133,
-              "playbackOffsetMs": 93100
-            },
-            {
-              "id": "toolu_01P7nMrSWLqc1qVRstWSUTST",
-              "observedOffsetMs": 93800,
-              "eventType": "tool.use",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "Read {\"file_path\":\"ch04.md#1j9ydkp\"}",
-              "sourceRefs": [
-                "fe41ab04-4628-4001-8167-87eef44cacc6"
-              ],
-              "toolName": "Read",
-              "toolUseId": "toolu_01P7nMrSWLqc1qVRstWSUTST",
-              "sequence": 134,
-              "playbackOffsetMs": 93800
-            },
-            {
-              "id": "6f3da870-6eeb-4f9e-9fb2-666b83169c91",
-              "observedOffsetMs": 94500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_stop",
-              "sourceRefs": [
-                "6f3da870-6eeb-4f9e-9fb2-666b83169c91"
-              ],
-              "sequence": 135,
-              "playbackOffsetMs": 94500
-            },
-            {
-              "id": "toolu_016YSU8CoF2E1e9xcYuyYsMF",
-              "observedOffsetMs": 95200,
-              "eventType": "tool.use",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "Read {}",
-              "sourceRefs": [
-                "b59d06f2-0288-44e0-b19f-a8590f0c764d"
-              ],
-              "toolName": "Read",
-              "toolUseId": "toolu_016YSU8CoF2E1e9xcYuyYsMF",
-              "sequence": 136,
-              "playbackOffsetMs": 95200
-            },
-            {
-              "id": "6c6f5bfa-18a6-4509-8517-ca2628215dbe",
-              "observedOffsetMs": 95900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "6c6f5bfa-18a6-4509-8517-ca2628215dbe"
-              ],
-              "sequence": 137,
-              "playbackOffsetMs": 95900
-            },
-            {
-              "id": "497eed77-ea58-437d-97d6-0210fdac34cb",
-              "observedOffsetMs": 96600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "497eed77-ea58-437d-97d6-0210fdac34cb"
-              ],
-              "sequence": 138,
-              "playbackOffsetMs": 96600
-            },
-            {
-              "id": "toolu_01P7nMrSWLqc1qVRstWSUTST:result",
-              "observedOffsetMs": 97300,
-              "eventType": "tool.result",
-              "actor": "tool",
-              "evidenceLevel": "Observed",
-              "summary": "toolu_01P7nMrSWLqc1qVRstWSUTST",
-              "sourceRefs": [
-                "3cf7c1fa-fbd4-4c6f-a3e6-2ca019f86654"
-              ],
-              "toolUseId": "toolu_01P7nMrSWLqc1qVRstWSUTST",
-              "sequence": 139,
-              "playbackOffsetMs": 97300
-            },
-            {
-              "id": "81ee911b-2e75-473b-96af-9a9a6a385566",
-              "observedOffsetMs": 98000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "81ee911b-2e75-473b-96af-9a9a6a385566"
-              ],
-              "sequence": 140,
-              "playbackOffsetMs": 98000
-            },
-            {
-              "id": "4fead59a-b178-4f36-bbb1-76cec2b76f68",
-              "observedOffsetMs": 98700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "4fead59a-b178-4f36-bbb1-76cec2b76f68"
-              ],
-              "sequence": 141,
-              "playbackOffsetMs": 98700
-            },
-            {
-              "id": "59b9df9e-a1cb-4c13-a701-7afd166cdca5",
-              "observedOffsetMs": 99400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "59b9df9e-a1cb-4c13-a701-7afd166cdca5"
-              ],
-              "sequence": 142,
-              "playbackOffsetMs": 99400
-            },
-            {
-              "id": "cccf158c-3838-47b1-89db-19aa409e6f62",
-              "observedOffsetMs": 100100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "cccf158c-3838-47b1-89db-19aa409e6f62"
-              ],
-              "sequence": 143,
-              "playbackOffsetMs": 100100
-            },
-            {
-              "id": "5c8fcab1-5c54-4009-9282-f50463d0cfc3",
-              "observedOffsetMs": 100800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "5c8fcab1-5c54-4009-9282-f50463d0cfc3"
-              ],
-              "sequence": 144,
-              "playbackOffsetMs": 100800
-            },
-            {
-              "id": "1951e0b7-9d6e-4d4f-bf2a-b08c3b61a31a",
-              "observedOffsetMs": 101500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "1951e0b7-9d6e-4d4f-bf2a-b08c3b61a31a"
-              ],
-              "sequence": 145,
-              "playbackOffsetMs": 101500
-            },
-            {
-              "id": "0d43c1d2-ab11-48f3-8831-a45775991298",
-              "observedOffsetMs": 102200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "0d43c1d2-ab11-48f3-8831-a45775991298"
-              ],
-              "sequence": 146,
-              "playbackOffsetMs": 102200
-            },
-            {
-              "id": "e3eeb3ab-b68c-45c4-814e-ca826b0fb5c6",
-              "observedOffsetMs": 102900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "e3eeb3ab-b68c-45c4-814e-ca826b0fb5c6"
-              ],
-              "sequence": 147,
-              "playbackOffsetMs": 102900
-            },
-            {
-              "id": "6528a696-65d6-415e-bc3f-1c5bab0d58be",
-              "observedOffsetMs": 103600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "6528a696-65d6-415e-bc3f-1c5bab0d58be"
-              ],
-              "sequence": 148,
-              "playbackOffsetMs": 103600
-            },
-            {
-              "id": "569a5f43-2bda-454b-968a-5d6927b2ea20",
-              "observedOffsetMs": 104300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "569a5f43-2bda-454b-968a-5d6927b2ea20"
-              ],
-              "sequence": 149,
-              "playbackOffsetMs": 104300
-            },
-            {
-              "id": "0c3e414e-193b-4e4f-b9b5-c36b5e7cca8c",
-              "observedOffsetMs": 105000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "0c3e414e-193b-4e4f-b9b5-c36b5e7cca8c"
-              ],
-              "sequence": 150,
-              "playbackOffsetMs": 105000
-            },
-            {
-              "id": "38c4463a-d611-4343-8d9d-e1cd43218fa8",
-              "observedOffsetMs": 105700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "38c4463a-d611-4343-8d9d-e1cd43218fa8"
-              ],
-              "sequence": 151,
-              "playbackOffsetMs": 105700
-            },
-            {
-              "id": "72ee688a-bff9-464b-ab55-fdb8f49b4ac8",
-              "observedOffsetMs": 106400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "72ee688a-bff9-464b-ab55-fdb8f49b4ac8"
-              ],
-              "sequence": 152,
-              "playbackOffsetMs": 106400
-            },
-            {
-              "id": "c12f028e-b002-4803-b25f-d7b43ff9d7dd",
-              "observedOffsetMs": 107100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "c12f028e-b002-4803-b25f-d7b43ff9d7dd"
-              ],
-              "sequence": 153,
-              "playbackOffsetMs": 107100
-            },
-            {
-              "id": "toolu_016YSU8CoF2E1e9xcYuyYsMF",
-              "observedOffsetMs": 107800,
-              "eventType": "tool.use",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "Read {\"file_path\":\"ch04b.md#1cblxuj\"}",
-              "sourceRefs": [
-                "995533a7-240c-4174-98be-f8805ff6b584"
-              ],
-              "toolName": "Read",
-              "toolUseId": "toolu_016YSU8CoF2E1e9xcYuyYsMF",
-              "sequence": 154,
-              "playbackOffsetMs": 107800
-            },
-            {
-              "id": "a2bb6bbe-9211-41d8-934a-452ad4eaa57e",
-              "observedOffsetMs": 108500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_stop",
-              "sourceRefs": [
-                "a2bb6bbe-9211-41d8-934a-452ad4eaa57e"
-              ],
-              "sequence": 155,
-              "playbackOffsetMs": 108500
-            },
-            {
-              "id": "f773d806-44f3-4074-a744-3ea6d22e5d2c",
-              "observedOffsetMs": 109200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "message_delta",
-              "sourceRefs": [
-                "f773d806-44f3-4074-a744-3ea6d22e5d2c"
-              ],
-              "sequence": 156,
-              "playbackOffsetMs": 109200
-            },
-            {
-              "id": "toolu_016YSU8CoF2E1e9xcYuyYsMF:result",
-              "observedOffsetMs": 109900,
-              "eventType": "tool.result",
-              "actor": "tool",
-              "evidenceLevel": "Observed",
-              "summary": "toolu_016YSU8CoF2E1e9xcYuyYsMF",
-              "sourceRefs": [
-                "e8e5ce06-5330-4fcf-abcf-8beb0281063d"
-              ],
-              "toolUseId": "toolu_016YSU8CoF2E1e9xcYuyYsMF",
-              "sequence": 157,
-              "playbackOffsetMs": 109900
-            },
-            {
-              "id": "5b137cc3-be07-465a-b830-d379cbb08b06",
-              "observedOffsetMs": 110600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "message_stop",
-              "sourceRefs": [
-                "5b137cc3-be07-465a-b830-d379cbb08b06"
-              ],
-              "sequence": 158,
-              "playbackOffsetMs": 110600
-            },
-            {
-              "id": "ba480fc6-af17-4f7b-ab1d-d83668544f3a",
-              "observedOffsetMs": 111300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "message_start",
-              "sourceRefs": [
-                "ba480fc6-af17-4f7b-ab1d-d83668544f3a"
-              ],
-              "sequence": 159,
-              "playbackOffsetMs": 111300
-            },
-            {
-              "id": "262ff0d2-fdc6-451e-a8c4-5d52b93f273e",
-              "observedOffsetMs": 112000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_start",
-              "sourceRefs": [
-                "262ff0d2-fdc6-451e-a8c4-5d52b93f273e"
-              ],
-              "sequence": 160,
-              "playbackOffsetMs": 112000
-            },
-            {
-              "id": "f0331986-9537-4096-8bf1-39d11b729e8b",
-              "observedOffsetMs": 112700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "f0331986-9537-4096-8bf1-39d11b729e8b"
-              ],
-              "sequence": 161,
-              "playbackOffsetMs": 112700
-            },
-            {
-              "id": "eb01e01f-b60a-4011-b948-b57bb76b4918",
-              "observedOffsetMs": 113400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "eb01e01f-b60a-4011-b948-b57bb76b4918"
-              ],
-              "sequence": 162,
-              "playbackOffsetMs": 113400
-            },
-            {
-              "id": "39aefdba-b5e4-4063-b002-92f8abb4343b",
-              "observedOffsetMs": 114100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "39aefdba-b5e4-4063-b002-92f8abb4343b"
-              ],
-              "sequence": 163,
-              "playbackOffsetMs": 114100
-            },
-            {
-              "id": "dff30736-9ec9-4e89-8f7d-7c56f84b7063",
-              "observedOffsetMs": 114800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "dff30736-9ec9-4e89-8f7d-7c56f84b7063"
-              ],
-              "sequence": 164,
-              "playbackOffsetMs": 114800
-            },
-            {
-              "id": "e681d0ff-1d26-4c21-a518-152c7c14885e",
-              "observedOffsetMs": 115500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "e681d0ff-1d26-4c21-a518-152c7c14885e"
-              ],
-              "sequence": 165,
-              "playbackOffsetMs": 115500
-            },
-            {
-              "id": "3df68ccb-87f7-4afd-b82d-db6f735aa778",
-              "observedOffsetMs": 116200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "3df68ccb-87f7-4afd-b82d-db6f735aa778"
-              ],
-              "sequence": 166,
-              "playbackOffsetMs": 116200
-            },
-            {
-              "id": "7936f97f-f39a-4c7a-b150-3e8a02242373",
-              "observedOffsetMs": 116900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "7936f97f-f39a-4c7a-b150-3e8a02242373"
-              ],
-              "sequence": 167,
-              "playbackOffsetMs": 116900
-            },
-            {
-              "id": "5093bbeb-a1bf-4ab8-84ee-79f7a0279af6",
-              "observedOffsetMs": 117600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "5093bbeb-a1bf-4ab8-84ee-79f7a0279af6"
-              ],
-              "sequence": 168,
-              "playbackOffsetMs": 117600
-            },
-            {
-              "id": "1b323a04-656e-4604-ae5b-b2fc0279a43e",
-              "observedOffsetMs": 118300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "1b323a04-656e-4604-ae5b-b2fc0279a43e"
-              ],
-              "sequence": 169,
-              "playbackOffsetMs": 118300
-            },
-            {
-              "id": "f4964c42-7d8b-4017-9f23-7bfb1a5cc2cd",
-              "observedOffsetMs": 119000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "f4964c42-7d8b-4017-9f23-7bfb1a5cc2cd"
-              ],
-              "sequence": 170,
-              "playbackOffsetMs": 119000
-            },
-            {
-              "id": "87fc8ec4-b383-4e5d-823a-fe07a31d3218",
-              "observedOffsetMs": 119700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "{\"model\":\"claude-sonnet-4-6\",\"id\":\"msg_01B2yCoMjgaLqdBd2pX3WqZm\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[{\"type\":\"thinking\",\"thinking\":\"Now I have both chapter files. The user asked me to:\\n1. Core questions and learning objectives f",
-              "sourceRefs": [
-                "87fc8ec4-b383-4e5d-823a-fe07a31d3218"
-              ],
-              "sequence": 171,
-              "playbackOffsetMs": 119700
-            },
-            {
-              "id": "2b0e6e89-bca9-4fd7-90fa-e3337d1b5351",
-              "observedOffsetMs": 120400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_stop",
-              "sourceRefs": [
-                "2b0e6e89-bca9-4fd7-90fa-e3337d1b5351"
-              ],
-              "sequence": 172,
-              "playbackOffsetMs": 120400
-            },
-            {
-              "id": "26eba86d-611f-4364-b726-73b74d77da84",
-              "observedOffsetMs": 121100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_start",
-              "sourceRefs": [
-                "26eba86d-611f-4364-b726-73b74d77da84"
-              ],
-              "sequence": 173,
-              "playbackOffsetMs": 121100
-            },
-            {
-              "id": "a2cc0e43-ed8d-45d2-ac32-0d9ee3b25d96",
-              "observedOffsetMs": 121800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "a2cc0e43-ed8d-45d2-ac32-0d9ee3b25d96"
-              ],
-              "sequence": 174,
-              "playbackOffsetMs": 121800
-            },
-            {
-              "id": "7ea436c7-d66d-48c7-b624-507b9502c54b",
-              "observedOffsetMs": 122500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "7ea436c7-d66d-48c7-b624-507b9502c54b"
-              ],
-              "sequence": 175,
-              "playbackOffsetMs": 122500
-            },
-            {
-              "id": "e6442667-8bb0-42a6-b62b-895532b23b99",
-              "observedOffsetMs": 123200,
-              "eventType": "assistant.text",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "이제 관련 흔적 파일도 확인한다.",
-              "sourceRefs": [
-                "e6442667-8bb0-42a6-b62b-895532b23b99"
-              ],
-              "sequence": 176,
-              "playbackOffsetMs": 123200
-            },
-            {
-              "id": "2ae005d6-5fe3-4eef-a93a-cd79c51ff287",
-              "observedOffsetMs": 123900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_stop",
-              "sourceRefs": [
-                "2ae005d6-5fe3-4eef-a93a-cd79c51ff287"
-              ],
-              "sequence": 177,
-              "playbackOffsetMs": 123900
-            },
-            {
-              "id": "toolu_01PU7j7JY9gEsgeBhKCtvwgt",
-              "observedOffsetMs": 124600,
-              "eventType": "tool.use",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "Read {}",
-              "sourceRefs": [
-                "35b85b13-6b48-4d53-b400-5118cf6db13f"
-              ],
-              "toolName": "Read",
-              "toolUseId": "toolu_01PU7j7JY9gEsgeBhKCtvwgt",
-              "sequence": 178,
-              "playbackOffsetMs": 124600
-            },
-            {
-              "id": "34697831-67e9-4515-ac23-64eb8d580114",
-              "observedOffsetMs": 125300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "34697831-67e9-4515-ac23-64eb8d580114"
-              ],
-              "sequence": 179,
-              "playbackOffsetMs": 125300
-            },
-            {
-              "id": "78b1e4d8-b3e2-4610-b847-011a6b8ca4b1",
-              "observedOffsetMs": 126000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "78b1e4d8-b3e2-4610-b847-011a6b8ca4b1"
-              ],
-              "sequence": 180,
-              "playbackOffsetMs": 126000
-            },
-            {
-              "id": "5ac596fc-f639-4080-9e8a-ac76ec86ef39",
-              "observedOffsetMs": 126700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "5ac596fc-f639-4080-9e8a-ac76ec86ef39"
-              ],
-              "sequence": 181,
-              "playbackOffsetMs": 126700
-            },
-            {
-              "id": "8352b804-9299-4105-8191-ce3f28ae148f",
-              "observedOffsetMs": 127400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "8352b804-9299-4105-8191-ce3f28ae148f"
-              ],
-              "sequence": 182,
-              "playbackOffsetMs": 127400
-            },
-            {
-              "id": "306821a0-079c-4e64-ae2d-e11cd71f4ca2",
-              "observedOffsetMs": 128100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "306821a0-079c-4e64-ae2d-e11cd71f4ca2"
-              ],
-              "sequence": 183,
-              "playbackOffsetMs": 128100
-            },
-            {
-              "id": "efb51b2f-60ee-4a9b-80be-fe9afda3abbc",
-              "observedOffsetMs": 128800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "efb51b2f-60ee-4a9b-80be-fe9afda3abbc"
-              ],
-              "sequence": 184,
-              "playbackOffsetMs": 128800
-            },
-            {
-              "id": "48a364dd-564d-45d0-a9d0-1abbf0561398",
-              "observedOffsetMs": 129500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "48a364dd-564d-45d0-a9d0-1abbf0561398"
-              ],
-              "sequence": 185,
-              "playbackOffsetMs": 129500
-            },
-            {
-              "id": "9624493a-4431-4657-af63-4a7ab1b0909c",
-              "observedOffsetMs": 130200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "9624493a-4431-4657-af63-4a7ab1b0909c"
-              ],
-              "sequence": 186,
-              "playbackOffsetMs": 130200
-            },
-            {
-              "id": "ac092921-1bdd-471f-baf9-2fec9739c839",
-              "observedOffsetMs": 130900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "ac092921-1bdd-471f-baf9-2fec9739c839"
-              ],
-              "sequence": 187,
-              "playbackOffsetMs": 130900
-            },
-            {
-              "id": "6b734ce8-6aa9-498e-badd-cd97d88b6977",
-              "observedOffsetMs": 131600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "6b734ce8-6aa9-498e-badd-cd97d88b6977"
-              ],
-              "sequence": 188,
-              "playbackOffsetMs": 131600
-            },
-            {
-              "id": "94a15eb9-5869-460a-a652-98202d1b1594",
-              "observedOffsetMs": 132300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "94a15eb9-5869-460a-a652-98202d1b1594"
-              ],
-              "sequence": 189,
-              "playbackOffsetMs": 132300
-            },
-            {
-              "id": "1c2fb11f-129a-4cfa-a072-cda97ba86559",
-              "observedOffsetMs": 133000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "1c2fb11f-129a-4cfa-a072-cda97ba86559"
-              ],
-              "sequence": 190,
-              "playbackOffsetMs": 133000
-            },
-            {
-              "id": "6b6a699b-0f46-4a07-864e-e3b7053691d8",
-              "observedOffsetMs": 133700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "6b6a699b-0f46-4a07-864e-e3b7053691d8"
-              ],
-              "sequence": 191,
-              "playbackOffsetMs": 133700
-            },
-            {
-              "id": "ca19bc0f-8d79-4714-ad7e-7ba451937d40",
-              "observedOffsetMs": 134400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "ca19bc0f-8d79-4714-ad7e-7ba451937d40"
-              ],
-              "sequence": 192,
-              "playbackOffsetMs": 134400
-            },
-            {
-              "id": "bb99ea2d-616f-45b3-8dfb-e11abc6050e9",
-              "observedOffsetMs": 135100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "bb99ea2d-616f-45b3-8dfb-e11abc6050e9"
-              ],
-              "sequence": 193,
-              "playbackOffsetMs": 135100
-            },
-            {
-              "id": "59883ff7-c1f6-4b52-8ba8-c181ade1238b",
-              "observedOffsetMs": 135800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "59883ff7-c1f6-4b52-8ba8-c181ade1238b"
-              ],
-              "sequence": 194,
-              "playbackOffsetMs": 135800
-            },
-            {
-              "id": "4c359d7b-e685-4ab0-a042-9f0669ae3ed6",
-              "observedOffsetMs": 136500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "4c359d7b-e685-4ab0-a042-9f0669ae3ed6"
-              ],
-              "sequence": 195,
-              "playbackOffsetMs": 136500
-            },
-            {
-              "id": "0162cb3f-b803-432f-a6f4-9d974e26e53a",
-              "observedOffsetMs": 137200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "0162cb3f-b803-432f-a6f4-9d974e26e53a"
-              ],
-              "sequence": 196,
-              "playbackOffsetMs": 137200
-            },
-            {
-              "id": "f3fe36f8-d7d1-4b3d-b5cd-182f59135052",
-              "observedOffsetMs": 137900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "f3fe36f8-d7d1-4b3d-b5cd-182f59135052"
-              ],
-              "sequence": 197,
-              "playbackOffsetMs": 137900
-            },
-            {
-              "id": "6b3c5ac3-600b-4841-9752-742091d773f7",
-              "observedOffsetMs": 138600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "6b3c5ac3-600b-4841-9752-742091d773f7"
-              ],
-              "sequence": 198,
-              "playbackOffsetMs": 138600
-            },
-            {
-              "id": "f5732acc-c395-4acc-82b6-137b6d76b99d",
-              "observedOffsetMs": 139300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "f5732acc-c395-4acc-82b6-137b6d76b99d"
-              ],
-              "sequence": 199,
-              "playbackOffsetMs": 139300
-            },
-            {
-              "id": "toolu_01PU7j7JY9gEsgeBhKCtvwgt",
-              "observedOffsetMs": 140000,
-              "eventType": "tool.use",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "Read {\"file_path\":\"f-e2e-traces.md#qf02zt\"}",
-              "sourceRefs": [
-                "c5a3a937-a131-433a-b338-4797a64adf45"
-              ],
-              "toolName": "Read",
-              "toolUseId": "toolu_01PU7j7JY9gEsgeBhKCtvwgt",
-              "sequence": 200,
-              "playbackOffsetMs": 140000
-            },
-            {
-              "id": "37a27549-a9af-499d-91ce-4eed3e3a35e1",
-              "observedOffsetMs": 140700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_stop",
-              "sourceRefs": [
-                "37a27549-a9af-499d-91ce-4eed3e3a35e1"
-              ],
-              "sequence": 201,
-              "playbackOffsetMs": 140700
-            },
-            {
-              "id": "toolu_01R347P8zridkUoo6ccYJPa5",
-              "observedOffsetMs": 141400,
-              "eventType": "tool.use",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "Glob {}",
-              "sourceRefs": [
-                "ecefa29b-420d-4d64-af8a-5789b1b284c0"
-              ],
-              "toolName": "Glob",
-              "toolUseId": "toolu_01R347P8zridkUoo6ccYJPa5",
-              "sequence": 202,
-              "playbackOffsetMs": 141400
-            },
-            {
-              "id": "6891f4a6-3939-4c44-8ed6-dbbf68fb00b3",
-              "observedOffsetMs": 142100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "6891f4a6-3939-4c44-8ed6-dbbf68fb00b3"
-              ],
-              "sequence": 203,
-              "playbackOffsetMs": 142100
-            },
-            {
-              "id": "a8ec68c7-8e1e-4828-932b-2f13190b5437",
-              "observedOffsetMs": 142800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "a8ec68c7-8e1e-4828-932b-2f13190b5437"
-              ],
-              "sequence": 204,
-              "playbackOffsetMs": 142800
-            },
-            {
-              "id": "toolu_01PU7j7JY9gEsgeBhKCtvwgt:result",
-              "observedOffsetMs": 143500,
-              "eventType": "tool.result",
-              "actor": "tool",
-              "evidenceLevel": "Observed",
-              "summary": "toolu_01PU7j7JY9gEsgeBhKCtvwgt",
-              "sourceRefs": [
-                "8fcff80c-13ac-4200-8284-a276990603e1"
-              ],
-              "toolUseId": "toolu_01PU7j7JY9gEsgeBhKCtvwgt",
-              "sequence": 205,
-              "playbackOffsetMs": 143500
-            },
-            {
-              "id": "c7b31d9c-b2d9-4513-a1a8-beed4bc9b9fb",
-              "observedOffsetMs": 144200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "c7b31d9c-b2d9-4513-a1a8-beed4bc9b9fb"
-              ],
-              "sequence": 206,
-              "playbackOffsetMs": 144200
-            },
-            {
-              "id": "360b0133-d718-4b23-979c-fff1954811c6",
-              "observedOffsetMs": 144900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "360b0133-d718-4b23-979c-fff1954811c6"
-              ],
-              "sequence": 207,
-              "playbackOffsetMs": 144900
-            },
-            {
-              "id": "ec586564-7fea-479d-8ac8-0353806f3df7",
-              "observedOffsetMs": 145600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "ec586564-7fea-479d-8ac8-0353806f3df7"
-              ],
-              "sequence": 208,
-              "playbackOffsetMs": 145600
-            },
-            {
-              "id": "6be6a772-6f15-4ac2-b0af-d0e1b373f58a",
-              "observedOffsetMs": 146300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "6be6a772-6f15-4ac2-b0af-d0e1b373f58a"
-              ],
-              "sequence": 209,
-              "playbackOffsetMs": 146300
-            },
-            {
-              "id": "311f3b1f-f585-4665-90aa-853821e4ca6d",
-              "observedOffsetMs": 147000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "311f3b1f-f585-4665-90aa-853821e4ca6d"
-              ],
-              "sequence": 210,
-              "playbackOffsetMs": 147000
-            },
-            {
-              "id": "3c657da3-64f5-4dbc-a1ed-712ea867fe04",
-              "observedOffsetMs": 147700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "3c657da3-64f5-4dbc-a1ed-712ea867fe04"
-              ],
-              "sequence": 211,
-              "playbackOffsetMs": 147700
-            },
-            {
-              "id": "7f34d7f5-3c8c-4d06-88d1-12482e8c7484",
-              "observedOffsetMs": 148400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "7f34d7f5-3c8c-4d06-88d1-12482e8c7484"
-              ],
-              "sequence": 212,
-              "playbackOffsetMs": 148400
-            },
-            {
-              "id": "72686693-8b05-4f48-851d-0d642d54549f",
-              "observedOffsetMs": 149100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "72686693-8b05-4f48-851d-0d642d54549f"
-              ],
-              "sequence": 213,
-              "playbackOffsetMs": 149100
-            },
-            {
-              "id": "39b7b466-6601-4846-828b-1c978d20166b",
-              "observedOffsetMs": 149800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "39b7b466-6601-4846-828b-1c978d20166b"
-              ],
-              "sequence": 214,
-              "playbackOffsetMs": 149800
-            },
-            {
-              "id": "03d4c277-dac0-49b2-bf93-62819653f26d",
-              "observedOffsetMs": 150500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "03d4c277-dac0-49b2-bf93-62819653f26d"
-              ],
-              "sequence": 215,
-              "playbackOffsetMs": 150500
-            },
-            {
-              "id": "toolu_01R347P8zridkUoo6ccYJPa5",
-              "observedOffsetMs": 151200,
-              "eventType": "tool.use",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "Glob {\"pattern\":\"slide/book-superpowers-ko/**/*ch04*\"}",
-              "sourceRefs": [
-                "e955c512-7f1b-49cb-bdd4-360fae4bf169"
-              ],
-              "toolName": "Glob",
-              "toolUseId": "toolu_01R347P8zridkUoo6ccYJPa5",
-              "sequence": 216,
-              "playbackOffsetMs": 151200
-            },
-            {
-              "id": "f2f6692c-4a85-4f05-93b9-0548b010fda8",
-              "observedOffsetMs": 151900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_stop",
-              "sourceRefs": [
-                "f2f6692c-4a85-4f05-93b9-0548b010fda8"
-              ],
-              "sequence": 217,
-              "playbackOffsetMs": 151900
-            },
-            {
-              "id": "6e72dd86-5c5a-4cea-8a7b-bff2bd86d9d8",
-              "observedOffsetMs": 152600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "message_delta",
-              "sourceRefs": [
-                "6e72dd86-5c5a-4cea-8a7b-bff2bd86d9d8"
-              ],
-              "sequence": 218,
-              "playbackOffsetMs": 152600
-            },
-            {
-              "id": "ca990bdf-6a81-4683-a7c6-822bc21bcbd0",
-              "observedOffsetMs": 153300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "message_stop",
-              "sourceRefs": [
-                "ca990bdf-6a81-4683-a7c6-822bc21bcbd0"
-              ],
-              "sequence": 219,
-              "playbackOffsetMs": 153300
-            },
-            {
-              "id": "toolu_01R347P8zridkUoo6ccYJPa5:result",
-              "observedOffsetMs": 154000,
-              "eventType": "tool.result",
-              "actor": "tool",
-              "evidenceLevel": "Observed",
-              "summary": "toolu_01R347P8zridkUoo6ccYJPa5",
-              "sourceRefs": [
-                "8f89a448-db56-443d-8b2f-d052bf5c65a6"
-              ],
-              "toolUseId": "toolu_01R347P8zridkUoo6ccYJPa5",
-              "sequence": 220,
-              "playbackOffsetMs": 154000
-            },
-            {
-              "id": "c09fe2a3-6b68-413c-b228-3ba60f089658",
-              "observedOffsetMs": 154700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "message_start",
-              "sourceRefs": [
-                "c09fe2a3-6b68-413c-b228-3ba60f089658"
-              ],
-              "sequence": 221,
-              "playbackOffsetMs": 154700
-            },
-            {
-              "id": "67c958e5-10d7-41d8-b269-96132ee724b4",
-              "observedOffsetMs": 155400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_start",
-              "sourceRefs": [
-                "67c958e5-10d7-41d8-b269-96132ee724b4"
-              ],
-              "sequence": 222,
-              "playbackOffsetMs": 155400
-            },
-            {
-              "id": "4e9070f1-0625-4730-9b26-4f324d475d06",
-              "observedOffsetMs": 156100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "4e9070f1-0625-4730-9b26-4f324d475d06"
-              ],
-              "sequence": 223,
-              "playbackOffsetMs": 156100
-            },
-            {
-              "id": "883db048-b637-47d9-97fb-0aacb525a1e1",
-              "observedOffsetMs": 156800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "883db048-b637-47d9-97fb-0aacb525a1e1"
-              ],
-              "sequence": 224,
-              "playbackOffsetMs": 156800
-            },
-            {
-              "id": "93bc1540-5262-4319-8311-1030ba1515eb",
-              "observedOffsetMs": 157500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "93bc1540-5262-4319-8311-1030ba1515eb"
-              ],
-              "sequence": 225,
-              "playbackOffsetMs": 157500
-            },
-            {
-              "id": "31688955-b497-4819-89c8-2137832ba18f",
-              "observedOffsetMs": 158200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "31688955-b497-4819-89c8-2137832ba18f"
-              ],
-              "sequence": 226,
-              "playbackOffsetMs": 158200
-            },
-            {
-              "id": "aa648863-f2d1-4888-b593-a86171844aaf",
-              "observedOffsetMs": 158900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "aa648863-f2d1-4888-b593-a86171844aaf"
-              ],
-              "sequence": 227,
-              "playbackOffsetMs": 158900
-            },
-            {
-              "id": "6e7b49ce-6802-46d1-814a-b0668b6cf540",
-              "observedOffsetMs": 159600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "6e7b49ce-6802-46d1-814a-b0668b6cf540"
-              ],
-              "sequence": 228,
-              "playbackOffsetMs": 159600
-            },
-            {
-              "id": "b7e3182c-3263-4f12-bf51-505ca3982ead",
-              "observedOffsetMs": 160300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "b7e3182c-3263-4f12-bf51-505ca3982ead"
-              ],
-              "sequence": 229,
-              "playbackOffsetMs": 160300
-            },
-            {
-              "id": "23629888-7eb1-498e-b3f7-ac5a460314b6",
-              "observedOffsetMs": 161000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "23629888-7eb1-498e-b3f7-ac5a460314b6"
-              ],
-              "sequence": 230,
-              "playbackOffsetMs": 161000
-            },
-            {
-              "id": "2717c9c2-aa54-4cec-a7e3-2ead936f161d",
-              "observedOffsetMs": 161700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "2717c9c2-aa54-4cec-a7e3-2ead936f161d"
-              ],
-              "sequence": 231,
-              "playbackOffsetMs": 161700
-            },
-            {
-              "id": "de3c8370-fc8a-4a34-958b-3c384c059955",
-              "observedOffsetMs": 162400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "de3c8370-fc8a-4a34-958b-3c384c059955"
-              ],
-              "sequence": 232,
-              "playbackOffsetMs": 162400
-            },
-            {
-              "id": "de285ec6-1762-4b2d-9bfe-f36d309ae5e4",
-              "observedOffsetMs": 163100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "de285ec6-1762-4b2d-9bfe-f36d309ae5e4"
-              ],
-              "sequence": 233,
-              "playbackOffsetMs": 163100
-            },
-            {
-              "id": "565e974c-a127-49ea-bf1b-7287d1e032b6",
-              "observedOffsetMs": 163800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "565e974c-a127-49ea-bf1b-7287d1e032b6"
-              ],
-              "sequence": 234,
-              "playbackOffsetMs": 163800
-            },
-            {
-              "id": "9f9a69bd-c59a-4f9d-b27c-d2f723e9a796",
-              "observedOffsetMs": 164500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "9f9a69bd-c59a-4f9d-b27c-d2f723e9a796"
-              ],
-              "sequence": 235,
-              "playbackOffsetMs": 164500
-            },
-            {
-              "id": "4cf46511-8d38-494b-a231-b26929b79c8e",
-              "observedOffsetMs": 165200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "4cf46511-8d38-494b-a231-b26929b79c8e"
-              ],
-              "sequence": 236,
-              "playbackOffsetMs": 165200
-            },
-            {
-              "id": "bb358a6f-c122-4a5d-9783-36c3c692f22b",
-              "observedOffsetMs": 165900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "bb358a6f-c122-4a5d-9783-36c3c692f22b"
-              ],
-              "sequence": 237,
-              "playbackOffsetMs": 165900
-            },
-            {
-              "id": "31baaf27-525f-42bd-9507-e84095f1e28a",
-              "observedOffsetMs": 166600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "31baaf27-525f-42bd-9507-e84095f1e28a"
-              ],
-              "sequence": 238,
-              "playbackOffsetMs": 166600
-            },
-            {
-              "id": "d4628b22-847c-4da7-b411-e83a32a10d09",
-              "observedOffsetMs": 167300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "{\"model\":\"claude-sonnet-4-6\",\"id\":\"msg_01DJTKaNRFUoyEU2nHEYoZ8S\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[{\"type\":\"thinking\",\"thinking\":\"Now I have good context from the actual files. Let me summarize what I've read and provide the re",
-              "sourceRefs": [
-                "d4628b22-847c-4da7-b411-e83a32a10d09"
-              ],
-              "sequence": 239,
-              "playbackOffsetMs": 167300
-            },
-            {
-              "id": "c7fc42ea-af26-46e4-85e9-3b669a083d4d",
-              "observedOffsetMs": 168000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_stop",
-              "sourceRefs": [
-                "c7fc42ea-af26-46e4-85e9-3b669a083d4d"
-              ],
-              "sequence": 240,
-              "playbackOffsetMs": 168000
-            },
-            {
-              "id": "a1197917-5aee-4cc5-86f0-c0c66c08da3e",
-              "observedOffsetMs": 168700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_start",
-              "sourceRefs": [
-                "a1197917-5aee-4cc5-86f0-c0c66c08da3e"
-              ],
-              "sequence": 241,
-              "playbackOffsetMs": 168700
-            },
-            {
-              "id": "a4f901d7-5842-4d52-bcc2-a60d20fd4292",
-              "observedOffsetMs": 169400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "a4f901d7-5842-4d52-bcc2-a60d20fd4292"
-              ],
-              "sequence": 242,
-              "playbackOffsetMs": 169400
-            },
-            {
-              "id": "b2352ece-4553-43de-8726-c919020dab8b",
-              "observedOffsetMs": 170100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "b2352ece-4553-43de-8726-c919020dab8b"
-              ],
-              "sequence": 243,
-              "playbackOffsetMs": 170100
-            },
-            {
-              "id": "814325da-7ebd-472f-95fe-ad57ae2ad149",
-              "observedOffsetMs": 170800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "814325da-7ebd-472f-95fe-ad57ae2ad149"
-              ],
-              "sequence": 244,
-              "playbackOffsetMs": 170800
-            },
-            {
-              "id": "72374367-98cd-4162-ab9d-5011405e9e61",
-              "observedOffsetMs": 171500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "72374367-98cd-4162-ab9d-5011405e9e61"
-              ],
-              "sequence": 245,
-              "playbackOffsetMs": 171500
-            },
-            {
-              "id": "1623f87c-920c-4980-a299-d41135b6fe92",
-              "observedOffsetMs": 172200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "1623f87c-920c-4980-a299-d41135b6fe92"
-              ],
-              "sequence": 246,
-              "playbackOffsetMs": 172200
-            },
-            {
-              "id": "ab9f00ef-bed4-4733-b8a7-5fc84da5daa3",
-              "observedOffsetMs": 172900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "ab9f00ef-bed4-4733-b8a7-5fc84da5daa3"
-              ],
-              "sequence": 247,
-              "playbackOffsetMs": 172900
-            },
-            {
-              "id": "082ae824-7eec-44d3-b586-a418b0275de7",
-              "observedOffsetMs": 173600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "082ae824-7eec-44d3-b586-a418b0275de7"
-              ],
-              "sequence": 248,
-              "playbackOffsetMs": 173600
-            },
-            {
-              "id": "8c44fa50-f98a-4217-b307-ad8375b42a43",
-              "observedOffsetMs": 174300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "8c44fa50-f98a-4217-b307-ad8375b42a43"
-              ],
-              "sequence": 249,
-              "playbackOffsetMs": 174300
-            },
-            {
-              "id": "82ab70db-10dd-44e8-adc8-9838da3bad74",
-              "observedOffsetMs": 175000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "82ab70db-10dd-44e8-adc8-9838da3bad74"
-              ],
-              "sequence": 250,
-              "playbackOffsetMs": 175000
-            },
-            {
-              "id": "e0e3b320-5189-47f6-a2d1-08c30fa199bb",
-              "observedOffsetMs": 175700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "e0e3b320-5189-47f6-a2d1-08c30fa199bb"
-              ],
-              "sequence": 251,
-              "playbackOffsetMs": 175700
-            },
-            {
-              "id": "29714864-d123-468b-a899-228a3534b9c6",
-              "observedOffsetMs": 176400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "29714864-d123-468b-a899-228a3534b9c6"
-              ],
-              "sequence": 252,
-              "playbackOffsetMs": 176400
-            },
-            {
-              "id": "46479962-7dce-46d1-a73e-caa998904029",
-              "observedOffsetMs": 177100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "46479962-7dce-46d1-a73e-caa998904029"
-              ],
-              "sequence": 253,
-              "playbackOffsetMs": 177100
-            },
-            {
-              "id": "382abd09-447e-469f-98d2-d953c2980cc1",
-              "observedOffsetMs": 177800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "382abd09-447e-469f-98d2-d953c2980cc1"
-              ],
-              "sequence": 254,
-              "playbackOffsetMs": 177800
-            },
-            {
-              "id": "2c4d67d2-beab-4fb8-9715-4e2ce4e174c3",
-              "observedOffsetMs": 178500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "2c4d67d2-beab-4fb8-9715-4e2ce4e174c3"
-              ],
-              "sequence": 255,
-              "playbackOffsetMs": 178500
-            },
-            {
-              "id": "129e1684-a2fa-4179-8bc2-f4b812d78967",
-              "observedOffsetMs": 179200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "129e1684-a2fa-4179-8bc2-f4b812d78967"
-              ],
-              "sequence": 256,
-              "playbackOffsetMs": 179200
-            },
-            {
-              "id": "cc32aee9-48fd-4466-9fa4-94d582b56b95",
-              "observedOffsetMs": 179900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "cc32aee9-48fd-4466-9fa4-94d582b56b95"
-              ],
-              "sequence": 257,
-              "playbackOffsetMs": 179900
-            },
-            {
-              "id": "c34b1e0c-98fb-42bd-9a69-4cbd3057f360",
-              "observedOffsetMs": 180600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "c34b1e0c-98fb-42bd-9a69-4cbd3057f360"
-              ],
-              "sequence": 258,
-              "playbackOffsetMs": 180600
-            },
-            {
-              "id": "4bef7984-db37-4701-87a3-b85ee7910bff",
-              "observedOffsetMs": 181300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "4bef7984-db37-4701-87a3-b85ee7910bff"
-              ],
-              "sequence": 259,
-              "playbackOffsetMs": 181300
-            },
-            {
-              "id": "00dea298-77b3-4063-b574-0f3c9a14869e",
-              "observedOffsetMs": 182000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "00dea298-77b3-4063-b574-0f3c9a14869e"
-              ],
-              "sequence": 260,
-              "playbackOffsetMs": 182000
-            },
-            {
-              "id": "a755a106-12d9-464d-9636-2b583933f8b5",
-              "observedOffsetMs": 182700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "a755a106-12d9-464d-9636-2b583933f8b5"
-              ],
-              "sequence": 261,
-              "playbackOffsetMs": 182700
-            },
-            {
-              "id": "323c6332-cd9c-4ced-8db5-dd98e297cf64",
-              "observedOffsetMs": 183400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "323c6332-cd9c-4ced-8db5-dd98e297cf64"
-              ],
-              "sequence": 262,
-              "playbackOffsetMs": 183400
-            },
-            {
-              "id": "82206f83-a17b-4ae2-9019-5a8e1be60c51",
-              "observedOffsetMs": 184100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "82206f83-a17b-4ae2-9019-5a8e1be60c51"
-              ],
-              "sequence": 263,
-              "playbackOffsetMs": 184100
-            },
-            {
-              "id": "2d7dabd1-3e84-491a-97c8-1927745f24cb",
-              "observedOffsetMs": 184800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "2d7dabd1-3e84-491a-97c8-1927745f24cb"
-              ],
-              "sequence": 264,
-              "playbackOffsetMs": 184800
-            },
-            {
-              "id": "fe65ea39-0968-43ee-82aa-da8ac372d19c",
-              "observedOffsetMs": 185500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "fe65ea39-0968-43ee-82aa-da8ac372d19c"
-              ],
-              "sequence": 265,
-              "playbackOffsetMs": 185500
-            },
-            {
-              "id": "0dd885e2-7869-43b3-9996-89488d97a6a1",
-              "observedOffsetMs": 186200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "0dd885e2-7869-43b3-9996-89488d97a6a1"
-              ],
-              "sequence": 266,
-              "playbackOffsetMs": 186200
-            },
-            {
-              "id": "91a440dc-16ad-438b-adb4-c64a3cded8de",
-              "observedOffsetMs": 186900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "91a440dc-16ad-438b-adb4-c64a3cded8de"
-              ],
-              "sequence": 267,
-              "playbackOffsetMs": 186900
-            },
-            {
-              "id": "c4bdc0f7-cf12-4d2d-b022-520129c1a756",
-              "observedOffsetMs": 187600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "c4bdc0f7-cf12-4d2d-b022-520129c1a756"
-              ],
-              "sequence": 268,
-              "playbackOffsetMs": 187600
-            },
-            {
-              "id": "cf842fba-9c7e-4330-88f3-00a182634c1a",
-              "observedOffsetMs": 188300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "cf842fba-9c7e-4330-88f3-00a182634c1a"
-              ],
-              "sequence": 269,
-              "playbackOffsetMs": 188300
-            },
-            {
-              "id": "dd16d018-4980-49e0-8e02-4b384fba210f",
-              "observedOffsetMs": 189000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "dd16d018-4980-49e0-8e02-4b384fba210f"
-              ],
-              "sequence": 270,
-              "playbackOffsetMs": 189000
-            },
-            {
-              "id": "7c863c8b-8112-4c1f-a592-312bac0c2dec",
-              "observedOffsetMs": 189700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "7c863c8b-8112-4c1f-a592-312bac0c2dec"
-              ],
-              "sequence": 271,
-              "playbackOffsetMs": 189700
-            },
-            {
-              "id": "94b9088f-18e2-42ce-896b-279240c00715",
-              "observedOffsetMs": 190400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "94b9088f-18e2-42ce-896b-279240c00715"
-              ],
-              "sequence": 272,
-              "playbackOffsetMs": 190400
-            },
-            {
-              "id": "fdee29db-1656-4501-ab4e-277e658ec000",
-              "observedOffsetMs": 191100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "fdee29db-1656-4501-ab4e-277e658ec000"
-              ],
-              "sequence": 273,
-              "playbackOffsetMs": 191100
-            },
-            {
-              "id": "a08eaf89-ab85-4e02-89b2-8aad49476c92",
-              "observedOffsetMs": 191800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "a08eaf89-ab85-4e02-89b2-8aad49476c92"
-              ],
-              "sequence": 274,
-              "playbackOffsetMs": 191800
-            },
-            {
-              "id": "856d1b36-f31d-4854-8c6a-69f0ee56aace",
-              "observedOffsetMs": 192500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "856d1b36-f31d-4854-8c6a-69f0ee56aace"
-              ],
-              "sequence": 275,
-              "playbackOffsetMs": 192500
-            },
-            {
-              "id": "a91a625d-f225-43b0-bd2e-73420093cdb5",
-              "observedOffsetMs": 193200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "a91a625d-f225-43b0-bd2e-73420093cdb5"
-              ],
-              "sequence": 276,
-              "playbackOffsetMs": 193200
-            },
-            {
-              "id": "9725cb1f-25fb-42be-bf64-f6f9864016d2",
-              "observedOffsetMs": 193900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "9725cb1f-25fb-42be-bf64-f6f9864016d2"
-              ],
-              "sequence": 277,
-              "playbackOffsetMs": 193900
-            },
-            {
-              "id": "437dc5bd-d780-43b6-9727-2200e53c035b",
-              "observedOffsetMs": 194600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "437dc5bd-d780-43b6-9727-2200e53c035b"
-              ],
-              "sequence": 278,
-              "playbackOffsetMs": 194600
-            },
-            {
-              "id": "a502eee8-1b79-4716-be81-c34a89129df0",
-              "observedOffsetMs": 195300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "a502eee8-1b79-4716-be81-c34a89129df0"
-              ],
-              "sequence": 279,
-              "playbackOffsetMs": 195300
-            },
-            {
-              "id": "1372c95f-47f1-4dae-a2c2-f79c46d51852",
-              "observedOffsetMs": 196000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "1372c95f-47f1-4dae-a2c2-f79c46d51852"
-              ],
-              "sequence": 280,
-              "playbackOffsetMs": 196000
-            },
-            {
-              "id": "1a08853b-018d-4733-a6f2-7a25412bd4aa",
-              "observedOffsetMs": 196700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "1a08853b-018d-4733-a6f2-7a25412bd4aa"
-              ],
-              "sequence": 281,
-              "playbackOffsetMs": 196700
-            },
-            {
-              "id": "ceeaf9d8-11ee-455d-948a-865563a18fdb",
-              "observedOffsetMs": 197400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "ceeaf9d8-11ee-455d-948a-865563a18fdb"
-              ],
-              "sequence": 282,
-              "playbackOffsetMs": 197400
-            },
-            {
-              "id": "cbe08ba9-b6f9-46bc-9c78-089cb1bef60d",
-              "observedOffsetMs": 198100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "cbe08ba9-b6f9-46bc-9c78-089cb1bef60d"
-              ],
-              "sequence": 283,
-              "playbackOffsetMs": 198100
-            },
-            {
-              "id": "800de97b-db54-4fa1-81a3-499cfdb976cb",
-              "observedOffsetMs": 198800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "800de97b-db54-4fa1-81a3-499cfdb976cb"
-              ],
-              "sequence": 284,
-              "playbackOffsetMs": 198800
-            },
-            {
-              "id": "a0770f61-cbf0-4b52-b6a1-67c0c28a54d7",
-              "observedOffsetMs": 199500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "a0770f61-cbf0-4b52-b6a1-67c0c28a54d7"
-              ],
-              "sequence": 285,
-              "playbackOffsetMs": 199500
-            },
-            {
-              "id": "9776cf5e-4a79-44d2-8c46-97a0316449e6",
-              "observedOffsetMs": 200200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "9776cf5e-4a79-44d2-8c46-97a0316449e6"
-              ],
-              "sequence": 286,
-              "playbackOffsetMs": 200200
-            },
-            {
-              "id": "89cc8de1-754d-47ca-a011-1f635a04601d",
-              "observedOffsetMs": 200900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "89cc8de1-754d-47ca-a011-1f635a04601d"
-              ],
-              "sequence": 287,
-              "playbackOffsetMs": 200900
-            },
-            {
-              "id": "b371ad0e-9e43-4311-88ad-677b27e795d4",
-              "observedOffsetMs": 201600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "b371ad0e-9e43-4311-88ad-677b27e795d4"
-              ],
-              "sequence": 288,
-              "playbackOffsetMs": 201600
-            },
-            {
-              "id": "055fb0c7-a2c4-4730-abeb-25d1974de53f",
-              "observedOffsetMs": 202300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "055fb0c7-a2c4-4730-abeb-25d1974de53f"
-              ],
-              "sequence": 289,
-              "playbackOffsetMs": 202300
-            },
-            {
-              "id": "20fca4e6-f3d3-4b71-bb53-1f08b63d5e25",
-              "observedOffsetMs": 203000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "20fca4e6-f3d3-4b71-bb53-1f08b63d5e25"
-              ],
-              "sequence": 290,
-              "playbackOffsetMs": 203000
-            },
-            {
-              "id": "0e9956c1-9daa-408a-b4b4-e6ffe2989fde",
-              "observedOffsetMs": 203700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "0e9956c1-9daa-408a-b4b4-e6ffe2989fde"
-              ],
-              "sequence": 291,
-              "playbackOffsetMs": 203700
-            },
-            {
-              "id": "d7cab799-e07e-4746-91cb-9d01d3b67c56",
-              "observedOffsetMs": 204400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "d7cab799-e07e-4746-91cb-9d01d3b67c56"
-              ],
-              "sequence": 292,
-              "playbackOffsetMs": 204400
-            },
-            {
-              "id": "15d1d4c1-aa93-42f6-b112-64ee776f4d9b",
-              "observedOffsetMs": 205100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "15d1d4c1-aa93-42f6-b112-64ee776f4d9b"
-              ],
-              "sequence": 293,
-              "playbackOffsetMs": 205100
-            },
-            {
-              "id": "3823a8bb-1e05-45d4-a018-f8d65d2e52d3",
-              "observedOffsetMs": 205800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "3823a8bb-1e05-45d4-a018-f8d65d2e52d3"
-              ],
-              "sequence": 294,
-              "playbackOffsetMs": 205800
-            },
-            {
-              "id": "953d2e0e-e46d-43aa-aecd-160971458185",
-              "observedOffsetMs": 206500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "953d2e0e-e46d-43aa-aecd-160971458185"
-              ],
-              "sequence": 295,
-              "playbackOffsetMs": 206500
-            },
-            {
-              "id": "5877f0d6-61a2-4825-b7a4-f046152394b9",
-              "observedOffsetMs": 207200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "5877f0d6-61a2-4825-b7a4-f046152394b9"
-              ],
-              "sequence": 296,
-              "playbackOffsetMs": 207200
-            },
-            {
-              "id": "21ccde22-270e-4d08-8e4e-e174d161c0e4",
-              "observedOffsetMs": 207900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "21ccde22-270e-4d08-8e4e-e174d161c0e4"
-              ],
-              "sequence": 297,
-              "playbackOffsetMs": 207900
-            },
-            {
-              "id": "341247ea-c03c-42a2-b451-83e55f7ff734",
-              "observedOffsetMs": 208600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "341247ea-c03c-42a2-b451-83e55f7ff734"
-              ],
-              "sequence": 298,
-              "playbackOffsetMs": 208600
-            },
-            {
-              "id": "016816f6-59c5-483c-b0b8-3591d747ca44",
-              "observedOffsetMs": 209300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "016816f6-59c5-483c-b0b8-3591d747ca44"
-              ],
-              "sequence": 299,
-              "playbackOffsetMs": 209300
-            },
-            {
-              "id": "8e06043e-9095-46d7-a54d-d9682ff0c232",
-              "observedOffsetMs": 210000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "8e06043e-9095-46d7-a54d-d9682ff0c232"
-              ],
-              "sequence": 300,
-              "playbackOffsetMs": 210000
-            },
-            {
-              "id": "fc5c0810-a89a-47ef-8f54-9fa84f93b3b6",
-              "observedOffsetMs": 210700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "fc5c0810-a89a-47ef-8f54-9fa84f93b3b6"
-              ],
-              "sequence": 301,
-              "playbackOffsetMs": 210700
-            },
-            {
-              "id": "a1a27839-560c-43e3-b8da-e9d90518ceda",
-              "observedOffsetMs": 211400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "a1a27839-560c-43e3-b8da-e9d90518ceda"
-              ],
-              "sequence": 302,
-              "playbackOffsetMs": 211400
-            },
-            {
-              "id": "a4c2c210-e99b-41cd-bf7a-d8d994c6d94f",
-              "observedOffsetMs": 212100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "a4c2c210-e99b-41cd-bf7a-d8d994c6d94f"
-              ],
-              "sequence": 303,
-              "playbackOffsetMs": 212100
-            },
-            {
-              "id": "5f7fca36-a574-4243-8fac-6a24355c88ea",
-              "observedOffsetMs": 212800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "5f7fca36-a574-4243-8fac-6a24355c88ea"
-              ],
-              "sequence": 304,
-              "playbackOffsetMs": 212800
-            },
-            {
-              "id": "9fc4fdcc-0f39-484c-9f97-01e5b77d6144",
-              "observedOffsetMs": 213500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "9fc4fdcc-0f39-484c-9f97-01e5b77d6144"
-              ],
-              "sequence": 305,
-              "playbackOffsetMs": 213500
-            },
-            {
-              "id": "07ebf4d6-5e3b-4c95-ba1b-e818bc9b6a1b",
-              "observedOffsetMs": 214200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "07ebf4d6-5e3b-4c95-ba1b-e818bc9b6a1b"
-              ],
-              "sequence": 306,
-              "playbackOffsetMs": 214200
-            },
-            {
-              "id": "756fe9b1-3c96-4f69-993a-0bac27df3f75",
-              "observedOffsetMs": 214900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "756fe9b1-3c96-4f69-993a-0bac27df3f75"
-              ],
-              "sequence": 307,
-              "playbackOffsetMs": 214900
-            },
-            {
-              "id": "bbd92871-975a-4200-9ec4-39f40b7fb4de",
-              "observedOffsetMs": 215600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "bbd92871-975a-4200-9ec4-39f40b7fb4de"
-              ],
-              "sequence": 308,
-              "playbackOffsetMs": 215600
-            },
-            {
-              "id": "b2c1febe-b305-4cf7-9937-a9daa2c05768",
-              "observedOffsetMs": 216300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "b2c1febe-b305-4cf7-9937-a9daa2c05768"
-              ],
-              "sequence": 309,
-              "playbackOffsetMs": 216300
-            },
-            {
-              "id": "d6427d3f-1b2f-473e-b9b8-cd842188f56b",
-              "observedOffsetMs": 217000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "d6427d3f-1b2f-473e-b9b8-cd842188f56b"
-              ],
-              "sequence": 310,
-              "playbackOffsetMs": 217000
-            },
-            {
-              "id": "efc7099d-b0ff-4cd6-8560-4137e173d038",
-              "observedOffsetMs": 217700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "efc7099d-b0ff-4cd6-8560-4137e173d038"
-              ],
-              "sequence": 311,
-              "playbackOffsetMs": 217700
-            },
-            {
-              "id": "795789fa-43cd-4a66-ae34-17df3b8fe89f",
-              "observedOffsetMs": 218400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "795789fa-43cd-4a66-ae34-17df3b8fe89f"
-              ],
-              "sequence": 312,
-              "playbackOffsetMs": 218400
-            },
-            {
-              "id": "e466a142-f9c6-43c3-9f02-e634708d37df",
-              "observedOffsetMs": 219100,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "e466a142-f9c6-43c3-9f02-e634708d37df"
-              ],
-              "sequence": 313,
-              "playbackOffsetMs": 219100
-            },
-            {
-              "id": "4f404edb-7e6e-409d-bc28-71cca015ae59",
-              "observedOffsetMs": 219800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "4f404edb-7e6e-409d-bc28-71cca015ae59"
-              ],
-              "sequence": 314,
-              "playbackOffsetMs": 219800
-            },
-            {
-              "id": "e8cd3f95-da95-457f-9c2e-c526c8d14dae",
-              "observedOffsetMs": 220500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "e8cd3f95-da95-457f-9c2e-c526c8d14dae"
-              ],
-              "sequence": 315,
-              "playbackOffsetMs": 220500
-            },
-            {
-              "id": "9e2bfe4e-3a97-4e9c-bc80-2b00268a2bbb",
-              "observedOffsetMs": 221200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "9e2bfe4e-3a97-4e9c-bc80-2b00268a2bbb"
-              ],
-              "sequence": 316,
-              "playbackOffsetMs": 221200
-            },
-            {
-              "id": "d74c9533-e7d2-4e0b-b181-d911fb7170c0",
-              "observedOffsetMs": 221900,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "d74c9533-e7d2-4e0b-b181-d911fb7170c0"
-              ],
-              "sequence": 317,
-              "playbackOffsetMs": 221900
-            },
-            {
-              "id": "5c48e261-6320-4dc9-954d-0c7258165f60",
-              "observedOffsetMs": 222600,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "5c48e261-6320-4dc9-954d-0c7258165f60"
-              ],
-              "sequence": 318,
-              "playbackOffsetMs": 222600
-            },
-            {
-              "id": "c7f2c37c-0cb5-4a73-a66c-afe1d93bf86b",
-              "observedOffsetMs": 223300,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "c7f2c37c-0cb5-4a73-a66c-afe1d93bf86b"
-              ],
-              "sequence": 319,
-              "playbackOffsetMs": 223300
-            },
-            {
-              "id": "dd81db8c-c705-455b-bb26-2029c4301fb4",
-              "observedOffsetMs": 224000,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "dd81db8c-c705-455b-bb26-2029c4301fb4"
-              ],
-              "sequence": 320,
-              "playbackOffsetMs": 224000
-            },
-            {
-              "id": "808a2994-af22-422a-a454-d820e98f6eef",
-              "observedOffsetMs": 224700,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "808a2994-af22-422a-a454-d820e98f6eef"
-              ],
-              "sequence": 321,
-              "playbackOffsetMs": 224700
-            },
-            {
-              "id": "6d28123c-2ccf-4030-9ad2-ee48de0a9021",
-              "observedOffsetMs": 225400,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_delta",
-              "sourceRefs": [
-                "6d28123c-2ccf-4030-9ad2-ee48de0a9021"
-              ],
-              "sequence": 322,
-              "playbackOffsetMs": 225400
-            },
-            {
-              "id": "5b5e6fc2-c9af-47a3-b70f-c8136ccc8997",
-              "observedOffsetMs": 226100,
-              "eventType": "assistant.text",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "실제 소스 파일을 확인했다. 이제 요청한 4가지를 정리한다. --- ## 4장 학습 시작: 도구 실행 오케스트레이션 *소스 기반: `docs/book-sdk-ko/src/part1/ch04.md`* --- ### 1. 핵심 질문과 수업 목표 **핵심 질문** (ch04.md:9에서 직접 인용) > 여러 도구 호출이 있을 때, 어떤 것은 병렬로 실행되고 어떤 것은 직렬/승인 경계에 걸리는지 SDK 이벤트만으로 설명할 수 있는가?",
-              "sourceRefs": [
-                "5b5e6fc2-c9af-47a3-b70f-c8136ccc8997"
-              ],
-              "sequence": 323,
-              "playbackOffsetMs": 226100
-            },
-            {
-              "id": "4abc0bfd-3034-4a96-a66e-e021eb5d5bfc",
-              "observedOffsetMs": 226800,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "content_block_stop",
-              "sourceRefs": [
-                "4abc0bfd-3034-4a96-a66e-e021eb5d5bfc"
-              ],
-              "sequence": 324,
-              "playbackOffsetMs": 226800
-            },
-            {
-              "id": "5ec66dde-4144-412f-8bf0-577e5d8168a8",
-              "observedOffsetMs": 227500,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "message_delta",
-              "sourceRefs": [
-                "5ec66dde-4144-412f-8bf0-577e5d8168a8"
-              ],
-              "sequence": 325,
-              "playbackOffsetMs": 227500
-            },
-            {
-              "id": "2873d32c-86e7-44be-b200-5a172a778b70",
-              "observedOffsetMs": 228200,
-              "eventType": "hook.event",
-              "actor": "claude",
-              "evidenceLevel": "Observed",
-              "summary": "message_stop",
-              "sourceRefs": [
-                "2873d32c-86e7-44be-b200-5a172a778b70"
-              ],
-              "sequence": 326,
-              "playbackOffsetMs": 228200
-            },
-            {
-              "id": "876d1419-6a76-43f1-8dba-47026bdd526d",
-              "observedOffsetMs": 228900,
+              "id": "052242-c66552af:result",
+              "observedOffsetMs": 6450,
               "eventType": "result.completed",
               "actor": "runtime",
               "evidenceLevel": "Observed",
-              "summary": "실제 소스 파일을 확인했다. 이제 요청한 4가지를 정리한다. --- ## 4장 학습 시작: 도구 실행 오케스트레이션 *소스 기반: `docs/book-sdk-ko/src/part1/ch04.md`* --- ### 1. 핵심 질문과 수업 목표 **핵심 질문** (ch04.md:9에서 직접 인용) > 여러 도구 호출이 있을 때, 어떤 것은 병렬로 실행되고 어떤 것은 직렬/승인 경계에 걸리는지 SDK 이벤트만으로 설명할 수 있는가?",
+              "summary": "error_max_turns; terminal_reason=max_turns",
               "sourceRefs": [
-                "876d1419-6a76-43f1-8dba-47026bdd526d"
+                "attempt:052242-c66552af:sdk-message:31"
               ],
-              "sequence": 327,
-              "playbackOffsetMs": 228900
+              "attemptId": "052242-c66552af",
+              "sequence": 9,
+              "playbackOffsetMs": 6664
+            },
+            {
+              "id": "052440-7003d15a:sdk.init",
+              "observedOffsetMs": 11975,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "readOnlyHint=false, destructiveHint=true인 두 custom MCP handler: claude-opus-5, Python Agent SDK live run",
+              "sourceRefs": [
+                "attempt:052440-7003d15a:sdk-message:2"
+              ],
+              "attemptId": "052440-7003d15a",
+              "caseId": "mutating-handler-overlap",
+              "annotationMode": "mutating",
+              "sequence": 10,
+              "playbackOffsetMs": 11975
+            },
+            {
+              "id": "052440-7003d15a:toolu_018vDPDVXWVEcpBgWQPfqibD",
+              "observedOffsetMs": 14313,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__orchestration__left_probe {'label': 'left'}",
+              "sourceRefs": [
+                "attempt:052440-7003d15a:sdk-message:15"
+              ],
+              "toolName": "mcp__orchestration__left_probe",
+              "toolUseId": "052440-7003d15a:toolu_018vDPDVXWVEcpBgWQPfqibD",
+              "attemptId": "052440-7003d15a",
+              "caseId": "mutating-handler-overlap",
+              "sequence": 11,
+              "playbackOffsetMs": 14313
+            },
+            {
+              "id": "052440-7003d15a:handler:2d17b56386a24faebfed9296d825b211:start",
+              "observedOffsetMs": 14318,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host handler started: mcp__orchestration__left_probe",
+              "sourceRefs": [
+                "attempt:052440-7003d15a:process-event:16"
+              ],
+              "toolName": "mcp__orchestration__left_probe",
+              "attemptId": "052440-7003d15a",
+              "sequence": 12,
+              "playbackOffsetMs": 14533
+            },
+            {
+              "id": "052440-7003d15a:toolu_011nauSivdHfescRwoucgu4s",
+              "observedOffsetMs": 14470,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__orchestration__right_probe {'label': 'right'}",
+              "sourceRefs": [
+                "attempt:052440-7003d15a:sdk-message:22"
+              ],
+              "toolName": "mcp__orchestration__right_probe",
+              "toolUseId": "052440-7003d15a:toolu_011nauSivdHfescRwoucgu4s",
+              "attemptId": "052440-7003d15a",
+              "caseId": "mutating-handler-overlap",
+              "sequence": 13,
+              "playbackOffsetMs": 14753
+            },
+            {
+              "id": "052440-7003d15a:message_stop",
+              "observedOffsetMs": 14491,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:052440-7003d15a:sdk-message:25"
+              ],
+              "attemptId": "052440-7003d15a",
+              "sequence": 14,
+              "playbackOffsetMs": 14973
+            },
+            {
+              "id": "052440-7003d15a:toolu_018vDPDVXWVEcpBgWQPfqibD:result",
+              "observedOffsetMs": 15572,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__orchestration__left_probe: completed (1254.011ms)",
+              "sourceRefs": [
+                "attempt:052440-7003d15a:process-event:26"
+              ],
+              "toolName": "mcp__orchestration__left_probe",
+              "toolUseId": "052440-7003d15a:toolu_018vDPDVXWVEcpBgWQPfqibD",
+              "attemptId": "052440-7003d15a",
+              "outcome": "completed",
+              "sequence": 15,
+              "playbackOffsetMs": 15572
+            },
+            {
+              "id": "052440-7003d15a:handler:c46fe20ce9a4486ea39cc5ca3b7affbf:start",
+              "observedOffsetMs": 15583,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host handler started: mcp__orchestration__right_probe",
+              "sourceRefs": [
+                "attempt:052440-7003d15a:process-event:27"
+              ],
+              "toolName": "mcp__orchestration__right_probe",
+              "attemptId": "052440-7003d15a",
+              "sequence": 16,
+              "playbackOffsetMs": 15792
+            },
+            {
+              "id": "052440-7003d15a:toolu_011nauSivdHfescRwoucgu4s:result",
+              "observedOffsetMs": 16837,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__orchestration__right_probe: completed (1254.009ms)",
+              "sourceRefs": [
+                "attempt:052440-7003d15a:process-event:29"
+              ],
+              "toolName": "mcp__orchestration__right_probe",
+              "toolUseId": "052440-7003d15a:toolu_011nauSivdHfescRwoucgu4s",
+              "attemptId": "052440-7003d15a",
+              "outcome": "completed",
+              "sequence": 17,
+              "playbackOffsetMs": 16837
+            },
+            {
+              "id": "052440-7003d15a:result",
+              "observedOffsetMs": 16848,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "error_max_turns; terminal_reason=max_turns",
+              "sourceRefs": [
+                "attempt:052440-7003d15a:sdk-message:31"
+              ],
+              "attemptId": "052440-7003d15a",
+              "sequence": 18,
+              "playbackOffsetMs": 17057
+            },
+            {
+              "id": "052511-c1cba98a:sdk.init",
+              "observedOffsetMs": 22041,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "실행 중인 long custom MCP handler interrupt: claude-opus-5, Python Agent SDK live run",
+              "sourceRefs": [
+                "attempt:052511-c1cba98a:sdk-message:2"
+              ],
+              "attemptId": "052511-c1cba98a",
+              "caseId": "interrupt-long-tool",
+              "annotationMode": "mutating",
+              "sequence": 19,
+              "playbackOffsetMs": 22041
+            },
+            {
+              "id": "052511-c1cba98a:toolu_01LtALc7hczEYBV7GC5DfZYm",
+              "observedOffsetMs": 24635,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__orchestration__long_probe {'label': 'interrupt-observation'}",
+              "sourceRefs": [
+                "attempt:052511-c1cba98a:sdk-message:16"
+              ],
+              "toolName": "mcp__orchestration__long_probe",
+              "toolUseId": "052511-c1cba98a:toolu_01LtALc7hczEYBV7GC5DfZYm",
+              "attemptId": "052511-c1cba98a",
+              "caseId": "interrupt-long-tool",
+              "sequence": 20,
+              "playbackOffsetMs": 24635
+            },
+            {
+              "id": "052511-c1cba98a:handler:7d3f6b62ce474b5fa030f95563f568f5:start",
+              "observedOffsetMs": 24638,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host handler started: mcp__orchestration__long_probe",
+              "sourceRefs": [
+                "attempt:052511-c1cba98a:process-event:17"
+              ],
+              "toolName": "mcp__orchestration__long_probe",
+              "attemptId": "052511-c1cba98a",
+              "sequence": 21,
+              "playbackOffsetMs": 24855
+            },
+            {
+              "id": "052511-c1cba98a:sdk.interrupt.requested:18",
+              "observedOffsetMs": 24639,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "interrupt requested",
+              "sourceRefs": [
+                "attempt:052511-c1cba98a:process-event:18"
+              ],
+              "attemptId": "052511-c1cba98a",
+              "sequence": 22,
+              "playbackOffsetMs": 25075
+            },
+            {
+              "id": "052511-c1cba98a:sdk.interrupt.acknowledged:20",
+              "observedOffsetMs": 24642,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "interrupt acknowledged",
+              "sourceRefs": [
+                "attempt:052511-c1cba98a:process-event:20"
+              ],
+              "attemptId": "052511-c1cba98a",
+              "sequence": 23,
+              "playbackOffsetMs": 25295
+            },
+            {
+              "id": "052511-c1cba98a:result",
+              "observedOffsetMs": 24649,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "error_during_execution; terminal_reason=aborted_streaming",
+              "sourceRefs": [
+                "attempt:052511-c1cba98a:sdk-message:23"
+              ],
+              "attemptId": "052511-c1cba98a",
+              "sequence": 24,
+              "playbackOffsetMs": 25515
+            },
+            {
+              "id": "052511-c1cba98a:toolu_01LtALc7hczEYBV7GC5DfZYm:result",
+              "observedOffsetMs": 24650,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__orchestration__long_probe: cancelled (12.394ms)",
+              "sourceRefs": [
+                "attempt:052511-c1cba98a:process-event:25"
+              ],
+              "toolName": "mcp__orchestration__long_probe",
+              "toolUseId": "052511-c1cba98a:toolu_01LtALc7hczEYBV7GC5DfZYm",
+              "attemptId": "052511-c1cba98a",
+              "outcome": "cancelled",
+              "sequence": 25,
+              "playbackOffsetMs": 25735
+            },
+            {
+              "id": "claim:read-only-overlap",
+              "observedOffsetMs": 25350,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "같은 assistant message의 read-only custom MCP 두 handler가 858.949ms 겹쳐 실행됐다.",
+              "sourceRefs": [
+                "attempt:052242-c66552af:sdk-message:15",
+                "attempt:052242-c66552af:process-event:16",
+                "attempt:052242-c66552af:sdk-message:22",
+                "attempt:052242-c66552af:process-event:23",
+                "attempt:052242-c66552af:process-event:27",
+                "attempt:052242-c66552af:process-event:29",
+                "attempt:052242-c66552af:manifest:option_summary"
+              ],
+              "claimId": "read-only-overlap",
+              "claimStatus": "observed",
+              "sequence": 26,
+              "playbackOffsetMs": 25955
+            },
+            {
+              "id": "claim:mutating-serialization",
+              "observedOffsetMs": 25750,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "같은 assistant message의 mutating custom MCP 두 handler는 overlap 0ms였고 첫 종료 뒤 두 번째가 시작됐다.",
+              "sourceRefs": [
+                "attempt:052440-7003d15a:sdk-message:15",
+                "attempt:052440-7003d15a:process-event:16",
+                "attempt:052440-7003d15a:sdk-message:22",
+                "attempt:052440-7003d15a:process-event:26",
+                "attempt:052440-7003d15a:process-event:27",
+                "attempt:052440-7003d15a:process-event:29",
+                "attempt:052440-7003d15a:manifest:option_summary"
+              ],
+              "claimId": "mutating-serialization",
+              "claimStatus": "observed",
+              "sequence": 27,
+              "playbackOffsetMs": 26175
+            },
+            {
+              "id": "claim:stream-before-message-stop",
+              "observedOffsetMs": 26150,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "완성된 ToolUseBlock 뒤 handler가 시작됐고, 전체 assistant stream의 message_stop보다 먼저 실행이 시작됐다.",
+              "sourceRefs": [
+                "attempt:052242-c66552af:sdk-message:15",
+                "attempt:052242-c66552af:process-event:16",
+                "attempt:052242-c66552af:sdk-message:22",
+                "attempt:052242-c66552af:process-event:23",
+                "attempt:052242-c66552af:sdk-message:26"
+              ],
+              "claimId": "stream-before-message-stop",
+              "claimStatus": "observed",
+              "sequence": 28,
+              "playbackOffsetMs": 26395
+            },
+            {
+              "id": "claim:interrupt-cancels-handler",
+              "observedOffsetMs": 26550,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "ClaudeSDKClient.interrupt() 뒤 long handler가 cancelled로 끝났고 terminal_reason은 aborted_streaming이었다.",
+              "sourceRefs": [
+                "attempt:052511-c1cba98a:sdk-message:16",
+                "attempt:052511-c1cba98a:process-event:17",
+                "attempt:052511-c1cba98a:process-event:18",
+                "attempt:052511-c1cba98a:process-event:20",
+                "attempt:052511-c1cba98a:sdk-message:23",
+                "attempt:052511-c1cba98a:process-event:25"
+              ],
+              "claimId": "interrupt-cancels-handler",
+              "claimStatus": "observed",
+              "sequence": 29,
+              "playbackOffsetMs": 26615
+            },
+            {
+              "id": "claim:built-in-and-unannotated-tools",
+              "observedOffsetMs": 26950,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "built-in Read/Edit/Bash와 annotation 없는 custom MCP의 scheduling은 이 세 실행으로 일반화하지 않는다.",
+              "sourceRefs": [
+                "spec:claims:built-in-and-unannotated-tools"
+              ],
+              "claimId": "built-in-and-unannotated-tools",
+              "claimStatus": "additional_observation_required",
+              "sequence": 30,
+              "playbackOffsetMs": 26950
+            },
+            {
+              "id": "claim:progress-persistence-large-result",
+              "observedOffsetMs": 27350,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "SDKToolProgressMessage, SDKFilesPersistedEvent, large-result persistence 경로는 별도 실제 실행이 필요하다.",
+              "sourceRefs": [
+                "spec:claims:progress-persistence-large-result"
+              ],
+              "claimId": "progress-persistence-large-result",
+              "claimStatus": "additional_observation_required",
+              "sequence": 31,
+              "playbackOffsetMs": 27350
             }
           ],
           "facts": [
             {
-              "label": "source events",
-              "value": "328"
+              "label": "raw source events",
+              "value": "95"
+            },
+            {
+              "label": "public projection",
+              "value": "32"
             },
             {
               "label": "tool uses",
-              "value": "16"
+              "value": "5"
             },
             {
               "label": "tool results",
-              "value": "8"
+              "value": "5"
             },
             {
-              "label": "permissions",
-              "value": "0"
+              "label": "observed claims",
+              "value": "4"
+            },
+            {
+              "label": "needs observation",
+              "value": "2"
+            },
+            {
+              "label": "invalid attempts",
+              "value": "1"
+            },
+            {
+              "label": "proof gate",
+              "value": "accepted_with_notes"
+            }
+          ],
+          "claims": [
+            {
+              "id": "read-only-overlap",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "같은 assistant message의 read-only custom MCP 두 handler가 858.949ms 겹쳐 실행됐다.",
+              "sourceRefs": [
+                "attempt:052242-c66552af:sdk-message:15",
+                "attempt:052242-c66552af:process-event:16",
+                "attempt:052242-c66552af:sdk-message:22",
+                "attempt:052242-c66552af:process-event:23",
+                "attempt:052242-c66552af:process-event:27",
+                "attempt:052242-c66552af:process-event:29",
+                "attempt:052242-c66552af:manifest:option_summary"
+              ]
+            },
+            {
+              "id": "mutating-serialization",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "같은 assistant message의 mutating custom MCP 두 handler는 overlap 0ms였고 첫 종료 뒤 두 번째가 시작됐다.",
+              "sourceRefs": [
+                "attempt:052440-7003d15a:sdk-message:15",
+                "attempt:052440-7003d15a:process-event:16",
+                "attempt:052440-7003d15a:sdk-message:22",
+                "attempt:052440-7003d15a:process-event:26",
+                "attempt:052440-7003d15a:process-event:27",
+                "attempt:052440-7003d15a:process-event:29",
+                "attempt:052440-7003d15a:manifest:option_summary"
+              ]
+            },
+            {
+              "id": "stream-before-message-stop",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "완성된 ToolUseBlock 뒤 handler가 시작됐고, 전체 assistant stream의 message_stop보다 먼저 실행이 시작됐다.",
+              "sourceRefs": [
+                "attempt:052242-c66552af:sdk-message:15",
+                "attempt:052242-c66552af:process-event:16",
+                "attempt:052242-c66552af:sdk-message:22",
+                "attempt:052242-c66552af:process-event:23",
+                "attempt:052242-c66552af:sdk-message:26"
+              ]
+            },
+            {
+              "id": "interrupt-cancels-handler",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "ClaudeSDKClient.interrupt() 뒤 long handler가 cancelled로 끝났고 terminal_reason은 aborted_streaming이었다.",
+              "sourceRefs": [
+                "attempt:052511-c1cba98a:sdk-message:16",
+                "attempt:052511-c1cba98a:process-event:17",
+                "attempt:052511-c1cba98a:process-event:18",
+                "attempt:052511-c1cba98a:process-event:20",
+                "attempt:052511-c1cba98a:sdk-message:23",
+                "attempt:052511-c1cba98a:process-event:25"
+              ]
+            },
+            {
+              "id": "built-in-and-unannotated-tools",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "built-in Read/Edit/Bash와 annotation 없는 custom MCP의 scheduling은 이 세 실행으로 일반화하지 않는다.",
+              "sourceRefs": [
+                "spec:claims:built-in-and-unannotated-tools"
+              ]
+            },
+            {
+              "id": "progress-persistence-large-result",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "SDKToolProgressMessage, SDKFilesPersistedEvent, large-result persistence 경로는 별도 실제 실행이 필요하다.",
+              "sourceRefs": [
+                "spec:claims:progress-persistence-large-result"
+              ]
             }
           ]
         },
@@ -11856,7 +8211,7 @@
           "id": "ch05",
           "title": "5장 시스템 프롬프트 아키텍처",
           "description": "Education Shell recorded run session-1778498963052",
-          "status": "recorded_projection",
+          "status": "source_missing",
           "runtime": "claude-agent-sdk",
           "provider": "claude",
           "model": "claude-sonnet-4-6",
@@ -11866,7 +8221,7 @@
           "source": {
             "path": "slide/.shared-course-visual/otel-course-runtime/recorded-runs/book-sdk-ko/ch05/2026-05-11T11-30-36-826Z/trace.json",
             "sha256": "60a858eb5cb057d103056246bc68d40ca006f6162067ab2614c999b18a5df260",
-            "verification": "legacy-recorded-run; source artifacts present",
+            "verification": "legacy-recorded-run; source artifact unavailable",
             "recordedAt": "2026-05-11T11-30-36-826Z"
           },
           "events": [
@@ -17203,7 +13558,11 @@
           ],
           "facts": [
             {
-              "label": "source events",
+              "label": "raw source events",
+              "value": "405"
+            },
+            {
+              "label": "public projection",
               "value": "405"
             },
             {
@@ -17215,16 +13574,29 @@
               "value": "13"
             },
             {
-              "label": "permissions",
+              "label": "observed claims",
               "value": "0"
+            },
+            {
+              "label": "needs observation",
+              "value": "0"
+            },
+            {
+              "label": "invalid attempts",
+              "value": "0"
+            },
+            {
+              "label": "proof gate",
+              "value": "not recorded"
             }
-          ]
+          ],
+          "claims": []
         },
         {
           "id": "ch06",
           "title": "6장 프롬프트를 통한 동작 제어",
           "description": "Education Shell recorded run session-1778503866965",
-          "status": "recorded_projection",
+          "status": "source_missing",
           "runtime": "claude-agent-sdk",
           "provider": "claude",
           "model": "claude-sonnet-4-6",
@@ -17234,7 +13606,7 @@
           "source": {
             "path": "slide/.shared-course-visual/otel-course-runtime/recorded-runs/book-sdk-ko/ch06/2026-05-11T12-53-08-809Z/trace.json",
             "sha256": "5bd2f37382e294ba552ce117457e2ea0106fe1707e39bb1c0b62ec54ab4dd789",
-            "verification": "legacy-recorded-run; source artifacts present",
+            "verification": "legacy-recorded-run; source artifact unavailable",
             "recordedAt": "2026-05-11T12-53-08-809Z"
           },
           "events": [
@@ -23296,7 +19668,11 @@
           ],
           "facts": [
             {
-              "label": "source events",
+              "label": "raw source events",
+              "value": "460"
+            },
+            {
+              "label": "public projection",
               "value": "460"
             },
             {
@@ -23308,10 +19684,23 @@
               "value": "15"
             },
             {
-              "label": "permissions",
+              "label": "observed claims",
               "value": "0"
+            },
+            {
+              "label": "needs observation",
+              "value": "0"
+            },
+            {
+              "label": "invalid attempts",
+              "value": "0"
+            },
+            {
+              "label": "proof gate",
+              "value": "not recorded"
             }
-          ]
+          ],
+          "claims": []
         }
       ]
     },

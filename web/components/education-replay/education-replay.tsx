@@ -120,7 +120,7 @@ function EvidenceOverlay({
 
       <aside
         data-testid="education-evidence-facts"
-        className="absolute right-3 top-[224px] z-[210] w-[min(22rem,calc(100vw-1.5rem))] border border-cyan-300/15 bg-[#050910]/94 p-3 font-mono shadow-xl md:top-[108px]"
+        className="absolute bottom-[7.5rem] right-3 top-[274px] z-[210] w-[min(22rem,calc(100vw-1.5rem))] overflow-y-auto border border-cyan-300/15 bg-[#050910]/94 p-3 font-mono shadow-xl md:bottom-auto md:top-[108px] md:max-h-[min(76vh,46rem)]"
         style={{ borderRadius: 6 }}
       >
         <div className="flex items-center justify-between gap-3 border-b border-slate-800 pb-2">
@@ -152,6 +152,34 @@ function EvidenceOverlay({
             </div>
           ))}
         </dl>
+        {run.claims && run.claims.length > 0 ? (
+          <section className="mt-3 border-t border-slate-800 pt-3" aria-label="Chapter evidence verdicts">
+            <div className="mb-2 text-[9px] font-semibold tracking-widest text-cyan-300">
+              CHAPTER VERDICTS
+            </div>
+            <ol className="grid gap-2 pr-1 text-[9px] md:max-h-[min(34vh,18rem)] md:overflow-y-auto">
+              {run.claims.map((claim) => {
+                const observed = claim.status === "observed"
+                return (
+                  <li
+                    key={claim.id}
+                    className="border-l-2 bg-black/35 px-2 py-1.5"
+                    style={{ borderColor: observed ? "#68e0a0" : "#f0c66e" }}
+                    title={claim.sourceRefs.join("\n")}
+                  >
+                    <div className="flex items-center justify-between gap-2">
+                      <b className="truncate text-slate-300">{claim.id}</b>
+                      <span style={{ color: observed ? "#68e0a0" : "#f0c66e" }}>
+                        {observed ? "OBSERVED" : "MORE EVIDENCE"}
+                      </span>
+                    </div>
+                    <p className="mt-1 line-clamp-2 leading-relaxed text-slate-500">{claim.summary}</p>
+                  </li>
+                )
+              })}
+            </ol>
+          </section>
+        ) : null}
       </aside>
     </>
   )

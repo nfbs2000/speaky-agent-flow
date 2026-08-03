@@ -9,9 +9,10 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const educationRoot = path.resolve(
   process.env.EDUCATION_ROOT || path.join(root, '..', 'vibe-with-claude-code-education'),
 )
+const bookEvidenceRoot = path.resolve(process.env.BOOK_SDK_EVIDENCE_ROOT || educationRoot)
 const outputPath = path.join(root, 'web', 'public', 'education-evidence', 'catalog.json')
 const recordedRoot = path.join(
-  educationRoot,
+  bookEvidenceRoot,
   'slide',
   '.shared-course-visual',
   'otel-course-runtime',
@@ -49,7 +50,13 @@ function digest(text) {
 }
 
 function relativeSource(file) {
-  return path.relative(educationRoot, file).split(path.sep).join('/')
+  for (const candidate of [educationRoot, bookEvidenceRoot]) {
+    const relative = path.relative(candidate, file)
+    if (relative && !relative.startsWith(`..${path.sep}`) && relative !== '..') {
+      return relative.split(path.sep).join('/')
+    }
+  }
+  throw new Error(`Evidence source is outside declared roots: ${file}`)
 }
 
 function sanitizeText(value, maxLength = 1200) {
@@ -69,7 +76,9 @@ function sourceRefs(value) {
 
 function observedModel(events) {
   const init = events.find((event) => event.eventType === 'sdk.init')
-  return init?.summary?.match(/model=([^\s]+)/)?.[1]
+  return typeof init?.attributes?.model === 'string'
+    ? init.attributes.model
+    : init?.summary?.match(/model=([^\s]+)/)?.[1]
 }
 
 function monotonicPlaybackOffset(events, minimumGapMs = 220) {
@@ -97,7 +106,30 @@ function compactChapterEvent(event) {
     sourceRefs: sourceRefs(event.sourceRefs),
     toolName: typeof attributes.toolName === 'string' ? attributes.toolName : undefined,
     toolUseId: typeof attributes.toolUseId === 'string' ? attributes.toolUseId : undefined,
+    attemptId: typeof attributes.attemptId === 'string' ? attributes.attemptId : undefined,
+    caseId: typeof attributes.caseId === 'string' ? attributes.caseId : undefined,
+    annotationMode: typeof attributes.annotationMode === 'string' ? attributes.annotationMode : undefined,
+    outcome: typeof attributes.outcome === 'string' ? attributes.outcome : undefined,
+    claimId: typeof attributes.claimId === 'string' ? attributes.claimId : undefined,
+    claimStatus: typeof attributes.status === 'string' ? attributes.status : undefined,
   }
+}
+
+function compactChapterClaim(event) {
+  const compact = compactChapterEvent(event)
+  return {
+    id: compact.claimId || compact.id,
+    status: compact.claimStatus || 'unknown',
+    evidenceLevel: compact.evidenceLevel,
+    summary: compact.summary,
+    sourceRefs: compact.sourceRefs,
+  }
+}
+
+async function optionalJson(file) {
+  return fs.stat(file)
+    .then((stat) => stat.isFile() ? readJson(file) : null)
+    .catch(() => null)
 }
 
 async function latestTraceFiles(chapterDir) {
@@ -128,11 +160,14 @@ async function buildChapterRuns() {
     invariant(manifest.kind === 'book-try-chat-recorded-run', `${relativeSource(manifestPath)} has an unexpected kind`)
 
     const sourceArtifactDir = typeof manifest.sourceArtifactPath === 'string'
-      ? path.join(educationRoot, manifest.sourceArtifactPath)
+      ? path.join(bookEvidenceRoot, manifest.sourceArtifactPath)
       : null
     const sourceArtifactAvailable = sourceArtifactDir
       ? await fs.stat(sourceArtifactDir).then((stat) => stat.isDirectory()).catch(() => false)
       : false
+    const sourceSummary = sourceArtifactDir
+      ? await optionalJson(path.join(sourceArtifactDir, 'run-summary.json'))
+      : null
     const status = manifest.sourceVerification === 'verified-source-artifact'
       ? 'verified_source'
       : sourceArtifactAvailable
@@ -145,10 +180,25 @@ async function buildChapterRuns() {
         : 'legacy-recorded-run; source artifact unavailable'
 
     const events = monotonicPlaybackOffset(trace.events.map(compactChapterEvent))
+    const claims = trace.events
+      .filter((event) => event.eventType === 'assistant.claim')
+      .map(compactChapterClaim)
     const eventCounts = new Map()
     for (const event of events) {
       eventCounts.set(event.eventType, (eventCounts.get(event.eventType) ?? 0) + 1)
     }
+
+    const sourceEventCount = Number.isFinite(sourceSummary?.source_event_count)
+      ? sourceSummary.source_event_count
+      : trace.events.length
+    const actualModels = Array.isArray(sourceSummary?.actual_models)
+      ? sourceSummary.actual_models.filter((model) => typeof model === 'string')
+      : []
+    const observedClaims = claims.filter((claim) => claim.status === 'observed').length
+    const pendingClaims = claims.filter((claim) => claim.status === 'additional_observation_required').length
+    const invalidAttemptCount = Array.isArray(sourceSummary?.invalid_attempts)
+      ? sourceSummary.invalid_attempts.length
+      : 0
 
     runs.push({
       id: chapterSlug,
@@ -157,9 +207,9 @@ async function buildChapterRuns() {
       status,
       runtime: 'claude-agent-sdk',
       provider: 'claude',
-      model: observedModel(trace.events),
+      model: actualModels[0] || observedModel(trace.events),
       chapterSlug,
-      sourceEventCount: trace.events.length,
+      sourceEventCount,
       publishedEventCount: events.length,
       source: {
         path: relativeSource(tracePath),
@@ -169,11 +219,16 @@ async function buildChapterRuns() {
       },
       events,
       facts: [
-        { label: 'source events', value: String(trace.events.length) },
+        { label: 'raw source events', value: String(sourceEventCount) },
+        { label: 'public projection', value: String(events.length) },
         { label: 'tool uses', value: String(eventCounts.get('tool.use') ?? 0) },
         { label: 'tool results', value: String(eventCounts.get('tool.result') ?? 0) },
-        { label: 'permissions', value: String(eventCounts.get('permission.request') ?? 0) },
+        { label: 'observed claims', value: String(observedClaims) },
+        { label: 'needs observation', value: String(pendingClaims) },
+        { label: 'invalid attempts', value: String(invalidAttemptCount) },
+        { label: 'proof gate', value: String(sourceSummary?.proof_gate || 'not recorded') },
       ],
+      claims,
     })
   }
   return runs
