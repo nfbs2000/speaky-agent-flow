@@ -195,6 +195,9 @@ async function buildChapterRuns() {
       ? sourceSummary.actual_models.filter((model) => typeof model === 'string')
       : []
     const observedClaims = claims.filter((claim) => claim.status === 'observed').length
+    const configuredClaims = claims.filter((claim) => claim.status === 'configured').length
+    const inferredClaims = claims.filter((claim) => claim.status === 'inferred').length
+    const notObservedClaims = claims.filter((claim) => claim.status === 'not_observed').length
     const pendingClaims = claims.filter((claim) => claim.status === 'additional_observation_required').length
     const invalidAttemptCount = Array.isArray(sourceSummary?.invalid_attempts)
       ? sourceSummary.invalid_attempts.length
@@ -224,6 +227,13 @@ async function buildChapterRuns() {
         { label: 'tool uses', value: String(eventCounts.get('tool.use') ?? 0) },
         { label: 'tool results', value: String(eventCounts.get('tool.result') ?? 0) },
         { label: 'observed claims', value: String(observedClaims) },
+        ...(configuredClaims || inferredClaims || notObservedClaims
+          ? [
+              { label: 'configured claims', value: String(configuredClaims) },
+              { label: 'inferred claims', value: String(inferredClaims) },
+              { label: 'not observed', value: String(notObservedClaims) },
+            ]
+          : []),
         { label: 'needs observation', value: String(pendingClaims) },
         { label: 'invalid attempts', value: String(invalidAttemptCount) },
         { label: 'proof gate', value: String(sourceSummary?.proof_gate || 'not recorded') },
