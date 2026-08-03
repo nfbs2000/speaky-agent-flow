@@ -1,7 +1,7 @@
 {
   "schemaVersion": "education-agent-flow.v1",
   "courseId": "book-sdk-ko",
-  "generatedAt": "2026-08-03T18:30:03.811Z",
+  "generatedAt": "2026-08-03T18:55:10.978Z",
   "publicationPolicy": "Whitelisted normalized evidence only; no mock fallback.",
   "collections": [
     {
@@ -6593,6 +6593,1792 @@
               "summary": "2개 문서와 80단어 제한은 한 번 충족됐지만 정성 지침보다 안정적이라는 주장은 여러 독립 실행의 분포가 필요하다.",
               "sourceRefs": [
                 "spec:claims:numeric-anchor-stability-needs-distribution"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ch06b",
+          "title": "6b장 API 통신 계층: 스트리밍, 중단, 저장, 재시도의 실제 증거",
+          "description": "Education Shell recorded run book-sdk-live-20260803",
+          "status": "verified_source",
+          "runtime": "claude-agent-sdk",
+          "provider": "claude",
+          "model": "claude-opus-5",
+          "chapterSlug": "ch06b",
+          "sourceEventCount": 392,
+          "publishedEventCount": 101,
+          "source": {
+            "path": "slide/.shared-course-visual/otel-course-runtime/recorded-runs/book-sdk-ko/ch06b/2026-08-03T18-42-54-000Z/trace.json",
+            "sha256": "4b09f5cd25159082da94cf4ddc1909b3631cecf9c8ea13db7c8ca81b0cf9e200",
+            "verification": "verified-source-artifact",
+            "recordedAt": "2026-08-03T18:42:54.000Z"
+          },
+          "events": [
+            {
+              "id": "book-sdk-live-20260803:prompt",
+              "observedOffsetMs": 0,
+              "eventType": "prompt.submitted",
+              "actor": "user",
+              "evidenceLevel": "Configured",
+              "summary": "실제 Opus 5 SDK 실행의 partial stream, interrupt, max turns, checkpoint, session store 사건을 원본 순서로 읽고, 12장에 자연 발생한 API retry를 복제하지 않은 보조 출처로 연결한다.",
+              "sourceRefs": [
+                "publication-spec:public_prompt"
+              ],
+              "sequence": 0,
+              "playbackOffsetMs": 220
+            },
+            {
+              "id": "103238-e1ac26b5:process:0",
+              "observedOffsetMs": 1000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:process-event:0"
+              ],
+              "attemptId": "103238-e1ac26b5",
+              "sequence": 1,
+              "playbackOffsetMs": 1000
+            },
+            {
+              "id": "103238-e1ac26b5:process:1",
+              "observedOffsetMs": 1929,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.turn.started",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:process-event:1"
+              ],
+              "attemptId": "103238-e1ac26b5",
+              "sequence": 2,
+              "playbackOffsetMs": 1929
+            },
+            {
+              "id": "103238-e1ac26b5:sdk.init",
+              "observedOffsetMs": 1955,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "58개 partial event와 Read, 최종 Result: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:sdk-message:2"
+              ],
+              "attemptId": "103238-e1ac26b5",
+              "caseId": "partial-stream-read-result",
+              "annotationMode": "unreported",
+              "sequence": 3,
+              "playbackOffsetMs": 2149
+            },
+            {
+              "id": "103238-e1ac26b5:toolu_01CAzqbgdHzsMvaFMt37cvng",
+              "observedOffsetMs": 7869,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:sdk-message:24"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103238-e1ac26b5:toolu_01CAzqbgdHzsMvaFMt37cvng",
+              "attemptId": "103238-e1ac26b5",
+              "caseId": "partial-stream-read-result",
+              "sequence": 4,
+              "playbackOffsetMs": 7869
+            },
+            {
+              "id": "103238-e1ac26b5:toolu_01CAzqbgdHzsMvaFMt37cvng:result",
+              "observedOffsetMs": 7878,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: error",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:sdk-message:29"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103238-e1ac26b5:toolu_01CAzqbgdHzsMvaFMt37cvng",
+              "attemptId": "103238-e1ac26b5",
+              "sequence": 5,
+              "playbackOffsetMs": 8089
+            },
+            {
+              "id": "103238-e1ac26b5:toolu_01BQX3q31MjpS5Zv1V1fEN2c",
+              "observedOffsetMs": 8253,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:sdk-message:31"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103238-e1ac26b5:toolu_01BQX3q31MjpS5Zv1V1fEN2c",
+              "attemptId": "103238-e1ac26b5",
+              "caseId": "partial-stream-read-result",
+              "sequence": 6,
+              "playbackOffsetMs": 8309
+            },
+            {
+              "id": "103238-e1ac26b5:toolu_01WKN6iHDvN6EWVyEakWMU75",
+              "observedOffsetMs": 8532,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:sdk-message:37"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103238-e1ac26b5:toolu_01WKN6iHDvN6EWVyEakWMU75",
+              "attemptId": "103238-e1ac26b5",
+              "caseId": "partial-stream-read-result",
+              "sequence": 7,
+              "playbackOffsetMs": 8532
+            },
+            {
+              "id": "103238-e1ac26b5:message_stop",
+              "observedOffsetMs": 8533,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:sdk-message:40"
+              ],
+              "attemptId": "103238-e1ac26b5",
+              "sequence": 8,
+              "playbackOffsetMs": 8752
+            },
+            {
+              "id": "103238-e1ac26b5:toolu_01WKN6iHDvN6EWVyEakWMU75:result",
+              "observedOffsetMs": 8534,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: error",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:sdk-message:41"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103238-e1ac26b5:toolu_01WKN6iHDvN6EWVyEakWMU75",
+              "attemptId": "103238-e1ac26b5",
+              "sequence": 9,
+              "playbackOffsetMs": 8972
+            },
+            {
+              "id": "103238-e1ac26b5:toolu_01BQX3q31MjpS5Zv1V1fEN2c:result",
+              "observedOffsetMs": 8551,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: error",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:sdk-message:42"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103238-e1ac26b5:toolu_01BQX3q31MjpS5Zv1V1fEN2c",
+              "attemptId": "103238-e1ac26b5",
+              "sequence": 10,
+              "playbackOffsetMs": 9192
+            },
+            {
+              "id": "103316-15c0b725:process:0",
+              "observedOffsetMs": 11000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:103316-15c0b725:process-event:0"
+              ],
+              "attemptId": "103316-15c0b725",
+              "sequence": 11,
+              "playbackOffsetMs": 11000
+            },
+            {
+              "id": "103316-15c0b725:process:1",
+              "observedOffsetMs": 11838,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.turn.started",
+              "sourceRefs": [
+                "attempt:103316-15c0b725:process-event:1"
+              ],
+              "attemptId": "103316-15c0b725",
+              "sequence": 12,
+              "playbackOffsetMs": 11838
+            },
+            {
+              "id": "103316-15c0b725:sdk.init",
+              "observedOffsetMs": 11879,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "장기 handler 시작 뒤 Python interrupt: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:103316-15c0b725:sdk-message:2"
+              ],
+              "attemptId": "103316-15c0b725",
+              "caseId": "host-interrupt-long-tool",
+              "annotationMode": "unreported",
+              "sequence": 13,
+              "playbackOffsetMs": 12058
+            },
+            {
+              "id": "103238-e1ac26b5:toolu_01LnLZp8PDBC3ejgXx3F7ga3",
+              "observedOffsetMs": 13109,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:sdk-message:57"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103238-e1ac26b5:toolu_01LnLZp8PDBC3ejgXx3F7ga3",
+              "attemptId": "103238-e1ac26b5",
+              "caseId": "partial-stream-read-result",
+              "sequence": 14,
+              "playbackOffsetMs": 13109
+            },
+            {
+              "id": "103238-e1ac26b5:toolu_01LnLZp8PDBC3ejgXx3F7ga3:result",
+              "observedOffsetMs": 13111,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: result received",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:sdk-message:59"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103238-e1ac26b5:toolu_01LnLZp8PDBC3ejgXx3F7ga3",
+              "attemptId": "103238-e1ac26b5",
+              "sequence": 15,
+              "playbackOffsetMs": 13329
+            },
+            {
+              "id": "103238-e1ac26b5:message_stop",
+              "observedOffsetMs": 13123,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:sdk-message:61"
+              ],
+              "attemptId": "103238-e1ac26b5",
+              "sequence": 16,
+              "playbackOffsetMs": 13549
+            },
+            {
+              "id": "103316-15c0b725:toolu_01UvejsxpwN2k2i6A5npJ9is",
+              "observedOffsetMs": 15070,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__transport__long_transport_probe {'label': 'transport-evidence-run-2026-08-03'}",
+              "sourceRefs": [
+                "attempt:103316-15c0b725:sdk-message:15"
+              ],
+              "toolName": "mcp__transport__long_transport_probe",
+              "toolUseId": "103316-15c0b725:toolu_01UvejsxpwN2k2i6A5npJ9is",
+              "attemptId": "103316-15c0b725",
+              "caseId": "host-interrupt-long-tool",
+              "sequence": 17,
+              "playbackOffsetMs": 15070
+            },
+            {
+              "id": "103316-15c0b725:process:16",
+              "observedOffsetMs": 15072,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__transport__long_transport_probe: started",
+              "sourceRefs": [
+                "attempt:103316-15c0b725:process-event:16"
+              ],
+              "toolName": "mcp__transport__long_transport_probe",
+              "attemptId": "103316-15c0b725",
+              "outcome": "started",
+              "sequence": 18,
+              "playbackOffsetMs": 15290
+            },
+            {
+              "id": "103316-15c0b725:process:17",
+              "observedOffsetMs": 15072,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.interrupt.requested",
+              "sourceRefs": [
+                "attempt:103316-15c0b725:process-event:17"
+              ],
+              "attemptId": "103316-15c0b725",
+              "sequence": 19,
+              "playbackOffsetMs": 15510
+            },
+            {
+              "id": "103316-15c0b725:process:19",
+              "observedOffsetMs": 15073,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.interrupt.sent",
+              "sourceRefs": [
+                "attempt:103316-15c0b725:process-event:19"
+              ],
+              "attemptId": "103316-15c0b725",
+              "sequence": 20,
+              "playbackOffsetMs": 15730
+            },
+            {
+              "id": "103316-15c0b725:toolu_01UvejsxpwN2k2i6A5npJ9is:result",
+              "observedOffsetMs": 15077,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__transport__long_transport_probe: error",
+              "sourceRefs": [
+                "attempt:103316-15c0b725:sdk-message:20"
+              ],
+              "toolName": "mcp__transport__long_transport_probe",
+              "toolUseId": "103316-15c0b725:toolu_01UvejsxpwN2k2i6A5npJ9is",
+              "attemptId": "103316-15c0b725",
+              "sequence": 21,
+              "playbackOffsetMs": 15950
+            },
+            {
+              "id": "103316-15c0b725:process:23",
+              "observedOffsetMs": 15078,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.turn.finished",
+              "sourceRefs": [
+                "attempt:103316-15c0b725:process-event:23"
+              ],
+              "attemptId": "103316-15c0b725",
+              "sequence": 22,
+              "playbackOffsetMs": 16170
+            },
+            {
+              "id": "103316-15c0b725:process:24",
+              "observedOffsetMs": 15078,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__transport__long_transport_probe: cancelled",
+              "sourceRefs": [
+                "attempt:103316-15c0b725:process-event:24"
+              ],
+              "toolName": "mcp__transport__long_transport_probe",
+              "attemptId": "103316-15c0b725",
+              "outcome": "cancelled",
+              "sequence": 23,
+              "playbackOffsetMs": 16390
+            },
+            {
+              "id": "103316-15c0b725:result",
+              "observedOffsetMs": 15078,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "error_during_execution; terminal_reason=aborted_streaming",
+              "sourceRefs": [
+                "attempt:103316-15c0b725:sdk-message:22"
+              ],
+              "attemptId": "103316-15c0b725",
+              "sequence": 24,
+              "playbackOffsetMs": 16610
+            },
+            {
+              "id": "103316-15c0b725:process:25",
+              "observedOffsetMs": 15589,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:103316-15c0b725:process-event:25"
+              ],
+              "attemptId": "103316-15c0b725",
+              "sequence": 25,
+              "playbackOffsetMs": 16830
+            },
+            {
+              "id": "103340-dfe3c027:process:0",
+              "observedOffsetMs": 21000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:103340-dfe3c027:process-event:0"
+              ],
+              "attemptId": "103340-dfe3c027",
+              "sequence": 26,
+              "playbackOffsetMs": 21000
+            },
+            {
+              "id": "103340-dfe3c027:process:1",
+              "observedOffsetMs": 22016,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.turn.started",
+              "sourceRefs": [
+                "attempt:103340-dfe3c027:process-event:1"
+              ],
+              "attemptId": "103340-dfe3c027",
+              "sequence": 27,
+              "playbackOffsetMs": 22016
+            },
+            {
+              "id": "103340-dfe3c027:sdk.init",
+              "observedOffsetMs": 22052,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "성공 tool result 뒤 max-turns 종료: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:103340-dfe3c027:sdk-message:2"
+              ],
+              "attemptId": "103340-dfe3c027",
+              "caseId": "max-turns-after-tool",
+              "annotationMode": "unreported",
+              "sequence": 28,
+              "playbackOffsetMs": 22236
+            },
+            {
+              "id": "103238-e1ac26b5:message_stop",
+              "observedOffsetMs": 22077,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:sdk-message:81"
+              ],
+              "attemptId": "103238-e1ac26b5",
+              "sequence": 29,
+              "playbackOffsetMs": 22456
+            },
+            {
+              "id": "103238-e1ac26b5:result",
+              "observedOffsetMs": 22083,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:sdk-message:82"
+              ],
+              "attemptId": "103238-e1ac26b5",
+              "sequence": 30,
+              "playbackOffsetMs": 22676
+            },
+            {
+              "id": "103238-e1ac26b5:process:83",
+              "observedOffsetMs": 22084,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.turn.finished",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:process-event:83"
+              ],
+              "attemptId": "103238-e1ac26b5",
+              "sequence": 31,
+              "playbackOffsetMs": 22896
+            },
+            {
+              "id": "103238-e1ac26b5:process:84",
+              "observedOffsetMs": 22348,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:process-event:84"
+              ],
+              "attemptId": "103238-e1ac26b5",
+              "sequence": 32,
+              "playbackOffsetMs": 23116
+            },
+            {
+              "id": "103340-dfe3c027:toolu_011JcEnQGmmBD3Xt1PvfCkht",
+              "observedOffsetMs": 24985,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__transport__one_step_probe {'label': 'evidence-run-1'}",
+              "sourceRefs": [
+                "attempt:103340-dfe3c027:sdk-message:16"
+              ],
+              "toolName": "mcp__transport__one_step_probe",
+              "toolUseId": "103340-dfe3c027:toolu_011JcEnQGmmBD3Xt1PvfCkht",
+              "attemptId": "103340-dfe3c027",
+              "caseId": "max-turns-after-tool",
+              "sequence": 33,
+              "playbackOffsetMs": 24985
+            },
+            {
+              "id": "103340-dfe3c027:process:17",
+              "observedOffsetMs": 24988,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__transport__one_step_probe: completed",
+              "sourceRefs": [
+                "attempt:103340-dfe3c027:process-event:17"
+              ],
+              "toolName": "mcp__transport__one_step_probe",
+              "attemptId": "103340-dfe3c027",
+              "outcome": "completed",
+              "sequence": 34,
+              "playbackOffsetMs": 25205
+            },
+            {
+              "id": "103340-dfe3c027:toolu_011JcEnQGmmBD3Xt1PvfCkht:result",
+              "observedOffsetMs": 24992,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__transport__one_step_probe: result received",
+              "sourceRefs": [
+                "attempt:103340-dfe3c027:sdk-message:19"
+              ],
+              "toolName": "mcp__transport__one_step_probe",
+              "toolUseId": "103340-dfe3c027:toolu_011JcEnQGmmBD3Xt1PvfCkht",
+              "attemptId": "103340-dfe3c027",
+              "sequence": 35,
+              "playbackOffsetMs": 25425
+            },
+            {
+              "id": "103340-dfe3c027:message_stop",
+              "observedOffsetMs": 25014,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:103340-dfe3c027:sdk-message:21"
+              ],
+              "attemptId": "103340-dfe3c027",
+              "sequence": 36,
+              "playbackOffsetMs": 25645
+            },
+            {
+              "id": "103340-dfe3c027:process:23",
+              "observedOffsetMs": 25015,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.turn.finished",
+              "sourceRefs": [
+                "attempt:103340-dfe3c027:process-event:23"
+              ],
+              "attemptId": "103340-dfe3c027",
+              "sequence": 37,
+              "playbackOffsetMs": 25865
+            },
+            {
+              "id": "103340-dfe3c027:result",
+              "observedOffsetMs": 25015,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "error_max_turns; terminal_reason=max_turns",
+              "sourceRefs": [
+                "attempt:103340-dfe3c027:sdk-message:22"
+              ],
+              "attemptId": "103340-dfe3c027",
+              "sequence": 38,
+              "playbackOffsetMs": 26085
+            },
+            {
+              "id": "103340-dfe3c027:process:24",
+              "observedOffsetMs": 25539,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:103340-dfe3c027:process-event:24"
+              ],
+              "attemptId": "103340-dfe3c027",
+              "sequence": 39,
+              "playbackOffsetMs": 26305
+            },
+            {
+              "id": "103401-427be665:process:0",
+              "observedOffsetMs": 31000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:103401-427be665:process-event:0"
+              ],
+              "attemptId": "103401-427be665",
+              "sequence": 40,
+              "playbackOffsetMs": 31000
+            },
+            {
+              "id": "103401-427be665:process:1",
+              "observedOffsetMs": 31961,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.turn.started",
+              "sourceRefs": [
+                "attempt:103401-427be665:process-event:1"
+              ],
+              "attemptId": "103401-427be665",
+              "sequence": 41,
+              "playbackOffsetMs": 31961
+            },
+            {
+              "id": "103401-427be665:sdk.init",
+              "observedOffsetMs": 31975,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "실제 UserMessage UUID checkpoint rewind: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:2"
+              ],
+              "attemptId": "103401-427be665",
+              "caseId": "checkpoint-edit-rewind",
+              "annotationMode": "unreported",
+              "sequence": 42,
+              "playbackOffsetMs": 32181
+            },
+            {
+              "id": "103401-427be665:toolu_01GrGPTspoL8EegT4qqkAMEA",
+              "observedOffsetMs": 38134,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:24"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103401-427be665:toolu_01GrGPTspoL8EegT4qqkAMEA",
+              "attemptId": "103401-427be665",
+              "caseId": "checkpoint-edit-rewind",
+              "sequence": 43,
+              "playbackOffsetMs": 38134
+            },
+            {
+              "id": "103401-427be665:toolu_01GrGPTspoL8EegT4qqkAMEA:result",
+              "observedOffsetMs": 38142,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: error",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:29"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103401-427be665:toolu_01GrGPTspoL8EegT4qqkAMEA",
+              "attemptId": "103401-427be665",
+              "sequence": 44,
+              "playbackOffsetMs": 38354
+            },
+            {
+              "id": "103401-427be665:toolu_01Q5yZRQHcXoeS6ViHCcotLD",
+              "observedOffsetMs": 38641,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:32"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103401-427be665:toolu_01Q5yZRQHcXoeS6ViHCcotLD",
+              "attemptId": "103401-427be665",
+              "caseId": "checkpoint-edit-rewind",
+              "sequence": 45,
+              "playbackOffsetMs": 38641
+            },
+            {
+              "id": "103401-427be665:toolu_01Q5yZRQHcXoeS6ViHCcotLD:result",
+              "observedOffsetMs": 38648,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: error",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:37"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103401-427be665:toolu_01Q5yZRQHcXoeS6ViHCcotLD",
+              "attemptId": "103401-427be665",
+              "sequence": 46,
+              "playbackOffsetMs": 38861
+            },
+            {
+              "id": "103401-427be665:toolu_01DXfEbQ9jyxPs6iALxEju1g",
+              "observedOffsetMs": 39108,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:40"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103401-427be665:toolu_01DXfEbQ9jyxPs6iALxEju1g",
+              "attemptId": "103401-427be665",
+              "caseId": "checkpoint-edit-rewind",
+              "sequence": 47,
+              "playbackOffsetMs": 39108
+            },
+            {
+              "id": "103401-427be665:toolu_01DXfEbQ9jyxPs6iALxEju1g:result",
+              "observedOffsetMs": 39112,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: error",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:45"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103401-427be665:toolu_01DXfEbQ9jyxPs6iALxEju1g",
+              "attemptId": "103401-427be665",
+              "sequence": 48,
+              "playbackOffsetMs": 39328
+            },
+            {
+              "id": "103401-427be665:toolu_01FbicThrTE8sdfTvjnGvaY9",
+              "observedOffsetMs": 39677,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:47"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103401-427be665:toolu_01FbicThrTE8sdfTvjnGvaY9",
+              "attemptId": "103401-427be665",
+              "caseId": "checkpoint-edit-rewind",
+              "sequence": 49,
+              "playbackOffsetMs": 39677
+            },
+            {
+              "id": "103401-427be665:toolu_01FbicThrTE8sdfTvjnGvaY9:result",
+              "observedOffsetMs": 39679,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: error",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:52"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103401-427be665:toolu_01FbicThrTE8sdfTvjnGvaY9",
+              "attemptId": "103401-427be665",
+              "sequence": 50,
+              "playbackOffsetMs": 39897
+            },
+            {
+              "id": "103401-427be665:toolu_01Bmz9uHAB8N41MeYs9Bu9uW",
+              "observedOffsetMs": 39706,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:54"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103401-427be665:toolu_01Bmz9uHAB8N41MeYs9Bu9uW",
+              "attemptId": "103401-427be665",
+              "caseId": "checkpoint-edit-rewind",
+              "sequence": 51,
+              "playbackOffsetMs": 40117
+            },
+            {
+              "id": "103401-427be665:message_stop",
+              "observedOffsetMs": 39886,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:57"
+              ],
+              "attemptId": "103401-427be665",
+              "sequence": 52,
+              "playbackOffsetMs": 40337
+            },
+            {
+              "id": "103401-427be665:toolu_01Bmz9uHAB8N41MeYs9Bu9uW:result",
+              "observedOffsetMs": 39905,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: error",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:58"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103401-427be665:toolu_01Bmz9uHAB8N41MeYs9Bu9uW",
+              "attemptId": "103401-427be665",
+              "sequence": 53,
+              "playbackOffsetMs": 40557
+            },
+            {
+              "id": "103439-e3093bb2:process:0",
+              "observedOffsetMs": 41000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:process-event:0"
+              ],
+              "attemptId": "103439-e3093bb2",
+              "sequence": 54,
+              "playbackOffsetMs": 41000
+            },
+            {
+              "id": "103439-e3093bb2:process:1",
+              "observedOffsetMs": 41961,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.turn.started",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:process-event:1"
+              ],
+              "attemptId": "103439-e3093bb2",
+              "sequence": 55,
+              "playbackOffsetMs": 41961
+            },
+            {
+              "id": "103439-e3093bb2:sdk.init",
+              "observedOffsetMs": 41983,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "외부 session store append와 count: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:sdk-message:2"
+              ],
+              "attemptId": "103439-e3093bb2",
+              "caseId": "session-store-mirror",
+              "annotationMode": "unreported",
+              "sequence": 56,
+              "playbackOffsetMs": 42181
+            },
+            {
+              "id": "103401-427be665:toolu_019PBFwDquWRo5YsTF2m5r8p",
+              "observedOffsetMs": 43089,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:74"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103401-427be665:toolu_019PBFwDquWRo5YsTF2m5r8p",
+              "attemptId": "103401-427be665",
+              "caseId": "checkpoint-edit-rewind",
+              "sequence": 57,
+              "playbackOffsetMs": 43089
+            },
+            {
+              "id": "103401-427be665:toolu_019PBFwDquWRo5YsTF2m5r8p:result",
+              "observedOffsetMs": 43093,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: result received",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:76"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103401-427be665:toolu_019PBFwDquWRo5YsTF2m5r8p",
+              "attemptId": "103401-427be665",
+              "sequence": 58,
+              "playbackOffsetMs": 43309
+            },
+            {
+              "id": "103401-427be665:message_stop",
+              "observedOffsetMs": 43123,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:78"
+              ],
+              "attemptId": "103401-427be665",
+              "sequence": 59,
+              "playbackOffsetMs": 43529
+            },
+            {
+              "id": "103401-427be665:toolu_01VfthKdjgemb8mZwnkNvx69",
+              "observedOffsetMs": 46740,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Edit {}",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:88"
+              ],
+              "toolName": "Edit",
+              "toolUseId": "103401-427be665:toolu_01VfthKdjgemb8mZwnkNvx69",
+              "attemptId": "103401-427be665",
+              "caseId": "checkpoint-edit-rewind",
+              "sequence": 60,
+              "playbackOffsetMs": 46740
+            },
+            {
+              "id": "103401-427be665:toolu_01VfthKdjgemb8mZwnkNvx69:result",
+              "observedOffsetMs": 46745,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Edit: result received",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:90"
+              ],
+              "toolName": "Edit",
+              "toolUseId": "103401-427be665:toolu_01VfthKdjgemb8mZwnkNvx69",
+              "attemptId": "103401-427be665",
+              "sequence": 61,
+              "playbackOffsetMs": 46960
+            },
+            {
+              "id": "103401-427be665:message_stop",
+              "observedOffsetMs": 46750,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:92"
+              ],
+              "attemptId": "103401-427be665",
+              "sequence": 62,
+              "playbackOffsetMs": 47180
+            },
+            {
+              "id": "103439-e3093bb2:toolu_01VQhn9ydCDAnp9o7FRi1Mft",
+              "observedOffsetMs": 47949,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:sdk-message:25"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103439-e3093bb2:toolu_01VQhn9ydCDAnp9o7FRi1Mft",
+              "attemptId": "103439-e3093bb2",
+              "caseId": "session-store-mirror",
+              "sequence": 63,
+              "playbackOffsetMs": 47949
+            },
+            {
+              "id": "103439-e3093bb2:toolu_01VQhn9ydCDAnp9o7FRi1Mft:result",
+              "observedOffsetMs": 47958,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: error",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:sdk-message:30"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103439-e3093bb2:toolu_01VQhn9ydCDAnp9o7FRi1Mft",
+              "attemptId": "103439-e3093bb2",
+              "sequence": 64,
+              "playbackOffsetMs": 48169
+            },
+            {
+              "id": "103439-e3093bb2:toolu_011n7JVuMUfEbDHAxnQA3oiS",
+              "observedOffsetMs": 48470,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:sdk-message:32"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103439-e3093bb2:toolu_011n7JVuMUfEbDHAxnQA3oiS",
+              "attemptId": "103439-e3093bb2",
+              "caseId": "session-store-mirror",
+              "sequence": 65,
+              "playbackOffsetMs": 48470
+            },
+            {
+              "id": "103439-e3093bb2:toolu_01DGufw1TRuHJni1zzgzuAfJ",
+              "observedOffsetMs": 48475,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:sdk-message:38"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103439-e3093bb2:toolu_01DGufw1TRuHJni1zzgzuAfJ",
+              "attemptId": "103439-e3093bb2",
+              "caseId": "session-store-mirror",
+              "sequence": 66,
+              "playbackOffsetMs": 48690
+            },
+            {
+              "id": "103439-e3093bb2:toolu_011n7JVuMUfEbDHAxnQA3oiS:result",
+              "observedOffsetMs": 48478,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: error",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:sdk-message:42"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103439-e3093bb2:toolu_011n7JVuMUfEbDHAxnQA3oiS",
+              "attemptId": "103439-e3093bb2",
+              "sequence": 67,
+              "playbackOffsetMs": 48910
+            },
+            {
+              "id": "103439-e3093bb2:toolu_01DGufw1TRuHJni1zzgzuAfJ:result",
+              "observedOffsetMs": 48478,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: error",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:sdk-message:43"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103439-e3093bb2:toolu_01DGufw1TRuHJni1zzgzuAfJ",
+              "attemptId": "103439-e3093bb2",
+              "sequence": 68,
+              "playbackOffsetMs": 49130
+            },
+            {
+              "id": "103439-e3093bb2:toolu_01MFDXd9szTzFFAYbeAVsous",
+              "observedOffsetMs": 49000,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:sdk-message:46"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103439-e3093bb2:toolu_01MFDXd9szTzFFAYbeAVsous",
+              "attemptId": "103439-e3093bb2",
+              "caseId": "session-store-mirror",
+              "sequence": 69,
+              "playbackOffsetMs": 49350
+            },
+            {
+              "id": "103439-e3093bb2:toolu_01SXeZd8CKUYot22yJHR7Lee",
+              "observedOffsetMs": 49214,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:sdk-message:53"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103439-e3093bb2:toolu_01SXeZd8CKUYot22yJHR7Lee",
+              "attemptId": "103439-e3093bb2",
+              "caseId": "session-store-mirror",
+              "sequence": 70,
+              "playbackOffsetMs": 49570
+            },
+            {
+              "id": "103439-e3093bb2:message_stop",
+              "observedOffsetMs": 49216,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:sdk-message:56"
+              ],
+              "attemptId": "103439-e3093bb2",
+              "sequence": 71,
+              "playbackOffsetMs": 49790
+            },
+            {
+              "id": "103439-e3093bb2:toolu_01SXeZd8CKUYot22yJHR7Lee:result",
+              "observedOffsetMs": 49216,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: error",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:sdk-message:57"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103439-e3093bb2:toolu_01SXeZd8CKUYot22yJHR7Lee",
+              "attemptId": "103439-e3093bb2",
+              "sequence": 72,
+              "playbackOffsetMs": 50010
+            },
+            {
+              "id": "103439-e3093bb2:toolu_01MFDXd9szTzFFAYbeAVsous:result",
+              "observedOffsetMs": 49236,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: error",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:sdk-message:58"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103439-e3093bb2:toolu_01MFDXd9szTzFFAYbeAVsous",
+              "attemptId": "103439-e3093bb2",
+              "sequence": 73,
+              "playbackOffsetMs": 50230
+            },
+            {
+              "id": "103401-427be665:message_stop",
+              "observedOffsetMs": 51322,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:105"
+              ],
+              "attemptId": "103401-427be665",
+              "sequence": 74,
+              "playbackOffsetMs": 51322
+            },
+            {
+              "id": "103401-427be665:result",
+              "observedOffsetMs": 51324,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:106"
+              ],
+              "attemptId": "103401-427be665",
+              "sequence": 75,
+              "playbackOffsetMs": 51542
+            },
+            {
+              "id": "103401-427be665:process:107",
+              "observedOffsetMs": 51325,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.rewind.requested",
+              "sourceRefs": [
+                "attempt:103401-427be665:process-event:107"
+              ],
+              "attemptId": "103401-427be665",
+              "sequence": 76,
+              "playbackOffsetMs": 51762
+            },
+            {
+              "id": "103401-427be665:process:108",
+              "observedOffsetMs": 51328,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.rewind.finished",
+              "sourceRefs": [
+                "attempt:103401-427be665:process-event:108"
+              ],
+              "attemptId": "103401-427be665",
+              "sequence": 77,
+              "playbackOffsetMs": 51982
+            },
+            {
+              "id": "103401-427be665:process:109",
+              "observedOffsetMs": 51328,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.turn.finished",
+              "sourceRefs": [
+                "attempt:103401-427be665:process-event:109"
+              ],
+              "attemptId": "103401-427be665",
+              "sequence": 78,
+              "playbackOffsetMs": 52202
+            },
+            {
+              "id": "103401-427be665:process:110",
+              "observedOffsetMs": 51700,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:103401-427be665:process-event:110"
+              ],
+              "attemptId": "103401-427be665",
+              "sequence": 79,
+              "playbackOffsetMs": 52422
+            },
+            {
+              "id": "103439-e3093bb2:toolu_01PfuPF1tC9dwg8LAGumdqVM",
+              "observedOffsetMs": 51892,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:sdk-message:75"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103439-e3093bb2:toolu_01PfuPF1tC9dwg8LAGumdqVM",
+              "attemptId": "103439-e3093bb2",
+              "caseId": "session-store-mirror",
+              "sequence": 80,
+              "playbackOffsetMs": 52642
+            },
+            {
+              "id": "103439-e3093bb2:message_stop",
+              "observedOffsetMs": 51894,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:sdk-message:78"
+              ],
+              "attemptId": "103439-e3093bb2",
+              "sequence": 81,
+              "playbackOffsetMs": 52862
+            },
+            {
+              "id": "103439-e3093bb2:toolu_01PfuPF1tC9dwg8LAGumdqVM:result",
+              "observedOffsetMs": 51895,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: result received",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:sdk-message:79"
+              ],
+              "toolName": "Read",
+              "toolUseId": "103439-e3093bb2:toolu_01PfuPF1tC9dwg8LAGumdqVM",
+              "attemptId": "103439-e3093bb2",
+              "sequence": 82,
+              "playbackOffsetMs": 53082
+            },
+            {
+              "id": "103439-e3093bb2:message_stop",
+              "observedOffsetMs": 55400,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:sdk-message:93"
+              ],
+              "attemptId": "103439-e3093bb2",
+              "sequence": 83,
+              "playbackOffsetMs": 55400
+            },
+            {
+              "id": "103439-e3093bb2:result",
+              "observedOffsetMs": 55403,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:sdk-message:94"
+              ],
+              "attemptId": "103439-e3093bb2",
+              "sequence": 84,
+              "playbackOffsetMs": 55620
+            },
+            {
+              "id": "103439-e3093bb2:process:95",
+              "observedOffsetMs": 55404,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.turn.finished",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:process-event:95"
+              ],
+              "attemptId": "103439-e3093bb2",
+              "sequence": 85,
+              "playbackOffsetMs": 55840
+            },
+            {
+              "id": "103439-e3093bb2:process:96",
+              "observedOffsetMs": 55879,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:process-event:96"
+              ],
+              "attemptId": "103439-e3093bb2",
+              "sequence": 86,
+              "playbackOffsetMs": 56060
+            },
+            {
+              "id": "claim:partial-stream-tool-result-final-order",
+              "observedOffsetMs": 56579,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "58개 StreamEvent 사이에서 Read 요청과 같은 ID의 결과가 연결되고 최종 assistant 뒤 성공 Result가 왔다.",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:sdk-message:5",
+                "attempt:103238-e1ac26b5:sdk-message:57",
+                "attempt:103238-e1ac26b5:sdk-message:59",
+                "attempt:103238-e1ac26b5:sdk-message:78",
+                "attempt:103238-e1ac26b5:sdk-message:82"
+              ],
+              "claimId": "partial-stream-tool-result-final-order",
+              "claimStatus": "observed",
+              "sequence": 87,
+              "playbackOffsetMs": 56579
+            },
+            {
+              "id": "claim:python-interrupt-cancelled-running-handler",
+              "observedOffsetMs": 56979,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "장기 handler가 시작된 뒤 host interrupt가 전송됐고 error result, aborted_streaming, handler cancelled가 이어졌다.",
+              "sourceRefs": [
+                "attempt:103316-15c0b725:sdk-message:15",
+                "attempt:103316-15c0b725:process-event:16",
+                "attempt:103316-15c0b725:process-event:17",
+                "attempt:103316-15c0b725:process-event:19",
+                "attempt:103316-15c0b725:sdk-message:20",
+                "attempt:103316-15c0b725:sdk-message:21",
+                "attempt:103316-15c0b725:sdk-message:22",
+                "attempt:103316-15c0b725:process-event:24"
+              ],
+              "claimId": "python-interrupt-cancelled-running-handler",
+              "claimStatus": "observed",
+              "sequence": 88,
+              "playbackOffsetMs": 56979
+            },
+            {
+              "id": "claim:max-turns-is-runtime-boundary-after-tool-success",
+              "observedOffsetMs": 57379,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "MCP tool은 ONE_STEP_COMPLETE를 반환했고 그 다음 Result가 error_max_turns로 실행을 닫았다.",
+              "sourceRefs": [
+                "attempt:103340-dfe3c027:sdk-message:16",
+                "attempt:103340-dfe3c027:process-event:17",
+                "attempt:103340-dfe3c027:sdk-message:19",
+                "attempt:103340-dfe3c027:sdk-message:22"
+              ],
+              "claimId": "max-turns-is-runtime-boundary-after-tool-success",
+              "claimStatus": "observed",
+              "sequence": 89,
+              "playbackOffsetMs": 57379
+            },
+            {
+              "id": "claim:checkpoint-rewind-restored-original-hash",
+              "observedOffsetMs": 57779,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "실제 최초 UserMessage UUID로 rewind_files를 호출했고 Edit 뒤 바뀐 파일 hash가 실행 전 hash로 복원됐다.",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:5",
+                "attempt:103401-427be665:sdk-message:88",
+                "attempt:103401-427be665:sdk-message:90",
+                "attempt:103401-427be665:sdk-message:106",
+                "attempt:103401-427be665:process-event:107",
+                "attempt:103401-427be665:process-event:108",
+                "attempt:103401-427be665:process-event:110"
+              ],
+              "claimId": "checkpoint-rewind-restored-original-hash",
+              "claimStatus": "observed",
+              "sequence": 90,
+              "playbackOffsetMs": 57779
+            },
+            {
+              "id": "claim:session-store-count-and-identity",
+              "observedOffsetMs": 58179,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "eager session store에 한 session의 21개 항목이 남았고 store session ID는 성공 Result와 같았다.",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:sdk-message:75",
+                "attempt:103439-e3093bb2:sdk-message:79",
+                "attempt:103439-e3093bb2:sdk-message:94",
+                "attempt:103439-e3093bb2:process-event:96"
+              ],
+              "claimId": "session-store-count-and-identity",
+              "claimStatus": "observed",
+              "sequence": 91,
+              "playbackOffsetMs": 58179
+            },
+            {
+              "id": "claim:python-generic-api-retry-and-recovery",
+              "observedOffsetMs": 58579,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "12장 소유 실행에서 529 overloaded retry가 520, 1169, 2440ms 지연으로 세 번 나타난 뒤 같은 run이 성공했다.",
+              "sourceRefs": [
+                "attempt:113303-a2d4890a:sdk-message:4",
+                "attempt:113303-a2d4890a:sdk-message:5",
+                "attempt:113303-a2d4890a:sdk-message:6",
+                "attempt:113303-a2d4890a:sdk-message:46"
+              ],
+              "claimId": "python-generic-api-retry-and-recovery",
+              "claimStatus": "observed",
+              "sequence": 92,
+              "playbackOffsetMs": 58579
+            },
+            {
+              "id": "claim:primary-opus-is-not-only-provider-usage",
+              "observedOffsetMs": 58979,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "요청, init, assistant primary는 Opus 5지만 Result model_usage에는 Haiku 4.5 보조 사용도 기록됐다.",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:sdk-message:82",
+                "attempt:103316-15c0b725:sdk-message:22",
+                "attempt:103340-dfe3c027:sdk-message:22",
+                "attempt:103401-427be665:sdk-message:106",
+                "attempt:103439-e3093bb2:sdk-message:94",
+                "attempt:113303-a2d4890a:sdk-message:46"
+              ],
+              "claimId": "primary-opus-is-not-only-provider-usage",
+              "claimStatus": "correction_required",
+              "sequence": 93,
+              "playbackOffsetMs": 58979
+            },
+            {
+              "id": "claim:python-host-latency-is-not-provider-ttft",
+              "observedOffsetMs": 59379,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "Python 0.2.128 StreamEvent에는 ttft_ms가 없으므로 capture 시작과 첫 message의 host clock 차이를 provider TTFT라고 부르면 안 된다.",
+              "sourceRefs": [
+                "spec:claims:python-host-latency-is-not-provider-ttft"
+              ],
+              "claimId": "python-host-latency-is-not-provider-ttft",
+              "claimStatus": "correction_required",
+              "sequence": 94,
+              "playbackOffsetMs": 59379
+            },
+            {
+              "id": "claim:interrupt-protocol-text-is-not-human-ui-click",
+              "observedOffsetMs": 59779,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "Request interrupted by user라는 protocol text는 host 프로그램의 interrupt 결과이며 사람의 UI 버튼 클릭을 입증하지 않는다.",
+              "sourceRefs": [
+                "attempt:103316-15c0b725:process-event:17",
+                "attempt:103316-15c0b725:process-event:19",
+                "attempt:103316-15c0b725:sdk-message:21"
+              ],
+              "claimId": "interrupt-protocol-text-is-not-human-ui-click",
+              "claimStatus": "correction_required",
+              "sequence": 95,
+              "playbackOffsetMs": 59779
+            },
+            {
+              "id": "claim:event-gap-cause-needs-more-observation",
+              "observedOffsetMs": 60179,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "host event gap은 계산할 수 있지만 큰 gap 하나로 network, model, tool 중 원인을 식별할 수 없다.",
+              "sourceRefs": [
+                "spec:claims:event-gap-cause-needs-more-observation"
+              ],
+              "claimId": "event-gap-cause-needs-more-observation",
+              "claimStatus": "additional_observation_required",
+              "sequence": 96,
+              "playbackOffsetMs": 60179
+            },
+            {
+              "id": "claim:session-store-content-equivalence-not-observed",
+              "observedOffsetMs": 60579,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "store의 ID와 항목 수는 읽었지만 transcript 본문과 raw stream의 완전 동일성은 비교하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:session-store-content-equivalence-not-observed"
+              ],
+              "claimId": "session-store-content-equivalence-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 97,
+              "playbackOffsetMs": 60579
+            },
+            {
+              "id": "claim:retry-mutation-duplication-not-observed",
+              "observedOffsetMs": 60979,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "529 retry 뒤 host tool은 한 번 실행됐으며 mutation 부작용 중복은 이번 tape에 없다.",
+              "sourceRefs": [
+                "spec:claims:retry-mutation-duplication-not-observed"
+              ],
+              "claimId": "retry-mutation-duplication-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 98,
+              "playbackOffsetMs": 60979
+            },
+            {
+              "id": "claim:availability-fallback-not-observed",
+              "observedOffsetMs": 61379,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "다섯 6b 실행은 fallback_model을 설정하지 않았고 실제 model 전환 사건도 없었다.",
+              "sourceRefs": [
+                "spec:claims:availability-fallback-not-observed"
+              ],
+              "claimId": "availability-fallback-not-observed",
+              "claimStatus": "additional_observation_required",
+              "sequence": 99,
+              "playbackOffsetMs": 61379
+            },
+            {
+              "id": "claim:checkpoint-does-not-prove-files-api-whole",
+              "observedOffsetMs": 61779,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "checkpoint와 rewind는 관찰했지만 attachment download와 원격 Files API 전체는 관찰하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:checkpoint-does-not-prove-files-api-whole"
+              ],
+              "claimId": "checkpoint-does-not-prove-files-api-whole",
+              "claimStatus": "additional_observation_required",
+              "sequence": 100,
+              "playbackOffsetMs": 61779
+            }
+          ],
+          "facts": [
+            {
+              "label": "raw source events",
+              "value": "392"
+            },
+            {
+              "label": "public projection",
+              "value": "101"
+            },
+            {
+              "label": "tool uses",
+              "value": "19"
+            },
+            {
+              "label": "tool results",
+              "value": "19"
+            },
+            {
+              "label": "observed claims",
+              "value": "6"
+            },
+            {
+              "label": "needs observation",
+              "value": "5"
+            },
+            {
+              "label": "invalid attempts",
+              "value": "0"
+            },
+            {
+              "label": "proof gate",
+              "value": "accepted_with_notes"
+            }
+          ],
+          "claims": [
+            {
+              "id": "partial-stream-tool-result-final-order",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "58개 StreamEvent 사이에서 Read 요청과 같은 ID의 결과가 연결되고 최종 assistant 뒤 성공 Result가 왔다.",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:sdk-message:5",
+                "attempt:103238-e1ac26b5:sdk-message:57",
+                "attempt:103238-e1ac26b5:sdk-message:59",
+                "attempt:103238-e1ac26b5:sdk-message:78",
+                "attempt:103238-e1ac26b5:sdk-message:82"
+              ]
+            },
+            {
+              "id": "python-interrupt-cancelled-running-handler",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "장기 handler가 시작된 뒤 host interrupt가 전송됐고 error result, aborted_streaming, handler cancelled가 이어졌다.",
+              "sourceRefs": [
+                "attempt:103316-15c0b725:sdk-message:15",
+                "attempt:103316-15c0b725:process-event:16",
+                "attempt:103316-15c0b725:process-event:17",
+                "attempt:103316-15c0b725:process-event:19",
+                "attempt:103316-15c0b725:sdk-message:20",
+                "attempt:103316-15c0b725:sdk-message:21",
+                "attempt:103316-15c0b725:sdk-message:22",
+                "attempt:103316-15c0b725:process-event:24"
+              ]
+            },
+            {
+              "id": "max-turns-is-runtime-boundary-after-tool-success",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "MCP tool은 ONE_STEP_COMPLETE를 반환했고 그 다음 Result가 error_max_turns로 실행을 닫았다.",
+              "sourceRefs": [
+                "attempt:103340-dfe3c027:sdk-message:16",
+                "attempt:103340-dfe3c027:process-event:17",
+                "attempt:103340-dfe3c027:sdk-message:19",
+                "attempt:103340-dfe3c027:sdk-message:22"
+              ]
+            },
+            {
+              "id": "checkpoint-rewind-restored-original-hash",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "실제 최초 UserMessage UUID로 rewind_files를 호출했고 Edit 뒤 바뀐 파일 hash가 실행 전 hash로 복원됐다.",
+              "sourceRefs": [
+                "attempt:103401-427be665:sdk-message:5",
+                "attempt:103401-427be665:sdk-message:88",
+                "attempt:103401-427be665:sdk-message:90",
+                "attempt:103401-427be665:sdk-message:106",
+                "attempt:103401-427be665:process-event:107",
+                "attempt:103401-427be665:process-event:108",
+                "attempt:103401-427be665:process-event:110"
+              ]
+            },
+            {
+              "id": "session-store-count-and-identity",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "eager session store에 한 session의 21개 항목이 남았고 store session ID는 성공 Result와 같았다.",
+              "sourceRefs": [
+                "attempt:103439-e3093bb2:sdk-message:75",
+                "attempt:103439-e3093bb2:sdk-message:79",
+                "attempt:103439-e3093bb2:sdk-message:94",
+                "attempt:103439-e3093bb2:process-event:96"
+              ]
+            },
+            {
+              "id": "python-generic-api-retry-and-recovery",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "12장 소유 실행에서 529 overloaded retry가 520, 1169, 2440ms 지연으로 세 번 나타난 뒤 같은 run이 성공했다.",
+              "sourceRefs": [
+                "attempt:113303-a2d4890a:sdk-message:4",
+                "attempt:113303-a2d4890a:sdk-message:5",
+                "attempt:113303-a2d4890a:sdk-message:6",
+                "attempt:113303-a2d4890a:sdk-message:46"
+              ]
+            },
+            {
+              "id": "primary-opus-is-not-only-provider-usage",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "요청, init, assistant primary는 Opus 5지만 Result model_usage에는 Haiku 4.5 보조 사용도 기록됐다.",
+              "sourceRefs": [
+                "attempt:103238-e1ac26b5:sdk-message:82",
+                "attempt:103316-15c0b725:sdk-message:22",
+                "attempt:103340-dfe3c027:sdk-message:22",
+                "attempt:103401-427be665:sdk-message:106",
+                "attempt:103439-e3093bb2:sdk-message:94",
+                "attempt:113303-a2d4890a:sdk-message:46"
+              ]
+            },
+            {
+              "id": "python-host-latency-is-not-provider-ttft",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "Python 0.2.128 StreamEvent에는 ttft_ms가 없으므로 capture 시작과 첫 message의 host clock 차이를 provider TTFT라고 부르면 안 된다.",
+              "sourceRefs": [
+                "spec:claims:python-host-latency-is-not-provider-ttft"
+              ]
+            },
+            {
+              "id": "interrupt-protocol-text-is-not-human-ui-click",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "Request interrupted by user라는 protocol text는 host 프로그램의 interrupt 결과이며 사람의 UI 버튼 클릭을 입증하지 않는다.",
+              "sourceRefs": [
+                "attempt:103316-15c0b725:process-event:17",
+                "attempt:103316-15c0b725:process-event:19",
+                "attempt:103316-15c0b725:sdk-message:21"
+              ]
+            },
+            {
+              "id": "event-gap-cause-needs-more-observation",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "host event gap은 계산할 수 있지만 큰 gap 하나로 network, model, tool 중 원인을 식별할 수 없다.",
+              "sourceRefs": [
+                "spec:claims:event-gap-cause-needs-more-observation"
+              ]
+            },
+            {
+              "id": "session-store-content-equivalence-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "store의 ID와 항목 수는 읽었지만 transcript 본문과 raw stream의 완전 동일성은 비교하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:session-store-content-equivalence-not-observed"
+              ]
+            },
+            {
+              "id": "retry-mutation-duplication-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "529 retry 뒤 host tool은 한 번 실행됐으며 mutation 부작용 중복은 이번 tape에 없다.",
+              "sourceRefs": [
+                "spec:claims:retry-mutation-duplication-not-observed"
+              ]
+            },
+            {
+              "id": "availability-fallback-not-observed",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "다섯 6b 실행은 fallback_model을 설정하지 않았고 실제 model 전환 사건도 없었다.",
+              "sourceRefs": [
+                "spec:claims:availability-fallback-not-observed"
+              ]
+            },
+            {
+              "id": "checkpoint-does-not-prove-files-api-whole",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "checkpoint와 rewind는 관찰했지만 attachment download와 원격 Files API 전체는 관찰하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:checkpoint-does-not-prove-files-api-whole"
               ]
             }
           ]

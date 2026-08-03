@@ -146,7 +146,7 @@ async function latestTraceFiles(chapterDir) {
 async function buildChapterRuns() {
   const entries = await fs.readdir(recordedRoot, { withFileTypes: true })
   const chapterDirs = entries
-    .filter((entry) => entry.isDirectory() && /^ch\d+$/.test(entry.name))
+    .filter((entry) => entry.isDirectory() && /^ch\d+[a-z]*$/i.test(entry.name))
     .map((entry) => entry.name)
     .sort()
 
