@@ -160,17 +160,28 @@ function EvidenceOverlay({
             <ol className="grid gap-2 pr-1 text-[9px] md:max-h-[min(34vh,18rem)] md:overflow-y-auto">
               {run.claims.map((claim) => {
                 const observed = claim.status === "observed"
+                const correctionRequired = claim.status === "correction_required"
+                const verdictColor = observed
+                  ? "#68e0a0"
+                  : correctionRequired
+                    ? "#ff8f8f"
+                    : "#f0c66e"
+                const verdictLabel = observed
+                  ? "OBSERVED"
+                  : correctionRequired
+                    ? "CORRECTION REQUIRED"
+                    : "MORE EVIDENCE"
                 return (
                   <li
                     key={claim.id}
                     className="border-l-2 bg-black/35 px-2 py-1.5"
-                    style={{ borderColor: observed ? "#68e0a0" : "#f0c66e" }}
+                    style={{ borderColor: verdictColor }}
                     title={claim.sourceRefs.join("\n")}
                   >
                     <div className="flex items-center justify-between gap-2">
                       <b className="truncate text-slate-300">{claim.id}</b>
-                      <span style={{ color: observed ? "#68e0a0" : "#f0c66e" }}>
-                        {observed ? "OBSERVED" : "MORE EVIDENCE"}
+                      <span style={{ color: verdictColor }}>
+                        {verdictLabel}
                       </span>
                     </div>
                     <p className="mt-1 line-clamp-2 leading-relaxed text-slate-500">{claim.summary}</p>
