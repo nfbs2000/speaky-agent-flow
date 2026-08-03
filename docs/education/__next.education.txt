@@ -1,4 +1,4 @@
 1:"$Sreact.fragment"
 2:I[45121,["/speaky-agent-flow/_next/static/chunks/7dfeab42587bcc0e.js"],"default"]
 3:I[60512,["/speaky-agent-flow/_next/static/chunks/7dfeab42587bcc0e.js"],"default"]
-0:{"buildId":"-J0LTZpGIhQnWZ7-MOHWJ","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"q1IEFKhU62cqCwN6yF1_D","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
