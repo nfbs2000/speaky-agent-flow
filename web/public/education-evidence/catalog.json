@@ -1,7 +1,7 @@
 {
   "schemaVersion": "education-agent-flow.v1",
   "courseId": "book-sdk-ko",
-  "generatedAt": "2026-08-03T23:42:23.045Z",
+  "generatedAt": "2026-08-04T00:12:04.359Z",
   "publicationPolicy": "Whitelisted normalized evidence only; no mock fallback.",
   "collections": [
     {
@@ -23899,6 +23899,1222 @@
               "summary": "string system prompt와 preset append/exclude_dynamic_sections의 cache 차이는 별도 controlled case가 필요하다.",
               "sourceRefs": [
                 "spec:claims:preset-variants-required"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ch14",
+          "title": "14장 캐시 브레이크 감지: 동일 tool surface control과 변경 surface 비교",
+          "description": "Education Shell recorded run book-sdk-live-20260803",
+          "status": "verified_source",
+          "runtime": "claude-agent-sdk",
+          "provider": "claude",
+          "model": "claude-opus-5",
+          "chapterSlug": "ch14",
+          "sourceEventCount": 151,
+          "publishedEventCount": 53,
+          "source": {
+            "path": "slide/.shared-course-visual/otel-course-runtime/recorded-runs/book-sdk-ko/ch14/2026-08-03T23-54-54-180485Z/trace.json",
+            "sha256": "623342826f95c9d96fa08f244d7bdf0906404cba7c6b10ed42aca1e95ab3fab7",
+            "verification": "verified-source-artifact",
+            "recordedAt": "2026-08-03T23:54:54.180485Z"
+          },
+          "events": [
+            {
+              "id": "book-sdk-live-20260803:prompt",
+              "observedOffsetMs": 0,
+              "eventType": "prompt.submitted",
+              "actor": "user",
+              "evidenceLevel": "Configured",
+              "summary": "V2 stable prefix와 fresh nonce를 세 독립 Agent SDK session에 동일하게 주고 A와 A-control은 같은 MCP tool description/input schema, B만 변경 surface를 광고한다. A, A-control, B를 순차 실행해 init, Result cache usage, marker, raw SDK와 OTel을 비교하되 server cache key, break cause, TTFT, TTL은 관찰되지 않은 것으로 남긴다.",
+              "sourceRefs": [
+                "publication-spec:public_prompt"
+              ],
+              "sequence": 0,
+              "playbackOffsetMs": 220
+            },
+            {
+              "id": "235439-485fdecb:process:0",
+              "observedOffsetMs": 1000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:process-event:0"
+              ],
+              "attemptId": "235439-485fdecb",
+              "sequence": 1,
+              "playbackOffsetMs": 1000
+            },
+            {
+              "id": "235439-485fdecb:process:1",
+              "observedOffsetMs": 1002,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.cache-surface.started",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:process-event:1"
+              ],
+              "attemptId": "235439-485fdecb",
+              "sequence": 2,
+              "playbackOffsetMs": 1220
+            },
+            {
+              "id": "235439-485fdecb:sdk.init",
+              "observedOffsetMs": 2182,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "V2 source-bound A, same-schema control, changed tool surface B: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:2"
+              ],
+              "attemptId": "235439-485fdecb",
+              "caseId": "tool-schema-diff-candidate",
+              "annotationMode": "unreported",
+              "sequence": 3,
+              "playbackOffsetMs": 2182
+            },
+            {
+              "id": "235439-485fdecb:message_stop",
+              "observedOffsetMs": 6808,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:12"
+              ],
+              "attemptId": "235439-485fdecb",
+              "sequence": 4,
+              "playbackOffsetMs": 6808
+            },
+            {
+              "id": "235439-485fdecb:result",
+              "observedOffsetMs": 6810,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:13"
+              ],
+              "attemptId": "235439-485fdecb",
+              "sequence": 5,
+              "playbackOffsetMs": 7028
+            },
+            {
+              "id": "235439-485fdecb:process:14",
+              "observedOffsetMs": 7338,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.cache-surface.finished",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:process-event:14"
+              ],
+              "attemptId": "235439-485fdecb",
+              "outcome": "completed",
+              "sequence": 6,
+              "playbackOffsetMs": 7338
+            },
+            {
+              "id": "235439-485fdecb:process:15",
+              "observedOffsetMs": 7340,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.cache-surface.started",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:process-event:15"
+              ],
+              "attemptId": "235439-485fdecb",
+              "sequence": 7,
+              "playbackOffsetMs": 7558
+            },
+            {
+              "id": "235439-485fdecb:sdk.init:16",
+              "observedOffsetMs": 8471,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "V2 source-bound A, same-schema control, changed tool surface B: init boundary 2, claude-opus-5",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:16"
+              ],
+              "attemptId": "235439-485fdecb",
+              "caseId": "tool-schema-diff-candidate",
+              "annotationMode": "unreported",
+              "sequence": 8,
+              "playbackOffsetMs": 8471
+            },
+            {
+              "id": "235439-485fdecb:message_stop",
+              "observedOffsetMs": 11132,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:26"
+              ],
+              "attemptId": "235439-485fdecb",
+              "sequence": 9,
+              "playbackOffsetMs": 11132
+            },
+            {
+              "id": "235439-485fdecb:result",
+              "observedOffsetMs": 11135,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:27"
+              ],
+              "attemptId": "235439-485fdecb",
+              "sequence": 10,
+              "playbackOffsetMs": 11352
+            },
+            {
+              "id": "235439-485fdecb:process:28",
+              "observedOffsetMs": 11659,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.cache-surface.finished",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:process-event:28"
+              ],
+              "attemptId": "235439-485fdecb",
+              "outcome": "completed",
+              "sequence": 11,
+              "playbackOffsetMs": 11659
+            },
+            {
+              "id": "235439-485fdecb:process:29",
+              "observedOffsetMs": 11660,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.cache-surface.started",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:process-event:29"
+              ],
+              "attemptId": "235439-485fdecb",
+              "sequence": 12,
+              "playbackOffsetMs": 11879
+            },
+            {
+              "id": "235439-485fdecb:sdk.init:30",
+              "observedOffsetMs": 12690,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "V2 source-bound A, same-schema control, changed tool surface B: init boundary 3, claude-opus-5",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:30"
+              ],
+              "attemptId": "235439-485fdecb",
+              "caseId": "tool-schema-diff-candidate",
+              "annotationMode": "unreported",
+              "sequence": 13,
+              "playbackOffsetMs": 12690
+            },
+            {
+              "id": "235439-485fdecb:message_stop",
+              "observedOffsetMs": 15483,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:40"
+              ],
+              "attemptId": "235439-485fdecb",
+              "sequence": 14,
+              "playbackOffsetMs": 15483
+            },
+            {
+              "id": "235439-485fdecb:result",
+              "observedOffsetMs": 15488,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:41"
+              ],
+              "attemptId": "235439-485fdecb",
+              "sequence": 15,
+              "playbackOffsetMs": 15703
+            },
+            {
+              "id": "235439-485fdecb:process:42",
+              "observedOffsetMs": 16011,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.cache-surface.finished",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:process-event:42"
+              ],
+              "attemptId": "235439-485fdecb",
+              "outcome": "completed",
+              "sequence": 16,
+              "playbackOffsetMs": 16011
+            },
+            {
+              "id": "235439-485fdecb:process:43",
+              "observedOffsetMs": 16015,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:process-event:43"
+              ],
+              "attemptId": "235439-485fdecb",
+              "sequence": 17,
+              "playbackOffsetMs": 16231
+            },
+            {
+              "id": "claim:v2-three-surface-control-configured",
+              "observedOffsetMs": 16715,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Configured",
+              "summary": "host는 7,822-character V2 prefix와 fresh attempt nonce, A/A-control 동일 surface, B 변경 surface, 새 SDK client 세 개, 동일 model, workspace, tool, server, permission, settings와 provider concurrency 1을 설정했다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:manifest:option_summary"
+              ],
+              "claimId": "v2-three-surface-control-configured",
+              "claimStatus": "configured",
+              "sequence": 18,
+              "playbackOffsetMs": 16715
+            },
+            {
+              "id": "claim:attempt-integrity-files-match",
+              "observedOffsetMs": 17115,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "최신 attempt integrity manifest가 열거한 manifest, verdict, raw 4종, OTel SHA-256 7개를 현재 파일에서 다시 계산해 모두 일치했다.",
+              "sourceRefs": [
+                "spec:claims:attempt-integrity-files-match"
+              ],
+              "claimId": "attempt-integrity-files-match",
+              "claimStatus": "observed",
+              "sequence": 19,
+              "playbackOffsetMs": 17115
+            },
+            {
+              "id": "claim:four-execution-source-hashes-match",
+              "observedOffsetMs": 17515,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "manifest는 실행 당시 chapter, probe, case, runtime source SHA-256 네 개를 묶었고 현재 실행 파일 hash와 4/4 일치했다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:manifest:option_summary"
+              ],
+              "claimId": "four-execution-source-hashes-match",
+              "claimStatus": "observed",
+              "sequence": 20,
+              "playbackOffsetMs": 17515
+            },
+            {
+              "id": "claim:actual-opus-and-serial-surface-boundaries",
+              "observedOffsetMs": 17915,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "세 init model은 Opus 5이고 A finish 14 뒤 control start 15, control finish 28 뒤 B start 29가 이어져 provider 실행이 병렬이 아님을 보였다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:2",
+                "attempt:235439-485fdecb:process-event:14",
+                "attempt:235439-485fdecb:process-event:15",
+                "attempt:235439-485fdecb:process-event:28",
+                "attempt:235439-485fdecb:process-event:29",
+                "attempt:235439-485fdecb:sdk-message:30"
+              ],
+              "claimId": "actual-opus-and-serial-surface-boundaries",
+              "claimStatus": "observed",
+              "sequence": 21,
+              "playbackOffsetMs": 17915
+            },
+            {
+              "id": "claim:three-independent-sdk-sessions",
+              "observedOffsetMs": 18315,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "init sequence 2, 16, 30은 서로 다른 runtime session identifier를 보고해 세 surface가 독립 SDK session임을 보였다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:2",
+                "attempt:235439-485fdecb:sdk-message:16",
+                "attempt:235439-485fdecb:sdk-message:30"
+              ],
+              "claimId": "three-independent-sdk-sessions",
+              "claimStatus": "observed",
+              "sequence": 22,
+              "playbackOffsetMs": 18315
+            },
+            {
+              "id": "claim:same-init-tool-and-connected-mcp",
+              "observedOffsetMs": 18715,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "세 init은 같은 mcp__cache_surface__search_evidence tool 이름과 connected cache_surface MCP server를 보고했다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:2",
+                "attempt:235439-485fdecb:sdk-message:16",
+                "attempt:235439-485fdecb:sdk-message:30"
+              ],
+              "claimId": "same-init-tool-and-connected-mcp",
+              "claimStatus": "observed",
+              "sequence": 23,
+              "playbackOffsetMs": 18715
+            },
+            {
+              "id": "claim:host-schema-and-system-hash-relations",
+              "observedOffsetMs": 19115,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "process markers는 A와 A-control schema hash가 같고 B만 다르며 세 system prompt hash는 동일하다고 기록했다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:process-event:1",
+                "attempt:235439-485fdecb:process-event:15",
+                "attempt:235439-485fdecb:process-event:29"
+              ],
+              "claimId": "host-schema-and-system-hash-relations",
+              "claimStatus": "observed",
+              "sequence": 24,
+              "playbackOffsetMs": 19115
+            },
+            {
+              "id": "claim:surface-a-created-cache",
+              "observedOffsetMs": 19515,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "A Result sequence 13은 cache creation 2864, cache read 0, exact A marker와 terminal success를 기록했다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:13"
+              ],
+              "claimId": "surface-a-created-cache",
+              "claimStatus": "observed",
+              "sequence": 25,
+              "playbackOffsetMs": 19515
+            },
+            {
+              "id": "claim:same-surface-control-read-cache",
+              "observedOffsetMs": 19915,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "A-control Result sequence 27은 cache creation 210, cache read 2660, exact control marker와 terminal success를 기록했다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:27"
+              ],
+              "claimId": "same-surface-control-read-cache",
+              "claimStatus": "observed",
+              "sequence": 26,
+              "playbackOffsetMs": 19915
+            },
+            {
+              "id": "claim:changed-surface-b-created-cache",
+              "observedOffsetMs": 20315,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "변경 surface B Result sequence 41은 cache creation 2887, cache read 0, exact B marker와 terminal success를 기록했다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:41"
+              ],
+              "claimId": "changed-surface-b-created-cache",
+              "claimStatus": "observed",
+              "sequence": 27,
+              "playbackOffsetMs": 20315
+            },
+            {
+              "id": "claim:no-model-tool-call-and-all-boundaries-complete",
+              "observedOffsetMs": 20715,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "세 session의 model ToolUseBlock은 0개였고 각 start/finish marker는 outcome completed와 12 SDK messages를 기록했다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:process-event:14",
+                "attempt:235439-485fdecb:process-event:28",
+                "attempt:235439-485fdecb:process-event:42"
+              ],
+              "claimId": "no-model-tool-call-and-all-boundaries-complete",
+              "claimStatus": "observed",
+              "sequence": 28,
+              "playbackOffsetMs": 20715
+            },
+            {
+              "id": "claim:raw-and-otel-sequences-align",
+              "observedOffsetMs": 21115,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "raw SDK 36개와 OTel sdk.message 36개, raw process 8개와 OTel process.event 8개의 sequence가 각각 순서까지 일치하고 46개 span은 한 trace에 속한다.",
+              "sourceRefs": [
+                "spec:claims:raw-and-otel-sequences-align"
+              ],
+              "claimId": "raw-and-otel-sequences-align",
+              "claimStatus": "observed",
+              "sequence": 29,
+              "playbackOffsetMs": 21115
+            },
+            {
+              "id": "claim:v1-supporting-attempt-repeats-control-pattern",
+              "observedOffsetMs": 21515,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "이전 실제 V1 attempt도 A create 2866, 같은-surface control read 2662, 변경 B create 2889를 기록해 최신 V2와 같은 관찰 패턴을 보였다. V1은 실행 소스 4개가 바인딩되지 않아 supporting evidence로만 사용한다.",
+              "sourceRefs": [
+                "attempt:121529-1a61b1f4:sdk-message:13",
+                "attempt:121529-1a61b1f4:sdk-message:27",
+                "attempt:121529-1a61b1f4:sdk-message:41"
+              ],
+              "claimId": "v1-supporting-attempt-repeats-control-pattern",
+              "claimStatus": "observed",
+              "sequence": 30,
+              "playbackOffsetMs": 21515
+            },
+            {
+              "id": "claim:overload-retry-and-error-terminal-preserved",
+              "observedOffsetMs": 21915,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "rejected attempt는 529 api_retry 10회 뒤 subtype success이면서 is_error=true인 Result를 남겼고, 실패 surface를 cache 비교에서 제외해야 함을 직접 보였다.",
+              "sourceRefs": [
+                "attempt:115432-515a1e8a:sdk-message:5",
+                "attempt:115432-515a1e8a:sdk-message:14",
+                "attempt:115432-515a1e8a:sdk-message:16"
+              ],
+              "claimId": "overload-retry-and-error-terminal-preserved",
+              "claimStatus": "observed",
+              "sequence": 31,
+              "playbackOffsetMs": 21915
+            },
+            {
+              "id": "claim:older-b-cache-contamination-preserved",
+              "observedOffsetMs": 22315,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "rejected attempt 121142는 fresh A create 2837과 B read 2860을 기록했지만 B는 이전 attempt가 만든 동일 B surface cache일 수 있어 pair를 기각한 근거로 남는다.",
+              "sourceRefs": [
+                "attempt:121142-fc55c838:sdk-message:13",
+                "attempt:121142-fc55c838:sdk-message:27"
+              ],
+              "claimId": "older-b-cache-contamination-preserved",
+              "claimStatus": "observed",
+              "sequence": 32,
+              "playbackOffsetMs": 22315
+            },
+            {
+              "id": "claim:changed-tool-surface-is-strong-break-candidate",
+              "observedOffsetMs": 22715,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Inferred",
+              "summary": "동일 system과 A/A-control surface에서는 2660 read가 발생하고 B에서만 description/input schema와 cache usage가 함께 바뀌었으므로 변경 tool surface가 B miss의 가장 강한 통제 후보다. server cause event는 없어 인과 확정은 아니다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:manifest:option_summary",
+                "attempt:235439-485fdecb:sdk-message:13",
+                "attempt:235439-485fdecb:sdk-message:27",
+                "attempt:235439-485fdecb:sdk-message:41"
+              ],
+              "claimId": "changed-tool-surface-is-strong-break-candidate",
+              "claimStatus": "inferred",
+              "sequence": 33,
+              "playbackOffsetMs": 22715
+            },
+            {
+              "id": "claim:control-read-mostly-maps-to-stable-prefix",
+              "observedOffsetMs": 23115,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Inferred",
+              "summary": "A-control의 read 2660과 create 210은 A create 2864와 비슷한 총량이고 host 차이는 latest user marker뿐이어서 대부분의 안정 prefix 재사용을 지지한다. provider segment-to-byte map은 없어 attribution은 추론이다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:13",
+                "attempt:235439-485fdecb:sdk-message:27"
+              ],
+              "claimId": "control-read-mostly-maps-to-stable-prefix",
+              "claimStatus": "inferred",
+              "sequence": 34,
+              "playbackOffsetMs": 23115
+            },
+            {
+              "id": "claim:messages-cache-control-and-ttft-are-not-agent-options",
+              "observedOffsetMs": 23515,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "Messages API cookbook의 cache_control과 stream TTFT 측정을 설치된 ClaudeAgentOptions 기능으로 설명하면 안 된다. 현재 Agent SDK 0.2.128에는 cache_control field가 없고 이 probe는 provider TTFT를 수집하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:messages-cache-control-and-ttft-are-not-agent-options"
+              ],
+              "claimId": "messages-cache-control-and-ttft-are-not-agent-options",
+              "claimStatus": "correction_required",
+              "sequence": 35,
+              "playbackOffsetMs": 23515
+            },
+            {
+              "id": "claim:two-stage-detector-is-host-pattern-not-sdk-event",
+              "observedOffsetMs": 23915,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "요청 전 snapshot과 응답 후 usage 비교는 host가 구현할 수 있는 분석 패턴이지 Agent SDK가 pendingChanges와 break cause를 자동 제공한다는 뜻이 아니다.",
+              "sourceRefs": [
+                "spec:claims:two-stage-detector-is-host-pattern-not-sdk-event"
+              ],
+              "claimId": "two-stage-detector-is-host-pattern-not-sdk-event",
+              "claimStatus": "correction_required",
+              "sequence": 36,
+              "playbackOffsetMs": 23915
+            },
+            {
+              "id": "claim:host-schema-hash-is-not-server-cache-key",
+              "observedOffsetMs": 24315,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "host가 직렬화한 description/input schema hash는 통제 입력 증거이며 전체 provider cache key나 server-side cause attribution이 아니다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:manifest:option_summary"
+              ],
+              "claimId": "host-schema-hash-is-not-server-cache-key",
+              "claimStatus": "correction_required",
+              "sequence": 37,
+              "playbackOffsetMs": 24315
+            },
+            {
+              "id": "claim:terminal-subtype-success-is-insufficient",
+              "observedOffsetMs": 24715,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "Result subtype success만으로 terminal 성공을 판정하면 안 된다. rejected 529 Result는 subtype success이면서 is_error=true였다.",
+              "sourceRefs": [
+                "attempt:115432-515a1e8a:sdk-message:16"
+              ],
+              "claimId": "terminal-subtype-success-is-insufficient",
+              "claimStatus": "correction_required",
+              "sequence": 38,
+              "playbackOffsetMs": 24715
+            },
+            {
+              "id": "claim:primary-opus-is-not-only-provider-usage",
+              "observedOffsetMs": 25115,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "세 init의 primary assistant model은 Opus 5지만 terminal model_usage에는 Haiku 4.5도 있으므로 전체 provider usage를 Opus 하나로 표현하면 안 된다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:13",
+                "attempt:235439-485fdecb:sdk-message:27",
+                "attempt:235439-485fdecb:sdk-message:41"
+              ],
+              "claimId": "primary-opus-is-not-only-provider-usage",
+              "claimStatus": "correction_required",
+              "sequence": 39,
+              "playbackOffsetMs": 25115
+            },
+            {
+              "id": "claim:captured-is-not-cache-break-pass",
+              "observedOffsetMs": 25515,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "OTel CAPTURED, assertion count 0, verdict TODO, passed null은 raw 수집 완료와 수동 판독 대기 상태이지 cache-break 주장의 자동 pass가 아니다.",
+              "sourceRefs": [
+                "spec:claims:captured-is-not-cache-break-pass"
+              ],
+              "claimId": "captured-is-not-cache-break-pass",
+              "claimStatus": "correction_required",
+              "sequence": 40,
+              "playbackOffsetMs": 25515
+            },
+            {
+              "id": "claim:otel-is-not-independent-provider-proof",
+              "observedOffsetMs": 25915,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "같은 recorder가 raw SDK와 process event를 OTel로 투영했으므로 sequence 일치는 recorder 무손실 확인이지 독립 provider 관측 증거가 아니다.",
+              "sourceRefs": [
+                "spec:claims:otel-is-not-independent-provider-proof"
+              ],
+              "claimId": "otel-is-not-independent-provider-proof",
+              "claimStatus": "correction_required",
+              "sequence": 41,
+              "playbackOffsetMs": 25915
+            },
+            {
+              "id": "claim:one-controlled-triple-is-not-cost-speed-quality-proof",
+              "observedOffsetMs": 26315,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "두 번 반복된 cache usage 패턴만으로 일반 비용 절감률, 속도 향상, 결과 품질 변화를 증명했다고 쓰면 안 된다. 이 probe는 그 지표의 반복 분포를 수집하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:one-controlled-triple-is-not-cost-speed-quality-proof"
+              ],
+              "claimId": "one-controlled-triple-is-not-cost-speed-quality-proof",
+              "claimStatus": "correction_required",
+              "sequence": 42,
+              "playbackOffsetMs": 26315
+            },
+            {
+              "id": "claim:pending-changes-and-server-cause-not-observed",
+              "observedOffsetMs": 26715,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "raw SDK와 Result usage에는 pendingChanges, per-tool server attribution, cache-break cause field가 없다.",
+              "sourceRefs": [
+                "spec:claims:pending-changes-and-server-cause-not-observed"
+              ],
+              "claimId": "pending-changes-and-server-cause-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 43,
+              "playbackOffsetMs": 26715
+            },
+            {
+              "id": "claim:provider-cache-key-and-segment-map-not-observed",
+              "observedOffsetMs": 27115,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "provider cache key 구성과 tool schema byte가 어느 cache token segment에 대응하는지는 공개 event에서 관찰되지 않았다.",
+              "sourceRefs": [
+                "spec:claims:provider-cache-key-and-segment-map-not-observed"
+              ],
+              "claimId": "provider-cache-key-and-segment-map-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 44,
+              "playbackOffsetMs": 27115
+            },
+            {
+              "id": "claim:provider-ttft-not-observed",
+              "observedOffsetMs": 27515,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "host 전체 duration은 계산할 수 있지만 이 Agent SDK probe는 provider time-to-first-token을 직접 분리하지 않아 TTFT 효과를 관찰하지 못했다.",
+              "sourceRefs": [
+                "spec:claims:provider-ttft-not-observed"
+              ],
+              "claimId": "provider-ttft-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 45,
+              "playbackOffsetMs": 27515
+            },
+            {
+              "id": "claim:ttl-expiry-not-observed",
+              "observedOffsetMs": 27915,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "세 surface를 짧은 시간 안에 실행했으므로 실제 cache TTL 만료 경계는 관찰하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:ttl-expiry-not-observed"
+              ],
+              "claimId": "ttl-expiry-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 46,
+              "playbackOffsetMs": 27915
+            },
+            {
+              "id": "claim:other-break-candidate-classes-not-observed",
+              "observedOffsetMs": 28315,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "날짜/cwd prefix, MCP 연결 수, skill/plugin 목록, model/effort, 긴 tool_result를 각각 바꾸는 실행은 이번 tool-surface case에서 수행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:other-break-candidate-classes-not-observed"
+              ],
+              "claimId": "other-break-candidate-classes-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 47,
+              "playbackOffsetMs": 28315
+            },
+            {
+              "id": "claim:quality-and-repeat-distribution-not-observed",
+              "observedOffsetMs": 28715,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "marker 반환 과제는 결과 품질 비교가 아니며 두 표본은 latency/cost/hit-rate 분포를 만들기에 부족하다.",
+              "sourceRefs": [
+                "spec:claims:quality-and-repeat-distribution-not-observed"
+              ],
+              "claimId": "quality-and-repeat-distribution-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 48,
+              "playbackOffsetMs": 28715
+            },
+            {
+              "id": "claim:description-versus-input-schema-isolation-required",
+              "observedOffsetMs": 29115,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "B는 description과 input schema를 함께 바꿨으므로 두 변수의 개별 효과를 보려면 description-only와 schema-only surface를 순차 실행해야 한다.",
+              "sourceRefs": [
+                "spec:claims:description-versus-input-schema-isolation-required"
+              ],
+              "claimId": "description-versus-input-schema-isolation-required",
+              "claimStatus": "additional_observation_required",
+              "sequence": 49,
+              "playbackOffsetMs": 29115
+            },
+            {
+              "id": "claim:repeated-sequential-samples-required",
+              "observedOffsetMs": 29515,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "cache candidate 패턴의 안정성을 말하려면 fresh nonce를 사용하는 같은 A/control/B triple을 더 반복하되 계속 provider concurrency 1을 유지해야 한다.",
+              "sourceRefs": [
+                "spec:claims:repeated-sequential-samples-required"
+              ],
+              "claimId": "repeated-sequential-samples-required",
+              "claimStatus": "additional_observation_required",
+              "sequence": 50,
+              "playbackOffsetMs": 29515
+            },
+            {
+              "id": "claim:candidate-matrix-cases-required",
+              "observedOffsetMs": 29915,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "날짜/cwd, MCP 연결, skill/plugin, model/effort, long tool_result 후보는 각 변수만 바꾸는 장별 case가 필요하다.",
+              "sourceRefs": [
+                "spec:claims:candidate-matrix-cases-required"
+              ],
+              "claimId": "candidate-matrix-cases-required",
+              "claimStatus": "additional_observation_required",
+              "sequence": 51,
+              "playbackOffsetMs": 29915
+            },
+            {
+              "id": "claim:messages-api-ttft-and-ttl-case-required",
+              "observedOffsetMs": 30315,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "explicit cache_control, streaming TTFT, 실제 TTL 경계를 가르치려면 Agent SDK 실험과 섞지 말고 Messages API cookbook 계열의 별도 실제 실행이 필요하다.",
+              "sourceRefs": [
+                "spec:claims:messages-api-ttft-and-ttl-case-required"
+              ],
+              "claimId": "messages-api-ttft-and-ttl-case-required",
+              "claimStatus": "additional_observation_required",
+              "sequence": 52,
+              "playbackOffsetMs": 30315
+            }
+          ],
+          "facts": [
+            {
+              "label": "raw source events",
+              "value": "151"
+            },
+            {
+              "label": "public projection",
+              "value": "53"
+            },
+            {
+              "label": "tool uses",
+              "value": "0"
+            },
+            {
+              "label": "tool results",
+              "value": "0"
+            },
+            {
+              "label": "observed claims",
+              "value": "14"
+            },
+            {
+              "label": "configured claims",
+              "value": "1"
+            },
+            {
+              "label": "inferred claims",
+              "value": "2"
+            },
+            {
+              "label": "not observed",
+              "value": "6"
+            },
+            {
+              "label": "needs observation",
+              "value": "4"
+            },
+            {
+              "label": "invalid attempts",
+              "value": "4"
+            },
+            {
+              "label": "proof gate",
+              "value": "accepted_with_notes"
+            }
+          ],
+          "claims": [
+            {
+              "id": "v2-three-surface-control-configured",
+              "status": "configured",
+              "evidenceLevel": "Configured",
+              "summary": "host는 7,822-character V2 prefix와 fresh attempt nonce, A/A-control 동일 surface, B 변경 surface, 새 SDK client 세 개, 동일 model, workspace, tool, server, permission, settings와 provider concurrency 1을 설정했다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:manifest:option_summary"
+              ]
+            },
+            {
+              "id": "attempt-integrity-files-match",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "최신 attempt integrity manifest가 열거한 manifest, verdict, raw 4종, OTel SHA-256 7개를 현재 파일에서 다시 계산해 모두 일치했다.",
+              "sourceRefs": [
+                "spec:claims:attempt-integrity-files-match"
+              ]
+            },
+            {
+              "id": "four-execution-source-hashes-match",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "manifest는 실행 당시 chapter, probe, case, runtime source SHA-256 네 개를 묶었고 현재 실행 파일 hash와 4/4 일치했다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:manifest:option_summary"
+              ]
+            },
+            {
+              "id": "actual-opus-and-serial-surface-boundaries",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "세 init model은 Opus 5이고 A finish 14 뒤 control start 15, control finish 28 뒤 B start 29가 이어져 provider 실행이 병렬이 아님을 보였다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:2",
+                "attempt:235439-485fdecb:process-event:14",
+                "attempt:235439-485fdecb:process-event:15",
+                "attempt:235439-485fdecb:process-event:28",
+                "attempt:235439-485fdecb:process-event:29",
+                "attempt:235439-485fdecb:sdk-message:30"
+              ]
+            },
+            {
+              "id": "three-independent-sdk-sessions",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "init sequence 2, 16, 30은 서로 다른 runtime session identifier를 보고해 세 surface가 독립 SDK session임을 보였다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:2",
+                "attempt:235439-485fdecb:sdk-message:16",
+                "attempt:235439-485fdecb:sdk-message:30"
+              ]
+            },
+            {
+              "id": "same-init-tool-and-connected-mcp",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "세 init은 같은 mcp__cache_surface__search_evidence tool 이름과 connected cache_surface MCP server를 보고했다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:2",
+                "attempt:235439-485fdecb:sdk-message:16",
+                "attempt:235439-485fdecb:sdk-message:30"
+              ]
+            },
+            {
+              "id": "host-schema-and-system-hash-relations",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "process markers는 A와 A-control schema hash가 같고 B만 다르며 세 system prompt hash는 동일하다고 기록했다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:process-event:1",
+                "attempt:235439-485fdecb:process-event:15",
+                "attempt:235439-485fdecb:process-event:29"
+              ]
+            },
+            {
+              "id": "surface-a-created-cache",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "A Result sequence 13은 cache creation 2864, cache read 0, exact A marker와 terminal success를 기록했다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:13"
+              ]
+            },
+            {
+              "id": "same-surface-control-read-cache",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "A-control Result sequence 27은 cache creation 210, cache read 2660, exact control marker와 terminal success를 기록했다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:27"
+              ]
+            },
+            {
+              "id": "changed-surface-b-created-cache",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "변경 surface B Result sequence 41은 cache creation 2887, cache read 0, exact B marker와 terminal success를 기록했다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:41"
+              ]
+            },
+            {
+              "id": "no-model-tool-call-and-all-boundaries-complete",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "세 session의 model ToolUseBlock은 0개였고 각 start/finish marker는 outcome completed와 12 SDK messages를 기록했다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:process-event:14",
+                "attempt:235439-485fdecb:process-event:28",
+                "attempt:235439-485fdecb:process-event:42"
+              ]
+            },
+            {
+              "id": "raw-and-otel-sequences-align",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "raw SDK 36개와 OTel sdk.message 36개, raw process 8개와 OTel process.event 8개의 sequence가 각각 순서까지 일치하고 46개 span은 한 trace에 속한다.",
+              "sourceRefs": [
+                "spec:claims:raw-and-otel-sequences-align"
+              ]
+            },
+            {
+              "id": "v1-supporting-attempt-repeats-control-pattern",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "이전 실제 V1 attempt도 A create 2866, 같은-surface control read 2662, 변경 B create 2889를 기록해 최신 V2와 같은 관찰 패턴을 보였다. V1은 실행 소스 4개가 바인딩되지 않아 supporting evidence로만 사용한다.",
+              "sourceRefs": [
+                "attempt:121529-1a61b1f4:sdk-message:13",
+                "attempt:121529-1a61b1f4:sdk-message:27",
+                "attempt:121529-1a61b1f4:sdk-message:41"
+              ]
+            },
+            {
+              "id": "overload-retry-and-error-terminal-preserved",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "rejected attempt는 529 api_retry 10회 뒤 subtype success이면서 is_error=true인 Result를 남겼고, 실패 surface를 cache 비교에서 제외해야 함을 직접 보였다.",
+              "sourceRefs": [
+                "attempt:115432-515a1e8a:sdk-message:5",
+                "attempt:115432-515a1e8a:sdk-message:14",
+                "attempt:115432-515a1e8a:sdk-message:16"
+              ]
+            },
+            {
+              "id": "older-b-cache-contamination-preserved",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "rejected attempt 121142는 fresh A create 2837과 B read 2860을 기록했지만 B는 이전 attempt가 만든 동일 B surface cache일 수 있어 pair를 기각한 근거로 남는다.",
+              "sourceRefs": [
+                "attempt:121142-fc55c838:sdk-message:13",
+                "attempt:121142-fc55c838:sdk-message:27"
+              ]
+            },
+            {
+              "id": "changed-tool-surface-is-strong-break-candidate",
+              "status": "inferred",
+              "evidenceLevel": "Inferred",
+              "summary": "동일 system과 A/A-control surface에서는 2660 read가 발생하고 B에서만 description/input schema와 cache usage가 함께 바뀌었으므로 변경 tool surface가 B miss의 가장 강한 통제 후보다. server cause event는 없어 인과 확정은 아니다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:manifest:option_summary",
+                "attempt:235439-485fdecb:sdk-message:13",
+                "attempt:235439-485fdecb:sdk-message:27",
+                "attempt:235439-485fdecb:sdk-message:41"
+              ]
+            },
+            {
+              "id": "control-read-mostly-maps-to-stable-prefix",
+              "status": "inferred",
+              "evidenceLevel": "Inferred",
+              "summary": "A-control의 read 2660과 create 210은 A create 2864와 비슷한 총량이고 host 차이는 latest user marker뿐이어서 대부분의 안정 prefix 재사용을 지지한다. provider segment-to-byte map은 없어 attribution은 추론이다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:13",
+                "attempt:235439-485fdecb:sdk-message:27"
+              ]
+            },
+            {
+              "id": "messages-cache-control-and-ttft-are-not-agent-options",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "Messages API cookbook의 cache_control과 stream TTFT 측정을 설치된 ClaudeAgentOptions 기능으로 설명하면 안 된다. 현재 Agent SDK 0.2.128에는 cache_control field가 없고 이 probe는 provider TTFT를 수집하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:messages-cache-control-and-ttft-are-not-agent-options"
+              ]
+            },
+            {
+              "id": "two-stage-detector-is-host-pattern-not-sdk-event",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "요청 전 snapshot과 응답 후 usage 비교는 host가 구현할 수 있는 분석 패턴이지 Agent SDK가 pendingChanges와 break cause를 자동 제공한다는 뜻이 아니다.",
+              "sourceRefs": [
+                "spec:claims:two-stage-detector-is-host-pattern-not-sdk-event"
+              ]
+            },
+            {
+              "id": "host-schema-hash-is-not-server-cache-key",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "host가 직렬화한 description/input schema hash는 통제 입력 증거이며 전체 provider cache key나 server-side cause attribution이 아니다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:manifest:option_summary"
+              ]
+            },
+            {
+              "id": "terminal-subtype-success-is-insufficient",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "Result subtype success만으로 terminal 성공을 판정하면 안 된다. rejected 529 Result는 subtype success이면서 is_error=true였다.",
+              "sourceRefs": [
+                "attempt:115432-515a1e8a:sdk-message:16"
+              ]
+            },
+            {
+              "id": "primary-opus-is-not-only-provider-usage",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "세 init의 primary assistant model은 Opus 5지만 terminal model_usage에는 Haiku 4.5도 있으므로 전체 provider usage를 Opus 하나로 표현하면 안 된다.",
+              "sourceRefs": [
+                "attempt:235439-485fdecb:sdk-message:13",
+                "attempt:235439-485fdecb:sdk-message:27",
+                "attempt:235439-485fdecb:sdk-message:41"
+              ]
+            },
+            {
+              "id": "captured-is-not-cache-break-pass",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "OTel CAPTURED, assertion count 0, verdict TODO, passed null은 raw 수집 완료와 수동 판독 대기 상태이지 cache-break 주장의 자동 pass가 아니다.",
+              "sourceRefs": [
+                "spec:claims:captured-is-not-cache-break-pass"
+              ]
+            },
+            {
+              "id": "otel-is-not-independent-provider-proof",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "같은 recorder가 raw SDK와 process event를 OTel로 투영했으므로 sequence 일치는 recorder 무손실 확인이지 독립 provider 관측 증거가 아니다.",
+              "sourceRefs": [
+                "spec:claims:otel-is-not-independent-provider-proof"
+              ]
+            },
+            {
+              "id": "one-controlled-triple-is-not-cost-speed-quality-proof",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "두 번 반복된 cache usage 패턴만으로 일반 비용 절감률, 속도 향상, 결과 품질 변화를 증명했다고 쓰면 안 된다. 이 probe는 그 지표의 반복 분포를 수집하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:one-controlled-triple-is-not-cost-speed-quality-proof"
+              ]
+            },
+            {
+              "id": "pending-changes-and-server-cause-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "raw SDK와 Result usage에는 pendingChanges, per-tool server attribution, cache-break cause field가 없다.",
+              "sourceRefs": [
+                "spec:claims:pending-changes-and-server-cause-not-observed"
+              ]
+            },
+            {
+              "id": "provider-cache-key-and-segment-map-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "provider cache key 구성과 tool schema byte가 어느 cache token segment에 대응하는지는 공개 event에서 관찰되지 않았다.",
+              "sourceRefs": [
+                "spec:claims:provider-cache-key-and-segment-map-not-observed"
+              ]
+            },
+            {
+              "id": "provider-ttft-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "host 전체 duration은 계산할 수 있지만 이 Agent SDK probe는 provider time-to-first-token을 직접 분리하지 않아 TTFT 효과를 관찰하지 못했다.",
+              "sourceRefs": [
+                "spec:claims:provider-ttft-not-observed"
+              ]
+            },
+            {
+              "id": "ttl-expiry-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "세 surface를 짧은 시간 안에 실행했으므로 실제 cache TTL 만료 경계는 관찰하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:ttl-expiry-not-observed"
+              ]
+            },
+            {
+              "id": "other-break-candidate-classes-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "날짜/cwd prefix, MCP 연결 수, skill/plugin 목록, model/effort, 긴 tool_result를 각각 바꾸는 실행은 이번 tool-surface case에서 수행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:other-break-candidate-classes-not-observed"
+              ]
+            },
+            {
+              "id": "quality-and-repeat-distribution-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "marker 반환 과제는 결과 품질 비교가 아니며 두 표본은 latency/cost/hit-rate 분포를 만들기에 부족하다.",
+              "sourceRefs": [
+                "spec:claims:quality-and-repeat-distribution-not-observed"
+              ]
+            },
+            {
+              "id": "description-versus-input-schema-isolation-required",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "B는 description과 input schema를 함께 바꿨으므로 두 변수의 개별 효과를 보려면 description-only와 schema-only surface를 순차 실행해야 한다.",
+              "sourceRefs": [
+                "spec:claims:description-versus-input-schema-isolation-required"
+              ]
+            },
+            {
+              "id": "repeated-sequential-samples-required",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "cache candidate 패턴의 안정성을 말하려면 fresh nonce를 사용하는 같은 A/control/B triple을 더 반복하되 계속 provider concurrency 1을 유지해야 한다.",
+              "sourceRefs": [
+                "spec:claims:repeated-sequential-samples-required"
+              ]
+            },
+            {
+              "id": "candidate-matrix-cases-required",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "날짜/cwd, MCP 연결, skill/plugin, model/effort, long tool_result 후보는 각 변수만 바꾸는 장별 case가 필요하다.",
+              "sourceRefs": [
+                "spec:claims:candidate-matrix-cases-required"
+              ]
+            },
+            {
+              "id": "messages-api-ttft-and-ttl-case-required",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "explicit cache_control, streaming TTFT, 실제 TTL 경계를 가르치려면 Agent SDK 실험과 섞지 말고 Messages API cookbook 계열의 별도 실제 실행이 필요하다.",
+              "sourceRefs": [
+                "spec:claims:messages-api-ttft-and-ttl-case-required"
               ]
             }
           ]
