@@ -33,6 +33,14 @@ export interface EducationEvidenceEvent {
   caseId?: string
   annotationMode?: string
   outcome?: string
+  phase?: string
+  marker?: string
+  sha256?: string
+  targetExists?: boolean
+  warningCategory?: string
+  decisionReasonType?: string
+  isError?: boolean
+  terminalReason?: string
   claimId?: string
   claimStatus?: string
 }

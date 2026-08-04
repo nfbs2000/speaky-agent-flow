@@ -111,7 +111,8 @@ function chapterProjection(run: EducationEvidenceRun): EducationReplayProjection
       continue
     }
     if (source.eventType === 'tool.result') {
-      const toolName = source.toolUseId ? toolNameById.get(source.toolUseId) : undefined
+      const toolName = (source.toolUseId ? toolNameById.get(source.toolUseId) : undefined)
+        ?? source.toolName
       if (!toolName) continue
       events.push({
         time: at(source),
@@ -119,7 +120,66 @@ function chapterProjection(run: EducationEvidenceRun): EducationReplayProjection
         payload: {
           agent: MAIN_AGENT,
           tool: toolName,
-          result: `Observed result (${source.sourceRefs[0] ?? source.id})`,
+          result: source.isError
+            ? `Observed denial/error (${source.sourceRefs[0] ?? source.id})`
+            : `Observed result (${source.sourceRefs[0] ?? source.id})`,
+          isError: source.isError === true,
+          errorMessage: source.isError ? source.summary : undefined,
+        },
+      })
+      mapped++
+      continue
+    }
+    if (source.eventType === 'workspace.snapshot') {
+      const state = source.marker
+        ?? (source.targetExists === false ? 'target absent' : 'target state observed')
+      const digest = source.sha256 ? ` · SHA-256 ${source.sha256.slice(0, 12)}...` : ''
+      events.push({
+        time: at(source),
+        type: 'message',
+        payload: {
+          agent: MAIN_AGENT,
+          role: 'assistant',
+          content: `Workspace ${source.phase ?? 'snapshot'}: ${state}${digest}`,
+        },
+      })
+      mapped++
+      continue
+    }
+    if (source.eventType === 'runtime.warning') {
+      events.push({
+        time: at(source),
+        type: 'message',
+        payload: {
+          agent: MAIN_AGENT,
+          role: 'assistant',
+          content: `Runtime warning: ${source.warningCategory ?? source.summary}`,
+        },
+      })
+      mapped++
+      continue
+    }
+    if (source.eventType === 'permission.denied') {
+      events.push({
+        time: at(source),
+        type: 'message',
+        payload: {
+          agent: MAIN_AGENT,
+          role: 'assistant',
+          content: `권한 거부: ${source.toolName ?? 'tool'} · 판정 ${source.decisionReasonType ?? 'recorded'}`,
+        },
+      })
+      mapped++
+      continue
+    }
+    if (source.eventType === 'assistant.claim' && source.claimStatus === 'correction_required') {
+      events.push({
+        time: at(source),
+        type: 'message',
+        payload: {
+          agent: MAIN_AGENT,
+          role: 'assistant',
+          content: `수정 필요: ${source.summary}`,
         },
       })
       mapped++

@@ -110,6 +110,16 @@ function compactChapterEvent(event) {
     caseId: typeof attributes.caseId === 'string' ? attributes.caseId : undefined,
     annotationMode: typeof attributes.annotationMode === 'string' ? attributes.annotationMode : undefined,
     outcome: typeof attributes.outcome === 'string' ? attributes.outcome : undefined,
+    phase: typeof attributes.phase === 'string' ? attributes.phase : undefined,
+    marker: typeof attributes.marker === 'string' ? attributes.marker : undefined,
+    sha256: typeof attributes.sha256 === 'string' ? attributes.sha256 : undefined,
+    targetExists: typeof attributes.targetExists === 'boolean' ? attributes.targetExists : undefined,
+    warningCategory: typeof attributes.category === 'string' ? attributes.category : undefined,
+    decisionReasonType: typeof attributes.decisionReasonType === 'string'
+      ? attributes.decisionReasonType
+      : undefined,
+    isError: typeof attributes.isError === 'boolean' ? attributes.isError : undefined,
+    terminalReason: typeof attributes.terminalReason === 'string' ? attributes.terminalReason : undefined,
     claimId: typeof attributes.claimId === 'string' ? attributes.claimId : undefined,
     claimStatus: typeof attributes.status === 'string' ? attributes.status : undefined,
   }
