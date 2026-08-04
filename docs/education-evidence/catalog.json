@@ -1,7 +1,7 @@
 {
   "schemaVersion": "education-agent-flow.v1",
   "courseId": "book-sdk-ko",
-  "generatedAt": "2026-08-04T04:16:45.558Z",
+  "generatedAt": "2026-08-04T05:10:42.324Z",
   "publicationPolicy": "Whitelisted normalized evidence only; no mock fallback.",
   "collections": [
     {
@@ -30815,6 +30815,1657 @@
               "summary": "제품이 자동 sanitization을 주장하려면 SDK passthrough와 별도로 host sanitizer 또는 classifier를 구현하고 원문, 정제본, 차단 결정을 각각 증거로 남겨야 한다.",
               "sourceRefs": [
                 "spec:claims:independent-sanitizer-required-for-product-claim"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ch18",
+          "title": "18장 훅: 동시 callback, output rewrite, 실행 전 deny",
+          "description": "Education Shell recorded run book-sdk-live-20260803",
+          "status": "verified_source",
+          "runtime": "claude-agent-sdk",
+          "provider": "claude",
+          "model": "claude-opus-5",
+          "replayModels": [
+            "claude-opus-5"
+          ],
+          "citedModels": [
+            "claude-opus-5"
+          ],
+          "chapterSlug": "ch18",
+          "sourceEventCount": 145,
+          "publishedEventCount": 81,
+          "source": {
+            "path": "slide/.shared-course-visual/otel-course-runtime/recorded-runs/book-sdk-ko/ch18/2026-08-04T04-55-08-257284Z/trace.json",
+            "sha256": "6852b333b64630031623cd1c56a73bb68af5a4d6dabf174b6547f0631c5221f7",
+            "verification": "verified-source-artifact",
+            "recordedAt": "2026-08-04T04:55:08.257284Z"
+          },
+          "events": [
+            {
+              "id": "book-sdk-live-20260803:prompt",
+              "observedOffsetMs": 0,
+              "eventType": "prompt.submitted",
+              "actor": "user",
+              "evidenceLevel": "Configured",
+              "summary": "같은 PreToolUse event에 등록한 두 callback의 진입과 반환, controlled MCP handler 원본, PostToolUse 재작성 결과, 별도 PreToolUse deny의 handler 차단을 하나의 sequence 축에서 비교한다.",
+              "sourceRefs": [
+                "publication-spec:public_prompt"
+              ],
+              "sequence": 0,
+              "playbackOffsetMs": 220
+            },
+            {
+              "id": "124612-be6db7b1:process:0",
+              "observedOffsetMs": 1000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:0"
+              ],
+              "attemptId": "124612-be6db7b1",
+              "sequence": 1,
+              "playbackOffsetMs": 1000
+            },
+            {
+              "id": "124612-be6db7b1:sdk.init",
+              "observedOffsetMs": 2013,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "두 PreToolUse callback의 동시 진입과 올바른 MCP output rewrite: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:sdk-message:1"
+              ],
+              "attemptId": "124612-be6db7b1",
+              "caseId": "lifecycle-concurrency-rewrite",
+              "annotationMode": "unreported",
+              "sequence": 2,
+              "playbackOffsetMs": 2013
+            },
+            {
+              "id": "124612-be6db7b1:toolu_01Mzph18UvS8isFBJLKHDg7X",
+              "observedOffsetMs": 5081,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__hook_lab__controlled_hook_target {'marker': 'lifecycle-concurrency-rewrite'}",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:sdk-message:15"
+              ],
+              "toolName": "mcp__hook_lab__controlled_hook_target",
+              "toolUseId": "124612-be6db7b1:toolu_01Mzph18UvS8isFBJLKHDg7X",
+              "attemptId": "124612-be6db7b1",
+              "caseId": "lifecycle-concurrency-rewrite",
+              "sequence": 3,
+              "playbackOffsetMs": 5081
+            },
+            {
+              "id": "124612-be6db7b1:hook:17",
+              "observedOffsetMs": 5083,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "hook callback: pre-a-started",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:hook-callback:17"
+              ],
+              "attemptId": "124612-be6db7b1",
+              "phase": "pre-a-started",
+              "sequence": 4,
+              "playbackOffsetMs": 5301
+            },
+            {
+              "id": "124612-be6db7b1:process:16",
+              "observedOffsetMs": 5083,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.hook-concurrency",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:16"
+              ],
+              "attemptId": "124612-be6db7b1",
+              "phase": "entered",
+              "sequence": 5,
+              "playbackOffsetMs": 5521
+            },
+            {
+              "id": "124612-be6db7b1:hook:19",
+              "observedOffsetMs": 5084,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "hook callback: pre-b-started",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:hook-callback:19"
+              ],
+              "attemptId": "124612-be6db7b1",
+              "phase": "pre-b-started",
+              "sequence": 6,
+              "playbackOffsetMs": 5741
+            },
+            {
+              "id": "124612-be6db7b1:process:18",
+              "observedOffsetMs": 5084,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.hook-concurrency",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:18"
+              ],
+              "attemptId": "124612-be6db7b1",
+              "phase": "entered",
+              "sequence": 7,
+              "playbackOffsetMs": 5961
+            },
+            {
+              "id": "124612-be6db7b1:process:20",
+              "observedOffsetMs": 5084,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.hook-concurrency",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:20"
+              ],
+              "attemptId": "124612-be6db7b1",
+              "phase": "exiting",
+              "sequence": 8,
+              "playbackOffsetMs": 6181
+            },
+            {
+              "id": "124612-be6db7b1:hook:21",
+              "observedOffsetMs": 5085,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "hook callback: pre-b-returned",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:hook-callback:21"
+              ],
+              "attemptId": "124612-be6db7b1",
+              "phase": "pre-b-returned",
+              "sequence": 9,
+              "playbackOffsetMs": 6401
+            },
+            {
+              "id": "124612-be6db7b1:hook:23",
+              "observedOffsetMs": 5085,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "hook callback: pre-a-returned",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:hook-callback:23"
+              ],
+              "attemptId": "124612-be6db7b1",
+              "phase": "pre-a-returned",
+              "sequence": 10,
+              "playbackOffsetMs": 6621
+            },
+            {
+              "id": "124612-be6db7b1:process:22",
+              "observedOffsetMs": 5085,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.hook-concurrency",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:22"
+              ],
+              "attemptId": "124612-be6db7b1",
+              "phase": "exiting",
+              "sequence": 11,
+              "playbackOffsetMs": 6841
+            },
+            {
+              "id": "124612-be6db7b1:message_stop",
+              "observedOffsetMs": 5087,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:sdk-message:26"
+              ],
+              "attemptId": "124612-be6db7b1",
+              "sequence": 12,
+              "playbackOffsetMs": 7061
+            },
+            {
+              "id": "124612-be6db7b1:process:27",
+              "observedOffsetMs": 5089,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__hook_lab__controlled_hook_target: handler-returned-original-output",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:27"
+              ],
+              "toolName": "mcp__hook_lab__controlled_hook_target",
+              "attemptId": "124612-be6db7b1",
+              "outcome": "handler-returned-original-output",
+              "sequence": 13,
+              "playbackOffsetMs": 7281
+            },
+            {
+              "id": "124612-be6db7b1:hook:28",
+              "observedOffsetMs": 5091,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "hook callback: post-started",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:hook-callback:28"
+              ],
+              "attemptId": "124612-be6db7b1",
+              "phase": "post-started",
+              "sequence": 14,
+              "playbackOffsetMs": 7501
+            },
+            {
+              "id": "124612-be6db7b1:hook:29",
+              "observedOffsetMs": 5092,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "hook callback: post-returned",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:hook-callback:29"
+              ],
+              "attemptId": "124612-be6db7b1",
+              "phase": "post-returned",
+              "sequence": 15,
+              "playbackOffsetMs": 7721
+            },
+            {
+              "id": "124612-be6db7b1:toolu_01Mzph18UvS8isFBJLKHDg7X:result",
+              "observedOffsetMs": 5094,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__hook_lab__controlled_hook_target: result received",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:sdk-message:30"
+              ],
+              "toolName": "mcp__hook_lab__controlled_hook_target",
+              "toolUseId": "124612-be6db7b1:toolu_01Mzph18UvS8isFBJLKHDg7X",
+              "attemptId": "124612-be6db7b1",
+              "isError": false,
+              "sequence": 16,
+              "playbackOffsetMs": 7941
+            },
+            {
+              "id": "124434-0b611abe:process:0",
+              "observedOffsetMs": 11000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:process-event:0"
+              ],
+              "attemptId": "124434-0b611abe",
+              "sequence": 17,
+              "playbackOffsetMs": 11000
+            },
+            {
+              "id": "124612-be6db7b1:message_stop",
+              "observedOffsetMs": 11700,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:sdk-message:54"
+              ],
+              "attemptId": "124612-be6db7b1",
+              "sequence": 18,
+              "playbackOffsetMs": 11700
+            },
+            {
+              "id": "124612-be6db7b1:result",
+              "observedOffsetMs": 11702,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:sdk-message:55"
+              ],
+              "attemptId": "124612-be6db7b1",
+              "isError": false,
+              "terminalReason": "completed",
+              "sequence": 19,
+              "playbackOffsetMs": 11920
+            },
+            {
+              "id": "124434-0b611abe:sdk.init",
+              "observedOffsetMs": 12158,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "handler 실행 뒤 잘못된 rewrite shape가 만든 ToolResult error: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:sdk-message:1"
+              ],
+              "attemptId": "124434-0b611abe",
+              "caseId": "malformed-mcp-output-rewrite",
+              "annotationMode": "unreported",
+              "sequence": 20,
+              "playbackOffsetMs": 12158
+            },
+            {
+              "id": "124612-be6db7b1:process:56",
+              "observedOffsetMs": 12220,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:56"
+              ],
+              "attemptId": "124612-be6db7b1",
+              "sequence": 21,
+              "playbackOffsetMs": 12378
+            },
+            {
+              "id": "124434-0b611abe:toolu_01FiCnrWBHbrFXZyaygof5fz",
+              "observedOffsetMs": 18963,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__hook_lab__controlled_hook_target {'marker': 'lifecycle-concurrency-rewrite'}",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:sdk-message:14"
+              ],
+              "toolName": "mcp__hook_lab__controlled_hook_target",
+              "toolUseId": "124434-0b611abe:toolu_01FiCnrWBHbrFXZyaygof5fz",
+              "attemptId": "124434-0b611abe",
+              "caseId": "malformed-mcp-output-rewrite",
+              "sequence": 22,
+              "playbackOffsetMs": 18963
+            },
+            {
+              "id": "124434-0b611abe:hook:16",
+              "observedOffsetMs": 18966,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "hook callback: pre-a-started",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:hook-callback:16"
+              ],
+              "attemptId": "124434-0b611abe",
+              "phase": "pre-a-started",
+              "sequence": 23,
+              "playbackOffsetMs": 19183
+            },
+            {
+              "id": "124434-0b611abe:process:15",
+              "observedOffsetMs": 18966,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.hook-concurrency",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:process-event:15"
+              ],
+              "attemptId": "124434-0b611abe",
+              "phase": "entered",
+              "sequence": 24,
+              "playbackOffsetMs": 19403
+            },
+            {
+              "id": "124434-0b611abe:hook:18",
+              "observedOffsetMs": 18967,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "hook callback: pre-b-started",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:hook-callback:18"
+              ],
+              "attemptId": "124434-0b611abe",
+              "phase": "pre-b-started",
+              "sequence": 25,
+              "playbackOffsetMs": 19623
+            },
+            {
+              "id": "124434-0b611abe:hook:20",
+              "observedOffsetMs": 18967,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "hook callback: pre-b-returned",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:hook-callback:20"
+              ],
+              "attemptId": "124434-0b611abe",
+              "phase": "pre-b-returned",
+              "sequence": 26,
+              "playbackOffsetMs": 19843
+            },
+            {
+              "id": "124434-0b611abe:process:17",
+              "observedOffsetMs": 18967,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.hook-concurrency",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:process-event:17"
+              ],
+              "attemptId": "124434-0b611abe",
+              "phase": "entered",
+              "sequence": 27,
+              "playbackOffsetMs": 20063
+            },
+            {
+              "id": "124434-0b611abe:process:19",
+              "observedOffsetMs": 18967,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.hook-concurrency",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:process-event:19"
+              ],
+              "attemptId": "124434-0b611abe",
+              "phase": "exiting",
+              "sequence": 28,
+              "playbackOffsetMs": 20283
+            },
+            {
+              "id": "124434-0b611abe:hook:22",
+              "observedOffsetMs": 18968,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "hook callback: pre-a-returned",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:hook-callback:22"
+              ],
+              "attemptId": "124434-0b611abe",
+              "phase": "pre-a-returned",
+              "sequence": 29,
+              "playbackOffsetMs": 20503
+            },
+            {
+              "id": "124434-0b611abe:process:21",
+              "observedOffsetMs": 18968,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.hook-concurrency",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:process-event:21"
+              ],
+              "attemptId": "124434-0b611abe",
+              "phase": "exiting",
+              "sequence": 30,
+              "playbackOffsetMs": 20723
+            },
+            {
+              "id": "124434-0b611abe:process:24",
+              "observedOffsetMs": 18971,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__hook_lab__controlled_hook_target: handler-returned-original-output",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:process-event:24"
+              ],
+              "toolName": "mcp__hook_lab__controlled_hook_target",
+              "attemptId": "124434-0b611abe",
+              "outcome": "handler-returned-original-output",
+              "sequence": 31,
+              "playbackOffsetMs": 20943
+            },
+            {
+              "id": "124434-0b611abe:hook:25",
+              "observedOffsetMs": 18973,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "hook callback: post-started",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:hook-callback:25"
+              ],
+              "attemptId": "124434-0b611abe",
+              "phase": "post-started",
+              "sequence": 32,
+              "playbackOffsetMs": 21163
+            },
+            {
+              "id": "124434-0b611abe:hook:26",
+              "observedOffsetMs": 18974,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "hook callback: post-returned",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:hook-callback:26"
+              ],
+              "attemptId": "124434-0b611abe",
+              "phase": "post-returned",
+              "sequence": 33,
+              "playbackOffsetMs": 21383
+            },
+            {
+              "id": "124434-0b611abe:toolu_01FiCnrWBHbrFXZyaygof5fz:result",
+              "observedOffsetMs": 18978,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__hook_lab__controlled_hook_target: error",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:sdk-message:27"
+              ],
+              "toolName": "mcp__hook_lab__controlled_hook_target",
+              "toolUseId": "124434-0b611abe:toolu_01FiCnrWBHbrFXZyaygof5fz",
+              "attemptId": "124434-0b611abe",
+              "isError": true,
+              "sequence": 34,
+              "playbackOffsetMs": 21603
+            },
+            {
+              "id": "124434-0b611abe:message_stop",
+              "observedOffsetMs": 19341,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:sdk-message:29"
+              ],
+              "attemptId": "124434-0b611abe",
+              "sequence": 35,
+              "playbackOffsetMs": 21823
+            },
+            {
+              "id": "130109-c4016acd:process:0",
+              "observedOffsetMs": 21000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:130109-c4016acd:process-event:0"
+              ],
+              "attemptId": "130109-c4016acd",
+              "sequence": 36,
+              "playbackOffsetMs": 22043
+            },
+            {
+              "id": "130109-c4016acd:sdk.init",
+              "observedOffsetMs": 22283,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "whole-tool allow 상태에서 PreToolUse deny가 handler를 차단: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:130109-c4016acd:sdk-message:1"
+              ],
+              "attemptId": "130109-c4016acd",
+              "caseId": "pretool-deny",
+              "annotationMode": "unreported",
+              "sequence": 37,
+              "playbackOffsetMs": 22283
+            },
+            {
+              "id": "124434-0b611abe:message_stop",
+              "observedOffsetMs": 28875,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:sdk-message:51"
+              ],
+              "attemptId": "124434-0b611abe",
+              "sequence": 38,
+              "playbackOffsetMs": 28875
+            },
+            {
+              "id": "124434-0b611abe:result",
+              "observedOffsetMs": 28877,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:sdk-message:52"
+              ],
+              "attemptId": "124434-0b611abe",
+              "isError": false,
+              "terminalReason": "completed",
+              "sequence": 39,
+              "playbackOffsetMs": 29095
+            },
+            {
+              "id": "124434-0b611abe:process:53",
+              "observedOffsetMs": 29158,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:process-event:53"
+              ],
+              "attemptId": "124434-0b611abe",
+              "sequence": 40,
+              "playbackOffsetMs": 29315
+            },
+            {
+              "id": "130109-c4016acd:toolu_01Yah73dRuvhNrg1cLXSW95H",
+              "observedOffsetMs": 41686,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__hook_lab__controlled_hook_target {'marker': 'pretool-deny'}",
+              "sourceRefs": [
+                "attempt:130109-c4016acd:sdk-message:14"
+              ],
+              "toolName": "mcp__hook_lab__controlled_hook_target",
+              "toolUseId": "130109-c4016acd:toolu_01Yah73dRuvhNrg1cLXSW95H",
+              "attemptId": "130109-c4016acd",
+              "caseId": "pretool-deny",
+              "sequence": 41,
+              "playbackOffsetMs": 41686
+            },
+            {
+              "id": "130109-c4016acd:hook:15",
+              "observedOffsetMs": 41695,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "hook callback: started",
+              "sourceRefs": [
+                "attempt:130109-c4016acd:hook-callback:15"
+              ],
+              "attemptId": "130109-c4016acd",
+              "phase": "started",
+              "sequence": 42,
+              "playbackOffsetMs": 41906
+            },
+            {
+              "id": "130109-c4016acd:hook:16",
+              "observedOffsetMs": 41697,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "hook callback: returned",
+              "sourceRefs": [
+                "attempt:130109-c4016acd:hook-callback:16"
+              ],
+              "attemptId": "130109-c4016acd",
+              "phase": "returned",
+              "sequence": 43,
+              "playbackOffsetMs": 42126
+            },
+            {
+              "id": "130109-c4016acd:toolu_01Yah73dRuvhNrg1cLXSW95H:result",
+              "observedOffsetMs": 41703,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__hook_lab__controlled_hook_target: error",
+              "sourceRefs": [
+                "attempt:130109-c4016acd:sdk-message:18"
+              ],
+              "toolName": "mcp__hook_lab__controlled_hook_target",
+              "toolUseId": "130109-c4016acd:toolu_01Yah73dRuvhNrg1cLXSW95H",
+              "attemptId": "130109-c4016acd",
+              "isError": true,
+              "sequence": 44,
+              "playbackOffsetMs": 42346
+            },
+            {
+              "id": "130109-c4016acd:message_stop",
+              "observedOffsetMs": 41711,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:130109-c4016acd:sdk-message:20"
+              ],
+              "attemptId": "130109-c4016acd",
+              "sequence": 45,
+              "playbackOffsetMs": 42566
+            },
+            {
+              "id": "130109-c4016acd:message_stop",
+              "observedOffsetMs": 45517,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:130109-c4016acd:sdk-message:31"
+              ],
+              "attemptId": "130109-c4016acd",
+              "sequence": 46,
+              "playbackOffsetMs": 45517
+            },
+            {
+              "id": "130109-c4016acd:result",
+              "observedOffsetMs": 45520,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:130109-c4016acd:sdk-message:32"
+              ],
+              "attemptId": "130109-c4016acd",
+              "isError": false,
+              "terminalReason": "completed",
+              "sequence": 47,
+              "playbackOffsetMs": 45737
+            },
+            {
+              "id": "130109-c4016acd:terminal-permission-denied:32:0",
+              "observedOffsetMs": 45520,
+              "eventType": "permission.denied",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "terminal permission denial: mcp__hook_lab__controlled_hook_target",
+              "sourceRefs": [
+                "attempt:130109-c4016acd:sdk-message:32"
+              ],
+              "toolName": "mcp__hook_lab__controlled_hook_target",
+              "toolUseId": "130109-c4016acd:toolu_01Yah73dRuvhNrg1cLXSW95H",
+              "attemptId": "130109-c4016acd",
+              "sequence": 48,
+              "playbackOffsetMs": 45957
+            },
+            {
+              "id": "130109-c4016acd:process:33",
+              "observedOffsetMs": 46061,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:130109-c4016acd:process-event:33"
+              ],
+              "attemptId": "130109-c4016acd",
+              "sequence": 49,
+              "playbackOffsetMs": 46177
+            },
+            {
+              "id": "claim:hook-cases-configured",
+              "observedOffsetMs": 46761,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Configured",
+              "summary": "세 replay attempt는 requested Opus 5, provider concurrency 1, include_hook_events true, whole-tool-allowed controlled MCP target을 사용했다. 두 rewrite attempt에는 PreToolUse matcher 두 개와 PostToolUse matcher 한 개를, deny attempt에는 PreToolUse deny matcher 한 개를 등록했다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:manifest:option_summary",
+                "attempt:124434-0b611abe:manifest:option_summary",
+                "attempt:130109-c4016acd:manifest:option_summary"
+              ],
+              "claimId": "hook-cases-configured",
+              "claimStatus": "configured",
+              "sequence": 50,
+              "playbackOffsetMs": 46761
+            },
+            {
+              "id": "claim:python-hook-surface-configured",
+              "observedOffsetMs": 47161,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Configured",
+              "summary": "Python Agent SDK 0.2.128 HookEvent 타입은 PreToolUse, PostToolUse, PostToolUseFailure, UserPromptSubmit, Stop, SubagentStop, PreCompact, Notification, SubagentStart, PermissionRequest의 10개 literal을 선언한다.",
+              "sourceRefs": [
+                "spec:claims:python-hook-surface-configured"
+              ],
+              "claimId": "python-hook-surface-configured",
+              "claimStatus": "configured",
+              "sequence": 51,
+              "playbackOffsetMs": 47161
+            },
+            {
+              "id": "claim:assistant-messages-used-opus5",
+              "observedOffsetMs": 47561,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "세 replay attempt의 모든 AssistantMessage.model은 claude-opus-5였다. init 설정값만으로 실제 모델을 판정하지 않았다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:sdk-message:8",
+                "attempt:124612-be6db7b1:sdk-message:51",
+                "attempt:124434-0b611abe:sdk-message:8",
+                "attempt:124434-0b611abe:sdk-message:48",
+                "attempt:130109-c4016acd:sdk-message:8",
+                "attempt:130109-c4016acd:sdk-message:28"
+              ],
+              "claimId": "assistant-messages-used-opus5",
+              "claimStatus": "observed",
+              "sequence": 52,
+              "playbackOffsetMs": 47561
+            },
+            {
+              "id": "claim:same-event-pre-hooks-entered-before-return",
+              "observedOffsetMs": 47961,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "accepted rewrite attempt에서 pre-a와 pre-b가 모두 callback에 진입했고 두 callback 모두 both_entered true를 기록한 뒤에야 반환했다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:16",
+                "attempt:124612-be6db7b1:hook-callback:17",
+                "attempt:124612-be6db7b1:process-event:18",
+                "attempt:124612-be6db7b1:hook-callback:19",
+                "attempt:124612-be6db7b1:process-event:20",
+                "attempt:124612-be6db7b1:process-event:22"
+              ],
+              "claimId": "same-event-pre-hooks-entered-before-return",
+              "claimStatus": "observed",
+              "sequence": 53,
+              "playbackOffsetMs": 47961
+            },
+            {
+              "id": "claim:pre-hook-return-order-differed",
+              "observedOffsetMs": 48361,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "등록 목록에서 pre-a가 먼저였지만 실제 반환은 pre-b sequence 21, pre-a sequence 23 순서였다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:hook-callback:21",
+                "attempt:124612-be6db7b1:hook-callback:23"
+              ],
+              "claimId": "pre-hook-return-order-differed",
+              "claimStatus": "observed",
+              "sequence": 54,
+              "playbackOffsetMs": 48361
+            },
+            {
+              "id": "claim:handler-ran-with-original-output",
+              "observedOffsetMs": 48761,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "accepted rewrite attempt에서 controlled handler는 sequence 27에 원본 출력을 반환했고 PostToolUse callback input은 같은 원본 tool_response를 받았다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:27",
+                "attempt:124612-be6db7b1:hook-callback:28"
+              ],
+              "claimId": "handler-ran-with-original-output",
+              "claimStatus": "observed",
+              "sequence": 55,
+              "playbackOffsetMs": 48761
+            },
+            {
+              "id": "claim:post-hook-rewrote-mcp-output",
+              "observedOffsetMs": 49161,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "PostToolUse는 updatedMCPToolOutput에 content block 배열을 반환했고 다음 모델-visible ToolResultBlock은 CH18_POST_HOOK_REWRITTEN_OUTPUT을 담았다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:hook-callback:29",
+                "attempt:124612-be6db7b1:sdk-message:30"
+              ],
+              "claimId": "post-hook-rewrote-mcp-output",
+              "claimStatus": "observed",
+              "sequence": 56,
+              "playbackOffsetMs": 49161
+            },
+            {
+              "id": "claim:malformed-rewrite-failed-after-handler",
+              "observedOffsetMs": 49561,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "잘못된 updatedMCPToolOutput mapping을 반환한 attempt에서도 handler는 먼저 실행됐고, 이후 CLI가 e.reduce is not a function 오류를 error ToolResultBlock으로 만들었다.",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:process-event:24",
+                "attempt:124434-0b611abe:hook-callback:26",
+                "attempt:124434-0b611abe:sdk-message:27"
+              ],
+              "claimId": "malformed-rewrite-failed-after-handler",
+              "claimStatus": "observed",
+              "sequence": 57,
+              "playbackOffsetMs": 49561
+            },
+            {
+              "id": "claim:callback-hook-lifecycle-messages-zero",
+              "observedOffsetMs": 49961,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "두 rewrite attempt는 include_hook_events true이고 host callback records는 각각 6개였지만 raw SDK stream의 HookEventMessage는 0개였다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:56",
+                "attempt:124434-0b611abe:process-event:53"
+              ],
+              "claimId": "callback-hook-lifecycle-messages-zero",
+              "claimStatus": "observed",
+              "sequence": 58,
+              "playbackOffsetMs": 49961
+            },
+            {
+              "id": "claim:pretool-deny-blocked-handler",
+              "observedOffsetMs": 50361,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "deny attempt는 ToolUse 뒤 PreToolUse callback이 CH18_PRETOOL_HOOK_DENIED를 반환했고 error ToolResult와 terminal permission denial 1건을 남겼다. process finish의 tool execution 목록은 비어 있어 handler 실행은 0건이다.",
+              "sourceRefs": [
+                "attempt:130109-c4016acd:sdk-message:14",
+                "attempt:130109-c4016acd:hook-callback:15",
+                "attempt:130109-c4016acd:hook-callback:16",
+                "attempt:130109-c4016acd:sdk-message:18",
+                "attempt:130109-c4016acd:sdk-message:32",
+                "attempt:130109-c4016acd:process-event:33"
+              ],
+              "claimId": "pretool-deny-blocked-handler",
+              "claimStatus": "observed",
+              "sequence": 59,
+              "playbackOffsetMs": 50361
+            },
+            {
+              "id": "claim:deny-coexisted-with-terminal-success",
+              "observedOffsetMs": 50761,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "deny ToolResult는 error였지만 terminal Result 자체는 success, is_error false였고 permission_denials 1건을 보존했다.",
+              "sourceRefs": [
+                "attempt:130109-c4016acd:sdk-message:18",
+                "attempt:130109-c4016acd:sdk-message:32"
+              ],
+              "claimId": "deny-coexisted-with-terminal-success",
+              "claimStatus": "observed",
+              "sequence": 60,
+              "playbackOffsetMs": 50761
+            },
+            {
+              "id": "claim:attempt-integrity-files-match",
+              "observedOffsetMs": 51161,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "세 replay attempt에서 integrity manifest가 선언한 manifest, verdict, raw SDK/process/callback, OTel 파일의 SHA-256을 출판기가 다시 계산해 모두 일치했다.",
+              "sourceRefs": [
+                "spec:claims:attempt-integrity-files-match"
+              ],
+              "claimId": "attempt-integrity-files-match",
+              "claimStatus": "observed",
+              "sequence": 61,
+              "playbackOffsetMs": 51161
+            },
+            {
+              "id": "claim:raw-and-otel-sequences-align",
+              "observedOffsetMs": 51561,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "세 replay attempt의 raw event sequence와 같은 recorder가 만든 OTel sequence가 전건 정렬됐고 attempt별 trace ID는 하나였다.",
+              "sourceRefs": [
+                "spec:claims:raw-and-otel-sequences-align"
+              ],
+              "claimId": "raw-and-otel-sequences-align",
+              "claimStatus": "observed",
+              "sequence": 62,
+              "playbackOffsetMs": 51561
+            },
+            {
+              "id": "claim:same-event-hooks-dispatched-concurrently",
+              "observedOffsetMs": 51961,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Inferred",
+              "summary": "두 callback이 서로의 진입을 기다리는 barrier를 모두 통과했으므로 이 버전과 이 event 구성에서는 같은 event의 matcher가 concurrent dispatch된 것으로 해석한다. 모든 hook 종류와 버전에 일반화하지 않는다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:20",
+                "attempt:124612-be6db7b1:process-event:22"
+              ],
+              "claimId": "same-event-hooks-dispatched-concurrently",
+              "claimStatus": "inferred",
+              "sequence": 63,
+              "playbackOffsetMs": 51961
+            },
+            {
+              "id": "claim:hook-order-is-not-a-pipeline",
+              "observedOffsetMs": 52361,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "같은 event의 여러 HookMatcher를 등록 순서대로 실행되는 상태 변환 pipeline으로 설명하면 안 된다. 이 표본에서는 두 callback이 함께 진입하고 역순으로 반환했다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:hook-callback:17",
+                "attempt:124612-be6db7b1:hook-callback:19",
+                "attempt:124612-be6db7b1:hook-callback:21",
+                "attempt:124612-be6db7b1:hook-callback:23"
+              ],
+              "claimId": "hook-order-is-not-a-pipeline",
+              "claimStatus": "correction_required",
+              "sequence": 64,
+              "playbackOffsetMs": 52361
+            },
+            {
+              "id": "claim:mcp-rewrite-wrapper-is-invalid-here",
+              "observedOffsetMs": 52761,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "updatedMCPToolOutput에 content 필드를 가진 object를 넣는 예시는 이 CLI에서 유효하지 않았다. content block 배열 자체는 성공했지만 현재 타입은 가능한 경우 updatedToolOutput을 선호하라고 설명한다.",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:sdk-message:27",
+                "attempt:124612-be6db7b1:sdk-message:30"
+              ],
+              "claimId": "mcp-rewrite-wrapper-is-invalid-here",
+              "claimStatus": "correction_required",
+              "sequence": 65,
+              "playbackOffsetMs": 52761
+            },
+            {
+              "id": "claim:include-hook-events-is-not-guaranteed-callback-tape",
+              "observedOffsetMs": 53161,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "include_hook_events true만으로 Python callback의 hook_started와 hook_response가 항상 SDK output stream에 나온다고 가르치면 안 된다. 두 callback run에서 lifecycle message는 0개였다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:56",
+                "attempt:124434-0b611abe:process-event:53"
+              ],
+              "claimId": "include-hook-events-is-not-guaranteed-callback-tape",
+              "claimStatus": "correction_required",
+              "sequence": 66,
+              "playbackOffsetMs": 53161
+            },
+            {
+              "id": "claim:hook-progress-is-not-current-python-phase",
+              "observedOffsetMs": 53561,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "Python SDK 0.2.128 HookEventMessage 타입은 hook_started와 hook_response를 문서화하며 hook_progress class 또는 phase는 찾지 못했다.",
+              "sourceRefs": [
+                "spec:claims:hook-progress-is-not-current-python-phase"
+              ],
+              "claimId": "hook-progress-is-not-current-python-phase",
+              "claimStatus": "correction_required",
+              "sequence": 67,
+              "playbackOffsetMs": 53561
+            },
+            {
+              "id": "claim:model-narrative-is-not-handler-proof",
+              "observedOffsetMs": 53961,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "모델 최종문은 handler 내부 실행을 볼 수 없다고 정확히 제한했다. 반대로 모델이 handler가 실행 또는 미실행했다고 말하더라도 host process record 없이 실행 사실을 증명할 수 없다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:27",
+                "attempt:124612-be6db7b1:sdk-message:51",
+                "attempt:124434-0b611abe:process-event:24",
+                "attempt:124434-0b611abe:sdk-message:48"
+              ],
+              "claimId": "model-narrative-is-not-handler-proof",
+              "claimStatus": "correction_required",
+              "sequence": 68,
+              "playbackOffsetMs": 53961
+            },
+            {
+              "id": "claim:terminal-success-does-not-mean-every-tool-succeeded",
+              "observedOffsetMs": 54361,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "terminal Result success를 모든 tool call의 성공으로 해석하면 안 된다. malformed rewrite와 explicit deny 모두 error ToolResult가 있었지만 terminal subtype은 success였다.",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:sdk-message:27",
+                "attempt:124434-0b611abe:sdk-message:52",
+                "attempt:130109-c4016acd:sdk-message:18",
+                "attempt:130109-c4016acd:sdk-message:32"
+              ],
+              "claimId": "terminal-success-does-not-mean-every-tool-succeeded",
+              "claimStatus": "correction_required",
+              "sequence": 69,
+              "playbackOffsetMs": 54361
+            },
+            {
+              "id": "claim:init-model-is-not-response-model-proof",
+              "observedOffsetMs": 54761,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "실험 코드가 System init의 model만 actual_model로 사용하면 fallback 또는 synthetic message를 놓친다. 실제 모델 판정은 AssistantMessage.model의 단일성으로 해야 한다.",
+              "sourceRefs": [
+                "spec:claims:init-model-is-not-response-model-proof"
+              ],
+              "claimId": "init-model-is-not-response-model-proof",
+              "claimStatus": "correction_required",
+              "sequence": 70,
+              "playbackOffsetMs": 54761
+            },
+            {
+              "id": "claim:otel-is-not-independent-runtime-proof",
+              "observedOffsetMs": 55161,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "OTel은 같은 AttemptRecorder가 raw SDK와 host callback/process event를 투영한 결과다. sequence 일치는 수집 파이프라인 정합성이지 독립 provider 관측이 아니다.",
+              "sourceRefs": [
+                "spec:claims:otel-is-not-independent-runtime-proof"
+              ],
+              "claimId": "otel-is-not-independent-runtime-proof",
+              "claimStatus": "correction_required",
+              "sequence": 71,
+              "playbackOffsetMs": 55161
+            },
+            {
+              "id": "claim:historical-probe-source-not-bound",
+              "observedOffsetMs": 55561,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "2026-08-03 attempt manifest의 source_hash는 당시 chapter bytes만 가리키며 chapter18.py, cases, runtime 전체를 암호학적으로 묶지 않았다. 향후 캡처는 세 probe source hash도 option summary에 기록한다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:manifest:option_summary",
+                "attempt:130109-c4016acd:manifest:option_summary"
+              ],
+              "claimId": "historical-probe-source-not-bound",
+              "claimStatus": "correction_required",
+              "sequence": 72,
+              "playbackOffsetMs": 55561
+            },
+            {
+              "id": "claim:missing-hook-lifecycle-reason-not-observed",
+              "observedOffsetMs": 55961,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "include_hook_events true인데 callback hook lifecycle message가 0개였던 내부 이유는 SDK stream에 나타나지 않았다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:56"
+              ],
+              "claimId": "missing-hook-lifecycle-reason-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 73,
+              "playbackOffsetMs": 55961
+            },
+            {
+              "id": "claim:command-hook-lifecycle-not-observed",
+              "observedOffsetMs": 56361,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "Cookbook의 settings command hook과 이번 Python callback hook이 include_hook_events에서 다르게 노출되는지는 같은 조건으로 실행하지 않아 관찰하지 못했다.",
+              "sourceRefs": [
+                "spec:claims:command-hook-lifecycle-not-observed"
+              ],
+              "claimId": "command-hook-lifecycle-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 74,
+              "playbackOffsetMs": 56361
+            },
+            {
+              "id": "claim:remaining-hook-events-not-observed",
+              "observedOffsetMs": 56761,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "PostToolUseFailure, UserPromptSubmit, Stop, SubagentStart/Stop, PreCompact, Notification, PermissionRequest callback의 실제 입력과 차단 또는 변경 결과는 이번 두 case가 실행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:remaining-hook-events-not-observed"
+              ],
+              "claimId": "remaining-hook-events-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 75,
+              "playbackOffsetMs": 56761
+            },
+            {
+              "id": "claim:built-in-output-rewrite-not-observed",
+              "observedOffsetMs": 57161,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "built-in Bash, Read, Edit 등의 updatedToolOutput schema와 mismatch 처리 동작은 MCP 전용 표본으로 관찰하지 못했다.",
+              "sourceRefs": [
+                "spec:claims:built-in-output-rewrite-not-observed"
+              ],
+              "claimId": "built-in-output-rewrite-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 76,
+              "playbackOffsetMs": 57161
+            },
+            {
+              "id": "claim:general-hook-scheduling-not-observed",
+              "observedOffsetMs": 57561,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "모든 event, matcher 수, CLI 버전에서 callback scheduling과 반환 순서가 동일하다는 일반 규칙은 한 PreToolUse 구성으로 관찰되지 않았다.",
+              "sourceRefs": [
+                "spec:claims:general-hook-scheduling-not-observed"
+              ],
+              "claimId": "general-hook-scheduling-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 77,
+              "playbackOffsetMs": 57561
+            },
+            {
+              "id": "claim:current-cli-replication-required",
+              "observedOffsetMs": 57961,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "공개 raw run은 Claude Code 2.1.220에서 수집됐다. 현재 설치된 2.1.221 동작을 주장하려면 동일 probe를 새 session에서 순차 재실행해야 한다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:manifest:option_summary",
+                "attempt:130109-c4016acd:manifest:option_summary"
+              ],
+              "claimId": "current-cli-replication-required",
+              "claimStatus": "additional_observation_required",
+              "sequence": 78,
+              "playbackOffsetMs": 57961
+            },
+            {
+              "id": "claim:command-callback-lifecycle-comparison-required",
+              "observedOffsetMs": 58361,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "Python callback hook과 settings command hook을 같은 event, tool, include_hook_events 조건에서 비교해 lifecycle stream 차이를 추가 관찰해야 한다.",
+              "sourceRefs": [
+                "spec:claims:command-callback-lifecycle-comparison-required"
+              ],
+              "claimId": "command-callback-lifecycle-comparison-required",
+              "claimStatus": "additional_observation_required",
+              "sequence": 79,
+              "playbackOffsetMs": 58361
+            },
+            {
+              "id": "claim:hook-event-matrix-required",
+              "observedOffsetMs": 58761,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "UserPromptSubmit block, built-in updatedToolOutput, PostToolUseFailure, Stop과 subagent event는 각각 독립 session과 부작용 없는 fixture로 추가 관찰해야 한다.",
+              "sourceRefs": [
+                "spec:claims:hook-event-matrix-required"
+              ],
+              "claimId": "hook-event-matrix-required",
+              "claimStatus": "additional_observation_required",
+              "sequence": 80,
+              "playbackOffsetMs": 58761
+            }
+          ],
+          "facts": [
+            {
+              "label": "raw source events",
+              "value": "145"
+            },
+            {
+              "label": "public projection",
+              "value": "81"
+            },
+            {
+              "label": "tool uses",
+              "value": "3"
+            },
+            {
+              "label": "tool results",
+              "value": "3"
+            },
+            {
+              "label": "observed claims",
+              "value": "11"
+            },
+            {
+              "label": "configured claims",
+              "value": "2"
+            },
+            {
+              "label": "inferred claims",
+              "value": "1"
+            },
+            {
+              "label": "not observed",
+              "value": "5"
+            },
+            {
+              "label": "needs observation",
+              "value": "3"
+            },
+            {
+              "label": "invalid attempts",
+              "value": "2"
+            },
+            {
+              "label": "proof gate",
+              "value": "accepted_with_notes"
+            }
+          ],
+          "claims": [
+            {
+              "id": "hook-cases-configured",
+              "status": "configured",
+              "evidenceLevel": "Configured",
+              "summary": "세 replay attempt는 requested Opus 5, provider concurrency 1, include_hook_events true, whole-tool-allowed controlled MCP target을 사용했다. 두 rewrite attempt에는 PreToolUse matcher 두 개와 PostToolUse matcher 한 개를, deny attempt에는 PreToolUse deny matcher 한 개를 등록했다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:manifest:option_summary",
+                "attempt:124434-0b611abe:manifest:option_summary",
+                "attempt:130109-c4016acd:manifest:option_summary"
+              ]
+            },
+            {
+              "id": "python-hook-surface-configured",
+              "status": "configured",
+              "evidenceLevel": "Configured",
+              "summary": "Python Agent SDK 0.2.128 HookEvent 타입은 PreToolUse, PostToolUse, PostToolUseFailure, UserPromptSubmit, Stop, SubagentStop, PreCompact, Notification, SubagentStart, PermissionRequest의 10개 literal을 선언한다.",
+              "sourceRefs": [
+                "spec:claims:python-hook-surface-configured"
+              ]
+            },
+            {
+              "id": "assistant-messages-used-opus5",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "세 replay attempt의 모든 AssistantMessage.model은 claude-opus-5였다. init 설정값만으로 실제 모델을 판정하지 않았다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:sdk-message:8",
+                "attempt:124612-be6db7b1:sdk-message:51",
+                "attempt:124434-0b611abe:sdk-message:8",
+                "attempt:124434-0b611abe:sdk-message:48",
+                "attempt:130109-c4016acd:sdk-message:8",
+                "attempt:130109-c4016acd:sdk-message:28"
+              ]
+            },
+            {
+              "id": "same-event-pre-hooks-entered-before-return",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "accepted rewrite attempt에서 pre-a와 pre-b가 모두 callback에 진입했고 두 callback 모두 both_entered true를 기록한 뒤에야 반환했다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:16",
+                "attempt:124612-be6db7b1:hook-callback:17",
+                "attempt:124612-be6db7b1:process-event:18",
+                "attempt:124612-be6db7b1:hook-callback:19",
+                "attempt:124612-be6db7b1:process-event:20",
+                "attempt:124612-be6db7b1:process-event:22"
+              ]
+            },
+            {
+              "id": "pre-hook-return-order-differed",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "등록 목록에서 pre-a가 먼저였지만 실제 반환은 pre-b sequence 21, pre-a sequence 23 순서였다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:hook-callback:21",
+                "attempt:124612-be6db7b1:hook-callback:23"
+              ]
+            },
+            {
+              "id": "handler-ran-with-original-output",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "accepted rewrite attempt에서 controlled handler는 sequence 27에 원본 출력을 반환했고 PostToolUse callback input은 같은 원본 tool_response를 받았다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:27",
+                "attempt:124612-be6db7b1:hook-callback:28"
+              ]
+            },
+            {
+              "id": "post-hook-rewrote-mcp-output",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "PostToolUse는 updatedMCPToolOutput에 content block 배열을 반환했고 다음 모델-visible ToolResultBlock은 CH18_POST_HOOK_REWRITTEN_OUTPUT을 담았다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:hook-callback:29",
+                "attempt:124612-be6db7b1:sdk-message:30"
+              ]
+            },
+            {
+              "id": "malformed-rewrite-failed-after-handler",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "잘못된 updatedMCPToolOutput mapping을 반환한 attempt에서도 handler는 먼저 실행됐고, 이후 CLI가 e.reduce is not a function 오류를 error ToolResultBlock으로 만들었다.",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:process-event:24",
+                "attempt:124434-0b611abe:hook-callback:26",
+                "attempt:124434-0b611abe:sdk-message:27"
+              ]
+            },
+            {
+              "id": "callback-hook-lifecycle-messages-zero",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "두 rewrite attempt는 include_hook_events true이고 host callback records는 각각 6개였지만 raw SDK stream의 HookEventMessage는 0개였다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:56",
+                "attempt:124434-0b611abe:process-event:53"
+              ]
+            },
+            {
+              "id": "pretool-deny-blocked-handler",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "deny attempt는 ToolUse 뒤 PreToolUse callback이 CH18_PRETOOL_HOOK_DENIED를 반환했고 error ToolResult와 terminal permission denial 1건을 남겼다. process finish의 tool execution 목록은 비어 있어 handler 실행은 0건이다.",
+              "sourceRefs": [
+                "attempt:130109-c4016acd:sdk-message:14",
+                "attempt:130109-c4016acd:hook-callback:15",
+                "attempt:130109-c4016acd:hook-callback:16",
+                "attempt:130109-c4016acd:sdk-message:18",
+                "attempt:130109-c4016acd:sdk-message:32",
+                "attempt:130109-c4016acd:process-event:33"
+              ]
+            },
+            {
+              "id": "deny-coexisted-with-terminal-success",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "deny ToolResult는 error였지만 terminal Result 자체는 success, is_error false였고 permission_denials 1건을 보존했다.",
+              "sourceRefs": [
+                "attempt:130109-c4016acd:sdk-message:18",
+                "attempt:130109-c4016acd:sdk-message:32"
+              ]
+            },
+            {
+              "id": "attempt-integrity-files-match",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "세 replay attempt에서 integrity manifest가 선언한 manifest, verdict, raw SDK/process/callback, OTel 파일의 SHA-256을 출판기가 다시 계산해 모두 일치했다.",
+              "sourceRefs": [
+                "spec:claims:attempt-integrity-files-match"
+              ]
+            },
+            {
+              "id": "raw-and-otel-sequences-align",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "세 replay attempt의 raw event sequence와 같은 recorder가 만든 OTel sequence가 전건 정렬됐고 attempt별 trace ID는 하나였다.",
+              "sourceRefs": [
+                "spec:claims:raw-and-otel-sequences-align"
+              ]
+            },
+            {
+              "id": "same-event-hooks-dispatched-concurrently",
+              "status": "inferred",
+              "evidenceLevel": "Inferred",
+              "summary": "두 callback이 서로의 진입을 기다리는 barrier를 모두 통과했으므로 이 버전과 이 event 구성에서는 같은 event의 matcher가 concurrent dispatch된 것으로 해석한다. 모든 hook 종류와 버전에 일반화하지 않는다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:20",
+                "attempt:124612-be6db7b1:process-event:22"
+              ]
+            },
+            {
+              "id": "hook-order-is-not-a-pipeline",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "같은 event의 여러 HookMatcher를 등록 순서대로 실행되는 상태 변환 pipeline으로 설명하면 안 된다. 이 표본에서는 두 callback이 함께 진입하고 역순으로 반환했다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:hook-callback:17",
+                "attempt:124612-be6db7b1:hook-callback:19",
+                "attempt:124612-be6db7b1:hook-callback:21",
+                "attempt:124612-be6db7b1:hook-callback:23"
+              ]
+            },
+            {
+              "id": "mcp-rewrite-wrapper-is-invalid-here",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "updatedMCPToolOutput에 content 필드를 가진 object를 넣는 예시는 이 CLI에서 유효하지 않았다. content block 배열 자체는 성공했지만 현재 타입은 가능한 경우 updatedToolOutput을 선호하라고 설명한다.",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:sdk-message:27",
+                "attempt:124612-be6db7b1:sdk-message:30"
+              ]
+            },
+            {
+              "id": "include-hook-events-is-not-guaranteed-callback-tape",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "include_hook_events true만으로 Python callback의 hook_started와 hook_response가 항상 SDK output stream에 나온다고 가르치면 안 된다. 두 callback run에서 lifecycle message는 0개였다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:56",
+                "attempt:124434-0b611abe:process-event:53"
+              ]
+            },
+            {
+              "id": "hook-progress-is-not-current-python-phase",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "Python SDK 0.2.128 HookEventMessage 타입은 hook_started와 hook_response를 문서화하며 hook_progress class 또는 phase는 찾지 못했다.",
+              "sourceRefs": [
+                "spec:claims:hook-progress-is-not-current-python-phase"
+              ]
+            },
+            {
+              "id": "model-narrative-is-not-handler-proof",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "모델 최종문은 handler 내부 실행을 볼 수 없다고 정확히 제한했다. 반대로 모델이 handler가 실행 또는 미실행했다고 말하더라도 host process record 없이 실행 사실을 증명할 수 없다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:27",
+                "attempt:124612-be6db7b1:sdk-message:51",
+                "attempt:124434-0b611abe:process-event:24",
+                "attempt:124434-0b611abe:sdk-message:48"
+              ]
+            },
+            {
+              "id": "terminal-success-does-not-mean-every-tool-succeeded",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "terminal Result success를 모든 tool call의 성공으로 해석하면 안 된다. malformed rewrite와 explicit deny 모두 error ToolResult가 있었지만 terminal subtype은 success였다.",
+              "sourceRefs": [
+                "attempt:124434-0b611abe:sdk-message:27",
+                "attempt:124434-0b611abe:sdk-message:52",
+                "attempt:130109-c4016acd:sdk-message:18",
+                "attempt:130109-c4016acd:sdk-message:32"
+              ]
+            },
+            {
+              "id": "init-model-is-not-response-model-proof",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "실험 코드가 System init의 model만 actual_model로 사용하면 fallback 또는 synthetic message를 놓친다. 실제 모델 판정은 AssistantMessage.model의 단일성으로 해야 한다.",
+              "sourceRefs": [
+                "spec:claims:init-model-is-not-response-model-proof"
+              ]
+            },
+            {
+              "id": "otel-is-not-independent-runtime-proof",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "OTel은 같은 AttemptRecorder가 raw SDK와 host callback/process event를 투영한 결과다. sequence 일치는 수집 파이프라인 정합성이지 독립 provider 관측이 아니다.",
+              "sourceRefs": [
+                "spec:claims:otel-is-not-independent-runtime-proof"
+              ]
+            },
+            {
+              "id": "historical-probe-source-not-bound",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "2026-08-03 attempt manifest의 source_hash는 당시 chapter bytes만 가리키며 chapter18.py, cases, runtime 전체를 암호학적으로 묶지 않았다. 향후 캡처는 세 probe source hash도 option summary에 기록한다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:manifest:option_summary",
+                "attempt:130109-c4016acd:manifest:option_summary"
+              ]
+            },
+            {
+              "id": "missing-hook-lifecycle-reason-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "include_hook_events true인데 callback hook lifecycle message가 0개였던 내부 이유는 SDK stream에 나타나지 않았다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:process-event:56"
+              ]
+            },
+            {
+              "id": "command-hook-lifecycle-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "Cookbook의 settings command hook과 이번 Python callback hook이 include_hook_events에서 다르게 노출되는지는 같은 조건으로 실행하지 않아 관찰하지 못했다.",
+              "sourceRefs": [
+                "spec:claims:command-hook-lifecycle-not-observed"
+              ]
+            },
+            {
+              "id": "remaining-hook-events-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "PostToolUseFailure, UserPromptSubmit, Stop, SubagentStart/Stop, PreCompact, Notification, PermissionRequest callback의 실제 입력과 차단 또는 변경 결과는 이번 두 case가 실행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:remaining-hook-events-not-observed"
+              ]
+            },
+            {
+              "id": "built-in-output-rewrite-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "built-in Bash, Read, Edit 등의 updatedToolOutput schema와 mismatch 처리 동작은 MCP 전용 표본으로 관찰하지 못했다.",
+              "sourceRefs": [
+                "spec:claims:built-in-output-rewrite-not-observed"
+              ]
+            },
+            {
+              "id": "general-hook-scheduling-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "모든 event, matcher 수, CLI 버전에서 callback scheduling과 반환 순서가 동일하다는 일반 규칙은 한 PreToolUse 구성으로 관찰되지 않았다.",
+              "sourceRefs": [
+                "spec:claims:general-hook-scheduling-not-observed"
+              ]
+            },
+            {
+              "id": "current-cli-replication-required",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "공개 raw run은 Claude Code 2.1.220에서 수집됐다. 현재 설치된 2.1.221 동작을 주장하려면 동일 probe를 새 session에서 순차 재실행해야 한다.",
+              "sourceRefs": [
+                "attempt:124612-be6db7b1:manifest:option_summary",
+                "attempt:130109-c4016acd:manifest:option_summary"
+              ]
+            },
+            {
+              "id": "command-callback-lifecycle-comparison-required",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "Python callback hook과 settings command hook을 같은 event, tool, include_hook_events 조건에서 비교해 lifecycle stream 차이를 추가 관찰해야 한다.",
+              "sourceRefs": [
+                "spec:claims:command-callback-lifecycle-comparison-required"
+              ]
+            },
+            {
+              "id": "hook-event-matrix-required",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "UserPromptSubmit block, built-in updatedToolOutput, PostToolUseFailure, Stop과 subagent event는 각각 독립 session과 부작용 없는 fixture로 추가 관찰해야 한다.",
+              "sourceRefs": [
+                "spec:claims:hook-event-matrix-required"
               ]
             }
           ]
