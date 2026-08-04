@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react"
 import { AgentVisualizer } from "@/components/agent-visualizer"
 import { PublicSiteNav } from "@/components/public-site-nav"
+import { claimVerdictAppearance } from "@/lib/education-claim-status"
 import { buildEducationReplay } from "@/lib/education-evidence-adapter"
 import type {
   EducationEvidenceCatalog,
@@ -159,29 +160,18 @@ function EvidenceOverlay({
             </div>
             <ol className="grid gap-2 pr-1 text-[9px] md:max-h-[min(34vh,18rem)] md:overflow-y-auto">
               {run.claims.map((claim) => {
-                const observed = claim.status === "observed"
-                const correctionRequired = claim.status === "correction_required"
-                const verdictColor = observed
-                  ? "#68e0a0"
-                  : correctionRequired
-                    ? "#ff8f8f"
-                    : "#f0c66e"
-                const verdictLabel = observed
-                  ? "OBSERVED"
-                  : correctionRequired
-                    ? "CORRECTION REQUIRED"
-                    : "MORE EVIDENCE"
+                const verdict = claimVerdictAppearance(claim.status)
                 return (
                   <li
                     key={claim.id}
                     className="border-l-2 bg-black/35 px-2 py-1.5"
-                    style={{ borderColor: verdictColor }}
+                    style={{ borderColor: verdict.color }}
                     title={claim.sourceRefs.join("\n")}
                   >
                     <div className="flex items-center justify-between gap-2">
                       <b className="truncate text-slate-300">{claim.id}</b>
-                      <span style={{ color: verdictColor }}>
-                        {verdictLabel}
+                      <span style={{ color: verdict.color }}>
+                        {verdict.label}
                       </span>
                     </div>
                     <p className="mt-1 line-clamp-2 leading-relaxed text-slate-500">{claim.summary}</p>

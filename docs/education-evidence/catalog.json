@@ -1,7 +1,7 @@
 {
   "schemaVersion": "education-agent-flow.v1",
   "courseId": "book-sdk-ko",
-  "generatedAt": "2026-08-04T02:22:39.473Z",
+  "generatedAt": "2026-08-04T03:18:17.290Z",
   "publicationPolicy": "Whitelisted normalized evidence only; no mock fallback.",
   "collections": [
     {
@@ -28350,6 +28350,1049 @@
               "summary": "default, dontAsk, auto, plan의 기존 ch08f와 ch04b 실행은 재사용 가능하지만 이번 다섯 case와 하나의 동시 run으로 합치지 말고 장별 출처와 session을 분리해 연결해야 한다.",
               "sourceRefs": [
                 "spec:claims:other-permission-modes-remain-separate-evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ch17",
+          "title": "17장 auto mode: callback을 건너뛴 실행과 명시적 거부 뒤 fallback",
+          "description": "Education Shell recorded run book-sdk-live-20260803",
+          "status": "verified_source",
+          "runtime": "claude-agent-sdk",
+          "provider": "claude",
+          "model": "claude-opus-5",
+          "chapterSlug": "ch17",
+          "sourceEventCount": 123,
+          "publishedEventCount": 47,
+          "source": {
+            "path": "slide/.shared-course-visual/otel-course-runtime/recorded-runs/book-sdk-ko/ch17/2026-08-03T12-31-40-000000Z/trace.json",
+            "sha256": "0753b0a20d48c113c710519454b3c79774f4535091da4c27938f4e57034a574f",
+            "verification": "verified-source-artifact",
+            "recordedAt": "2026-08-03T12:31:40.000000Z"
+          },
+          "events": [
+            {
+              "id": "book-sdk-live-20260803:prompt",
+              "observedOffsetMs": 0,
+              "eventType": "prompt.submitted",
+              "actor": "user",
+              "evidenceLevel": "Configured",
+              "summary": "side effect가 없는 destructive-annotated MCP tool을 auto mode에서 요청해 denying can_use_tool callback, 실제 handler, ToolResult와 terminal permission_denials를 비교한다. 별도 session에서는 primary를 disallowed_tools로 명시 거부하고, 거부될 때만 허용된 read-only fallback을 호출하도록 지시해 의도, host policy, handler 실행과 모델 설명을 분리한다.",
+              "sourceRefs": [
+                "publication-spec:public_prompt"
+              ],
+              "sequence": 0,
+              "playbackOffsetMs": 220
+            },
+            {
+              "id": "123037-c98ae7ac:process:0",
+              "observedOffsetMs": 1000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:process-event:0"
+              ],
+              "attemptId": "123037-c98ae7ac",
+              "sequence": 1,
+              "playbackOffsetMs": 1000
+            },
+            {
+              "id": "123037-c98ae7ac:sdk.init",
+              "observedOffsetMs": 2050,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "auto: deny callback을 거치지 않고 destructive-annotated controlled handler 실행: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:sdk-message:1"
+              ],
+              "attemptId": "123037-c98ae7ac",
+              "caseId": "auto-destructive-with-callback",
+              "annotationMode": "unreported",
+              "sequence": 2,
+              "playbackOffsetMs": 2050
+            },
+            {
+              "id": "123037-c98ae7ac:toolu_01FDR47dQ698Cy54aS45G95J",
+              "observedOffsetMs": 6527,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__auto_recovery__controlled_primary {'marker': 'auto-callback'}",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:sdk-message:15"
+              ],
+              "toolName": "mcp__auto_recovery__controlled_primary",
+              "toolUseId": "123037-c98ae7ac:toolu_01FDR47dQ698Cy54aS45G95J",
+              "attemptId": "123037-c98ae7ac",
+              "caseId": "auto-destructive-with-callback",
+              "sequence": 3,
+              "playbackOffsetMs": 6527
+            },
+            {
+              "id": "123037-c98ae7ac:message_stop",
+              "observedOffsetMs": 6588,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:sdk-message:18"
+              ],
+              "attemptId": "123037-c98ae7ac",
+              "sequence": 4,
+              "playbackOffsetMs": 6747
+            },
+            {
+              "id": "123037-c98ae7ac:process:19",
+              "observedOffsetMs": 8461,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__auto_recovery__controlled_primary: primary-handler-executed",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:process-event:19"
+              ],
+              "toolName": "mcp__auto_recovery__controlled_primary",
+              "attemptId": "123037-c98ae7ac",
+              "outcome": "primary-handler-executed",
+              "sequence": 5,
+              "playbackOffsetMs": 8461
+            },
+            {
+              "id": "123037-c98ae7ac:toolu_01FDR47dQ698Cy54aS45G95J:result",
+              "observedOffsetMs": 8465,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__auto_recovery__controlled_primary: result received",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:sdk-message:20"
+              ],
+              "toolName": "mcp__auto_recovery__controlled_primary",
+              "toolUseId": "123037-c98ae7ac:toolu_01FDR47dQ698Cy54aS45G95J",
+              "attemptId": "123037-c98ae7ac",
+              "isError": false,
+              "sequence": 6,
+              "playbackOffsetMs": 8681
+            },
+            {
+              "id": "123119-5244a816:process:0",
+              "observedOffsetMs": 11000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:123119-5244a816:process-event:0"
+              ],
+              "attemptId": "123119-5244a816",
+              "sequence": 7,
+              "playbackOffsetMs": 11000
+            },
+            {
+              "id": "123119-5244a816:sdk.init",
+              "observedOffsetMs": 12126,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "auto: explicit deny 뒤 prompt가 지정한 read-only fallback 실행: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:1"
+              ],
+              "attemptId": "123119-5244a816",
+              "caseId": "auto-explicit-deny-recovery",
+              "annotationMode": "unreported",
+              "sequence": 8,
+              "playbackOffsetMs": 12126
+            },
+            {
+              "id": "123119-5244a816:toolu_01LVcJkqYB5p2JamKp7FYXf6",
+              "observedOffsetMs": 15571,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__auto_recovery__controlled_primary {'marker': 'recovery-primary'}",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:14"
+              ],
+              "toolName": "mcp__auto_recovery__controlled_primary",
+              "toolUseId": "123119-5244a816:toolu_01LVcJkqYB5p2JamKp7FYXf6",
+              "attemptId": "123119-5244a816",
+              "caseId": "auto-explicit-deny-recovery",
+              "sequence": 9,
+              "playbackOffsetMs": 15571
+            },
+            {
+              "id": "123119-5244a816:toolu_01LVcJkqYB5p2JamKp7FYXf6:result",
+              "observedOffsetMs": 15572,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__auto_recovery__controlled_primary: error",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:16"
+              ],
+              "toolName": "mcp__auto_recovery__controlled_primary",
+              "toolUseId": "123119-5244a816:toolu_01LVcJkqYB5p2JamKp7FYXf6",
+              "attemptId": "123119-5244a816",
+              "isError": true,
+              "sequence": 10,
+              "playbackOffsetMs": 15791
+            },
+            {
+              "id": "123119-5244a816:message_stop",
+              "observedOffsetMs": 15594,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:18"
+              ],
+              "attemptId": "123119-5244a816",
+              "sequence": 11,
+              "playbackOffsetMs": 16011
+            },
+            {
+              "id": "123037-c98ae7ac:message_stop",
+              "observedOffsetMs": 15868,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:sdk-message:43"
+              ],
+              "attemptId": "123037-c98ae7ac",
+              "sequence": 12,
+              "playbackOffsetMs": 16231
+            },
+            {
+              "id": "123037-c98ae7ac:result",
+              "observedOffsetMs": 15878,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:sdk-message:44"
+              ],
+              "attemptId": "123037-c98ae7ac",
+              "isError": false,
+              "terminalReason": "completed",
+              "sequence": 13,
+              "playbackOffsetMs": 16451
+            },
+            {
+              "id": "123037-c98ae7ac:process:45",
+              "observedOffsetMs": 16393,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:process-event:45"
+              ],
+              "attemptId": "123037-c98ae7ac",
+              "sequence": 14,
+              "playbackOffsetMs": 16671
+            },
+            {
+              "id": "123119-5244a816:toolu_01TrMpFecdcFexH1C8FUreka",
+              "observedOffsetMs": 20132,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__auto_recovery__safe_preview {'marker': 'recovery-fallback'}",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:35"
+              ],
+              "toolName": "mcp__auto_recovery__safe_preview",
+              "toolUseId": "123119-5244a816:toolu_01TrMpFecdcFexH1C8FUreka",
+              "attemptId": "123119-5244a816",
+              "caseId": "auto-explicit-deny-recovery",
+              "sequence": 15,
+              "playbackOffsetMs": 20132
+            },
+            {
+              "id": "123119-5244a816:process:36",
+              "observedOffsetMs": 20134,
+              "eventType": "tool.execution",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "host executed mcp__auto_recovery__safe_preview: fallback-handler-executed",
+              "sourceRefs": [
+                "attempt:123119-5244a816:process-event:36"
+              ],
+              "toolName": "mcp__auto_recovery__safe_preview",
+              "attemptId": "123119-5244a816",
+              "outcome": "fallback-handler-executed",
+              "sequence": 16,
+              "playbackOffsetMs": 20352
+            },
+            {
+              "id": "123119-5244a816:toolu_01TrMpFecdcFexH1C8FUreka:result",
+              "observedOffsetMs": 20136,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "mcp__auto_recovery__safe_preview: result received",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:38"
+              ],
+              "toolName": "mcp__auto_recovery__safe_preview",
+              "toolUseId": "123119-5244a816:toolu_01TrMpFecdcFexH1C8FUreka",
+              "attemptId": "123119-5244a816",
+              "isError": false,
+              "sequence": 17,
+              "playbackOffsetMs": 20572
+            },
+            {
+              "id": "123119-5244a816:message_stop",
+              "observedOffsetMs": 20143,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:40"
+              ],
+              "attemptId": "123119-5244a816",
+              "sequence": 18,
+              "playbackOffsetMs": 20792
+            },
+            {
+              "id": "123119-5244a816:message_stop",
+              "observedOffsetMs": 31705,
+              "eventType": "hook.event",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:74"
+              ],
+              "attemptId": "123119-5244a816",
+              "sequence": 19,
+              "playbackOffsetMs": 31705
+            },
+            {
+              "id": "123119-5244a816:result",
+              "observedOffsetMs": 31711,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:75"
+              ],
+              "attemptId": "123119-5244a816",
+              "isError": false,
+              "terminalReason": "completed",
+              "sequence": 20,
+              "playbackOffsetMs": 31925
+            },
+            {
+              "id": "123119-5244a816:terminal-permission-denied:75:0",
+              "observedOffsetMs": 31711,
+              "eventType": "permission.denied",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "terminal permission denial: mcp__auto_recovery__controlled_primary",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:75"
+              ],
+              "toolName": "mcp__auto_recovery__controlled_primary",
+              "toolUseId": "123119-5244a816:toolu_01LVcJkqYB5p2JamKp7FYXf6",
+              "attemptId": "123119-5244a816",
+              "sequence": 21,
+              "playbackOffsetMs": 32145
+            },
+            {
+              "id": "123119-5244a816:process:76",
+              "observedOffsetMs": 32225,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:123119-5244a816:process-event:76"
+              ],
+              "attemptId": "123119-5244a816",
+              "sequence": 22,
+              "playbackOffsetMs": 32365
+            },
+            {
+              "id": "claim:two-auto-cases-configured",
+              "observedOffsetMs": 32925,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Configured",
+              "summary": "두 case는 새 temp workspace, config와 SDK session, actual Opus 5, provider concurrency 1을 사용했다. 첫 case는 deny callback을 구성했고, 둘째 case는 primary explicit deny와 fallback whole-tool allow를 구성했다.",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:manifest:option_summary",
+                "attempt:123119-5244a816:manifest:option_summary"
+              ],
+              "claimId": "two-auto-cases-configured",
+              "claimStatus": "configured",
+              "sequence": 23,
+              "playbackOffsetMs": 32925
+            },
+            {
+              "id": "claim:actual-opus-and-independent-sessions-observed",
+              "observedOffsetMs": 33325,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "두 init은 모두 claude-opus-5, permissionMode auto, connected in-process MCP server를 기록했고 서로 다른 SDK session ID를 사용했다.",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:sdk-message:1",
+                "attempt:123119-5244a816:sdk-message:1"
+              ],
+              "claimId": "actual-opus-and-independent-sessions-observed",
+              "claimStatus": "observed",
+              "sequence": 24,
+              "playbackOffsetMs": 33325
+            },
+            {
+              "id": "claim:auto-executed-primary-without-callback",
+              "observedOffsetMs": 33725,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "첫 case는 primary ToolUse 뒤 host primary handler와 marker ToolResult를 기록했다. deny 결정을 반환하도록 구성된 permission callback 원본은 0행이었다.",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:sdk-message:15",
+                "attempt:123037-c98ae7ac:process-event:19",
+                "attempt:123037-c98ae7ac:sdk-message:20",
+                "attempt:123037-c98ae7ac:process-event:45"
+              ],
+              "claimId": "auto-executed-primary-without-callback",
+              "claimStatus": "observed",
+              "sequence": 25,
+              "playbackOffsetMs": 33725
+            },
+            {
+              "id": "claim:auto-primary-finished-without-denial",
+              "observedOffsetMs": 34125,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "첫 case의 terminal Result는 success, is_error false, permission_denials 0이었고 controlled primary marker를 최종문에 인용했다.",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:sdk-message:44"
+              ],
+              "claimId": "auto-primary-finished-without-denial",
+              "claimStatus": "observed",
+              "sequence": 26,
+              "playbackOffsetMs": 34125
+            },
+            {
+              "id": "claim:explicit-deny-blocked-primary-handler",
+              "observedOffsetMs": 34525,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "둘째 case는 primary ToolUse를 만들었지만 error ToolResult로 거부됐고 primary handler process event는 없었다. terminal permission_denials에는 같은 tool name, input과 tool use ID가 1건 남았다.",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:14",
+                "attempt:123119-5244a816:sdk-message:16",
+                "attempt:123119-5244a816:sdk-message:75",
+                "attempt:123119-5244a816:process-event:76"
+              ],
+              "claimId": "explicit-deny-blocked-primary-handler",
+              "claimStatus": "observed",
+              "sequence": 27,
+              "playbackOffsetMs": 34525
+            },
+            {
+              "id": "claim:prompt-directed-fallback-executed-after-denial",
+              "observedOffsetMs": 34925,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "primary error ToolResult 뒤 모델은 prompt 조건을 따라 fallback ToolUse를 만들었고 host fallback handler와 marker ToolResult가 순서대로 기록됐다.",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:16",
+                "attempt:123119-5244a816:sdk-message:28",
+                "attempt:123119-5244a816:sdk-message:35",
+                "attempt:123119-5244a816:process-event:36",
+                "attempt:123119-5244a816:sdk-message:38"
+              ],
+              "claimId": "prompt-directed-fallback-executed-after-denial",
+              "claimStatus": "observed",
+              "sequence": 28,
+              "playbackOffsetMs": 34925
+            },
+            {
+              "id": "claim:tool-denial-coexisted-with-terminal-success",
+              "observedOffsetMs": 35325,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "둘째 case는 primary tool denial 1건을 보존하면서도 fallback 뒤 terminal Result 자체는 success, is_error false로 끝났다.",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:16",
+                "attempt:123119-5244a816:sdk-message:75"
+              ],
+              "claimId": "tool-denial-coexisted-with-terminal-success",
+              "claimStatus": "observed",
+              "sequence": 29,
+              "playbackOffsetMs": 35325
+            },
+            {
+              "id": "claim:disallowed-custom-tool-remained-visible",
+              "observedOffsetMs": 35725,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "둘째 init.tools에는 disallowed_tools에 넣은 custom MCP primary 이름이 남았고 모델도 ToolUse를 생성했다. 차단은 context 제거가 아니라 실행 결과의 permission denial로 관찰됐다.",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:1",
+                "attempt:123119-5244a816:sdk-message:14",
+                "attempt:123119-5244a816:sdk-message:16"
+              ],
+              "claimId": "disallowed-custom-tool-remained-visible",
+              "claimStatus": "observed",
+              "sequence": 30,
+              "playbackOffsetMs": 35725
+            },
+            {
+              "id": "claim:attempt-integrity-files-match",
+              "observedOffsetMs": 36125,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "두 attempt의 integrity manifest가 열거한 manifest, verdict, raw 4종과 OTel SHA-256을 다시 계산해 각각 7/7이 일치했다.",
+              "sourceRefs": [
+                "spec:claims:attempt-integrity-files-match"
+              ],
+              "claimId": "attempt-integrity-files-match",
+              "claimStatus": "observed",
+              "sequence": 31,
+              "playbackOffsetMs": 36125
+            },
+            {
+              "id": "claim:raw-and-otel-sequences-align",
+              "observedOffsetMs": 36525,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "두 attempt 모두 raw SDK sequence와 OTel sdk.message sequence, raw process sequence와 OTel process.event sequence가 전건 일치했고 attempt별 trace ID는 하나였다.",
+              "sourceRefs": [
+                "spec:claims:raw-and-otel-sequences-align"
+              ],
+              "claimId": "raw-and-otel-sequences-align",
+              "claimStatus": "observed",
+              "sequence": 32,
+              "playbackOffsetMs": 36525
+            },
+            {
+              "id": "claim:auto-resolved-before-host-callback-for-this-request",
+              "observedOffsetMs": 36925,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Inferred",
+              "summary": "첫 case에서 deny callback이 구성됐는데 callback 0, handler 1, denial 0이므로 이 요청은 host callback에 도달하기 전에 auto 경로에서 허용된 것으로 해석된다. 내부 함수 순서를 직접 본 것은 아니다.",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:manifest:option_summary",
+                "attempt:123037-c98ae7ac:process-event:19",
+                "attempt:123037-c98ae7ac:sdk-message:44"
+              ],
+              "claimId": "auto-resolved-before-host-callback-for-this-request",
+              "claimStatus": "inferred",
+              "sequence": 33,
+              "playbackOffsetMs": 36925
+            },
+            {
+              "id": "claim:auto-is-not-a-fail-closed-guarantee",
+              "observedOffsetMs": 37325,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "auto mode가 destructive-annotated tool을 항상 ask 또는 deny해 fail-closed를 보장한다고 설명하면 안 된다. 이 side-effect-free 통제 요청은 callback 없이 실제 handler까지 실행됐다.",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:process-event:19",
+                "attempt:123037-c98ae7ac:sdk-message:20"
+              ],
+              "claimId": "auto-is-not-a-fail-closed-guarantee",
+              "claimStatus": "correction_required",
+              "sequence": 34,
+              "playbackOffsetMs": 37325
+            },
+            {
+              "id": "claim:can-use-tool-is-not-universal-observer",
+              "observedOffsetMs": 37725,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "can_use_tool 하나를 모든 tool 실행의 보편 감사 지점으로 설명하면 누락이 생긴다. 첫 case는 callback 0인데 primary handler가 실행됐고 둘째 explicit deny도 callback 없이 처리됐다.",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:process-event:45",
+                "attempt:123119-5244a816:process-event:76"
+              ],
+              "claimId": "can-use-tool-is-not-universal-observer",
+              "claimStatus": "correction_required",
+              "sequence": 35,
+              "playbackOffsetMs": 37725
+            },
+            {
+              "id": "claim:fallback-was-not-autonomous-policy-discovery",
+              "observedOffsetMs": 38125,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "둘째 fallback을 모델의 자율적 안전 정책 발견으로 설명하면 안 된다. 사용자 prompt가 primary가 거부될 때만 fallback을 정확히 1회 호출하라고 실행 전에 지정했다.",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:28",
+                "attempt:123119-5244a816:sdk-message:35"
+              ],
+              "claimId": "fallback-was-not-autonomous-policy-discovery",
+              "claimStatus": "correction_required",
+              "sequence": 36,
+              "playbackOffsetMs": 38125
+            },
+            {
+              "id": "claim:model-annotation-attribution-is-unsupported",
+              "observedOffsetMs": 38525,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "모델 최종문의 annotation 기반 gate 추정은 host evidence보다 약하다. 실제 manifest 원인은 primary explicit disallowed_tools였고 permission error에는 내부 rule rationale가 없었다.",
+              "sourceRefs": [
+                "attempt:123119-5244a816:manifest:option_summary",
+                "attempt:123119-5244a816:sdk-message:16",
+                "attempt:123119-5244a816:sdk-message:75"
+              ],
+              "claimId": "model-annotation-attribution-is-unsupported",
+              "claimStatus": "correction_required",
+              "sequence": 37,
+              "playbackOffsetMs": 38525
+            },
+            {
+              "id": "claim:safe-whitelist-is-design-not-runtime-contract",
+              "observedOffsetMs": 38925,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "Read는 auto, destructive는 ask/deny 같은 표를 auto mode의 보장된 runtime whitelist로 제시하면 안 된다. 그 표는 host가 구현할 제품 정책 예시다.",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:process-event:19"
+              ],
+              "claimId": "safe-whitelist-is-design-not-runtime-contract",
+              "claimStatus": "correction_required",
+              "sequence": 38,
+              "playbackOffsetMs": 38925
+            },
+            {
+              "id": "claim:otel-is-not-independent-provider-proof",
+              "observedOffsetMs": 39325,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "OTel span은 같은 recorder가 raw SDK와 process event를 투영한 결과이므로 sequence 일치는 수집기의 무손실 확인이지 독립 provider 증거가 아니다.",
+              "sourceRefs": [
+                "spec:claims:otel-is-not-independent-provider-proof"
+              ],
+              "claimId": "otel-is-not-independent-provider-proof",
+              "claimStatus": "correction_required",
+              "sequence": 39,
+              "playbackOffsetMs": 39325
+            },
+            {
+              "id": "claim:probe-source-was-not-cryptographically-bound",
+              "observedOffsetMs": 39725,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "이 과거 CH17 manifest의 source_hash는 실행 당시 chapter bytes만 가리키며 probe, case와 runtime Python source hash를 함께 묶지 않았다. 실행 원본 파일은 남아 있지만 코드 전체가 manifest에 암호학적으로 귀속됐다고 말할 수 없다.",
+              "sourceRefs": [
+                "spec:claims:probe-source-was-not-cryptographically-bound"
+              ],
+              "claimId": "probe-source-was-not-cryptographically-bound",
+              "claimStatus": "correction_required",
+              "sequence": 40,
+              "playbackOffsetMs": 39725
+            },
+            {
+              "id": "claim:internal-auto-rationale-not-observed",
+              "observedOffsetMs": 40125,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "auto classifier의 내부 prompt, confidence, allow/ask/deny 기준과 이 요청을 허용한 구체적 rationale는 SDK stream에 나타나지 않았다.",
+              "sourceRefs": [
+                "spec:claims:internal-auto-rationale-not-observed"
+              ],
+              "claimId": "internal-auto-rationale-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 41,
+              "playbackOffsetMs": 40125
+            },
+            {
+              "id": "claim:annotation-causal-effect-not-observed",
+              "observedOffsetMs": 40525,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "두 case의 annotation을 한 변수로 통제해 비교하지 않았으므로 destructiveHint가 auto 허용 또는 explicit deny에 끼친 인과 효과는 관찰되지 않았다.",
+              "sourceRefs": [
+                "spec:claims:annotation-causal-effect-not-observed"
+              ],
+              "claimId": "annotation-causal-effect-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 42,
+              "playbackOffsetMs": 40525
+            },
+            {
+              "id": "claim:real-user-ask-ui-not-observed",
+              "observedOffsetMs": 40925,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "실제 사람이 승인 또는 거절하는 permission UI, ask 상태와 외부 permission.reply 경로는 이 두 비대화형 SDK 실행에 없다.",
+              "sourceRefs": [
+                "spec:claims:real-user-ask-ui-not-observed"
+              ],
+              "claimId": "real-user-ask-ui-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 43,
+              "playbackOffsetMs": 40925
+            },
+            {
+              "id": "claim:general-auto-policy-not-observed",
+              "observedOffsetMs": 41325,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "built-in tool 전체, 실제 외부 mutation, 다양한 input과 managed policy에 대한 auto의 일반 동작은 controlled MCP 두 표본으로 증명되지 않았다.",
+              "sourceRefs": [
+                "spec:claims:general-auto-policy-not-observed"
+              ],
+              "claimId": "general-auto-policy-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 44,
+              "playbackOffsetMs": 41325
+            },
+            {
+              "id": "claim:current-cli-replication-required",
+              "observedOffsetMs": 41725,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "공개 실행은 Claude Code 2.1.220에서 수집됐다. 현재 설치된 2.1.221의 동작을 주장하려면 같은 probe, prompt, SDK와 정책을 고정한 순차 재실행이 필요하다.",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:sdk-message:1",
+                "attempt:123119-5244a816:sdk-message:1"
+              ],
+              "claimId": "current-cli-replication-required",
+              "claimStatus": "additional_observation_required",
+              "sequence": 45,
+              "playbackOffsetMs": 41725
+            },
+            {
+              "id": "claim:human-ask-and-built-in-matrix-required",
+              "observedOffsetMs": 42125,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "ask UI와 callback 왕복, built-in Read/Edit/Bash별 auto 경계, annotation만 바꾼 인과 비교는 각각 독립 session과 한 변수 통제로 추가 관찰해야 한다.",
+              "sourceRefs": [
+                "spec:claims:human-ask-and-built-in-matrix-required"
+              ],
+              "claimId": "human-ask-and-built-in-matrix-required",
+              "claimStatus": "additional_observation_required",
+              "sequence": 46,
+              "playbackOffsetMs": 42125
+            }
+          ],
+          "facts": [
+            {
+              "label": "raw source events",
+              "value": "123"
+            },
+            {
+              "label": "public projection",
+              "value": "47"
+            },
+            {
+              "label": "tool uses",
+              "value": "3"
+            },
+            {
+              "label": "tool results",
+              "value": "3"
+            },
+            {
+              "label": "observed claims",
+              "value": "9"
+            },
+            {
+              "label": "configured claims",
+              "value": "1"
+            },
+            {
+              "label": "inferred claims",
+              "value": "1"
+            },
+            {
+              "label": "not observed",
+              "value": "4"
+            },
+            {
+              "label": "needs observation",
+              "value": "2"
+            },
+            {
+              "label": "invalid attempts",
+              "value": "0"
+            },
+            {
+              "label": "proof gate",
+              "value": "accepted_with_notes"
+            }
+          ],
+          "claims": [
+            {
+              "id": "two-auto-cases-configured",
+              "status": "configured",
+              "evidenceLevel": "Configured",
+              "summary": "두 case는 새 temp workspace, config와 SDK session, actual Opus 5, provider concurrency 1을 사용했다. 첫 case는 deny callback을 구성했고, 둘째 case는 primary explicit deny와 fallback whole-tool allow를 구성했다.",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:manifest:option_summary",
+                "attempt:123119-5244a816:manifest:option_summary"
+              ]
+            },
+            {
+              "id": "actual-opus-and-independent-sessions-observed",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "두 init은 모두 claude-opus-5, permissionMode auto, connected in-process MCP server를 기록했고 서로 다른 SDK session ID를 사용했다.",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:sdk-message:1",
+                "attempt:123119-5244a816:sdk-message:1"
+              ]
+            },
+            {
+              "id": "auto-executed-primary-without-callback",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "첫 case는 primary ToolUse 뒤 host primary handler와 marker ToolResult를 기록했다. deny 결정을 반환하도록 구성된 permission callback 원본은 0행이었다.",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:sdk-message:15",
+                "attempt:123037-c98ae7ac:process-event:19",
+                "attempt:123037-c98ae7ac:sdk-message:20",
+                "attempt:123037-c98ae7ac:process-event:45"
+              ]
+            },
+            {
+              "id": "auto-primary-finished-without-denial",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "첫 case의 terminal Result는 success, is_error false, permission_denials 0이었고 controlled primary marker를 최종문에 인용했다.",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:sdk-message:44"
+              ]
+            },
+            {
+              "id": "explicit-deny-blocked-primary-handler",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "둘째 case는 primary ToolUse를 만들었지만 error ToolResult로 거부됐고 primary handler process event는 없었다. terminal permission_denials에는 같은 tool name, input과 tool use ID가 1건 남았다.",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:14",
+                "attempt:123119-5244a816:sdk-message:16",
+                "attempt:123119-5244a816:sdk-message:75",
+                "attempt:123119-5244a816:process-event:76"
+              ]
+            },
+            {
+              "id": "prompt-directed-fallback-executed-after-denial",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "primary error ToolResult 뒤 모델은 prompt 조건을 따라 fallback ToolUse를 만들었고 host fallback handler와 marker ToolResult가 순서대로 기록됐다.",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:16",
+                "attempt:123119-5244a816:sdk-message:28",
+                "attempt:123119-5244a816:sdk-message:35",
+                "attempt:123119-5244a816:process-event:36",
+                "attempt:123119-5244a816:sdk-message:38"
+              ]
+            },
+            {
+              "id": "tool-denial-coexisted-with-terminal-success",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "둘째 case는 primary tool denial 1건을 보존하면서도 fallback 뒤 terminal Result 자체는 success, is_error false로 끝났다.",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:16",
+                "attempt:123119-5244a816:sdk-message:75"
+              ]
+            },
+            {
+              "id": "disallowed-custom-tool-remained-visible",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "둘째 init.tools에는 disallowed_tools에 넣은 custom MCP primary 이름이 남았고 모델도 ToolUse를 생성했다. 차단은 context 제거가 아니라 실행 결과의 permission denial로 관찰됐다.",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:1",
+                "attempt:123119-5244a816:sdk-message:14",
+                "attempt:123119-5244a816:sdk-message:16"
+              ]
+            },
+            {
+              "id": "attempt-integrity-files-match",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "두 attempt의 integrity manifest가 열거한 manifest, verdict, raw 4종과 OTel SHA-256을 다시 계산해 각각 7/7이 일치했다.",
+              "sourceRefs": [
+                "spec:claims:attempt-integrity-files-match"
+              ]
+            },
+            {
+              "id": "raw-and-otel-sequences-align",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "두 attempt 모두 raw SDK sequence와 OTel sdk.message sequence, raw process sequence와 OTel process.event sequence가 전건 일치했고 attempt별 trace ID는 하나였다.",
+              "sourceRefs": [
+                "spec:claims:raw-and-otel-sequences-align"
+              ]
+            },
+            {
+              "id": "auto-resolved-before-host-callback-for-this-request",
+              "status": "inferred",
+              "evidenceLevel": "Inferred",
+              "summary": "첫 case에서 deny callback이 구성됐는데 callback 0, handler 1, denial 0이므로 이 요청은 host callback에 도달하기 전에 auto 경로에서 허용된 것으로 해석된다. 내부 함수 순서를 직접 본 것은 아니다.",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:manifest:option_summary",
+                "attempt:123037-c98ae7ac:process-event:19",
+                "attempt:123037-c98ae7ac:sdk-message:44"
+              ]
+            },
+            {
+              "id": "auto-is-not-a-fail-closed-guarantee",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "auto mode가 destructive-annotated tool을 항상 ask 또는 deny해 fail-closed를 보장한다고 설명하면 안 된다. 이 side-effect-free 통제 요청은 callback 없이 실제 handler까지 실행됐다.",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:process-event:19",
+                "attempt:123037-c98ae7ac:sdk-message:20"
+              ]
+            },
+            {
+              "id": "can-use-tool-is-not-universal-observer",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "can_use_tool 하나를 모든 tool 실행의 보편 감사 지점으로 설명하면 누락이 생긴다. 첫 case는 callback 0인데 primary handler가 실행됐고 둘째 explicit deny도 callback 없이 처리됐다.",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:process-event:45",
+                "attempt:123119-5244a816:process-event:76"
+              ]
+            },
+            {
+              "id": "fallback-was-not-autonomous-policy-discovery",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "둘째 fallback을 모델의 자율적 안전 정책 발견으로 설명하면 안 된다. 사용자 prompt가 primary가 거부될 때만 fallback을 정확히 1회 호출하라고 실행 전에 지정했다.",
+              "sourceRefs": [
+                "attempt:123119-5244a816:sdk-message:28",
+                "attempt:123119-5244a816:sdk-message:35"
+              ]
+            },
+            {
+              "id": "model-annotation-attribution-is-unsupported",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "모델 최종문의 annotation 기반 gate 추정은 host evidence보다 약하다. 실제 manifest 원인은 primary explicit disallowed_tools였고 permission error에는 내부 rule rationale가 없었다.",
+              "sourceRefs": [
+                "attempt:123119-5244a816:manifest:option_summary",
+                "attempt:123119-5244a816:sdk-message:16",
+                "attempt:123119-5244a816:sdk-message:75"
+              ]
+            },
+            {
+              "id": "safe-whitelist-is-design-not-runtime-contract",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "Read는 auto, destructive는 ask/deny 같은 표를 auto mode의 보장된 runtime whitelist로 제시하면 안 된다. 그 표는 host가 구현할 제품 정책 예시다.",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:process-event:19"
+              ]
+            },
+            {
+              "id": "otel-is-not-independent-provider-proof",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "OTel span은 같은 recorder가 raw SDK와 process event를 투영한 결과이므로 sequence 일치는 수집기의 무손실 확인이지 독립 provider 증거가 아니다.",
+              "sourceRefs": [
+                "spec:claims:otel-is-not-independent-provider-proof"
+              ]
+            },
+            {
+              "id": "probe-source-was-not-cryptographically-bound",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "이 과거 CH17 manifest의 source_hash는 실행 당시 chapter bytes만 가리키며 probe, case와 runtime Python source hash를 함께 묶지 않았다. 실행 원본 파일은 남아 있지만 코드 전체가 manifest에 암호학적으로 귀속됐다고 말할 수 없다.",
+              "sourceRefs": [
+                "spec:claims:probe-source-was-not-cryptographically-bound"
+              ]
+            },
+            {
+              "id": "internal-auto-rationale-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "auto classifier의 내부 prompt, confidence, allow/ask/deny 기준과 이 요청을 허용한 구체적 rationale는 SDK stream에 나타나지 않았다.",
+              "sourceRefs": [
+                "spec:claims:internal-auto-rationale-not-observed"
+              ]
+            },
+            {
+              "id": "annotation-causal-effect-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "두 case의 annotation을 한 변수로 통제해 비교하지 않았으므로 destructiveHint가 auto 허용 또는 explicit deny에 끼친 인과 효과는 관찰되지 않았다.",
+              "sourceRefs": [
+                "spec:claims:annotation-causal-effect-not-observed"
+              ]
+            },
+            {
+              "id": "real-user-ask-ui-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "실제 사람이 승인 또는 거절하는 permission UI, ask 상태와 외부 permission.reply 경로는 이 두 비대화형 SDK 실행에 없다.",
+              "sourceRefs": [
+                "spec:claims:real-user-ask-ui-not-observed"
+              ]
+            },
+            {
+              "id": "general-auto-policy-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "built-in tool 전체, 실제 외부 mutation, 다양한 input과 managed policy에 대한 auto의 일반 동작은 controlled MCP 두 표본으로 증명되지 않았다.",
+              "sourceRefs": [
+                "spec:claims:general-auto-policy-not-observed"
+              ]
+            },
+            {
+              "id": "current-cli-replication-required",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "공개 실행은 Claude Code 2.1.220에서 수집됐다. 현재 설치된 2.1.221의 동작을 주장하려면 같은 probe, prompt, SDK와 정책을 고정한 순차 재실행이 필요하다.",
+              "sourceRefs": [
+                "attempt:123037-c98ae7ac:sdk-message:1",
+                "attempt:123119-5244a816:sdk-message:1"
+              ]
+            },
+            {
+              "id": "human-ask-and-built-in-matrix-required",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "ask UI와 callback 왕복, built-in Read/Edit/Bash별 auto 경계, annotation만 바꾼 인과 비교는 각각 독립 session과 한 변수 통제로 추가 관찰해야 한다.",
+              "sourceRefs": [
+                "spec:claims:human-ask-and-built-in-matrix-required"
               ]
             }
           ]
