@@ -1,7 +1,7 @@
 {
   "schemaVersion": "education-agent-flow.v1",
   "courseId": "book-sdk-ko",
-  "generatedAt": "2026-08-04T09:31:51.409Z",
+  "generatedAt": "2026-08-04T09:34:24.168Z",
   "publicationPolicy": "Whitelisted normalized evidence only; no mock fallback.",
   "collections": [
     {
@@ -37923,7 +37923,7 @@
           "publishedEventCount": 67,
           "source": {
             "path": "slide/.shared-course-visual/otel-course-runtime/recorded-runs/book-sdk-ko/ch29/2026-08-04T09-14-24Z/trace.json",
-            "sha256": "ed3f72ad59e8832be9d88eeb1625f0ceb21d02471eef92fc667af73bcb0c6fbe",
+            "sha256": "4ca4e07fd1723cbe917ac0f2725d2b0e785bdc08683fb64bbe01d328fca4cbeb",
             "verification": "verified-source-artifact",
             "recordedAt": "2026-08-04T09:14:24Z"
           },
@@ -38689,7 +38689,7 @@
               "eventType": "assistant.claim",
               "actor": "evaluator",
               "evidenceLevel": "Observed",
-              "summary": "sk-ant 형태 canary와 api_key 민감 key의 네 경로 제거는 관찰됐지만 모든 credential 형식, 자유문 PII, nested binary attachment까지 탐지한다고 일반화하면 안 된다.",
+              "summary": "Anthropic 형식의 합성 canary와 api_key 민감 key의 네 경로 제거는 관찰됐지만 모든 credential 형식, 자유문 PII, nested binary attachment까지 탐지한다고 일반화하면 안 된다.",
               "sourceRefs": [
                 "attempt:152259-0e968386:process-event:35"
               ],
@@ -39338,7 +39338,7 @@
               "id": "canary-redaction-is-not-general-pii-proof",
               "status": "correction_required",
               "evidenceLevel": "Observed",
-              "summary": "sk-ant 형태 canary와 api_key 민감 key의 네 경로 제거는 관찰됐지만 모든 credential 형식, 자유문 PII, nested binary attachment까지 탐지한다고 일반화하면 안 된다.",
+              "summary": "Anthropic 형식의 합성 canary와 api_key 민감 key의 네 경로 제거는 관찰됐지만 모든 credential 형식, 자유문 PII, nested binary attachment까지 탐지한다고 일반화하면 안 된다.",
               "sourceRefs": [
                 "attempt:152259-0e968386:process-event:35"
               ]
