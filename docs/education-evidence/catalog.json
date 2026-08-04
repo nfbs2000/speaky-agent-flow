@@ -1,7 +1,7 @@
 {
   "schemaVersion": "education-agent-flow.v1",
   "courseId": "book-sdk-ko",
-  "generatedAt": "2026-08-04T05:57:00.240Z",
+  "generatedAt": "2026-08-04T06:36:43.172Z",
   "publicationPolicy": "Whitelisted normalized evidence only; no mock fallback.",
   "collections": [
     {
@@ -33623,6 +33623,1415 @@
               "summary": "향후 보안 거부 또는 lower-model fallback은 우회하지 않고 model_refusal_fallback attempt로 보존하며, temp 종료 뒤 cleanup scan도 별도 host event로 기록해야 한다.",
               "sourceRefs": [
                 "spec:claims:refusal-fallback-and-cleanup-evidence-required"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ch19",
+          "title": "19장 CLAUDE.md: setting_sources와 memoryFiles의 실제 로드 경계",
+          "description": "Education Shell recorded run book-sdk-live-20260804",
+          "status": "verified_source",
+          "runtime": "claude-agent-sdk",
+          "provider": "claude",
+          "model": "claude-opus-5",
+          "replayModels": [
+            "claude-opus-5"
+          ],
+          "citedModels": [
+            "claude-opus-5"
+          ],
+          "chapterSlug": "ch19",
+          "sourceEventCount": 46,
+          "publishedEventCount": 62,
+          "source": {
+            "path": "slide/.shared-course-visual/otel-course-runtime/recorded-runs/book-sdk-ko/ch19/2026-08-04T06-16-50-522113Z/trace.json",
+            "sha256": "6407b853e713a35ee4abe5749a5165637b82f804b1efd47301f08a76d50a2f7a",
+            "verification": "verified-source-artifact",
+            "recordedAt": "2026-08-04T06:16:50.522113Z"
+          },
+          "events": [
+            {
+              "id": "book-sdk-live-20260804:prompt",
+              "observedOffsetMs": 0,
+              "eventType": "prompt.submitted",
+              "actor": "user",
+              "evidenceLevel": "Configured",
+              "summary": "동일한 임시 workspace와 읽기 전용 marker 과업에서 setting_sources=[]와 [project]만 바꾸고, get_context_usage().memoryFiles, Read, ToolResult, terminal Result를 순차 비교한다.",
+              "sourceRefs": [
+                "publication-spec:public_prompt"
+              ],
+              "sequence": 0,
+              "playbackOffsetMs": 220
+            },
+            {
+              "id": "061423-c0aa2799:process:0",
+              "observedOffsetMs": 1000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:process-event:0"
+              ],
+              "attemptId": "061423-c0aa2799",
+              "sequence": 1,
+              "playbackOffsetMs": 1000
+            },
+            {
+              "id": "061423-c0aa2799:process:1",
+              "observedOffsetMs": 1002,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.instruction-files",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:process-event:1"
+              ],
+              "attemptId": "061423-c0aa2799",
+              "sequence": 2,
+              "playbackOffsetMs": 1220
+            },
+            {
+              "id": "061423-c0aa2799:process:2",
+              "observedOffsetMs": 1663,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.context-usage",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:process-event:2"
+              ],
+              "attemptId": "061423-c0aa2799",
+              "sequence": 3,
+              "playbackOffsetMs": 1663
+            },
+            {
+              "id": "061423-c0aa2799:sdk.init",
+              "observedOffsetMs": 1675,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "filesystem source 비활성: memoryFiles 없음, Read 없음: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:sdk-message:3"
+              ],
+              "attemptId": "061423-c0aa2799",
+              "caseId": "setting-sources-empty",
+              "annotationMode": "unreported",
+              "sequence": 4,
+              "playbackOffsetMs": 1883
+            },
+            {
+              "id": "061423-c0aa2799:message_stop:13",
+              "observedOffsetMs": 5983,
+              "eventType": "stream.lifecycle",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:sdk-message:13"
+              ],
+              "attemptId": "061423-c0aa2799",
+              "sequence": 5,
+              "playbackOffsetMs": 5983
+            },
+            {
+              "id": "061423-c0aa2799:result",
+              "observedOffsetMs": 5999,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:sdk-message:14"
+              ],
+              "attemptId": "061423-c0aa2799",
+              "isError": false,
+              "terminalReason": "completed",
+              "sequence": 6,
+              "playbackOffsetMs": 6203
+            },
+            {
+              "id": "061423-c0aa2799:process:15",
+              "observedOffsetMs": 6286,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.context-usage",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:process-event:15"
+              ],
+              "attemptId": "061423-c0aa2799",
+              "sequence": 7,
+              "playbackOffsetMs": 6423
+            },
+            {
+              "id": "061423-c0aa2799:process:16",
+              "observedOffsetMs": 7143,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:process-event:16"
+              ],
+              "attemptId": "061423-c0aa2799",
+              "sequence": 8,
+              "playbackOffsetMs": 7143
+            },
+            {
+              "id": "061441-31bd87d5:process:0",
+              "observedOffsetMs": 11000,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.started",
+              "sourceRefs": [
+                "attempt:061441-31bd87d5:process-event:0"
+              ],
+              "attemptId": "061441-31bd87d5",
+              "sequence": 9,
+              "playbackOffsetMs": 11000
+            },
+            {
+              "id": "061441-31bd87d5:process:1",
+              "observedOffsetMs": 11001,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "host.instruction-files",
+              "sourceRefs": [
+                "attempt:061441-31bd87d5:process-event:1"
+              ],
+              "attemptId": "061441-31bd87d5",
+              "sequence": 10,
+              "playbackOffsetMs": 11220
+            },
+            {
+              "id": "061441-31bd87d5:process:2",
+              "observedOffsetMs": 11684,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.context-usage",
+              "sourceRefs": [
+                "attempt:061441-31bd87d5:process-event:2"
+              ],
+              "attemptId": "061441-31bd87d5",
+              "sequence": 11,
+              "playbackOffsetMs": 11684
+            },
+            {
+              "id": "061441-31bd87d5:sdk.init",
+              "observedOffsetMs": 11703,
+              "eventType": "sdk.init",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "project source 활성: CLAUDE.md inventory와 Read marker 관찰: init boundary 1, claude-opus-5",
+              "sourceRefs": [
+                "attempt:061441-31bd87d5:sdk-message:3"
+              ],
+              "attemptId": "061441-31bd87d5",
+              "caseId": "setting-sources-project",
+              "annotationMode": "unreported",
+              "sequence": 12,
+              "playbackOffsetMs": 11904
+            },
+            {
+              "id": "061441-31bd87d5:toolu_01EseWPnyw45JZaYnd3DQJr3",
+              "observedOffsetMs": 15191,
+              "eventType": "tool.use",
+              "actor": "claude",
+              "evidenceLevel": "Observed",
+              "summary": "Read {}",
+              "sourceRefs": [
+                "attempt:061441-31bd87d5:sdk-message:12"
+              ],
+              "toolName": "Read",
+              "toolUseId": "061441-31bd87d5:toolu_01EseWPnyw45JZaYnd3DQJr3",
+              "attemptId": "061441-31bd87d5",
+              "caseId": "setting-sources-project",
+              "sequence": 13,
+              "playbackOffsetMs": 15191
+            },
+            {
+              "id": "061441-31bd87d5:toolu_01EseWPnyw45JZaYnd3DQJr3:result",
+              "observedOffsetMs": 15198,
+              "eventType": "tool.result",
+              "actor": "tool",
+              "evidenceLevel": "Observed",
+              "summary": "Read: result received",
+              "sourceRefs": [
+                "attempt:061441-31bd87d5:sdk-message:14"
+              ],
+              "toolName": "Read",
+              "toolUseId": "061441-31bd87d5:toolu_01EseWPnyw45JZaYnd3DQJr3",
+              "attemptId": "061441-31bd87d5",
+              "isError": false,
+              "sequence": 14,
+              "playbackOffsetMs": 15411
+            },
+            {
+              "id": "061441-31bd87d5:message_stop:16",
+              "observedOffsetMs": 15210,
+              "eventType": "stream.lifecycle",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:061441-31bd87d5:sdk-message:16"
+              ],
+              "attemptId": "061441-31bd87d5",
+              "sequence": 15,
+              "playbackOffsetMs": 15631
+            },
+            {
+              "id": "061441-31bd87d5:message_stop:25",
+              "observedOffsetMs": 17776,
+              "eventType": "stream.lifecycle",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "assistant stream message_stop",
+              "sourceRefs": [
+                "attempt:061441-31bd87d5:sdk-message:25"
+              ],
+              "attemptId": "061441-31bd87d5",
+              "sequence": 16,
+              "playbackOffsetMs": 17776
+            },
+            {
+              "id": "061441-31bd87d5:result",
+              "observedOffsetMs": 17777,
+              "eventType": "result.completed",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "success; terminal_reason=completed",
+              "sourceRefs": [
+                "attempt:061441-31bd87d5:sdk-message:26"
+              ],
+              "attemptId": "061441-31bd87d5",
+              "isError": false,
+              "terminalReason": "completed",
+              "sequence": 17,
+              "playbackOffsetMs": 17996
+            },
+            {
+              "id": "061441-31bd87d5:process:27",
+              "observedOffsetMs": 18052,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.context-usage",
+              "sourceRefs": [
+                "attempt:061441-31bd87d5:process-event:27"
+              ],
+              "attemptId": "061441-31bd87d5",
+              "sequence": 18,
+              "playbackOffsetMs": 18216
+            },
+            {
+              "id": "061441-31bd87d5:process:28",
+              "observedOffsetMs": 18966,
+              "eventType": "runtime.observation",
+              "actor": "runtime",
+              "evidenceLevel": "Observed",
+              "summary": "sdk.capture.finished",
+              "sourceRefs": [
+                "attempt:061441-31bd87d5:process-event:28"
+              ],
+              "attemptId": "061441-31bd87d5",
+              "sequence": 19,
+              "playbackOffsetMs": 18966
+            },
+            {
+              "id": "claim:setting-source-surface-configured",
+              "observedOffsetMs": 19666,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Configured",
+              "summary": "Python Agent SDK 0.2.128의 SettingSource는 user, project, local이고 ClaudeAgentOptions.setting_sources는 None, 빈 list, 선택 source list를 구분한다. 문서상 None은 CLI 기본 source, []는 filesystem setting 비활성, project는 CLAUDE.md 로드 조건이다.",
+              "sourceRefs": [
+                "spec:claims:setting-source-surface-configured"
+              ],
+              "claimId": "setting-source-surface-configured",
+              "claimStatus": "configured",
+              "sequence": 20,
+              "playbackOffsetMs": 19666
+            },
+            {
+              "id": "claim:controlled-pair-configured",
+              "observedOffsetMs": 20066,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Configured",
+              "summary": "두 attempt는 같은 chapter bytes, probe source hashes, Opus 5, Read 단일 tool, 동일 CLAUDE.md와 evidence marker, provider concurrency 1을 사용하고 setting_sources만 []와 [project]로 나눴다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:manifest:option_summary",
+                "attempt:061441-31bd87d5:manifest:option_summary"
+              ],
+              "claimId": "controlled-pair-configured",
+              "claimStatus": "configured",
+              "sequence": 21,
+              "playbackOffsetMs": 20066
+            },
+            {
+              "id": "claim:safe-readonly-prompt-configured",
+              "observedOffsetMs": 20466,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Configured",
+              "summary": "프롬프트는 disposable temporary workspace의 읽기 전용 marker 과업으로 제한했고, loaded instruction이 명시하지 않은 경로 탐색과 관련 없는 작업을 금지했다. 보안 우회나 권한 상승은 요청하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:safe-readonly-prompt-configured"
+              ],
+              "claimId": "safe-readonly-prompt-configured",
+              "claimStatus": "configured",
+              "sequence": 22,
+              "playbackOffsetMs": 20466
+            },
+            {
+              "id": "claim:assistant-messages-used-opus5",
+              "observedOffsetMs": 20866,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "empty attempt의 AssistantMessage 1건과 project attempt의 AssistantMessage 2건은 모두 claude-opus-5였다. actual model은 requested 값이나 init 값이 아니라 AssistantMessage.model로 판정했다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:sdk-message:10",
+                "attempt:061441-31bd87d5:sdk-message:12",
+                "attempt:061441-31bd87d5:sdk-message:22"
+              ],
+              "claimId": "assistant-messages-used-opus5",
+              "claimStatus": "observed",
+              "sequence": 23,
+              "playbackOffsetMs": 20866
+            },
+            {
+              "id": "claim:instruction-files-identical",
+              "observedOffsetMs": 21266,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "두 attempt의 host record에는 같은 306자 CLAUDE.md와 27자 evidence file이 있었고 각각의 SHA-256도 동일했다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:process-event:1",
+                "attempt:061441-31bd87d5:process-event:1"
+              ],
+              "claimId": "instruction-files-identical",
+              "claimStatus": "observed",
+              "sequence": 24,
+              "playbackOffsetMs": 21266
+            },
+            {
+              "id": "claim:empty-memory-files-remained-empty",
+              "observedOffsetMs": 21666,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "setting_sources=[] attempt의 get_context_usage() memoryFiles는 query 전 sequence 2와 응답 후 sequence 15 모두 빈 배열이었다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:process-event:2",
+                "attempt:061423-c0aa2799:process-event:15"
+              ],
+              "claimId": "empty-memory-files-remained-empty",
+              "claimStatus": "observed",
+              "sequence": 25,
+              "playbackOffsetMs": 21666
+            },
+            {
+              "id": "claim:project-memory-file-loaded-before-query",
+              "observedOffsetMs": 22066,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "setting_sources=[project] attempt는 model query 전 sequence 2부터 memoryFiles에 <workspace>/CLAUDE.md, type Project, 149 tokens를 보고했고 응답 후 sequence 27에도 유지했다.",
+              "sourceRefs": [
+                "attempt:061441-31bd87d5:process-event:2",
+                "attempt:061441-31bd87d5:process-event:27"
+              ],
+              "claimId": "project-memory-file-loaded-before-query",
+              "claimStatus": "observed",
+              "sequence": 26,
+              "playbackOffsetMs": 22066
+            },
+            {
+              "id": "claim:empty-source-used-no-tool",
+              "observedOffsetMs": 22466,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "setting_sources=[] attempt는 ToolUse와 ToolResult가 모두 0건이었고 AssistantMessage와 terminal Result가 NO_PROJECT_INSTRUCTION을 반환했다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:sdk-message:10",
+                "attempt:061423-c0aa2799:sdk-message:14",
+                "attempt:061423-c0aa2799:process-event:16"
+              ],
+              "claimId": "empty-source-used-no-tool",
+              "claimStatus": "observed",
+              "sequence": 27,
+              "playbackOffsetMs": 22466
+            },
+            {
+              "id": "claim:project-source-read-once",
+              "observedOffsetMs": 22866,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "setting_sources=[project] attempt는 sequence 12에서 Read ToolUse를 정확히 한 번 만들었고 대상은 임시 workspace의 docs/evidence.txt였다.",
+              "sourceRefs": [
+                "attempt:061441-31bd87d5:sdk-message:12"
+              ],
+              "claimId": "project-source-read-once",
+              "claimStatus": "observed",
+              "sequence": 28,
+              "playbackOffsetMs": 22866
+            },
+            {
+              "id": "claim:project-tool-result-contained-marker",
+              "observedOffsetMs": 23266,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "project attempt의 sequence 14 ToolResult는 CH19_EVIDENCE_FILE_CONTENT를 반환했고 sequence 12 ToolUse ID와 연결됐다.",
+              "sourceRefs": [
+                "attempt:061441-31bd87d5:sdk-message:14"
+              ],
+              "claimId": "project-tool-result-contained-marker",
+              "claimStatus": "observed",
+              "sequence": 29,
+              "playbackOffsetMs": 23266
+            },
+            {
+              "id": "claim:terminal-results-followed-source-boundary",
+              "observedOffsetMs": 23666,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "empty attempt는 sequence 14에서 NO_PROJECT_INSTRUCTION으로, project attempt는 sequence 26에서 PROJECT_INSTRUCTION_APPLIED marker로 각각 success 종료했다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:sdk-message:14",
+                "attempt:061441-31bd87d5:sdk-message:26"
+              ],
+              "claimId": "terminal-results-followed-source-boundary",
+              "claimStatus": "observed",
+              "sequence": 30,
+              "playbackOffsetMs": 23666
+            },
+            {
+              "id": "claim:hook-event-messages-absent",
+              "observedOffsetMs": 24066,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "include_hook_events=True였지만 두 attempt 모두 HookEventMessage는 0건이었다. project instruction load를 HookEvent로 주장하지 않는다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:process-event:16",
+                "attempt:061441-31bd87d5:process-event:28"
+              ],
+              "claimId": "hook-event-messages-absent",
+              "claimStatus": "observed",
+              "sequence": 31,
+              "playbackOffsetMs": 24066
+            },
+            {
+              "id": "claim:current-cli-221-observed",
+              "observedOffsetMs": 24466,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "두 새 attempt의 manifest와 init은 Claude Code 2.1.221, Python Agent SDK 0.2.128을 기록했다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:manifest:option_summary",
+                "attempt:061441-31bd87d5:manifest:option_summary"
+              ],
+              "claimId": "current-cli-221-observed",
+              "claimStatus": "observed",
+              "sequence": 32,
+              "playbackOffsetMs": 24466
+            },
+            {
+              "id": "claim:attempt-integrity-files-match",
+              "observedOffsetMs": 24866,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "두 attempt 모두 integrity manifest가 선언한 manifest, verdict, raw SDK/process/callback, OTel 파일 7개의 SHA-256을 출판기가 다시 계산해 일치했다.",
+              "sourceRefs": [
+                "spec:claims:attempt-integrity-files-match"
+              ],
+              "claimId": "attempt-integrity-files-match",
+              "claimStatus": "observed",
+              "sequence": 33,
+              "playbackOffsetMs": 24866
+            },
+            {
+              "id": "claim:raw-and-otel-sequences-align",
+              "observedOffsetMs": 25266,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "empty OTel은 19 spans, project OTel은 31 spans였고 각 attempt의 trace ID는 하나였다. sdk.message와 process.event span은 raw recorder sequence와 type을 보존했다.",
+              "sourceRefs": [
+                "spec:claims:raw-and-otel-sequences-align"
+              ],
+              "claimId": "raw-and-otel-sequences-align",
+              "claimStatus": "observed",
+              "sequence": 34,
+              "playbackOffsetMs": 25266
+            },
+            {
+              "id": "claim:auxiliary-haiku-usage-recorded",
+              "observedOffsetMs": 25666,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "두 terminal Result의 model_usage에는 claude-opus-5와 claude-haiku-4-5-20251001 key가 모두 있었다. AssistantMessage 응답 모델과 provider 내부 보조 사용량을 구분해야 한다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:sdk-message:14",
+                "attempt:061441-31bd87d5:sdk-message:26"
+              ],
+              "claimId": "auxiliary-haiku-usage-recorded",
+              "claimStatus": "observed",
+              "sequence": 35,
+              "playbackOffsetMs": 25666
+            },
+            {
+              "id": "claim:project-source-caused-pair-difference",
+              "observedOffsetMs": 26066,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Inferred",
+              "summary": "동일한 임시 파일, tool surface, prompt와 모델에서 의도적으로 바꾼 변수는 setting_sources였고 memoryFiles와 실제 행동이 함께 갈라졌으므로, 이 통제 pair에서는 project source 활성화를 차이의 원인으로 해석한다. 모든 source 조합에 일반화하지 않는다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:process-event:2",
+                "attempt:061441-31bd87d5:process-event:2",
+                "attempt:061423-c0aa2799:sdk-message:14",
+                "attempt:061441-31bd87d5:sdk-message:26"
+              ],
+              "claimId": "project-source-caused-pair-difference",
+              "claimStatus": "inferred",
+              "sequence": 36,
+              "playbackOffsetMs": 26066
+            },
+            {
+              "id": "claim:host-file-presence-is-not-load-proof",
+              "observedOffsetMs": 26466,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "CLAUDE.md가 두 workspace에 모두 존재했다는 사실만으로 load를 확정하면 안 된다. empty pair는 같은 파일이 있어도 memoryFiles가 비어 있었다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:process-event:1",
+                "attempt:061423-c0aa2799:process-event:2"
+              ],
+              "claimId": "host-file-presence-is-not-load-proof",
+              "claimStatus": "correction_required",
+              "sequence": 37,
+              "playbackOffsetMs": 26466
+            },
+            {
+              "id": "claim:model-self-report-is-not-load-proof",
+              "observedOffsetMs": 26866,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "모델이 지침을 읽었다고 서술하는지 여부는 load 증명이 아니다. current SDK에서는 memoryFiles inventory와 실제 tool/result를 우선해야 한다.",
+              "sourceRefs": [
+                "spec:claims:model-self-report-is-not-load-proof"
+              ],
+              "claimId": "model-self-report-is-not-load-proof",
+              "claimStatus": "correction_required",
+              "sequence": 38,
+              "playbackOffsetMs": 26866
+            },
+            {
+              "id": "claim:init-model-is-not-response-model-proof",
+              "observedOffsetMs": 27266,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "System init.model은 configured model이다. 보안 거부 뒤 lower-model fallback을 놓치지 않으려면 actual model은 AssistantMessage.model의 단일성으로 판정해야 한다.",
+              "sourceRefs": [
+                "spec:claims:init-model-is-not-response-model-proof"
+              ],
+              "claimId": "init-model-is-not-response-model-proof",
+              "claimStatus": "correction_required",
+              "sequence": 39,
+              "playbackOffsetMs": 27266
+            },
+            {
+              "id": "claim:context-usage-model-is-not-response-model-proof",
+              "observedOffsetMs": 27666,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "get_context_usage().model도 context 계산 대상 모델이지 응답 메시지 자체의 모델 증거로 대체하지 않는다.",
+              "sourceRefs": [
+                "spec:claims:context-usage-model-is-not-response-model-proof"
+              ],
+              "claimId": "context-usage-model-is-not-response-model-proof",
+              "claimStatus": "correction_required",
+              "sequence": 40,
+              "playbackOffsetMs": 27666
+            },
+            {
+              "id": "claim:opus-response-is-not-opus-only-provider-run",
+              "observedOffsetMs": 28066,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "모든 AssistantMessage가 Opus 5였다는 관찰을 provider run 전체가 Opus만 사용했다는 말로 확대하면 안 된다. Result model_usage에는 Haiku 보조 사용량도 있었다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:sdk-message:14",
+                "attempt:061441-31bd87d5:sdk-message:26"
+              ],
+              "claimId": "opus-response-is-not-opus-only-provider-run",
+              "claimStatus": "correction_required",
+              "sequence": 41,
+              "playbackOffsetMs": 28066
+            },
+            {
+              "id": "claim:memory-files-is-not-security-boundary",
+              "observedOffsetMs": 28466,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "memoryFiles에 CLAUDE.md가 나타나는 것은 context load 증거이지 permission, hook 또는 sandbox 강제를 뜻하지 않는다. CLAUDE.md는 모델 지침이다.",
+              "sourceRefs": [
+                "attempt:061441-31bd87d5:process-event:2"
+              ],
+              "claimId": "memory-files-is-not-security-boundary",
+              "claimStatus": "correction_required",
+              "sequence": 42,
+              "playbackOffsetMs": 28466
+            },
+            {
+              "id": "claim:instructions-loaded-is-not-current-hook",
+              "observedOffsetMs": 28866,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "InstructionsLoaded를 Python SDK 0.2.128 HookEvent literal 또는 이번 stream의 실제 event로 가르치면 안 된다.",
+              "sourceRefs": [
+                "spec:claims:instructions-loaded-is-not-current-hook"
+              ],
+              "claimId": "instructions-loaded-is-not-current-hook",
+              "claimStatus": "correction_required",
+              "sequence": 43,
+              "playbackOffsetMs": 28866
+            },
+            {
+              "id": "claim:config-change-is-not-current-hook",
+              "observedOffsetMs": 29266,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "ConfigChange를 Python SDK 0.2.128 HookEvent literal 또는 이번 stream의 실제 event로 가르치면 안 된다.",
+              "sourceRefs": [
+                "spec:claims:config-change-is-not-current-hook"
+              ],
+              "claimId": "config-change-is-not-current-hook",
+              "claimStatus": "correction_required",
+              "sequence": 44,
+              "playbackOffsetMs": 29266
+            },
+            {
+              "id": "claim:file-changed-is-not-current-hook",
+              "observedOffsetMs": 29666,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "FileChanged를 Python SDK 0.2.128 HookEvent literal 또는 이번 stream의 실제 event로 가르치면 안 된다.",
+              "sourceRefs": [
+                "spec:claims:file-changed-is-not-current-hook"
+              ],
+              "claimId": "file-changed-is-not-current-hook",
+              "claimStatus": "correction_required",
+              "sequence": 45,
+              "playbackOffsetMs": 29666
+            },
+            {
+              "id": "claim:none-and-empty-setting-sources-differ",
+              "observedOffsetMs": 30066,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "setting_sources=None과 []를 같은 것으로 설명하면 안 된다. SDK 0.2.128 문서상 None은 CLI 기본 source를 따르고 []는 filesystem setting을 비활성화한다.",
+              "sourceRefs": [
+                "spec:claims:none-and-empty-setting-sources-differ"
+              ],
+              "claimId": "none-and-empty-setting-sources-differ",
+              "claimStatus": "correction_required",
+              "sequence": 46,
+              "playbackOffsetMs": 30066
+            },
+            {
+              "id": "claim:otel-is-not-independent-runtime-proof",
+              "observedOffsetMs": 30466,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Observed",
+              "summary": "OTel은 같은 AttemptRecorder가 raw SDK와 host process event를 투영한 결과다. sequence 정합성은 수집 파이프라인 검증이지 독립 provider 관측이 아니다.",
+              "sourceRefs": [
+                "spec:claims:otel-is-not-independent-runtime-proof"
+              ],
+              "claimId": "otel-is-not-independent-runtime-proof",
+              "claimStatus": "correction_required",
+              "sequence": 47,
+              "playbackOffsetMs": 30466
+            },
+            {
+              "id": "claim:full-source-precedence-not-observed",
+              "observedOffsetMs": 30866,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "managed, user, project, local 전체 충돌 우선순위는 이번 [] 대 [project] pair에서 실행하지 않았다. SettingSource literal 자체도 user, project, local 세 값이다.",
+              "sourceRefs": [
+                "spec:claims:full-source-precedence-not-observed"
+              ],
+              "claimId": "full-source-precedence-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 48,
+              "playbackOffsetMs": 30866
+            },
+            {
+              "id": "claim:include-resolution-not-observed",
+              "observedOffsetMs": 31266,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "CLAUDE.md의 @include 해석, 누락 파일, 재귀와 순환 규칙은 실행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:include-resolution-not-observed"
+              ],
+              "claimId": "include-resolution-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 49,
+              "playbackOffsetMs": 31266
+            },
+            {
+              "id": "claim:path-frontmatter-not-observed",
+              "observedOffsetMs": 31666,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "frontmatter paths의 일치 또는 불일치 작업 범위는 실행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:path-frontmatter-not-observed"
+              ],
+              "claimId": "path-frontmatter-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 50,
+              "playbackOffsetMs": 31666
+            },
+            {
+              "id": "claim:html-comment-processing-not-observed",
+              "observedOffsetMs": 32066,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "HTML comment 안팎의 instruction 처리 또는 stripping은 실행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:html-comment-processing-not-observed"
+              ],
+              "claimId": "html-comment-processing-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 51,
+              "playbackOffsetMs": 32066
+            },
+            {
+              "id": "claim:size-budget-not-observed",
+              "observedOffsetMs": 32466,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "40K 또는 다른 instruction size 경계 전후의 sentinel 보존은 실행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:size-budget-not-observed"
+              ],
+              "claimId": "size-budget-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 52,
+              "playbackOffsetMs": 32466
+            },
+            {
+              "id": "claim:runtime-file-change-not-observed",
+              "observedOffsetMs": 32866,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "동일 session에서 CLAUDE.md를 수정한 전후의 memoryFiles 또는 행동 갱신은 실행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:runtime-file-change-not-observed"
+              ],
+              "claimId": "runtime-file-change-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 53,
+              "playbackOffsetMs": 32866
+            },
+            {
+              "id": "claim:claude-rules-traversal-not-observed",
+              "observedOffsetMs": 33266,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": ".claude/rules 순회와 하위 경로별 rule 적용은 실행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:claude-rules-traversal-not-observed"
+              ],
+              "claimId": "claude-rules-traversal-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 54,
+              "playbackOffsetMs": 33266
+            },
+            {
+              "id": "claim:default-none-behavior-not-observed",
+              "observedOffsetMs": 33666,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "SDK 문서에는 setting_sources=None의 기본 동작이 기술돼 있지만 이번 live pair는 None case를 실행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:default-none-behavior-not-observed"
+              ],
+              "claimId": "default-none-behavior-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 55,
+              "playbackOffsetMs": 33666
+            },
+            {
+              "id": "claim:skills-source-interaction-not-observed",
+              "observedOffsetMs": 34066,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "skills option이 setting_sources 기본값과 tool surface를 보강하는 현재 SDK 경로는 이번 skills=None pair에서 인과 실험하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:skills-source-interaction-not-observed"
+              ],
+              "claimId": "skills-source-interaction-not-observed",
+              "claimStatus": "not_observed",
+              "sequence": 56,
+              "playbackOffsetMs": 34066
+            },
+            {
+              "id": "claim:precedence-matrix-required",
+              "observedOffsetMs": 34466,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "user, project, local과 별도 managed policy의 충돌 우선순위를 말하려면 source별 상반 marker를 격리한 순차 matrix가 필요하다.",
+              "sourceRefs": [
+                "spec:claims:precedence-matrix-required"
+              ],
+              "claimId": "precedence-matrix-required",
+              "claimStatus": "additional_observation_required",
+              "sequence": 57,
+              "playbackOffsetMs": 34466
+            },
+            {
+              "id": "claim:instruction-feature-matrix-required",
+              "observedOffsetMs": 34866,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "include, path scope, comment 처리, size budget, .claude/rules는 각 기능을 한 변수씩 바꾼 별도 temp fixture가 필요하다.",
+              "sourceRefs": [
+                "spec:claims:instruction-feature-matrix-required"
+              ],
+              "claimId": "instruction-feature-matrix-required",
+              "claimStatus": "additional_observation_required",
+              "sequence": 58,
+              "playbackOffsetMs": 34866
+            },
+            {
+              "id": "claim:session-change-tracking-required",
+              "observedOffsetMs": 35266,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "실행 중 변경 추적은 같은 client session에서 query 사이에 파일을 바꾸고 memoryFiles와 marker를 전후 수집해야 한다.",
+              "sourceRefs": [
+                "spec:claims:session-change-tracking-required"
+              ],
+              "claimId": "session-change-tracking-required",
+              "claimStatus": "additional_observation_required",
+              "sequence": 59,
+              "playbackOffsetMs": 35266
+            },
+            {
+              "id": "claim:none-and-skills-live-cases-required",
+              "observedOffsetMs": 35666,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "setting_sources=None 기본과 skills auto-configuration은 문서 표면과 실제 memoryFiles/tool listing을 분리해 추가 관찰해야 한다.",
+              "sourceRefs": [
+                "spec:claims:none-and-skills-live-cases-required"
+              ],
+              "claimId": "none-and-skills-live-cases-required",
+              "claimStatus": "additional_observation_required",
+              "sequence": 60,
+              "playbackOffsetMs": 35666
+            },
+            {
+              "id": "claim:context-usage-unavailable-path-required",
+              "observedOffsetMs": 36066,
+              "eventType": "assistant.claim",
+              "actor": "evaluator",
+              "evidenceLevel": "Missing",
+              "summary": "get_context_usage가 지원되지 않거나 오류를 반환하는 CLI 조합에서 행동 증거로 어떻게 fallback할지는 별도 호환성 case가 필요하다.",
+              "sourceRefs": [
+                "spec:claims:context-usage-unavailable-path-required"
+              ],
+              "claimId": "context-usage-unavailable-path-required",
+              "claimStatus": "additional_observation_required",
+              "sequence": 61,
+              "playbackOffsetMs": 36066
+            }
+          ],
+          "facts": [
+            {
+              "label": "raw source events",
+              "value": "46"
+            },
+            {
+              "label": "public projection",
+              "value": "62"
+            },
+            {
+              "label": "tool uses",
+              "value": "1"
+            },
+            {
+              "label": "tool results",
+              "value": "1"
+            },
+            {
+              "label": "observed claims",
+              "value": "13"
+            },
+            {
+              "label": "configured claims",
+              "value": "3"
+            },
+            {
+              "label": "inferred claims",
+              "value": "1"
+            },
+            {
+              "label": "not observed",
+              "value": "9"
+            },
+            {
+              "label": "needs observation",
+              "value": "5"
+            },
+            {
+              "label": "invalid attempts",
+              "value": "0"
+            },
+            {
+              "label": "proof gate",
+              "value": "accepted_with_notes"
+            }
+          ],
+          "claims": [
+            {
+              "id": "setting-source-surface-configured",
+              "status": "configured",
+              "evidenceLevel": "Configured",
+              "summary": "Python Agent SDK 0.2.128의 SettingSource는 user, project, local이고 ClaudeAgentOptions.setting_sources는 None, 빈 list, 선택 source list를 구분한다. 문서상 None은 CLI 기본 source, []는 filesystem setting 비활성, project는 CLAUDE.md 로드 조건이다.",
+              "sourceRefs": [
+                "spec:claims:setting-source-surface-configured"
+              ]
+            },
+            {
+              "id": "controlled-pair-configured",
+              "status": "configured",
+              "evidenceLevel": "Configured",
+              "summary": "두 attempt는 같은 chapter bytes, probe source hashes, Opus 5, Read 단일 tool, 동일 CLAUDE.md와 evidence marker, provider concurrency 1을 사용하고 setting_sources만 []와 [project]로 나눴다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:manifest:option_summary",
+                "attempt:061441-31bd87d5:manifest:option_summary"
+              ]
+            },
+            {
+              "id": "safe-readonly-prompt-configured",
+              "status": "configured",
+              "evidenceLevel": "Configured",
+              "summary": "프롬프트는 disposable temporary workspace의 읽기 전용 marker 과업으로 제한했고, loaded instruction이 명시하지 않은 경로 탐색과 관련 없는 작업을 금지했다. 보안 우회나 권한 상승은 요청하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:safe-readonly-prompt-configured"
+              ]
+            },
+            {
+              "id": "assistant-messages-used-opus5",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "empty attempt의 AssistantMessage 1건과 project attempt의 AssistantMessage 2건은 모두 claude-opus-5였다. actual model은 requested 값이나 init 값이 아니라 AssistantMessage.model로 판정했다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:sdk-message:10",
+                "attempt:061441-31bd87d5:sdk-message:12",
+                "attempt:061441-31bd87d5:sdk-message:22"
+              ]
+            },
+            {
+              "id": "instruction-files-identical",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "두 attempt의 host record에는 같은 306자 CLAUDE.md와 27자 evidence file이 있었고 각각의 SHA-256도 동일했다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:process-event:1",
+                "attempt:061441-31bd87d5:process-event:1"
+              ]
+            },
+            {
+              "id": "empty-memory-files-remained-empty",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "setting_sources=[] attempt의 get_context_usage() memoryFiles는 query 전 sequence 2와 응답 후 sequence 15 모두 빈 배열이었다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:process-event:2",
+                "attempt:061423-c0aa2799:process-event:15"
+              ]
+            },
+            {
+              "id": "project-memory-file-loaded-before-query",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "setting_sources=[project] attempt는 model query 전 sequence 2부터 memoryFiles에 <workspace>/CLAUDE.md, type Project, 149 tokens를 보고했고 응답 후 sequence 27에도 유지했다.",
+              "sourceRefs": [
+                "attempt:061441-31bd87d5:process-event:2",
+                "attempt:061441-31bd87d5:process-event:27"
+              ]
+            },
+            {
+              "id": "empty-source-used-no-tool",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "setting_sources=[] attempt는 ToolUse와 ToolResult가 모두 0건이었고 AssistantMessage와 terminal Result가 NO_PROJECT_INSTRUCTION을 반환했다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:sdk-message:10",
+                "attempt:061423-c0aa2799:sdk-message:14",
+                "attempt:061423-c0aa2799:process-event:16"
+              ]
+            },
+            {
+              "id": "project-source-read-once",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "setting_sources=[project] attempt는 sequence 12에서 Read ToolUse를 정확히 한 번 만들었고 대상은 임시 workspace의 docs/evidence.txt였다.",
+              "sourceRefs": [
+                "attempt:061441-31bd87d5:sdk-message:12"
+              ]
+            },
+            {
+              "id": "project-tool-result-contained-marker",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "project attempt의 sequence 14 ToolResult는 CH19_EVIDENCE_FILE_CONTENT를 반환했고 sequence 12 ToolUse ID와 연결됐다.",
+              "sourceRefs": [
+                "attempt:061441-31bd87d5:sdk-message:14"
+              ]
+            },
+            {
+              "id": "terminal-results-followed-source-boundary",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "empty attempt는 sequence 14에서 NO_PROJECT_INSTRUCTION으로, project attempt는 sequence 26에서 PROJECT_INSTRUCTION_APPLIED marker로 각각 success 종료했다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:sdk-message:14",
+                "attempt:061441-31bd87d5:sdk-message:26"
+              ]
+            },
+            {
+              "id": "hook-event-messages-absent",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "include_hook_events=True였지만 두 attempt 모두 HookEventMessage는 0건이었다. project instruction load를 HookEvent로 주장하지 않는다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:process-event:16",
+                "attempt:061441-31bd87d5:process-event:28"
+              ]
+            },
+            {
+              "id": "current-cli-221-observed",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "두 새 attempt의 manifest와 init은 Claude Code 2.1.221, Python Agent SDK 0.2.128을 기록했다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:manifest:option_summary",
+                "attempt:061441-31bd87d5:manifest:option_summary"
+              ]
+            },
+            {
+              "id": "attempt-integrity-files-match",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "두 attempt 모두 integrity manifest가 선언한 manifest, verdict, raw SDK/process/callback, OTel 파일 7개의 SHA-256을 출판기가 다시 계산해 일치했다.",
+              "sourceRefs": [
+                "spec:claims:attempt-integrity-files-match"
+              ]
+            },
+            {
+              "id": "raw-and-otel-sequences-align",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "empty OTel은 19 spans, project OTel은 31 spans였고 각 attempt의 trace ID는 하나였다. sdk.message와 process.event span은 raw recorder sequence와 type을 보존했다.",
+              "sourceRefs": [
+                "spec:claims:raw-and-otel-sequences-align"
+              ]
+            },
+            {
+              "id": "auxiliary-haiku-usage-recorded",
+              "status": "observed",
+              "evidenceLevel": "Observed",
+              "summary": "두 terminal Result의 model_usage에는 claude-opus-5와 claude-haiku-4-5-20251001 key가 모두 있었다. AssistantMessage 응답 모델과 provider 내부 보조 사용량을 구분해야 한다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:sdk-message:14",
+                "attempt:061441-31bd87d5:sdk-message:26"
+              ]
+            },
+            {
+              "id": "project-source-caused-pair-difference",
+              "status": "inferred",
+              "evidenceLevel": "Inferred",
+              "summary": "동일한 임시 파일, tool surface, prompt와 모델에서 의도적으로 바꾼 변수는 setting_sources였고 memoryFiles와 실제 행동이 함께 갈라졌으므로, 이 통제 pair에서는 project source 활성화를 차이의 원인으로 해석한다. 모든 source 조합에 일반화하지 않는다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:process-event:2",
+                "attempt:061441-31bd87d5:process-event:2",
+                "attempt:061423-c0aa2799:sdk-message:14",
+                "attempt:061441-31bd87d5:sdk-message:26"
+              ]
+            },
+            {
+              "id": "host-file-presence-is-not-load-proof",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "CLAUDE.md가 두 workspace에 모두 존재했다는 사실만으로 load를 확정하면 안 된다. empty pair는 같은 파일이 있어도 memoryFiles가 비어 있었다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:process-event:1",
+                "attempt:061423-c0aa2799:process-event:2"
+              ]
+            },
+            {
+              "id": "model-self-report-is-not-load-proof",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "모델이 지침을 읽었다고 서술하는지 여부는 load 증명이 아니다. current SDK에서는 memoryFiles inventory와 실제 tool/result를 우선해야 한다.",
+              "sourceRefs": [
+                "spec:claims:model-self-report-is-not-load-proof"
+              ]
+            },
+            {
+              "id": "init-model-is-not-response-model-proof",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "System init.model은 configured model이다. 보안 거부 뒤 lower-model fallback을 놓치지 않으려면 actual model은 AssistantMessage.model의 단일성으로 판정해야 한다.",
+              "sourceRefs": [
+                "spec:claims:init-model-is-not-response-model-proof"
+              ]
+            },
+            {
+              "id": "context-usage-model-is-not-response-model-proof",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "get_context_usage().model도 context 계산 대상 모델이지 응답 메시지 자체의 모델 증거로 대체하지 않는다.",
+              "sourceRefs": [
+                "spec:claims:context-usage-model-is-not-response-model-proof"
+              ]
+            },
+            {
+              "id": "opus-response-is-not-opus-only-provider-run",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "모든 AssistantMessage가 Opus 5였다는 관찰을 provider run 전체가 Opus만 사용했다는 말로 확대하면 안 된다. Result model_usage에는 Haiku 보조 사용량도 있었다.",
+              "sourceRefs": [
+                "attempt:061423-c0aa2799:sdk-message:14",
+                "attempt:061441-31bd87d5:sdk-message:26"
+              ]
+            },
+            {
+              "id": "memory-files-is-not-security-boundary",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "memoryFiles에 CLAUDE.md가 나타나는 것은 context load 증거이지 permission, hook 또는 sandbox 강제를 뜻하지 않는다. CLAUDE.md는 모델 지침이다.",
+              "sourceRefs": [
+                "attempt:061441-31bd87d5:process-event:2"
+              ]
+            },
+            {
+              "id": "instructions-loaded-is-not-current-hook",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "InstructionsLoaded를 Python SDK 0.2.128 HookEvent literal 또는 이번 stream의 실제 event로 가르치면 안 된다.",
+              "sourceRefs": [
+                "spec:claims:instructions-loaded-is-not-current-hook"
+              ]
+            },
+            {
+              "id": "config-change-is-not-current-hook",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "ConfigChange를 Python SDK 0.2.128 HookEvent literal 또는 이번 stream의 실제 event로 가르치면 안 된다.",
+              "sourceRefs": [
+                "spec:claims:config-change-is-not-current-hook"
+              ]
+            },
+            {
+              "id": "file-changed-is-not-current-hook",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "FileChanged를 Python SDK 0.2.128 HookEvent literal 또는 이번 stream의 실제 event로 가르치면 안 된다.",
+              "sourceRefs": [
+                "spec:claims:file-changed-is-not-current-hook"
+              ]
+            },
+            {
+              "id": "none-and-empty-setting-sources-differ",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "setting_sources=None과 []를 같은 것으로 설명하면 안 된다. SDK 0.2.128 문서상 None은 CLI 기본 source를 따르고 []는 filesystem setting을 비활성화한다.",
+              "sourceRefs": [
+                "spec:claims:none-and-empty-setting-sources-differ"
+              ]
+            },
+            {
+              "id": "otel-is-not-independent-runtime-proof",
+              "status": "correction_required",
+              "evidenceLevel": "Observed",
+              "summary": "OTel은 같은 AttemptRecorder가 raw SDK와 host process event를 투영한 결과다. sequence 정합성은 수집 파이프라인 검증이지 독립 provider 관측이 아니다.",
+              "sourceRefs": [
+                "spec:claims:otel-is-not-independent-runtime-proof"
+              ]
+            },
+            {
+              "id": "full-source-precedence-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "managed, user, project, local 전체 충돌 우선순위는 이번 [] 대 [project] pair에서 실행하지 않았다. SettingSource literal 자체도 user, project, local 세 값이다.",
+              "sourceRefs": [
+                "spec:claims:full-source-precedence-not-observed"
+              ]
+            },
+            {
+              "id": "include-resolution-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "CLAUDE.md의 @include 해석, 누락 파일, 재귀와 순환 규칙은 실행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:include-resolution-not-observed"
+              ]
+            },
+            {
+              "id": "path-frontmatter-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "frontmatter paths의 일치 또는 불일치 작업 범위는 실행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:path-frontmatter-not-observed"
+              ]
+            },
+            {
+              "id": "html-comment-processing-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "HTML comment 안팎의 instruction 처리 또는 stripping은 실행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:html-comment-processing-not-observed"
+              ]
+            },
+            {
+              "id": "size-budget-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "40K 또는 다른 instruction size 경계 전후의 sentinel 보존은 실행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:size-budget-not-observed"
+              ]
+            },
+            {
+              "id": "runtime-file-change-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "동일 session에서 CLAUDE.md를 수정한 전후의 memoryFiles 또는 행동 갱신은 실행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:runtime-file-change-not-observed"
+              ]
+            },
+            {
+              "id": "claude-rules-traversal-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": ".claude/rules 순회와 하위 경로별 rule 적용은 실행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:claude-rules-traversal-not-observed"
+              ]
+            },
+            {
+              "id": "default-none-behavior-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "SDK 문서에는 setting_sources=None의 기본 동작이 기술돼 있지만 이번 live pair는 None case를 실행하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:default-none-behavior-not-observed"
+              ]
+            },
+            {
+              "id": "skills-source-interaction-not-observed",
+              "status": "not_observed",
+              "evidenceLevel": "Missing",
+              "summary": "skills option이 setting_sources 기본값과 tool surface를 보강하는 현재 SDK 경로는 이번 skills=None pair에서 인과 실험하지 않았다.",
+              "sourceRefs": [
+                "spec:claims:skills-source-interaction-not-observed"
+              ]
+            },
+            {
+              "id": "precedence-matrix-required",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "user, project, local과 별도 managed policy의 충돌 우선순위를 말하려면 source별 상반 marker를 격리한 순차 matrix가 필요하다.",
+              "sourceRefs": [
+                "spec:claims:precedence-matrix-required"
+              ]
+            },
+            {
+              "id": "instruction-feature-matrix-required",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "include, path scope, comment 처리, size budget, .claude/rules는 각 기능을 한 변수씩 바꾼 별도 temp fixture가 필요하다.",
+              "sourceRefs": [
+                "spec:claims:instruction-feature-matrix-required"
+              ]
+            },
+            {
+              "id": "session-change-tracking-required",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "실행 중 변경 추적은 같은 client session에서 query 사이에 파일을 바꾸고 memoryFiles와 marker를 전후 수집해야 한다.",
+              "sourceRefs": [
+                "spec:claims:session-change-tracking-required"
+              ]
+            },
+            {
+              "id": "none-and-skills-live-cases-required",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "setting_sources=None 기본과 skills auto-configuration은 문서 표면과 실제 memoryFiles/tool listing을 분리해 추가 관찰해야 한다.",
+              "sourceRefs": [
+                "spec:claims:none-and-skills-live-cases-required"
+              ]
+            },
+            {
+              "id": "context-usage-unavailable-path-required",
+              "status": "additional_observation_required",
+              "evidenceLevel": "Missing",
+              "summary": "get_context_usage가 지원되지 않거나 오류를 반환하는 CLI 조합에서 행동 증거로 어떻게 fallback할지는 별도 호환성 case가 필요하다.",
+              "sourceRefs": [
+                "spec:claims:context-usage-unavailable-path-required"
               ]
             }
           ]
