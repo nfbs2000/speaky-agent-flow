@@ -1,2 +1,2 @@
-:HL["/speaky-agent-flow/_next/static/css/8f3049eca778da09.css","style"]
-0:{"buildId":"qqV9L1YK_jtMSSff5XH0z","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+:HL["/speaky-agent-flow/_next/static/chunks/eb6665682522eace.css","style"]
+0:{"buildId":"aGO90lZNMjLhnqKBARyb5","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
