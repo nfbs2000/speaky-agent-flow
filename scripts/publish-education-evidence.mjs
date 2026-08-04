@@ -113,6 +113,16 @@ function compactChapterEvent(event) {
     phase: typeof attributes.phase === 'string' ? attributes.phase : undefined,
     marker: typeof attributes.marker === 'string' ? attributes.marker : undefined,
     sha256: typeof attributes.sha256 === 'string' ? attributes.sha256 : undefined,
+    characters: Number.isInteger(attributes.characters) ? attributes.characters : undefined,
+    containsU202E: typeof attributes.containsU202E === 'boolean'
+      ? attributes.containsU202E
+      : undefined,
+    originalModel: typeof attributes.originalModel === 'string'
+      ? attributes.originalModel
+      : undefined,
+    fallbackModel: typeof attributes.fallbackModel === 'string'
+      ? attributes.fallbackModel
+      : undefined,
     targetExists: typeof attributes.targetExists === 'boolean' ? attributes.targetExists : undefined,
     warningCategory: typeof attributes.category === 'string' ? attributes.category : undefined,
     decisionReasonType: typeof attributes.decisionReasonType === 'string'
@@ -204,6 +214,12 @@ async function buildChapterRuns() {
     const actualModels = Array.isArray(sourceSummary?.actual_models)
       ? sourceSummary.actual_models.filter((model) => typeof model === 'string')
       : []
+    const replayModels = Array.isArray(sourceSummary?.source_attempts)
+      ? [...new Set(sourceSummary.source_attempts
+        .filter((attempt) => attempt?.projection_role === 'replayed')
+        .map((attempt) => attempt?.actual_model)
+        .filter((model) => typeof model === 'string'))]
+      : []
     const observedClaims = claims.filter((claim) => claim.status === 'observed').length
     const configuredClaims = claims.filter((claim) => claim.status === 'configured').length
     const inferredClaims = claims.filter((claim) => claim.status === 'inferred').length
@@ -220,7 +236,9 @@ async function buildChapterRuns() {
       status,
       runtime: 'claude-agent-sdk',
       provider: 'claude',
-      model: actualModels[0] || observedModel(trace.events),
+      model: replayModels[0] || actualModels[0] || observedModel(trace.events),
+      replayModels,
+      citedModels: actualModels,
       chapterSlug,
       sourceEventCount,
       publishedEventCount: events.length,
